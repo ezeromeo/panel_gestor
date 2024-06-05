@@ -1,0 +1,261 @@
+:root {
+    --amarillo: #F9C200;
+    --verde: #51AC34;
+    --azul: #1791C9;
+    --gris: #636363;
+    --rosa: #E99496;
+    --rojo: #E95F61;
+    --violeta: #684BBB;
+    --naranja: #F95A00;
+    --rojo-oscuro: #DF1517;
+    --gris-claro: #A1A1A1;
+    --gris-cards: #DFDFDF;
+    --gris-hover: #11658C;
+    --default-font-color: #636363;
+}
+
+.fundacion img:nth-child(1) {
+    width: 120px;
+    height: 18px;
+}
+
+.submenu p {
+    margin-bottom: 0;
+}
+
+.breadcrumb {
+    margin-bottom: 0 !important;
+}
+
+.bellIcon {
+    position: relative;
+    display: inline-block;
+}
+
+.bellIcon img {
+    display: block;
+    width: auto;
+    height: auto;
+}
+
+.bellIcon .badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+}
+
+.usuarioIcono {
+    border-radius: 6px;
+    background: #2F647E;
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+}
+
+
+
+.rightMenu div {
+    margin-right: 20px;
+}
+
+
+header {
+    background: var(--blanco, #FFF);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    position: relative;
+    z-index: 1;
+    margin-left: 50px;
+    width: calc(100% - 50px);
+}
+
+aside {
+    background-color: #2F647E;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 100%;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.icons {
+    margin-top: 100px;
+}
+
+.icons img:nth-child(1) {
+    margin-bottom: 20px;
+}
+
+main {
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 50px);
+    padding: 10px;
+}
+
+.cards {
+    margin-left: 170px;
+}
+
+.card {
+    margin-bottom: 10px;
+}
+
+.bi-chevron-double-down {
+    cursor: pointer;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.textoRojo {
+    color: red;
+    cursor: pointer;
+}
+
+.user {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: var(--azul) !important;
+    color: white;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.teacher {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: var(--gris-claro) !important;
+    color: white;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+img {
+    cursor: pointer;
+}
+
+.iconos-cards {
+    width: 35%;
+}
+
+.btn-link {
+    box-shadow: none !important;
+}
+
+.rotate {
+    transition: transform 0.3s ease-in-out;
+}
+
+.card-header-expanded {
+    background-color: var(--azul);
+    color: white;
+}
+
+.badge-first {
+    background-color: var(--azul);
+}
+
+.badge-second {
+    background-color: #69B3D6;
+}
+
+.first-badges p,
+.second-badges p,
+.third-badges p {
+    font-size: 12px;
+}
+
+td {
+    cursor: pointer;
+}
+
+.activo {
+    color: #51AC34;
+}
+
+.status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.mapPopoverContent p {
+    margin: 0;
+}
+
+.bi-circle-fill {
+    cursor: pointer;
+}
+
+.enviar-button {
+    background-color: var(--azul);
+    color: #FFFF;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.check-primerTd {
+    width: 5% !important;
+    margin-right: 10px;
+}
+
+.primerTd {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#resumenControlModal .modal-content {
+    width: 150% !important;
+}
+
+#resumenControlModal .modal-content table {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.badge1,
+.badge2,
+.badge {
+    cursor: pointer;
+}
+
+#chartModal .modal-content {
+    width: 100% !important;
+}
+
+.modal-dialog {
+    max-width: 80%;
+}
+
+.modal-content {
+    height: auto;
+    min-height: 80vh;
+}
+
+#chart {
+    width: 100%;
+    height: 100vh;
+    min-height: 500px;
+}
