@@ -14,6 +14,15 @@
     --default-font-color: #636363;
 }
 
+html{
+    background-color: #F6F8FB;
+}
+
+body{
+    overflow-x: hidden;
+    padding-right: 0 !important;
+}
+
 .fundacion img:nth-child(1) {
     width: 120px;
     height: 18px;
@@ -26,6 +35,25 @@
 .breadcrumb {
     margin-bottom: 0 !important;
 }
+
+.breadcrumb p, .filtros {
+    color: var(--Texto, #53565A);
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.breadcrumb p:nth-child(2){
+    color: var(--Texto, #53565A);
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
 
 .bellIcon {
     position: relative;
@@ -41,7 +69,7 @@
 .bellIcon .badge {
     position: absolute;
     top: 0;
-    right: 0;
+    right: -20;
     transform: translate(50%, -50%);
 }
 
@@ -55,10 +83,20 @@
 
 
 
-.rightMenu div {
+.usuario, .chatbotAyuda, .bellIcon {
     margin-right: 20px;
 }
 
+.rightMenu p{
+    color: var(--Texto, #53565A);
+    text-align: center;
+    font-family: Lato;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 10px;
+    letter-spacing: 0.417px;
+}
 
 header {
     background: var(--blanco, #FFF);
@@ -98,13 +136,29 @@ main {
     padding: 10px;
 }
 
-.cards {
-    margin-left: 170px;
+.cards{
+    margin-left: 60px;
+    margin-top: 30px;
+}
+
+.cards .ms-2{
+    color: var(--gris, #636363);
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
 }
 
 .card {
     margin-bottom: 10px;
+    width: 550px;
 }
+
+.small-button {
+    padding: 2.5px 5px !important;
+    font-size: 12px !important;
+  }
 
 .bi-chevron-double-down {
     cursor: pointer;
@@ -133,6 +187,8 @@ main {
     font-size: 0.8rem;
     cursor: pointer;
     user-select: none;
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25));
+
 }
 
 .teacher {
@@ -147,6 +203,8 @@ main {
     font-size: 0.8rem;
     cursor: pointer;
     user-select: none;
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25));
+
 }
 
 img {
@@ -165,10 +223,59 @@ img {
     transition: transform 0.3s ease-in-out;
 }
 
+.card-header{
+    border-radius: 5px 5px 0px 0px !important;
+    background-color:  #C1E9F4 !important;
+}
+
+
 .card-header-expanded {
-    background-color: var(--azul);
+    border-radius: 5px 5px 0px 0px !important;
+    background: #2F647E !important;
+}
+
+.card-header-expanded .bi-three-dots-vertical{
+    fill: #FFF;
+}
+
+.card-title{
+    color: #646464;
+    font-family: Lato;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.card-subtitle{
+    color: #7B7B7B;
+    font-family: Lato;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.card-header-expanded .card-title, .card-header-expanded .card-subtitle{
     color: white;
 }
+
+.card-header-expanded .card-title{
+    font-family: Lato;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.card-header-expanded .card-subtitle{
+    font-family: Lato;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
 
 .badge-first {
     background-color: var(--azul);
@@ -208,10 +315,12 @@ td {
 }
 
 .enviar-button {
-    background-color: var(--azul);
     color: #FFFF;
     width: fit-content;
     margin: 0 auto;
+    padding: 3px 6px;
+    border-radius: 36px;
+    background: var(--Principal, #2F647E) !important;
 }
 
 .check-primerTd {
@@ -226,13 +335,22 @@ td {
     justify-content: center;
 }
 
+#resumenControlModal th{
+    white-space: nowrap;
+}
+
 #resumenControlModal .modal-content {
     width: 150% !important;
+    min-height: 55vh !important;
 }
 
 #resumenControlModal .modal-content table {
     margin-top: 20px;
     text-align: center;
+}
+
+#resumenControlModal .modal-header{
+    border-bottom: none;
 }
 
 .badge1,
@@ -242,7 +360,8 @@ td {
 }
 
 #chartModal .modal-content {
-    width: 100% !important;
+    width: 700px !important;
+    min-height: 40vh !important;
 }
 
 .modal-dialog {
@@ -258,4 +377,184 @@ td {
     width: 100%;
     height: 100vh;
     min-height: 500px;
+}
+
+
+.progress-container {
+    gap: 10px;
+}
+
+.progress.vertical {
+    position: relative;
+    width: 18px;
+    height: 200px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.progress.vertical .progress-bar {
+    width: 100%;
+    transition: height 0.6s ease;
+}
+
+.referencia{
+    width: fit-content;
+}
+
+#miModal .modal-content, #miSegundoModal .modal-content{
+    min-height: auto;
+}
+
+#miModal .modal-footer,
+#miModal .modal-header,
+#miSegundoModal .modal-footer,
+#miSegundoModal .modal-header,
+#miTercerModal .modal-footer,
+#miTercerModal .modal-header
+{
+    border: none;
+}
+
+#miModal .modal-footer, #miSegundoModal .modal-footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.status-valido {
+    color: #51AC34;
+  }
+  
+  .status-modificado {
+    color: #FF7A00 !important;
+  }
+  
+  .status-pendiente {
+    color: #2F647E;
+  }
+  
+  .status-finalizado {
+    color: #7B7B7B;
+  }
+  
+  .status-anulado {
+    color: #DF1517;
+  }
+
+  .checkGreen{
+    border-radius: 4px;
+    background: var(--verde, #74B160);  
+    display: flex;
+    padding: 5px 7px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    color: white;
+}
+
+.form-check-input:checked[type=checkbox] {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23A1A1A1' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e") !important;
+}
+
+  
+.form-check-input:checked {
+    background-color: #FFF !important;
+    border-color: #74B160 !important;
+}
+  
+.sesiones p, .p1{
+    color: #A1A1A1;
+    font-family: Lato;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.horario p, .p2, .fecha p{
+    color: #585858;
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.horario strong, .sesiones strong, .strong1, .fecha strong{
+    color: #585858;
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.card-buttons{
+    overflow-x: scroll;
+}
+
+.card-buttons button{
+    white-space: nowrap !important;
+}
+
+.card-buttons::-webkit-scrollbar {
+    display: none;
+  }
+
+  .comInicio p{
+    color: #A1A1A1;
+    font-family: Lato;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 0;
+  }
+
+  .tableTareas td{
+    color: #585858;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .tableTareas th{
+    color: var(--blanco, #FFF);
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .bi-three-dots-vertical{
+    cursor: pointer;
+  }
+  
+  @keyframes blink {
+    0%, 100% {
+        background-color: #E95F61;
+    }
+    50% {
+        background-color: #E99496;
+    }
+}
+
+.blink {
+    animation: blink 1.7s infinite;
+}
+
+.evaluacion{
+    height: 100%;
+    width: 100%;
+}
+
+.popoverFecha p{
+    cursor: pointer;
+}
+
+#miTercerModal .modal-footer{
+    background-color: #F2F2F2;
 }
