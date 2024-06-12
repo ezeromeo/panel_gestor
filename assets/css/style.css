@@ -558,3 +558,326 @@ td {
 #miTercerModal .modal-footer{
     background-color: #F2F2F2;
 }
+
+.profesorIcon{
+    border-radius: 30px;
+    background: var(--Principal, #2F647E);
+    display: flex;
+    width: 27px;
+    height: 27px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.rightSubmenu .btn1, .rightSubmenu .btn1:hover{
+    border-radius: 4px;
+    background: var(--Principal, #2F647E);
+    box-shadow: 1px 1px 2px 0px rgba(134, 135, 135, 0.25);
+    color: white;
+}
+
+.rightSubmenu .btn2, .rightSubmenu .btn2:hover{
+    border-radius: 4px;
+    background: var(--verde, #74B160);
+    box-shadow: 1px 1px 2px 0px rgba(134, 135, 135, 0.25);
+    color: white;
+}
+
+.leftSubmenu .form-select{
+    width: fit-content;
+}
+
+.accionesGrupales{
+    width: 200px;
+}
+
+#tablaModalAhora .table>:not(:last-child)>:last-child>*{
+    border-bottom-color: inherit;
+}
+
+.entradaIcon th, .salidaIcon th, .selectAll th{
+    color: var(--gris, #636363);
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.entradaNombre{
+    color: #8D8D8D;
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.entradaHora{
+    color: #8D8D8D;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.oK{
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.pending{
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.sinApp{
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.horaStatus{
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.form-floating{
+    width: 200px;
+}
+
+.modal-content {
+    height: auto;
+    min-height: 50vh;
+}
+
+.modal-header{
+    border-bottom: none !important;
+}
+
+.datosPersonales p, .datosAsistenciaForm p{
+    color: #898989;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+#floatingSelect label, .form-floating label{
+    color: var(--Principal, #2F647E);
+    font-family: Lato;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.guardar{
+    color: var(--blanco, #FFF) !important;
+    font-family: Lato;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    width: fit-content;
+    border-radius: 4px;
+    background: var(--verde, #74B160) !important;
+    box-shadow: 1px 1px 2px 0px rgba(134, 135, 135, 0.25);
+}
+
+.botonFirmar{
+    border-radius: 4px !important;
+    background: var(--Principal, #2F647E) !important;
+    box-shadow: 1px 1px 2px 0px rgba(134, 135, 135, 0.25) !important;
+    color: white !important;
+    width: 95px;
+    height: 42px;
+}
+
+.btnContainer{
+    z-index: 1000;
+}
+
+#signature-pad {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 400px;
+    height: 200px;
+}
+.signature-container {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+    border-radius: 8px;
+}
+
+.firmaQr{
+    border-radius: 5px;
+    background: var(--blanco, #FFF);
+    box-shadow: 2px 2px 2px 2px rgba(134, 135, 135, 0.25);
+    padding: 5px;
+
+}
+
+.firmaQrTitulo{
+    color: var(--gris, #636363);
+    font-family: Lato;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+.firmaQrSubTitulo{
+    color: var(--verde, #74B160);
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.qrFirma{
+    width: 220px;
+}
+
+#saveSignature{
+    border-radius: 4px;
+    background: var(--verde, #74B160);
+    box-shadow: 1px 1px 2px 0px rgba(134, 135, 135, 0.25);
+    color: white;
+
+}
+
+#clearSignature{
+    border-radius: 4px;
+    background: var(--rojo, #E95F61);
+    box-shadow: 1px 1px 2px 0px rgba(134, 135, 135, 0.25);
+    color: white;
+}
+
+#modalFirma .modal-footer{
+    border-top: none;
+}
+
+.participante, .curso, .firme{
+    color: var(--gris, #636363);
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.participanteNombre, .cursoNombre{
+    color: var(--gris, #636363);
+    font-family: Lato;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.bottomMenuSignature{
+    border-radius: 5px;
+    border: 1px solid rgba(233, 148, 150, 0.65);
+    background: var(--fondos, #F2F2F2);
+    margin-top: 10px;
+}
+
+.bottomMenuSignature img{
+    background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+    background-blend-mode: multiply;
+}
+
+.topMenuSignature p{
+    margin-bottom: 0;
+}
+
+.controlAsistenciaFirmado{
+    width: 500px;
+}
+
+#modalAsistencia .modal-body{
+    overflow-x: auto;
+}
+
+.tablaAsistencia th{
+    background-color: #85BECE !important;
+    color: var(--blanco, #FFF);
+    font-family: Lato;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    border: 1px solid white;    
+}
+
+.tablaAsistencia td{
+    white-space: nowrap;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-button {
+    display: none;
+}
+
+.nav-link.active{
+    color: var(--Principal, #2F647E) !important;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    background-color: white !important;
+    border: 1px solid #2F647E !important;
+}
+
+.nav-pills .nav-link{
+    border-radius: 6px;
+    border: 1px solid #CCC;
+    color: var(--Texto, #53565A);
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
