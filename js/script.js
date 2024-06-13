@@ -126,10 +126,10 @@ window.addEventListener("load", function () {
         });
     
         iconImage.addEventListener('click', function (event) {
-            isClicked = !isClicked;  // Correct the variable name here
+            isClicked = !isClicked;  
             this.src = "assets/img/x-icon.svg";
             menuPopover.toggle();
-            setupModalEvents(); // Setup modal events after the popover is visible
+            setupModalEvents(); 
             event.stopPropagation();
         });
     
@@ -147,10 +147,10 @@ window.addEventListener("load", function () {
             openModal('Resumen asistencia');
         });
         document.getElementById('control').addEventListener('click', function() {
-            openModal('Control');
+            openModal('Resumen control');
         });
         document.getElementById('formador').addEventListener('click', function() {
-            openModal('Formador');
+            openModal('Control Formadores y Responsables');
         });
         document.getElementById('documentacion').addEventListener('click', function() {
             openModal('Documentación');
@@ -158,7 +158,7 @@ window.addEventListener("load", function () {
     }
 
 
-const alumnosData = [
+const alumnosDataTeleformacion = [
     {
         alumno: 'Miguel Martínez [TUTOR]',
         asistencia: '11%',
@@ -271,10 +271,406 @@ const alumnosData = [
     }
 ];
 
+const alumnosDataPresencial = [
+  {
+      alumno: 'Diego Pérez',
+      asistencia: '28,56%',
+      participacion: '',
+      eval1: '',
+      asistenciaFirmada: 'No',
+      fechaUltimaSesion: 'Pendiente',
+      asistenciaConfirmada: false,
+      columna8: '',
+      columna9: '',
+      totalSesiones: '3',
+      asistenciaValidada: 'No',
+      fechaValidacion: 'Pendiente',
+      validacionConfirmada: false,
+      columna14: '',
+      columna15: '',
+      totalAsistencias: '3'
+  },
+  {
+      alumno: 'Rodríguez Matthias',
+      asistencia: '28,56%',
+      participacion: '',
+      eval1: '',
+      asistenciaFirmada: 'No',
+      fechaUltimaSesion: 'Pendiente',
+      asistenciaConfirmada: false,
+      columna8: '',
+      columna9: '',
+      totalSesiones: '2',
+      asistenciaValidada: 'No',
+      fechaValidacion: 'Pendiente',
+      validacionConfirmada: false,
+      columna14: '',
+      columna15: '',
+      totalAsistencias: '2'
+  },
+  {
+      alumno: 'González María',
+      asistencia: '28,56%',
+      participacion: '',
+      eval1: '',
+      asistenciaFirmada: 'No',
+      fechaUltimaSesion: 'Pendiente',
+      asistenciaConfirmada: false,
+      columna8: '',
+      columna9: '',
+      totalSesiones: '3',
+      asistenciaValidada: 'No',
+      fechaValidacion: 'Pendiente',
+      validacionConfirmada: false,
+      columna14: '',
+      columna15: '',
+      totalAsistencias: '3'
+  },
+  {
+      alumno: 'Alumnos: 3',
+      asistencia: '28,56%',
+      participacion: '',
+      eval1: '',
+      asistenciaFirmada: '0',
+      fechaUltimaSesion: '',
+      asistenciaConfirmada: '',
+      columna8: '',
+      columna9: '',
+      totalSesiones: '',
+      asistenciaValidada: '',
+      fechaValidacion: '',
+      validacionConfirmada: '',
+      columna14: '',
+      columna15: '',
+      totalAsistencias: ''
+  }
+];
 
-    
+const controlData = [
+  {
+    alumno: "Diego Perez",
+    porcentaje: "28,56%",
+    vacio1: "-",
+    vacio2: "-",
+    certifica: "-",
+    check1: false,
+    estado1: "Pendiente",
+    emailIcon1: "assets/img/envelopeIcon.svg",
+    check2: false,
+    fecha1: "Pendiente",
+    emailIcon2: "assets/img/envelopeIcon.svg",
+    check3: false,
+    destinatario1: "Pendiente Julián Romero",
+    emailIcon3: "assets/img/envelopeIcon.svg",
+    check4: false,
+    estado2: "Pendiente",
+    emailIcon4: "assets/img/envelopeIcon.svg",
+    estado3: "Pendiente",
+    vacio3: "",
+    check5: false,
+    estado4: "Pendiente",
+    emailIcon5: "assets/img/envelopeIcon.svg",
+    estado5: "Pendiente",
+    vacio4: "",
+    firmaDiploma: "Pendiente",
+    doc: "",
+    check6: false,
+    estado6: "Pendiente",
+    emailIcon6: "assets/img/envelopeIcon.svg",
+    fecha2: "Pendiente",
+    emailIcon7: "assets/img/envelopeIcon.svg",
+    fecha3: "11/02/2023 10:12",
+    emailIcon8: "assets/img/envelopeIcon.svg",
+    estado7: "Pendiente",
+    emailIcon9: "assets/img/envelopeIcon.svg"
+  },
+  {
+    alumno: "Rodríguez Matthias",
+    porcentaje: "28,56%",
+    vacio1: "-",
+    vacio2: "-",
+    certifica: "-",
+    check1: false,
+    estado1: "Pendiente",
+    emailIcon1: "assets/img/envelopeIcon.svg",
+    check2: false,
+    fecha1: "03/07/2023 10:33",
+    emailIcon2: "assets/img/envelopeIcon.svg",
+    check3: false,
+    destinatario1: "Pendiente Julián Romero",
+    emailIcon3: "assets/img/envelopeIcon.svg",
+    check4: false,
+    estado2: "Pendiente",
+    emailIcon4: "assets/img/envelopeIcon.svg",
+    estado3: "Pendiente",
+    vacio3: "",
+    check5: false,
+    estado4: "Pendiente",
+    emailIcon5: "assets/img/envelopeIcon.svg",
+    estado5: "Pendiente",
+    vacio4: "",
+    firmaDiploma: "Pendiente",
+    doc: "",
+    check6: false,
+    estado6: "Pendiente",
+    emailIcon6: "assets/img/envelopeIcon.svg",
+    fecha2: "Pendiente",
+    emailIcon7: "assets/img/envelopeIcon.svg",
+    fecha3: "11/02/2023 10:12",
+    emailIcon8: "assets/img/envelopeIcon.svg",
+    estado7: "Pendiente",
+    emailIcon9: "assets/img/envelopeIcon.svg"
+  },
+  {
+    alumno: "González María",
+    porcentaje: "28,56%",
+    vacio1: "-",
+    vacio2: "-",
+    certifica: "-",
+    check1: false,
+    estado1: "Pendiente",
+    emailIcon1: "assets/img/envelopeIcon.svg",
+    check2: false,
+    fecha1: "Pendiente",
+    emailIcon2: "assets/img/envelopeIcon.svg",
+    check3: false,
+    destinatario1: "Pendiente Marian Bean",
+    emailIcon3: "assets/img/envelopeIcon.svg",
+    check4: false,
+    estado2: "Pendiente",
+    emailIcon4: "assets/img/envelopeIcon.svg",
+    estado3: "Pendiente",
+    vacio3: "",
+    check5: false,
+    estado4: "Pendiente",
+    emailIcon5: "assets/img/envelopeIcon.svg",
+    estado5: "Pendiente",
+    vacio4: "",
+    firmaDiploma: "Pendiente",
+    doc: "",
+    check6: false,
+    estado6: "Pendiente",
+    emailIcon6: "assets/img/envelopeIcon.svg",
+    fecha2: "Pendiente",
+    emailIcon7: "assets/img/envelopeIcon.svg",
+    fecha3: "Pendiente",
+    emailIcon8: "assets/img/envelopeIcon.svg",
+    estado7: "Pendiente",
+    emailIcon9: "assets/img/envelopeIcon.svg"
+  },
+  {
+    alumno: "Alumnos: 3",
+    porcentaje: "",
+    vacio1: "-",
+    vacio2: "-",
+    certifica: "0",
+    check1: false,
+    estado1: "Enviados: 1",
+    emailIcon1: "",
+    check2: false,
+    fecha1: "Enviados: 1",
+    emailIcon2: "",
+    check3: false,
+    destinatario1: "Enviados: 1",
+    emailIcon3: "",
+    check4: false,
+    estado2: "Enviados: 1",
+    emailIcon4: "",
+    estado3: "Enviados: 1",
+    vacio3: "",
+    check5: false,
+    estado4: "Enviados: 1",
+    emailIcon5: "",
+    estado5: "Enviados: 1",
+    vacio4: "",
+    firmaDiploma: "Enviados: 1",
+    doc: "",
+    check6: "",
+    estado6: "Enviados: 1",
+    emailIcon6: "",
+    fecha2: "Enviados: 1",
+    emailIcon7: "",
+    fecha3: "Enviados: 1",
+    emailIcon8: "",
+    estado7: "Enviados: 1",
+    emailIcon9: ""
+  }
+];
+
+const formadorData = [
+  {
+      alumno: "Hernández Santiago",
+      porcentaje: "38,5",
+      evaluacion: "P",
+      puntaje: "64",
+      email: "sfernadez@email.es",
+      emailConfirmado: false,
+      estadoEmail: "No aplica",
+      iconoEmail: "",
+      revisado: false,
+      pendiente: "Pendiente",
+      iconoPendiente: "assets/img/envelopeIcon.svg",
+      fecha: "09/08/2023",
+      iconoFecha: "assets/img/envelopeIcon.svg",
+      activo: false,
+      estadoFinal: "Pendiente",
+      iconoFinal: "",
+      revisadoFinal: false,
+      fechaFinal: "No aplica",
+      iconoFechaFinal: ""
+  },
+  {
+      alumno: "Martínez Isabel",
+      porcentaje: "0",
+      evaluacion: "P",
+      puntaje: "64",
+      email: "imartinez@email.es",
+      emailConfirmado: false,
+      estadoEmail: "No Aplica",
+      iconoEmail: "",
+      revisado: false,
+      pendiente: "Error",
+      iconoPendiente: "assets/img/envelopeIcon.svg",
+      fecha: "09:23",
+      iconoFecha: "",
+      activo: false,
+      estadoFinal: "Pendiente",
+      iconoFinal: "assets/img/envelopeIcon.svg",
+      revisadoFinal: false,
+      fechaFinal: "No aplica",
+      iconoFechaFinal: ""
+  },
+  {
+      alumno: "García José",
+      porcentaje: "0",
+      evaluacion: "R",
+      puntaje: "82",
+      email: "jgarcia@email.es",
+      emailConfirmado: false,
+      estadoEmail: "09/08/2023 09:23",
+      iconoEmail: "assets/img/envelopeIcon.svg",
+      revisado: false,
+      pendiente: "09/08/2023 09:23",
+      iconoPendiente: "assets/img/envelopeIcon.svg",
+      fecha: "Pendiente",
+      iconoFecha: "",
+      activo: false,
+      estadoFinal: "Pendiente",
+      iconoFinal: "assets/img/envelopeIcon.svg",
+      revisadoFinal: false,
+      fechaFinal: "No aplica",
+      iconoFechaFinal: ""
+  },
+  {
+      alumno: "Alumnos: 3",
+      porcentaje: "",
+      evaluacion: "",
+      puntaje: "",
+      email: "0",
+      emailConfirmado: false,
+      estadoEmail: "Enviados: 1",
+      iconoEmail: "",
+      revisado: false,
+      pendiente: "Enviados: 1",
+      iconoPendiente: "",
+      fecha: "Enviados: 1",
+      iconoFecha: "",
+      activo: false,
+      estadoFinal: "Enviados: 1",
+      iconoFinal: "",
+      revisadoFinal: false,
+      fechaFinal: "Enviados: 1",
+      iconoFechaFinal: ""
+  }
+];
+
+const documentacionData = [
+  {
+      icono: "assets/img/pdfIcon.png",
+      vacio1: "",
+      documento: "Certificado de asistencia",
+      anexo: "Anexo IV",
+      vacio2: "-",
+      detalleAnexo: "Anexo IV Modelo de ....",
+      vacio3: "-",
+      vacio4: "-"
+  },
+  {
+      icono: "assets/img/pdfIcon.png",
+      vacio1: "",
+      documento: "Control de asistencia grupal bonificada",
+      anexo: "Anexo IV",
+      vacio2: "-",
+      detalleAnexo: "Anexo IV Modelo de ....",
+      vacio3: "-",
+      vacio4: "-"
+  },
+  {
+      icono: "assets/img/pdfIcon.png",
+      vacio1: "",
+      documento: "Control de asistencia individuales",
+      anexo: "Anexo IV",
+      vacio2: "-",
+      detalleAnexo: "Anexo IV Modelo de ....",
+      vacio3: "-",
+      vacio4: "-"
+  },
+  {
+      icono: "assets/img/pdfIcon.png",
+      vacio1: "",
+      documento: "Evaluación Individual Firmada​",
+      anexo: "Anexo IV",
+      vacio2: "-",
+      detalleAnexo: "Anexo IV Modelo de ....",
+      vacio3: "-",
+      vacio4: "-"
+  },
+  {
+      icono: "assets/img/pdfIcon.png",
+      vacio1: "",
+      documento: "Cuestionario Satisfacción",
+      anexo: "Anexo IV",
+      vacio2: "-",
+      detalleAnexo: "Anexo IV Modelo de ....",
+      vacio3: "-",
+      vacio4: "-"
+  },
+  {
+      icono: "assets/img/pdfIcon.png",
+      vacio1: "",
+      documento: "Declaración Responsable",
+      anexo: "Anexo IV",
+      vacio2: "-",
+      detalleAnexo: "Anexo IV Modelo de ....",
+      vacio3: "-",
+      vacio4: "-"
+  },
+  {
+      icono: "assets/img/pdfIcon.png",
+      vacio1: "",
+      documento: "Informe RLT",
+      anexo: "Anexo IV",
+      vacio2: "-",
+      detalleAnexo: "Anexo IV Modelo de ....",
+      vacio3: "-",
+      vacio4: "-"
+  },
+  {
+      icono: "assets/img/pdfIcon.png",
+      vacio1: "",
+      documento: "Recibí diploma bonificada",
+      anexo: "Anexo IV",
+      vacio2: "-",
+      detalleAnexo: "Anexo IV Modelo de ....",
+      vacio3: "-",
+      vacio4: "-"
+  }
+];
+
+
+
   function openModal(contentType) {
-    const asistenciaTableHTML = `
+    const asistenciaTableTeleformacionHTML = `
         <table class="table table-striped tablaAsistencia">
             <thead>
                 <tr>
@@ -290,10 +686,10 @@ const alumnosData = [
                   <th colspan="3" class="text-center">TEMA 1</th>
                 </tr>
                 <tr>
-                    <th><img src="assets/img/envelopeIcon.svg"></th>
+                    <th><img src="assets/img/envelopeIcon.svg" id="modalTestTeleformacion" style="cursor: pointer;"></th>
                     <th>FECHA ENVÍO</th>
                     <th>VER EMAIL</th>
-                    <th><img src="assets/img/envelopeIcon.svg"></th>
+                    <th><img src="assets/img/envelopeIcon.svg" id="modalTestTeleformacion" style="cursor: pointer;"></th>
                     <th>FECHA ENVÍO</th>
                     <th>VER EMAIL</th>
                     <th>% CONTENIDOS</th>
@@ -311,67 +707,260 @@ const alumnosData = [
                 </tr>
             </thead>
             <tbody>
-                ${createTableData(alumnosData)}
+                ${createTableDataTeleformacion(alumnosDataTeleformacion)}
             </tbody>
         </table>
     `;
 
-    // HTML de modal según el tipo de contenido
-    const modalHTML = {
-        'Resumen asistencia': asistenciaTableHTML,
-        'Control': `<p>Detalles del control.</p>`,
-        'Formador': `<p>Información del formador.</p>`,
-        'Documentación': `<p>Documentos importantes.</p>`
-    };
+    const presencialTableHTML = `
+    <table class="table table-striped tablaPresencial me-3">
+        <thead>
+            <tr>
+                <th class="text-center" rowspan="2">ALUMNO</th>
+                <th class="text-center" rowspan="2">% ASISTENCIA</th>
+                <th class="text-center" rowspan="2">TIPO DIPLOMA</th>
+                <th class="text-center" rowspan="2">CERTIFICA</th>
+                <th class="text-center" colspan="6">10/02/2023  09:00 - 11:00</th>
+                <th class="text-center" colspan="6">11/02/2023  09:00 - 11:00</th>
+            </tr>
+            <tr>
+                <th class="text-center">PRESENCIAL</th>
+                <th class="text-center">ENVIO ENTRADA</th>
+                <th class="text-center"><div class="d-flex align-items-center justify-content-center flex-column"><img src="assets/img/envelopeIcon.svg" id="modalTestTeleformacion"><div class="form-check ms-2 mt-2"><input class="form-check-input" type="checkbox" value=""></div></div></th>
+                <th class="text-center">FIRMA ENTRADA</th>
+                <th class="text-center">DOC</th>
+                <th class="text-center"><div class="d-flex align-items-center justify-content-center flex-column"><p class="mb-1">HORAS</p><img src="assets/img/guardarIcon.svg"></div></th>
+                <th class="text-center">PRESENCIAL</th>
+                <th class="text-center">ENVIO ENTRADA</th>
+                <th class="text-center"><div class="d-flex align-items-center justify-content-center flex-column"><img src="assets/img/envelopeIcon.svg" id="modalTestTeleformacion"><div class="form-check ms-2 mt-2"><input class="form-check-input" type="checkbox" value=""></div></div></th>
+                <th class="text-center">FIRMA ENTRADA</th>
+                <th class="text-center">DOC</th>
+                <th class="text-center"><div class="d-flex align-items-center justify-content-center flex-column"><p class="mb-1">HORAS</p><img src="assets/img/guardarIcon.svg"></div></th>
+            </tr>
+        </thead>
+        <tbody>
+            ${createTableDataPresencial(alumnosDataPresencial)}
+        </tbody>
+    </table>
+`;
+
+    const controlTableHTML = `
+    <table class="table table-striped tablaControl">
+        <thead>
+            <tr>
+              <th class="text-center" rowspan="2">ALUMNO</th>
+              <th class="text-center" rowspan="2">% ASISTENCIA</th>
+              <th class="text-center" rowspan="2">TIPO DIPLOMA</th>
+              <th class="text-center" rowspan="2">CERTIFICA</th>
+              <th class="text-center" colspan="3" class="text-center">EMAIL LIBRE</th>
+              <th class="text-center" colspan="3" class="text-center">CONVOCATORIA</th>
+              <th class="text-center" colspan="3" class="text-center">CUESTIONARIO MANAGER</th>
+              <th class="text-center" colspan="5" class="text-center">RECIBI MATERIAL</th>
+              <th class="text-center" colspan="5" class="text-center">DECLARACION RESPONSABLE</th>
+              <th class="text-center" colspan="5" class="text-center">DIPLOMA RECIBI</th>
+              <th class="text-center" colspan="4" class="text-center">CUESTIONARIO</th>
+              <th class="text-center" colspan="3" class="text-center">FIN CURSO ALUMNO</th>
+            </tr>
+            <tr>
+                <th class="text-center" class="text-center"><div class="d-flex align-items-center justify-content-center flex-column"><img src="assets/img/envelopeIcon.svg"><div class="form-check ms-2 mt-2"><input class="form-check-input" type="checkbox" value=""></div></div></th>
+                <th class="text-center">FECHA ENVÍO</th>
+                <th class="text-center">VER EMAIL</th>
+                <th class="text-center"><div class="d-flex align-items-center justify-content-center flex-column"><img src="assets/img/envelopeIcon.svg"><div class="form-check ms-2 mt-2"><input class="form-check-input" type="checkbox" value=""></div></div></th>
+                <th class="text-center">FECHA ENVÍO</th>
+                <th class="text-center">VER EMAIL</th>
+                <th class="text-center"><div class="d-flex align-items-center justify-content-center flex-column"><img src="assets/img/envelopeIcon.svg"><div class="form-check ms-2 mt-2"><input class="form-check-input" type="checkbox" value=""></div></div></th>
+                <th class="text-center">FECHA ENVÍO</th>
+                <th class="text-center">VER EMAIL</th>
+                <th class="text-center"><div class="d-flex align-items-center justify-content-center flex-column"><img src="assets/img/envelopeIcon.svg"><div class="form-check ms-2 mt-2"><input class="form-check-input" type="checkbox" value=""></div></div></th>
+                <th class="text-center">FECHA ENVÍO</th>
+                <th class="text-center">VER EMAIL</th>
+                <th class="text-center">FIRMA</th>
+                <th class="text-center">DOC</th>
+                <th class="text-center"><div class="d-flex align-items-center justify-content-center flex-column"><img src="assets/img/envelopeIcon.svg"><div class="form-check ms-2 mt-2"><input class="form-check-input" type="checkbox" value=""></div></div></th>
+                <th class="text-center">FECHA ENVÍO</th>
+                <th class="text-center">VER EMAIL</th>
+                <th class="text-center">FIRMA</th>
+                <th class="text-center">DOC</th>
+                <th class="text-center"><div class="d-flex align-items-center justify-content-center flex-column"><img src="assets/img/envelopeIcon.svg"><div class="form-check ms-2 mt-2"><input class="form-check-input" type="checkbox" value=""></div></div></th>
+                <th class="text-center">FECHA ENVÍO</th>
+                <th class="text-center">VER EMAIL</th>
+                <th class="text-center">FIRMA</th>
+                <th class="text-center">DOC</th>
+                <th class="text-center"><div class="d-flex align-items-center justify-content-center flex-column"><img src="assets/img/envelopeIcon.svg"><div class="form-check ms-2 mt-2"><input class="form-check-input" type="checkbox" value=""></div></div></th>
+                <th class="text-center">FECHA ENVÍO</th>
+                <th class="text-center">VER EMAIL</th>
+                <th class="text-center">FECHA REALIZADO</th>
+                <th class="text-center"><div class="d-flex align-items-center justify-content-center flex-column"><img src="assets/img/envelopeIcon.svg"><div class="form-check ms-2 mt-2"><input class="form-check-input" type="checkbox" value=""></div></div></th>
+                <th class="text-center">FECHA ENVÍO</th>
+                <th class="text-center">VER EMAIL</th>
+            </tr>
+        </thead>
+        <tbody>
+            ${createTableDataControl(controlData)}
+        </tbody>
+    </table>
+    `;
+
+    const documentacionTableHTML = `
+    <div class="adjuntar mb-3 d-flex align-items-center justify-content-start"><p class="me-2 mb-0">Añadir documento</p><img src="assets/img/plusIcon.svg"></div>
+    <table class="table table-striped tablaDocumentacion">
+        <thead>
+            <tr>
+              <th class="text-center">IMP</th>
+              <th class="text-center">IMP</th>
+              <th class="text-center">TIPO</th>
+              <th class="text-center">Nombre</th>
+              <th class="text-center">Carpeta</th>
+              <th class="text-center">Descripción</th>
+              <th class="text-center">PESO</th>
+              <th class="text-center">TIPO DE ARCHIVO</th>
+              <th class="text-center">F. ALTA</th>
+            </tr>
+        </thead>
+        <tbody>
+            ${createTableDataDocumentacion(documentacionData)}
+        </tbody>
+    </table>
+    `;
+    const formadorTableHTML = `
+    <table class="table table-striped tablaFormador">
+        <thead>
+            <tr>
+              <th class="text-center" rowspan="2">FORMADORES/RESPONSABLES</th>
+              <th class="text-center" rowspan="2">HORAS</th>
+              <th class="text-center" rowspan="2">TIPO FORMACIÓN</th>
+              <th class="text-center" rowspan="2">Nº PARTICIPANTES CONCURRENTES</th>
+              <th class="text-center" rowspan="2">EMAIL</th>
+              <th class="text-center" colspan="3" class="text-center">MAIL INCIDENCIAS</th>
+              <th class="text-center" colspan="3" class="text-center">ACCESO AULA VIRTUAL DIARIO</th>
+              <th class="text-center" colspan="3" class="text-center">CONVOCATORIA FORMADORES</th>
+              <th class="text-center" colspan="3" class="text-center">MAIL CIERRE CURSO FORMADOR</th>
+              <th class="text-center" colspan="3" class="text-center">MAIL CIERRE RESPONSABLE</th>
+            </tr>
+            <tr>
+                <th class="text-center" class="text-center"><div class="d-flex align-items-center justify-content-center flex-column"><img src="assets/img/envelopeIcon.svg"><div class="form-check ms-2 mt-2"><input class="form-check-input" type="checkbox" value=""></div></div></th>
+                <th class="text-center">FECHA ENVÍO</th>
+                <th class="text-center">VER EMAIL</th>
+                <th class="text-center" class="text-center"><div class="d-flex align-items-center justify-content-center flex-column"><img src="assets/img/envelopeIcon.svg"><div class="form-check ms-2 mt-2"><input class="form-check-input" type="checkbox" value=""></div></div></th>
+                <th class="text-center">FECHA ENVÍO</th>
+                <th class="text-center">VER EMAIL</th>
+                <th class="text-center" class="text-center"><div class="d-flex align-items-center justify-content-center flex-column"><img src="assets/img/envelopeIcon.svg"><div class="form-check ms-2 mt-2"><input class="form-check-input" type="checkbox" value=""></div></div></th>
+                <th class="text-center">FECHA ENVÍO</th>
+                <th class="text-center">VER EMAIL</th>
+                <th class="text-center" class="text-center"><div class="d-flex align-items-center justify-content-center flex-column"><img src="assets/img/envelopeIcon.svg"><div class="form-check ms-2 mt-2"><input class="form-check-input" type="checkbox" value=""></div></div></th>
+                <th class="text-center">FECHA ENVÍO</th>
+                <th class="text-center">VER EMAIL</th>
+                <th class="text-center" class="text-center"><div class="d-flex align-items-center justify-content-center flex-column"><img src="assets/img/envelopeIcon.svg"><div class="form-check ms-2 mt-2"><input class="form-check-input" type="checkbox" value=""></div></div></th>
+                <th class="text-center">FECHA ENVÍO</th>
+                <th class="text-center">VER EMAIL</th>
+            </tr>
+        </thead>
+        <tbody>
+            ${createTableDataFormador(formadorData)}
+        </tbody>
+    </table>
+    `;
+
+    let modalContentHTML = '';
+
+    if (contentType === 'Resumen asistencia') {
+        modalContentHTML = `
+            <div class="modalContainer">
+              <div class="subtitlePane d-flex align-items-center justify-content-between">
+                  <p class="subtitle">Grupo: (6499) 11 - 1- PRL avanzado en la Oficina</p>
+                  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                      <li class="nav-item" role="presentation">
+                          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Presencial</button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                          <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Teleformacion</button>
+                      </li>
+                  </ul>
+              </div>
+              <div class="tab-content" id="pills-tabContent">
+                  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">${asistenciaTableTeleformacionHTML}</div>
+                  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">${presencialTableHTML}</div>
+              </div>
+            </div>`;
+    } else {
+        modalContentHTML = `
+            <div class="modalContainer">
+            <div class="subtitlePane d-flex align-items-center justify-content-start">
+              <p class="subtitle">Grupo: (6499) 11 - 1- PRL avanzado en la Oficina</p>
+            </div>
+                <p class="modal-info-content">${contentType === 'Resumen control' ? controlTableHTML : contentType === 'Control Formadores y Responsables' ? `${formadorTableHTML}` : `${documentacionTableHTML}.`}</p>
+            </div>`;
+    }
 
     const modal = document.createElement('div');
     modal.className = 'modal fade show';
     modal.id = "modalAsistencia";
     modal.tabIndex = -1;
-    modal.style.display = 'block'; // Asegura que el modal se muestre
+    modal.style.display = 'block'; 
     modal.innerHTML = `
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">${contentType}</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <div class="subtitlePane d-flex align-items-center justify-content-between">
-                    <p class="subtitle">Grupo: (6499) 11 - 1- PRL avanzado en la Oficina</p>
-                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                      <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Presencial</button>
-                      </li>
-                      <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Teleformacion</button>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                    </div>
-                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                    ${modalHTML[contentType]}
-                    </div>
-                  </div>
-                </div>
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">${contentType}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <div class="modal-body">${modalContentHTML}</div>
         </div>
+    </div>
     `;
     document.body.appendChild(modal);
     
-    // Manejar el cierre del modal
     modal.querySelector('.btn-close').addEventListener('click', function() {
-        modal.remove(); // Elimina el modal del DOM
+        modal.remove();
     });
 
-    // Bootstrap necesita esto para iniciar el modal correctamente
     var bootstrapModal = new bootstrap.Modal(modal);
     bootstrapModal.show();
 }
 
-function createTableData(data) {
+function createTableDataPresencial(data) {
+  return data.map((item, index) => `
+      <tr>
+          <td class="text-center">${item.alumno}</td>
+          <td class="text-center" style="color: ${index < 3 ? '#DF1517' : 'inherit'};">${item.asistencia}</td>
+          <td class="text-center">${item.participacion}</td>
+          <td class="text-center">${item.eval1}</td>
+          <td class="text-center" style="color: ${index < 3 ? '#DF1517' : 'inherit'};">${item.asistenciaFirmada}</td>
+          <td class="text-center" style="color: ${index < 3 ? '#0074FF' : 'inherit'};">${item.fechaUltimaSesion}</td>
+          <td class="text-center">
+            <div class="form-check ms-2">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${data.indexOf(item) + 1}" ${item.asistenciaConfirmada ? 'checked' : ''}>
+            </div>
+          </td>
+          <td class="text-center">${item.columna8}</td>
+          <td class="text-center">${item.columna9}</td>
+          <td class="text-center">
+            <div class="sessionContainer d-flex align-items-center justify-content-between">
+              ${item.totalSesiones ? `<div class="totalSesionesContainer">${item.totalSesiones}</div>` : ''}
+              ${item.totalSesiones === '2' ? '<img src="assets/img/mensaje.svg" class="ms-2">' : ''}
+            </div>
+          </td>
+          <td class="text-center">${item.asistenciaValidada}</td>
+          <td class="text-center" style="color: ${index < 3 ? '#0074FF' : 'inherit'};">${item.fechaValidacion}</td>
+          <td class="text-center">
+            <div class="form-check ms-2">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${data.indexOf(item) + 1}" ${item.validacionConfirmada ? 'checked' : ''}>
+            </div>
+          </td>
+          <td class="text-center">${item.columna14}</td>
+          <td class="text-center">${item.columna15}</td>
+          <td class="text-center">
+            <div class="asistenciasContainer d-flex align-items-center justify-content-between">
+              ${item.totalAsistencias ? `<div class="totalAsistenciasContainer">${item.totalAsistencias}</div>` : ''}
+              ${item.totalAsistencias === '2' ? '<img src="assets/img/mensaje.svg" class="ms-2">' : ''}
+            </div>
+          </td>
+      </tr>
+  `).join('');
+}
+
+
+function createTableDataTeleformacion(data) {
   return data.map((item, index) => `
         <tr>
           <td>${item.alumno}</td>
@@ -384,7 +973,7 @@ function createTableData(data) {
               </div>
           </td>
           <td>${item.fechaEnvio1}</td>
-          <td>${item.verEmail1 ? `<img src="${item.verEmail1}">` : ''}</td>
+          <td>${item.verEmail1 ? `<img src="${item.verEmail1}" id="modalTestTeleformacion" style="cursor: pointer;">` : ''}</td>
           <td>
               <div class="form-check">
                   <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${data.indexOf(item) + 6}" ${item.check2 ? 'checked' : ''}>
@@ -409,7 +998,143 @@ function createTableData(data) {
 }
 
 
-    
+function createTableDataControl(data) {
+  return data.map((item, index) => `
+      <tr>
+          <td class="text-center">${item.alumno}</td>
+          <td class="text-center" style="color: ${index < 3 ? '#DF1517' : 'inherit'};">${item.porcentaje}</td>
+          <td class="text-center">${item.vacio1}</td>
+          <td class="text-center">${item.certifica}</td>
+          <td class="text-center">
+            <div class="form-check ms-2">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 1}" ${item.check1 ? 'checked' : ''}>
+            </div>
+          </td>
+          <td class="text-center">${item.estado1}</td>
+          <td class="text-center">${item.emailIcon1 ? `<img src="${item.emailIcon1}">` : ''}</td>
+          <td class="text-center">
+            <div class="form-check ms-2">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 6}" ${item.check2 ? 'checked' : ''}>
+            </div>
+          </td>
+          <td class="text-center">${item.fecha1}</td>
+          <td class="text-center">${item.emailIcon2 ? `<img src="${item.emailIcon2}">` : ''}</td>
+          <td class="text-center">
+            <div class="form-check ms-2">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 11}" ${item.check3 ? 'checked' : ''}>
+            </div>
+          </td>
+          <td class="text-center">${item.destinatario1}</td>
+          <td class="text-center">${item.emailIcon3 ? `<img src="${item.emailIcon3}">` : ''}</td>
+          <td class="text-center">
+            <div class="form-check ms-2">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 16}" ${item.check4 ? 'checked' : ''}>
+            </div>
+          </td>
+          <td class="text-center">${item.estado2}</td>
+          <td class="text-center">${item.emailIcon4 ? `<img src="${item.emailIcon4}">` : ''}</td>
+          <td class="text-center">${item.estado3}</td>
+          <td class="text-center">${item.vacio3}</td>
+          <td class="text-center">
+            <div class="form-check ms-2">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 21}" ${item.check5 ? 'checked' : ''}>
+            </div>
+          </td>
+          <td class="text-center">${item.estado4}</td>
+          <td class="text-center">${item.emailIcon5 ? `<img src="${item.emailIcon5}">` : ''}</td>
+          <td class="text-center">${item.estado5}</td>
+          <td class="text-center">${item.vacio4}</td>
+          <td class="text-center">
+            <div class="form-check ms-2">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 26}" ${item.check6 ? 'checked' : ''}>
+            </div>
+          </td>
+          <td class="text-center">${item.estado6}</td>
+          <td class="text-center">${item.emailIcon4 ? `<img src="${item.emailIcon4}">` : ''}</td>
+          <td class="text-center">${item.firmaDiploma}</td>
+          <td class="text-center">${item.doc}</td>
+          <td class="text-center">
+            <div class="form-check ms-2">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 31}" ${item.check6 ? 'checked' : ''}>
+            </div>
+          </td>
+          <td class="text-center">${item.fecha2}</td>
+          <td class="text-center">${item.emailIcon7 ? `<img src="${item.emailIcon7}">` : ''}</td>
+          <td class="text-center">${item.fecha3}</td>
+          <td class="text-center">
+            <div class="form-check ms-2">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 36}" ${item.check6 ? 'checked' : ''}>
+            </div>
+          </td>
+          <td class="text-center">${item.estado7}</td>
+          <td class="text-center">${item.emailIcon9 ? `<img src="${item.emailIcon9}">` : ''}</td>
+      </tr>
+  `).join('');
+}
+
+function createTableDataFormador(data) {
+  return data.map((item, index) => `
+      <tr>
+          <td class="text-center">${item.alumno}</td>
+          <td class="text-center" style="color: ${item.porcentaje ? '#DF1517' : 'inherit'};">${item.porcentaje}</td>
+          <td class="text-center">${item.evaluacion}</td>
+          <td class="text-center">${item.puntaje}</td>
+          <td class="text-center">${item.email}</td>
+          <td class="text-center">
+            <div class="form-check ms-2">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 1}" ${item.emailConfirmado ? 'checked' : ''}>
+            </div>
+          </td>
+          <td class="text-center">${item.estadoEmail}</td>
+          <td class="text-center">${item.iconoEmail ? `<img src="${item.iconoEmail}">` : ''}</td>
+          <td class="text-center">
+            <div class="form-check ms-2">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 1}" ${item.revisado ? 'checked' : ''}>
+            </div>
+          </td>
+          <td class="text-center">${item.pendiente}</td>
+          <td class="text-center">${item.iconoPendiente ? `<img src="${item.iconoPendiente}">` : ''}</td>
+          <td class="text-center">
+            <div class="form-check ms-2">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 2}" ${item.activo ? 'checked' : ''}>
+            </div>
+          </td>
+          <td class="text-center">${item.fecha}</td>
+          <td class="text-center">${item.iconoFecha ? `<img src="${item.iconoFecha}">` : ''}</td>
+          <td class="text-center">
+            <div class="form-check ms-2">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 2}" ${item.activo ? 'checked' : ''}>
+            </div>
+          </td>
+          <td class="text-center">${item.estadoFinal}</td>
+          <td class="text-center">${item.iconoFinal ? `<img src="${item.iconoFinal}">` : ''}</td>
+          <td class="text-center">
+            <div class="form-check ms-2">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 2}" ${item.activo ? 'checked' : ''}>
+            </div>
+          </td>
+          <td class="text-center">${item.fechaFinal}</td>
+          <td class="text-center">${item.iconoFechaFinal ? `<img src="${item.iconoFechaFinal}">` : ''}</td>
+      </tr>
+  `).join('');
+}
+
+function createTableDataDocumentacion(data) {
+  return data.map((item, index) => `
+      <tr>
+          <td class="text-center">${item.icono ? `<img src="${item.icono}">` : ''}</td>
+          <td class="text-center">${item.vacio1}</td>
+          <td class="text-center">${item.documento}</td>
+          <td class="text-center">${item.anexo}</td>
+          <td class="text-center">${item.vacio2}</td>
+          <td class="text-center">${item.detalleAnexo}</td>
+          <td class="text-center">${item.vacio3}</td>
+          <td class="text-center">${item.vacio4}</td>
+          <td class="text-center">${item.vacio4}</td>
+      </tr>
+  `).join('');
+}
+
     
 
     function setupSVGPopoverEvent(svgElement) {
@@ -1481,4 +2206,45 @@ const createComDivs = (cardNumber) => {
     });
 }
 
+
+document.addEventListener('DOMContentLoaded', function() {
+
+  setupModalWithImage();
+});
+
+function setupModalWithImage() {
+  let modalTrigger = document.getElementById('modalTestTeleformacion');
+
+
+  if (!modalTrigger) {
+      setTimeout(setupModalWithImage, 100);
+      return;
+  }
+
+
+  let modal = document.createElement('div');
+  modal.className = 'modal fade';
+  modal.id = 'modalImageTeleformacion';
+  modal.tabIndex = -1;
+  modal.setAttribute('aria-labelledby', 'modalImageTeleformacionLabel');
+  modal.setAttribute('aria-hidden', 'true');
+  modal.innerHTML = `
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body d-flex justify-content-center">
+                  <img src="assets/img/testTeleformacion.svg" alt="Teleformación Test Image">
+              </div>
+          </div>
+      </div>
+  `;
+
+  document.body.appendChild(modal);
+  modalTrigger.addEventListener('click', () => {
+      var modalInstance = new bootstrap.Modal(modal);
+      modalInstance.show();
+  });
+}
 
