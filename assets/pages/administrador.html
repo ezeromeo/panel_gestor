@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/administrador.css">
+</head>
+<body>
+    <header class="d-flex align-items-center justify-content-between">
+        <div class="leftMenu d-flex align-items-center justify-content-start">
+            <div class="fundacion d-flex align-items-center justify-content-start m-2 me-3">
+                <img src="../../assets/img/fundacionEstatal.svg" alt="">
+                <img src="../../assets/img/fundacionEstatalLogo.svg" alt="">
+            </div>
+            <div class="submenu d-flex align-items-start justify-content-center flex-column">
+                <div class="breadcrumb">
+                    <p>Dashboard >> Grupos</p>
+                </div>
+                <div class="subheader d-flex align-items-center justify-content-start">
+                    <p class="filtros me-1">Filtros:</p><p>Estado En ejecución / Anulado: No / Formación presencial: Si</p>
+                </div>
+            </div>
+        </div>
+        <div class="rightMenu d-flex align-items-center justify-content-center m-3">
+            <div class="bellIcon d-flex align-items-center justify-content-center flex-column mb-3">
+                <img src="../../assets/img/bellHeader.svg" alt="">
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">2</span>
+            </div>
+            <div class="chatbotAyuda d-flex align-items-center justify-content-center flex-column" style="cursor: pointer;">
+                <img src="../../assets/img/chatbotAyuda.svg" alt="">
+                <p class="mt-2">ChatBot de Ayuda</p>
+            </div>
+            <div class="usuario d-flex align-items-center justify-content-center flex-column">
+                <div class="usuarioIcono d-flex align-items-center justify-content-center" id="formadorIcon">
+                    <img src="../img/administrador.svg" alt="Icono Formador">
+                </div>
+                <p class="mt-2">Administrador</p>
+            </div>
+            <div class="desconectarHeader d-flex align-items-center justify-content-center flex-column" id="disconnect">
+                <img src="../../assets/img/desconectar-header.svg" alt="">
+                <p class="mt-2">Desconectar</p>
+            </div>
+        </div>
+    </header>
+    <aside>
+        <div class="icons d-flex align-items-center justify-content-center flex-column">
+            <img src="../../assets/img/grupos.svg" alt="" style="cursor: pointer;">
+            <img src="../../assets/img/file.svg" alt="" id="fileIcon" style="cursor: pointer;">
+            <img src="../../assets/img/estadisticasIcon.svg" alt="" class="mt-3 estadisticasIcon" style="cursor: pointer;">
+        </div>
+    </aside>
+    <main class="contenedor mt-3">
+        <div class="tablaPrincipal">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th colspan="2"></th>
+                        <th colspan="28" class="text-center">IDENTIFICACIÓN</th>
+                    </tr>
+                    <tr>
+                        <th><div class="form-check ms-2 mt-2"><input class="form-check-input" type="checkbox" value=""></div></th>
+                        <th><img src="../img/notes.svg" alt="" style="cursor: pointer;"></th>
+                        <th>ID</th>
+                        <th>ANUL</th>
+                        <th>ESTADO</th>
+                        <th>EXPEDIENTE</th>
+                        <th>ACCIÓN</th>
+                        <th>GRUPO</th>
+                        <th>IDENTIFICACIÓN</th>
+                        <th>DENOMINACIÓN</th>
+                        <th>MOD</th>
+                        <th>AULA_VIRTUAL</th>
+                        <th>HORAS</th>
+                        <th>TAGS</th>
+                        <th>INICIO</th>
+                        <th>FIN</th>
+                        <th>SOL</th>
+                        <th>TOT</th>
+                        <th>INI</th>
+                        <th>CERT</th>
+                        <th>LOCALIDAD</th>
+                        <th>RESPONSABLE</th>
+                        <th>CENTRO DE FORMACION</th>
+                        <th>SESION CERRADA</th>
+                        <th>F CIERRE SES</th>
+                        <th>FIRMA APP</th>
+                        <th>COMUNICACION</th>
+                        <th>ESTADO COMUNICACION</th>
+                        <th>COMUNICACION</th>
+                        <th>ESTADO</th>
+                    </tr>
+                    <tr>
+                        <th>
+                        </th>
+                        <th>
+                        </th>
+                        <th>
+                            <div class="mb-3">
+                                <div class="searchDiv d-flex align-items-center justify-content-between">
+                                    <input type="text" class="form-control me-2" id="search3">
+                                    <img src="../img/searchIcon.svg" alt="">
+                                </div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="mb-3">
+                                <div class="searchDiv d-flex align-items-center justify-content-between">
+                                    <input type="text" class="form-control me-2" id="search4">
+                                    <img src="../img/searchIcon.svg" alt="">
+                                </div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="mb-3">
+                                <div class="searchDiv d-flex align-items-center justify-content-between">
+                                    <input type="text" class="form-control me-2" id="search5">
+                                    <img src="../img/searchIcon.svg" alt="">
+                                </div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="mb-3">
+                                <div class="searchDiv d-flex align-items-center justify-content-between">
+                                    <input type="text" class="form-control me-2" id="search6">
+                                    <img src="../img/searchIcon.svg" alt="">
+                                </div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="mb-3">
+                                <div class="searchDiv d-flex align-items-center justify-content-between">
+                                    <input type="text" class="form-control me-2" id="search7">
+                                    <img src="../img/searchIcon.svg" alt="">
+                                </div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="mb-3">
+                                <div class="searchDiv d-flex align-items-center justify-content-between">
+                                    <input type="text" class="form-control me-2" id="search8">
+                                    <img src="../img/searchIcon.svg" alt="">
+                                </div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="mb-3">
+                                <div class="searchDiv d-flex align-items-center justify-content-between">
+                                    <input type="text" class="form-control me-2" id="search9">
+                                    <img src="../img/searchIcon.svg" alt="">
+                                </div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="mb-3">
+                                <div class="searchDiv d-flex align-items-center justify-content-between">
+                                    <input type="text" class="form-control me-2" id="search10">
+                                    <img src="../img/searchIcon.svg" alt="">
+                                </div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="mb-3">
+                                <div class="searchDiv d-flex align-items-center justify-content-between">
+                                    <input type="text" class="form-control me-2" id="search11">
+                                    <img src="../img/searchIcon.svg" alt="">
+                                </div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="mb-3">
+                                <div class="searchDiv d-flex align-items-center justify-content-between">
+                                    <input type="text" class="form-control me-2" id="search12">
+                                    <img src="../img/searchIcon.svg" alt="">
+                                </div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="mb-3">
+                                <div class="searchDiv d-flex align-items-center justify-content-between">
+                                    <input type="text" class="form-control me-2" id="search13">
+                                    <img src="../img/searchIcon.svg" alt="">
+                                </div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="mb-3">
+                                <div class="searchDiv d-flex align-items-center justify-content-between">
+                                    <input type="text" class="form-control me-2" id="search14">
+                                    <img src="../img/searchIcon.svg" alt="">
+                                </div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="mb-3">
+                                <div class="searchDiv d-flex align-items-center justify-content-between">
+                                    <input type="text" class="form-control me-2" id="search15">
+                                    <img src="../img/searchIcon.svg" alt="">
+                                </div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="mb-3">
+                                <div class="searchDiv d-flex align-items-center justify-content-between">
+                                    <input type="text" class="form-control me-2" id="search16">
+                                    <img src="../img/searchIcon.svg" alt="">
+                                </div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="mb-3">
+                                <div class="searchDiv d-flex align-items-center justify-content-between">
+                                    <input type="text" class="form-control me-2" id="search17">
+                                    <img src="../img/searchIcon.svg" alt="">
+                                </div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="mb-3">
+                                <div class="searchDiv d-flex align-items-center justify-content-between">
+                                    <input type="text" class="form-control me-2" id="search18">
+                                    <img src="../img/searchIcon.svg" alt="">
+                                </div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="mb-3">
+                                <div class="searchDiv d-flex align-items-center justify-content-between">
+                                    <input type="text" class="form-control me-2" id="search19">
+                                    <img src="../img/searchIcon.svg" alt="">
+                                </div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="mb-3">
+                                <div class="searchDiv d-flex align-items-center justify-content-between">
+                                    <input type="text" class="form-control me-2" id="search20">
+                                    <img src="../img/searchIcon.svg" alt="">
+                                </div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="mb-3">
+                                <div class="searchDiv d-flex align-items-center justify-content-between">
+                                    <input type="text" class="form-control me-2" id="search21">
+                                    <img src="../img/searchIcon.svg" alt="">
+                                </div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="mb-3">
+                                <div class="searchDiv d-flex align-items-center justify-content-between">
+                                    <input type="text" class="form-control me-2" id="search22">
+                                    <img src="../img/searchIcon.svg" alt="">
+                                </div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="mb-3">
+                                <div class="searchDiv d-flex align-items-center justify-content-between">
+                                    <input type="text" class="form-control me-2" id="search23">
+                                    <img src="../img/searchIcon.svg" alt="">
+                                </div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="mb-3">
+                                <div class="searchDiv d-flex align-items-center justify-content-between">
+                                    <input type="text" class="form-control me-2" id="search24">
+                                    <img src="../img/searchIcon.svg" alt="">
+                                </div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="mb-3">
+                                <div class="searchDiv d-flex align-items-center justify-content-between">
+                                    <input type="text" class="form-control me-2" id="search25">
+                                    <img src="../img/searchIcon.svg" alt="">
+                                </div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="mb-3">
+                                <div class="searchDiv d-flex align-items-center justify-content-between">
+                                    <input type="text" class="form-control me-2" id="search26">
+                                    <img src="../img/searchIcon.svg" alt="">
+                                </div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="mb-3">
+                                <div class="searchDiv d-flex align-items-center justify-content-between">
+                                    <input type="text" class="form-control me-2" id="search27">
+                                    <img src="../img/searchIcon.svg" alt="">
+                                </div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="mb-3">
+                                <div class="searchDiv d-flex align-items-center justify-content-between">
+                                    <input type="text" class="form-control me-2" id="search28">
+                                    <img src="../img/searchIcon.svg" alt="">
+                                </div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="mb-3">
+                                <div class="searchDiv d-flex align-items-center justify-content-between">
+                                    <input type="text" class="form-control me-2" id="search29">
+                                    <img src="../img/searchIcon.svg" alt="">
+                                </div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="mb-3">
+                                <div class="searchDiv d-flex align-items-center justify-content-between">
+                                    <input type="text" class="form-control me-2" id="search30">
+                                    <img src="../img/searchIcon.svg" alt="">
+                                </div>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <script src="../../js/administrador.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+          <h5 id="offcanvasRightLabel">Editar / Ver detalle Grupo</h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          
+        </div>
+      </div>
+      
+</body>
+</html>

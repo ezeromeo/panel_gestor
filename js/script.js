@@ -99,7 +99,7 @@ window.addEventListener("load", function () {
 
       function setupIconImageEvents(iconImage) {
         let isClicked = false;
-        let menu = document.querySelector('#iconImage'); // Asegúrate de que este selector sea correcto
+        let menu = document.querySelector('#iconImage'); 
     
         var menuPopover = new bootstrap.Popover(menu, {
             html: true,
@@ -744,6 +744,7 @@ const documentacionData = [
     </table>
 `;
 
+
     const controlTableHTML = `
     <table class="table table-striped tablaControl">
         <thead>
@@ -909,7 +910,21 @@ const documentacionData = [
     </div>
     `;
     document.body.appendChild(modal);
-    
+
+    console.log(document.getElementById("modalTestTeleformacion"));
+    console.log(document.getElementById('mensajeIcon'))
+
+    const envelopeModal = document.getElementById("modalTestTeleformacion");
+    const mensajeIcon = document.getElementById("mensajeIcon")
+
+    if (envelopeModal) {
+      envelopeModal.addEventListener('click', setupModalWithImage);
+    }
+
+    if (mensajeIcon) {
+      mensajeIcon.addEventListener('click', openMessageModal)
+    }
+
     modal.querySelector('.btn-close').addEventListener('click', function() {
         modal.remove();
     });
@@ -937,7 +952,7 @@ function createTableDataPresencial(data) {
           <td class="text-center">
             <div class="sessionContainer d-flex align-items-center justify-content-between">
               ${item.totalSesiones ? `<div class="totalSesionesContainer">${item.totalSesiones}</div>` : ''}
-              ${item.totalSesiones === '2' ? '<img src="assets/img/mensaje.svg" class="ms-2">' : ''}
+              ${item.totalSesiones === '2' ? '<img src="assets/img/mensaje.svg" class="ms-2" id="mensajeIcon">' : ''}
             </div>
           </td>
           <td class="text-center">${item.asistenciaValidada}</td>
@@ -952,7 +967,7 @@ function createTableDataPresencial(data) {
           <td class="text-center">
             <div class="asistenciasContainer d-flex align-items-center justify-content-between">
               ${item.totalAsistencias ? `<div class="totalAsistenciasContainer">${item.totalAsistencias}</div>` : ''}
-              ${item.totalAsistencias === '2' ? '<img src="assets/img/mensaje.svg" class="ms-2">' : ''}
+              ${item.totalAsistencias === '2' ? '<img src="assets/img/mensaje.svg" class="ms-2" id="mensajeIcon">' : ''}
             </div>
           </td>
       </tr>
@@ -1325,7 +1340,7 @@ function createTableDataDocumentacion(data) {
         }
     }, 0);
 
-    // Modales
+    
 
     let primerTD = card.querySelector('tbody tr:first-child td');
     let segundoTD = card.querySelector('tbody tr:nth-child(3) td');
@@ -1442,12 +1457,12 @@ function createTableDataDocumentacion(data) {
             chartModal.show();
     
             chartModalElement.addEventListener('hidden.bs.modal', function () {
-                chartModalElement.remove(); // Remove the modal element from DOM
+                chartModalElement.remove();
                 document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
-                    backdrop.remove(); // Ensure all backdrops are removed
+                    backdrop.remove();
                 });
-                document.body.classList.remove('modal-open'); // Remove 'modal-open' class from the body
-                document.body.style.overflow = ''; // Reset overflow property of the body
+                document.body.classList.remove('modal-open');
+                document.body.style.overflow = '';
             });
           
             
@@ -1655,9 +1670,9 @@ function createTableDataDocumentacion(data) {
     });
 
     document.body.addEventListener('click', function(event) {
-      // Verifica si el elemento clicado es el botón 'Ahora' y si no tiene el flag
+      
       if (event.target.classList.contains('blink') && event.target.textContent.trim() === 'Ahora' && !event.target.dataset.modalInit) {
-          event.target.dataset.modalInit = true; // Establece un flag para indicar que el modal ya está inicializado
+          event.target.dataset.modalInit = true; 
   
           const ahoraModalHtml = `
               <div class="modal fade" id="ahoraModal" tabindex="-1" aria-labelledby="ahoraModalLabel" aria-hidden="true">
@@ -1725,13 +1740,13 @@ function createTableDataDocumentacion(data) {
               </div>
           `;
   
-          // Asegurarse de eliminar modales previos para evitar duplicados
+          
           const existingModal = document.getElementById('ahoraModal');
           if (existingModal) {
               existingModal.remove();
           }
   
-          // Agregar el nuevo modal y mostrarlo
+          
           document.body.insertAdjacentHTML('beforeend', ahoraModalHtml);
           const modalInstance = new bootstrap.Modal(document.getElementById('ahoraModal'), {});
           modalInstance.show();
@@ -1811,7 +1826,7 @@ function formatStatusCell(text) {
   } else if (text === '12:01:15 – 1,15 horas') {
       return `<div class="statusCell horaStatus d-flex align-items-center justify-content-center"><span style="color: #74B160;">${text}</span></div>`;
   } else {
-      return `<div>${text}</div>`; // Default formatting for other cases
+      return `<div>${text}</div>`; 
   }
 }
 
@@ -1923,7 +1938,7 @@ function openFormularioSesion() {
 }
 
 function openSignatureModal() {
-    // Crear el contenedor del modal si no existe
+    
     if (!document.getElementById('modalFirma')) {
         const modalHtml = `
             <div class="modal fade" id="modalFirma" tabindex="-1" aria-labelledby="modalFirmaLabel" aria-hidden="true">
@@ -2002,7 +2017,7 @@ function openControlAsistenciaModalFirmado() {
   
     
     
-      // Popovers
+     
 
       let userSpan = card.querySelector('.user');
       let teacherSpan = card.querySelector('.teacher');
@@ -2166,9 +2181,13 @@ function openControlAsistenciaModalFirmado() {
             <img src="assets/img/teams-icon.svg" alt="Abrir Microsoft Teams">
         </a>`;
 
-    // Añadir el ícono del calendario solo en las posiciones 0, 1 y 2
     if ([0, 1, 2].includes(cardNumber)) {
-        iconsHtml += `<img src="assets/img/calendar.svg" alt="calendar">`;
+        iconsHtml += `<img src="assets/img/calendar.svg" alt="calendar" id="calendar">`;
+        const calendarIcon = document.getElementById('calendar');
+        if (calendarIcon) {
+          calendarIcon.addEventListener('click', openCalendarModal);          
+        }
+
     }
 
     return iconsHtml;
@@ -2207,44 +2226,358 @@ const createComDivs = (cardNumber) => {
 }
 
 
-document.addEventListener('DOMContentLoaded', function() {
-
-  setupModalWithImage();
-});
-
 function setupModalWithImage() {
   let modalTrigger = document.getElementById('modalTestTeleformacion');
-
 
   if (!modalTrigger) {
       setTimeout(setupModalWithImage, 100);
       return;
   }
 
-
-  let modal = document.createElement('div');
-  modal.className = 'modal fade';
-  modal.id = 'modalImageTeleformacion';
-  modal.tabIndex = -1;
-  modal.setAttribute('aria-labelledby', 'modalImageTeleformacionLabel');
-  modal.setAttribute('aria-hidden', 'true');
-  modal.innerHTML = `
-      <div class="modal-dialog modal-dialog-centered modal-lg">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  modalTrigger.addEventListener('click', () => {
+     
+      let modal = document.getElementById('modalImageTeleformacion');
+      if (!modal) {
+         
+          modal = document.createElement('div');
+          modal.className = 'modal fade';
+          modal.id = 'modalImageTeleformacion';
+          modal.tabIndex = -1;
+          modal.setAttribute('aria-labelledby', 'modalImageTeleformacionLabel');
+          modal.setAttribute('aria-hidden', 'true');
+          modal.innerHTML = `
+              <div class="modal-dialog modal-dialog-centered modal-lg">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body d-flex justify-content-center">
+                          <img src="assets/img/testTeleformacion.svg" alt="Teleformación Test Image">
+                      </div>
+                  </div>
               </div>
-              <div class="modal-body d-flex justify-content-center">
-                  <img src="assets/img/testTeleformacion.svg" alt="Teleformación Test Image">
+          `;
+          document.body.appendChild(modal);
+
+         
+          let modalInstance = new bootstrap.Modal(modal, {
+              backdrop: 'static'
+          });
+
+         
+          modalInstance.show();
+
+         
+          modal.addEventListener('hidden.bs.modal', () => {
+              modal.remove();
+          });
+      } else {
+         
+          let modalInstance = bootstrap.Modal.getInstance(modal);
+          modalInstance.show();
+      }
+  });
+}
+
+
+
+function openCalendarModal() {
+  document.querySelectorAll('.modal-backdrop, .modal').forEach(el => el.remove());
+
+  const modalHtml = `
+      <div class="modal fade" id="calendarModal" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body text-center">
+                      <p>Va a descargar el archivo ICS para añadir el calendario del curso a su agenda.</p>
+                  </div>
+                  <div class="modal-footer d-flex align-items-center justify-content-center footerCalendarModal">
+                      <button type="button" class="btn-download" data-bs-dismiss="modal">Descargar</button>
+                  </div>
               </div>
           </div>
       </div>
   `;
 
-  document.body.appendChild(modal);
-  modalTrigger.addEventListener('click', () => {
-      var modalInstance = new bootstrap.Modal(modal);
-      modalInstance.show();
-  });
+  document.body.insertAdjacentHTML('beforeend', modalHtml);
+  const calendarModal = new bootstrap.Modal(document.getElementById('calendarModal'));
+  calendarModal.show();
 }
 
+function openMessageModal() {
+  let modal = document.getElementById('messageModal');
+  let mensajeIcon = document.getElementById("mensajeIcon");
+  if (!modal) {
+      modal = document.createElement('div');
+      modal.className = 'modal fade';
+      modal.id = 'messageModal';
+      modal.tabIndex = -1;
+      modal.setAttribute('aria-labelledby', 'messageModalLabel');
+      modal.setAttribute('aria-hidden', 'true');
+      modal.innerHTML = `
+          <div class="modal-dialog modalMensaje" style="margin: 0;" >
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      <p class="text-center">El alumno se va 1 hora antes.</p>
+                  </div>
+              </div>
+          </div>
+      `;
+      document.body.appendChild(modal);
+
+      var modalInstance = new bootstrap.Modal(modal, {
+          backdrop: 'static'
+      });
+
+      modal.addEventListener('hidden.bs.modal', function () {
+          modal.remove();
+      });
+  } 
+
+  if (mensajeIcon) {
+    
+      const rect = mensajeIcon.getBoundingClientRect();
+      const modalDialog = modal.querySelector('.modal-dialog');
+      modalDialog.style.position = 'absolute';
+      modalDialog.style.top = `${rect.bottom}px`;
+      modalDialog.style.left = `${rect.left}px`;
+  }
+
+  var modalInstance = bootstrap.Modal.getInstance(modal);
+  modalInstance.show();
+}
+
+function setupFileIconModal() {
+  const fileIcon = document.getElementById("fileIcon");
+  if (fileIcon) {
+      fileIcon.addEventListener('click', function() {
+          openFileIconModal();
+      });
+  }
+}
+
+const tableData = [
+  {
+      mes: "Enero",
+      planProyecto: "Actividades",
+      accionActividad: "Material PRL",
+      edicion: "1",
+      fechaInicio: "23/07/2023",
+      fechaFin: "23/07/2023",
+      horas: "8",
+      costeHora: "20,00",
+      importe: "160,00",
+      estado: "Finalizado"
+  },
+  {
+      mes: "Enero",
+      planProyecto: "Actividades",
+      accionActividad: "Material PRL",
+      edicion: "1",
+      fechaInicio: "23/07/2023",
+      fechaFin: "23/07/2023",
+      horas: "8",
+      costeHora: "20,00",
+      importe: "160,00",
+      estado: "Finalizado"
+  },
+  {
+      mes: "Enero",
+      planProyecto: "Actividades",
+      accionActividad: "Material PRL",
+      edicion: "1",
+      fechaInicio: "23/07/2023",
+      fechaFin: "23/07/2023",
+      horas: "8",
+      costeHora: "20,00",
+      importe: "160,00",
+      estado: "Finalizado"
+  },
+  {
+      mes: "Enero",
+      planProyecto: "Actividades",
+      accionActividad: "Material PRL",
+      edicion: "1",
+      fechaInicio: "23/07/2023",
+      fechaFin: "23/07/2023",
+      horas: "8",
+      costeHora: "20,00",
+      importe: "160,00",
+      estado: "Finalizado"
+  },
+  {
+      mes: "Enero",
+      planProyecto: "Actividades",
+      accionActividad: "Material PRL",
+      edicion: "1",
+      fechaInicio: "23/07/2023",
+      fechaFin: "23/07/2023",
+      horas: "8",
+      costeHora: "20,00",
+      importe: "160,00",
+      estado: "Finalizado"
+  },
+  {
+      mes: "Enero",
+      planProyecto: "Actividades",
+      accionActividad: "Material PRL",
+      edicion: "1",
+      fechaInicio: "23/07/2023",
+      fechaFin: "23/07/2023",
+      horas: "8",
+      costeHora: "20,00",
+      importe: "160,00",
+      estado: "Finalizado"
+  },
+  {
+      mes: "Enero",
+      planProyecto: "Actividades",
+      accionActividad: "Material PRL",
+      edicion: "1",
+      fechaInicio: "23/07/2023",
+      fechaFin: "23/07/2023",
+      horas: "8",
+      costeHora: "20,00",
+      importe: "160,00",
+      estado: "Finalizado"
+  },
+  {
+      mes: "TOTAL",
+      planProyecto: "",
+      accionActividad: "",
+      edicion: "",
+      fechaInicio: "",
+      fechaFin: "",
+      horas: "56",
+      costeHora: "26",
+      importe: "9,520",
+      estado: ""
+  }
+];
+
+function openFileIconModal() {
+  let modal = document.getElementById('fileIconModal');
+  if (!modal) {
+      modal = document.createElement('div');
+      modal.className = 'modal fade';
+      modal.id = 'fileIconModal';
+      modal.tabIndex = -1;
+      modal.setAttribute('aria-labelledby', 'fileIconModalLabel');
+      modal.setAttribute('aria-hidden', 'true');
+      modal.innerHTML = `
+          <div class="modal-dialog modal-dialog-centered modalFile modal-xl">
+              <div class="modal-content">
+                  <div class="modal-header d-flex align-items-center justify-content-between">
+                      <h5 class="modal-title" id="fileIconModalLabel">Detalle Desglosado de Actividades y Formaciones</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      <table class="table table-bordered mt-2">
+                          <thead>
+                              <tr>
+                                  <th>MES</th>
+                                  <th>PLAN/PROYECTO</th>
+                                  <th>ACCIÓN/ACTIVIDAD</th>
+                                  <th>EDICIÓN</th>
+                                  <th>FECHA INICIO</th>
+                                  <th>FECHA FIN</th>
+                                  <th>HORAS</th>
+                                  <th>COSTE HORA</th>
+                                  <th>IMPORTE</th>
+                                  <th>ESTADO</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              ${tableData.map((item, index) => `
+                                  <tr ${index === tableData.length - 1 ? 'class="highlight-row"' : ''}>
+                                      <td>${item.mes}</td>
+                                      <td>${item.planProyecto}</td>
+                                      <td>${item.accionActividad}</td>
+                                      <td>${item.edicion}</td>
+                                      <td>${item.fechaInicio}</td>
+                                      <td>${item.fechaFin}</td>
+                                      <td>${item.horas}</td>
+                                      <td>${item.costeHora}</td>
+                                      <td>${item.importe}</td>
+                                      <td>${item.estado}</td>
+                                  </tr>
+                              `).join('')}
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      `;
+      document.body.appendChild(modal);
+
+      var modalInstance = new bootstrap.Modal(modal, {
+          backdrop: 'static'
+      });
+
+      modal.addEventListener('hidden.bs.modal', function () {
+          modal.remove();
+      });
+
+      modalInstance.show();
+  } else {
+      var modalInstance = bootstrap.Modal.getInstance(modal);
+      modalInstance.show();
+  }
+}
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  setupFileIconModal(); 
+});
+
+
+
+function setupFormadorIconPopover() {
+  let iconImage = document.getElementById('formadorIcon');
+  let isClicked = false;
+
+  if (!iconImage) return;
+
+  var menuPopover = new bootstrap.Popover(iconImage, {
+      html: true,
+      content: `<div class="d-flex flex-column align-items-between justify-content-center popoverFecha">
+                  <p id="gestor">Gestor</p>
+                  <p id="administrador">Administrador</p>
+                  <p id="alumnoInscrito">Alumno Inscrito</p>
+                  <p id="formador">Formador</p>
+                </div>`,
+      trigger: 'manual',
+      placement: 'bottom',
+  });
+
+  iconImage.addEventListener('click', function (event) {
+      isClicked = !isClicked;
+      menuPopover.toggle();
+      event.stopPropagation();
+  });
+
+  document.addEventListener('click', function () {
+      if (isClicked) {
+          isClicked = false;
+          menuPopover.hide();
+      }
+  });
+
+
+  document.body.addEventListener('click', function(event) {
+    if (event.target.id === 'administrador') {
+        window.location.href = 'assets/pages/administrador.html';
+    }
+});
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  setupFormadorIconPopover();  
+});
