@@ -32,9 +32,11 @@ function setupFormadorIconPopover() {
 
     document.body.addEventListener('click', function (event) {
         if (event.target.id === 'formador') {
-            window.location.href = '/index.html';
+            const isGitHubPages = window.location.hostname.includes('github.io');
+            window.location.href = isGitHubPages ? '/panel_gestor' : '/index.html';
         }
     });
+    
 }
 
 document.addEventListener('DOMContentLoaded', function () {
