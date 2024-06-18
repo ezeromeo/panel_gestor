@@ -82,6 +82,7 @@ function getColorStatus(text) {
 }
 
 
+
 function renderTable(filteredData) {
     const tableBody = document.getElementById('tableBody');
     tableBody.innerHTML = '';
@@ -91,8 +92,18 @@ function renderTable(filteredData) {
     } else {
         filteredData.forEach(row => {
             const tr = document.createElement('tr');
-            Object.values(row).forEach(value => {
+            Object.entries(row).forEach(([key, value], index) => {
                 const td = document.createElement('td');
+                
+                const textContent = value.replace(/<[^>]*>?/gm, '').trim();
+                
+                
+                if (key === 'ESTADO_2' && textContent === 'Pendiente') {
+                    td.style.color = '#DF1517';
+                } else if (key === 'ESTADO_COMUNICACION' && textContent === 'Comunicada') {
+                    td.style.color = '#51AC34';
+                }
+                
                 td.innerHTML = value;
                 tr.appendChild(td);
             });
@@ -101,15 +112,16 @@ function renderTable(filteredData) {
     }
 }
 
+
 function filterData() {
     const searchInputs = document.querySelectorAll('.searchDiv input');
     let filteredData = tableData;
 
     searchInputs.forEach((input, index) => {
-        const columnKey = Object.keys(tableData[0])[index + 2];
+        const columnKey = Object.keys(tableData[0])[index + 2]; 
         if (input.value) {
             filteredData = filteredData.filter(row => {
-                const columnValue = row[columnKey].replace(/<[^>]*>?/gm, '');
+                const columnValue = row[columnKey].replace(/<[^>]*>?/gm, ''); 
                 return columnValue.toLowerCase().includes(input.value.toLowerCase());
             });
         }
@@ -118,28 +130,30 @@ function filterData() {
     renderTable(filteredData);
 }
 
+
 document.querySelectorAll('.searchDiv input').forEach(input => {
     input.addEventListener('keyup', filterData);
 });
+
 
 renderTable(tableData);
 
 
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     const estadisticasIcon = document.querySelector('.estadisticasIcon');
     const chatbotAyuda = document.querySelector('.chatbotAyuda');
 
-    estadisticasIcon.addEventListener('click', function () {
+    estadisticasIcon.addEventListener('click', function() {
         window.open('https://app.powerbi.com/view?r=eyJrIjoiMjI0YTZiNjQtYWM1MS00ZTZmLWFkMTktZmM5NmEwNWYxNjQ1IiwidCI6IjU1ZWJjNjI2LWMxODctNDEwNC1hZDIzLTZiYTI1M2E0NDMwYSIsImMiOjh9', '_blank');
     });
 
-    chatbotAyuda.addEventListener('click', function () {
+    chatbotAyuda.addEventListener('click', function() {
         window.open('https://ia-chat.dev.doubledot.es/iformalia%E2%80%8B', '_blank');
     });
 });
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     function initOffcanvas() {
         const offcanvasRight = document.getElementById('offcanvasRight');
         if (!offcanvasRight) {
@@ -153,17 +167,17 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-
+        
         const offcanvasInstance = new bootstrap.Offcanvas(offcanvasRight, {
-            backdrop: false
+            backdrop: false  
         });
 
-        notesIcon.addEventListener('click', function () {
+        notesIcon.addEventListener('click', function() {
             offcanvasInstance.show();
         });
     }
 
-    initOffcanvas();
+    initOffcanvas(); 
 });
 
 
