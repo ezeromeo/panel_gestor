@@ -110,6 +110,15 @@ function renderTable(filteredData) {
             tableBody.appendChild(tr);
         });
     }
+
+    const cells = document.querySelectorAll('.tablaPrincipal td');
+
+    cells.forEach(cell => {
+    
+        if (cell.offsetWidth < cell.scrollWidth) {
+            cell.setAttribute('title', cell.textContent.trim());
+        }
+    });
 }
 
 
@@ -179,5 +188,46 @@ document.addEventListener('DOMContentLoaded', function() {
 
     initOffcanvas(); 
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const container = document.querySelector('.tablaPrincipal');
+    let isDown = false;
+    let startX;
+    let startY;
+    let scrollLeft;
+    let scrollTop;
+
+    container.addEventListener('mousedown', (e) => {
+        isDown = true;
+        container.style.cursor = 'grabbing';
+        startX = e.pageX - container.offsetLeft;
+        startY = e.pageY - container.offsetTop;
+        scrollLeft = container.scrollLeft;
+        scrollTop = container.scrollTop;
+    });
+
+    container.addEventListener('mouseleave', () => {
+        isDown = false;
+        container.style.cursor = 'auto';
+    });
+
+    container.addEventListener('mouseup', () => {
+        isDown = false;
+        container.style.cursor = 'auto';
+    });
+
+    container.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - container.offsetLeft;
+        const y = e.pageY - container.offsetTop;
+        const walkX = (x - startX) * 3;
+        const walkY = (y - startY) * 3;
+        container.scrollLeft = scrollLeft - walkX;
+        container.scrollTop = scrollTop - walkY;
+    });
+});
+
 
 
