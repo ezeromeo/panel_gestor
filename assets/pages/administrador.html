@@ -37,7 +37,7 @@
                 <img src="../../assets/img/chatbotAyuda.svg" alt="">
                 <p class="mt-2">ChatBot de Ayuda</p>
             </div>
-            <div class="usuario d-flex align-items-center justify-content-center flex-column">
+            <div class="usuario d-flex align-items-center justify-content-center flex-column" style="cursor: pointer;">
                 <div class="usuarioIcono d-flex align-items-center justify-content-center" id="formadorIcon">
                     <img src="../img/administrador.svg" alt="Icono Formador">
                 </div>
@@ -332,19 +332,358 @@
             </table>
         </div>
     </main>
-    <script src="../../js/administrador.js"></script>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header d-flex align-items-start justify-content-between flex-column">
+            <div class="offCanvasHeader d-flex align-items-center justify-content-between w-100">
+                <h5 id="offcanvasRightLabel" class="mb-0">Editar / Ver detalle Grupo</h5>
+                <div class="closeExpandReduce d-flex align-items-center justify-content-end">
+                    <img id="expandReduceIcon" src="../img/expandIcon.svg" alt="" style="cursor: pointer;">
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+            </div>
+            <div class="offCanvasSubHeader">
+                <p>Grupo: (6499) 11 - 1- PRL avanzado en la Oficina</p>
+                <div class="horarioAula d-flex align-items-center justify-content-start">
+                    <span class="d-flex align-items-center justify-content-start w-100 me-4"><p class="mb-0">(Interno) Horario:</p>L - M de 10:00 - 12:00</span>
+                    <div class="form-check aulaVirtual">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <label class="form-check-label" for="flexCheckChecked">
+                          Aula virtual
+                        </label>
+                    </div>
+                </div>
+                <div class="fechaInicioFin mt-2">
+                    <span class="d-flex align-items-center justify-content-start"><p class="mb-1">Fecha inicio y fin:</p>10/2 al 11/3</span>
+                </div>
+                <div class="sesiones d-flex align-items-center justify-content-start mt-2">
+                    <div class="sesionesIco d-flex align-items-center justify-content-start mb-1 me-2">
+                        <img src="../img/green-circle-fill-little.svg" alt="">
+                        <p class="mb-0 ms-1">Sesiones</p>
+                    </div>
+                    <div class="sesionesTexto d-flex align-items-center justify-content-start">
+                        <p class="mb-0 me-2">0/11 Firmadas</p>
+                        <p class="mb-0">23 Restantes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="offcanvas-body">
+            <nav class="nav-wrapper" style="overflow-x: auto; cursor: grab;">
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                  <button class="nav-link active" id="acciones-tab" data-bs-toggle="tab" data-bs-target="#acciones" type="button" role="tab" aria-controls="acciones" aria-selected="true">ACCIONES</button>
+                  <button class="nav-link" id="grupo-tab" data-bs-toggle="tab" data-bs-target="#grupo" type="button" role="tab" aria-controls="grupo" aria-selected="false">GRUPO</button>
+                  <button class="nav-link" id="comunicaciones-tab" data-bs-toggle="tab" data-bs-target="#comunicaciones" type="button" role="tab" aria-controls="comunicaciones" aria-selected="false">COMUNICACIONES</button>
+                  <button class="nav-link" id="alumnos-tab" data-bs-toggle="tab" data-bs-target="#alumnos" type="button" role="tab" aria-controls="alumnos" aria-selected="false">ALUMNOS</button>
+                  <button class="nav-link" id="profesores-tab" data-bs-toggle="tab" data-bs-target="#profesores" type="button" role="tab" aria-controls="profesores" aria-selected="false">PROFESORES</button>
+                  <button class="nav-link" id="calendario-tab" data-bs-toggle="tab" data-bs-target="#calendario" type="button" role="tab" aria-controls="calendario" aria-selected="false">CALENDARIO</button>
+                  <button class="nav-link" id="prácticas-tab" data-bs-toggle="tab" data-bs-target="#prácticas" type="button" role="tab" aria-controls="prácticas" aria-selected="false">PRÁCTICAS (PNL)</button>
+                  <button class="nav-link" id="asistencia-tab" data-bs-toggle="tab" data-bs-target="#asistencia" type="button" role="tab" aria-controls="asistencia" aria-selected="false"> ASISTENCIA</button>
+                  <button class="nav-link" id="cuestionario-tab" data-bs-toggle="tab" data-bs-target="#cuestionario" type="button" role="tab" aria-controls="cuestionario" aria-selected="false">CUESTIONARIO</button>
+                  <button class="nav-link" id="incidencias-tab" data-bs-toggle="tab" data-bs-target="#incidencias" type="button" role="tab" aria-controls="incidencias" aria-selected="false">INCIDENCIAS</button>
+                  <button class="nav-link" id="to-do-tab" data-bs-toggle="tab" data-bs-target="#to-do" type="button" role="tab" aria-controls="to-do" aria-selected="false">TO-DO</button>
+                </div>
+              </nav>
+              <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="acciones" role="tabpanel" aria-labelledby="acciones-tab">
+                    <form action="" class="formAcciones">
+                        <div class="formSuperior">
+                            <section class="primerForm d-flex align-items-start justify-content-start mt-5">
+                                <div class="cuatroSelects w-25 me-4">
+                                    <div class="mb-2">
+                                        <label for="accionGrupo" class="form-label">Acción o grupo</label>
+                                        <div class="selectIcon d-flex align-items-center justify-content-start">
+                                            <select class="form-select" id="accionGrupo" required>
+                                                <option selected>COML0110 mozo Almacén</option>
+                                            </select>
+                                            <img src="../img/searchInput.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="mb-2">
+                                        <label for="modalidad" class="form-label">Modalidad</label>
+                                        <select class="form-select" id="modalidad">
+                                            <option>Presencial</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-2">
+                                        <label for="horasTeleformacion" class="form-label">Horas teleformación</label>
+                                        <select class="form-select" id="horasTeleformacion">
+                                            <option>00</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-2">
+                                        <label for="codigo" class="form-label">Código</label>
+                                        <div class="selectIcon d-flex align-items-center justify-content-start">
+                                            <select class="form-select" id="codigo">
+                                                <option>01</option>
+                                            </select>
+                                            <img src="../img/searchInput.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dosSelDosInput d-flex align-items-start justify-content-center flex-column w-25">
+                                    <div class="mb-2">
+                                        <label for="exampleFormControlInput1" class="form-label">Nombre</label>
+                                        <input type="text" class="form-control w-100" id="exampleFormControlInput1" value="Nombre">
+                                    </div>
+                                    <div class="mb-2">
+                                        <label for="exampleFormControlInput2" class="form-label">Horas presenciales</label>
+                                        <input type="text" class="form-control w-100" id="exampleFormControlInput2" value="5">
+                                    </div>
+                                    <div class="mb-2">
+                                        <label for="expediente" class="form-label">Expediente</label>
+                                        <select class="form-select" id="expediente">
+                                            <option>Bonificada principal</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-2">
+                                        <label for="grupoDeAccion" class="form-label">Grupo de Acción</label>
+                                        <div class="selectIcon d-flex align-items-center justify-content-start">
+                                            <select class="form-select" id="grupoDeAccion">
+                                                <option>- Seleccionar -</option>
+                                            </select>
+                                            <img src="../img/searchInput.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>                            
+                            </section>
+                            <section class="segundoForm mb-2">
+                                <div class="dosSelect d-flex align-items-start justify-content-center flex-column w-25">
+                                    <div class="mb-2 w-100">
+                                        <label for="nivelFormacion" class="form-label">Nivel de formación</label>
+                                        <select class="form-select" id="nivelFormacion">
+                                            <option selected>- Seleccionar -</option>
+                                            <option>Básico</option>
+                                            <option>Superior</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-2 w-100">
+                                        <label for="url" class="form-label">Url</label>
+                                        <select class="form-select" id="urlSelect">
+                                            <option>https://...</option>
+                                        </select>
+                                    </div>
+                                    <div id="modalContainer"></div>
+                                </div>
+                            </section>
+                            <section class="tercerForm d-flex align-items-start justify-content-start">
+                                <div class="tresInput me-4 w-25">
+                                    <div class="mb-2">
+                                        <label for="exampleFormControlInput3" class="form-label">Usuario</label>
+                                        <input type="text" class="form-control w-100" id="exampleFormControlInput3" value="Usuario...">
+                                    </div>
+                                    <div class="mb-2">
+                                        <label for="exampleFormControlInput4" class="form-label">Teléfono</label>
+                                        <input type="text" class="form-control w-100" id="exampleFormControlInput4" value="643256343">
+                                    </div>
+                                    <div class="mb-2">
+                                        <label for="exampleFormControlInput5" class="form-label">Aclaraciones conexión</label>
+                                        <input type="text" class="form-control w-100" id="exampleFormControlInput5" value="Texto">
+                                    </div>
+                                </div>
+                                <div class="dosInput w-25">
+                                    <div class="mb-2">
+                                        <label for="exampleFormControlInput6" class="form-label">Password</label>
+                                        <input type="password" class="form-control w-100" id="exampleFormControlInput6" value="********">
+                                    </div>
+                                    <div class="mb-2">
+                                        <label for="exampleFormControlInput7" class="form-label">Observaciones</label>
+                                        <input type="text" class="form-control w-100" id="exampleFormControlInput7" value="Texto">
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="formInferior mt-4">
+                            <section class="cuartoForm mt-4 w-75">
+                                <div class="mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Objetivos</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">Texto</textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlTextarea2" class="form-label">Contenidos</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea2" rows="3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus neque nemo tempore vel fuga magnam consequuntur voluptates? Voluptatibus blanditiis, ex modi nihil impedit sunt? Perspiciatis possimus pariatur est eum vitae?</textarea>
+                                </div>
+                            </section>
+                        </div>
+                    </form>
+                    
+                </div>
+                <div class="tab-pane fade" id="grupo" role="tabpanel" aria-labelledby="grupo-tab">...</div>
+                <div class="tab-pane fade" id="comunicaciones" role="tabpanel" aria-labelledby="comunicaciones-tab">...</div>
+                <div class="tab-pane fade" id="alumnos" role="tabpanel" aria-labelledby="alumnos-tab">...</div>
+                <div class="tab-pane fade" id="profesores" role="tabpanel" aria-labelledby="profesores-tab">...</div>
+                <div class="tab-pane fade" id="calendario" role="tabpanel" aria-labelledby="calendario-tab">...</div>
+                <div class="tab-pane fade" id="prácticas" role="tabpanel" aria-labelledby="prácticas-tab">...</div>
+                <div class="tab-pane fade" id="asistencia" role="tabpanel" aria-labelledby="asistencia-tab">...</div>
+                <div class="tab-pane fade" id="cuestionario" role="tabpanel" aria-labelledby="cuestionario-tab">...</div>
+                <div class="tab-pane fade" id="incidencias" role="tabpanel" aria-labelledby="incidencias-tab">...</div>
+                <div class="tab-pane fade" id="to-do" role="tabpanel" aria-labelledby="to-do-tab">...</div>
+              </div>
+        </div>
+      </div>
+
+      <!-- Modales -->
+
+      <div class="modal fade" id="urlModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xxl">
+            <div class="modal-content">
+                <div class="modal-header d-flex align-items-center justify-content-center">
+                    <h5 class="modal-title">ACCESO SEDE/FUNDAE</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="formacionEjecucion mt-4">
+                        <p class="formacionTitle">Formación en ejecución</p>
+                        <div class="tablaEjecucion">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>ACCIÓN FORMATIVA</th>
+                                        <th>GRUPO</th>
+                                        <th>FECHA INICIO</th>
+                                        <th>FECHA FINALIZACIÓN</th>
+                                        <th>MODALIDAD</th>
+                                        <th>ACCESO</th>
+                                        <th>INFORME</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tableBodyEjecucion">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="formacionFinalizadas mt-4">
+                        <p class="formacionTitle">Formación finalizadas</p>
+                        <div class="tablaFinalizadas">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>ACCIÓN FORMATIVA</th>
+                                        <th>GRUPO</th>
+                                        <th>FECHA INICIO</th>
+                                        <th>FECHA FINALIZACIÓN</th>
+                                        <th>MODALIDAD</th>
+                                        <th>ACCESO</th>
+                                        <th>INFORME</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tableBodyFinalizadas">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- Modal para Teleformación -->
+    <div class="modal fade" id="modalTeleformacion" tabindex="-1" aria-labelledby="modalLabelTeleformacion" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header d-flex align-items-center justify-content-center">
+                    <h5 class="modal-title" id="modalLabelTeleformacion">ACCESO SEDE/FUNDAE</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="teleformacion mt-4">
+                        <p class="teleformacionTitle">Informe</p>
+                        <div class="tablaTeleformacion">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th colspan="4"></th>
+                                        <th colspan="2" class="text-center">CONTROL</th>
+                                        <th colspan="2" class="text-center">FORO</th>
+                                        <th colspan="2" class="text-center">CONEXIONES</th>
+                                        <th colspan="2" class="text-center">TEMA 1</th>
+                                        <th colspan="4"></th>
+                                    </tr>
+                                    <tr>
+                                        <th>ALUMNO</th>
+                                        <th>% ASISTENCIA</th>
+                                        <th>TIPO DIPLOMA</th>
+                                        <th>CERTIFICA</th>
+                                        <th>% CONTENIDOS</th>
+                                        <th>TIEMPO TOTAL</th>
+                                        <th>EVAL</th>
+                                        <th>N° MENSAJES</th>
+                                        <th>TIEMPO TOTAL</th>
+                                        <th>ACCESO</th>
+                                        <th>PRIMERA</th>
+                                        <th>ULTIMA</th>
+                                        <th>N° TOTAL</th>
+                                        <th>PRIMERA</th>
+                                        <th>ULTIMA</th>
+                                        <th>RESULTADO</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tableBodyTeleformacion">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Aul@ Virtual -->
+    <div class="modal fade" id="modalAulaVirtual" tabindex="-1" aria-labelledby="modalLabelAulaVirtual" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header d-flex align-items-center justify-content-center">
+                    <h5 class="modal-title" id="modalLabelAulaVirtual">ACCESO SEDE/FUNDAE</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="aulaVirtual mt-4">
+                        <p class="aulaVirtualTitle">Informe</p>
+                        <div class="tablaAulaVirtual">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>ACCIÓN FORMATIVA</th>
+                                        <th>GRUPO</th>
+                                        <th>FECHA INICIO</th>
+                                        <th>FECHA FINALIZACIÓN</th>
+                                        <th>MODALIDAD</th>
+                                        <th>ACCESO</th>
+                                        <th>INFORME</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tableBodyAulaVirtual">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Declaracion Responsable -->
+
+    <div class="modal fade" id="modalDeclaracionResponsable" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex align-items-center justify-content-center flex-column">
+                    <div class="fundacion d-flex align-items-center justify-content-center m-2 me-3">
+                        <img src="../../assets/img/fundacionEstatal.svg" alt="">
+                        <img src="../../assets/img/fundacionEstatalLogo.svg" alt="">
+                    </div>
+                    <img src="../img/declaracionResponsable.png" alt="">
+                    <div class="fundacion d-flex align-items-center justify-content-center m-2 me-3">
+                        <img src="../../assets/img/fundacionEstatal.svg" alt="">
+                        <img src="../../assets/img/fundacionEstatalLogo.svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-        <div class="offcanvas-header">
-          <h5 id="offcanvasRightLabel">Editar / Ver detalle Grupo</h5>
-          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-          
-        </div>
-      </div>
-      
+    <script src="../../js/administrador.js"></script>
 </body>
 </html>

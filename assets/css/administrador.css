@@ -170,3 +170,308 @@ aside {
     margin-left: 100px;
     margin-top: 40px !important;
 }
+
+.offCanvasSubHeader p, .fechaInicioFin p{
+    color: #7B7B7B;
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.offcanvas.offcanvas-end{
+    width: 50%;
+}
+
+.aulaVirtual{
+    white-space: nowrap;
+}
+
+.sesionesTexto p{
+    color: #A1A1A1;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: normal;
+}
+
+nav {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  
+  .nav-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    --bs-nav-tabs-border-width: none;
+  }
+  
+  .nav-tabs .nav-link {
+    white-space: nowrap;
+    margin-right: 0.5rem;
+    color: #7B7B7B;
+    font-family: Lato;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+  }
+
+  .nav-link.active::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: -3px;
+    border-radius: 10px;
+    pointer-events: none;
+  }
+  
+  .nav-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  nav {
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+  }
+
+
+.input-group-text{
+    background-color: #85BECE;
+}
+
+.formAcciones input,
+.formAcciones select,
+.formAcciones input:focus,
+.formAcciones select:focus,
+.formAcciones textarea,
+.formAcciones textarea:focus {
+    background-color: #F5F5F5;
+}
+
+.form-floating label::after{
+    background-color: #F5F5F5 !important;
+}
+
+.formAcciones label{
+    color: #2F647E !important;
+    opacity: inherit !important;
+    font-family: Lato;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+#urlModal .modal-header,
+#modalTeleformacion .modal-header,
+#modalAulaVirtual .modal-header {
+    background-color: #2F647E;
+}
+
+#urlModal .modal-title,
+#modalTeleformacion .modal-title,
+#modalAulaVirtual .modal-title {
+    color: var(--blanco, #FFF);
+    font-family: Lato;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+#urlModal .modal-body{
+    background-color: #F6F8FB;
+}
+
+.formacionTitle, .teleformacionTitle, .aulaVirtualTitle{
+    color: var(--Principal, #2F647E);
+    font-family: Lato;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+#urlModal th, #modalTeleformacion th, #modalAulaVirtual th{
+    background-color: #85BECE;
+    color: white;
+    text-align: center;
+    white-space: nowrap;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+#urlModal td, #modalTeleformacion td, #modalAulaVirtual td{
+    text-align: center;
+    white-space: nowrap;
+}
+
+.formacionEjecucion,
+.formacionFinalizadas{
+    background-color: white;
+    padding: 20px;
+}
+
+.modal-xxl{
+    max-width: 1800px;
+}
+
+
+.accionFormativa{
+    color: var(--gris, #636363);
+    font-family: Lato;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+    text-align: start !important;
+
+}
+
+.grupo{
+    color: #51AC34;
+    text-align: right;
+    font-family: Lato;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+.fechaInicio, .fechaFinal, .modalidad{
+    color: var(--gris, #636363);
+    text-align: right;
+    font-family: Lato;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+.acceso{
+    color: #51AC34 !important;
+    text-align: right;
+    font-family: Lato;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px;
+    text-decoration-line: underline;
+    cursor: pointer;
+}
+
+.informe {
+    color: #51AC34 !important;
+    text-align: right;
+    font-family: Lato;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px;
+    text-decoration-line: underline;
+    cursor: pointer;
+
+}
+
+.passed{
+    color: #51AC34 !important;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.tablaAulaVirtual tr:last-child, .tablaTeleformacion tr:last-child{
+    background-color: #F1F1F1;
+}
+
+.tablaAulaVirtual,
+.tablaTeleformacion{
+    overflow-x: auto;
+}
+
+
+#tableBodyTeleformacion > tr:nth-child(4) td{
+    background-color: #F1F1F1 !important;
+}
+
+#tableBodyTeleformacion > tr:nth-child(4) td:nth-child(1),
+#tableBodyTeleformacion > tr:nth-child(4) td:nth-child(2),
+#tableBodyTeleformacion > tr:nth-child(1) td:nth-child(1),
+#tableBodyTeleformacion > tr:nth-child(2) td:nth-child(1),
+#tableBodyTeleformacion > tr:nth-child(3) td:nth-child(1),
+#tableBodyTeleformacion > tr:nth-child(1) td:nth-child(3),
+#tableBodyTeleformacion > tr:nth-child(1) td:nth-child(4),
+#tableBodyTeleformacion > tr:nth-child(1) td:nth-child(11),
+.colorNegro{
+    color: #585858;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+} 
+
+#tableBodyTeleformacion > tr:nth-child(1) td:nth-child(2),
+#tableBodyTeleformacion > tr:nth-child(2) td:nth-child(2),
+#tableBodyTeleformacion > tr:nth-child(3) td:nth-child(2){
+    color: #DF1517;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.colorVerde{
+    color: #51AC34 !important;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.colorRojo{
+    color: #DF1517 !important;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.colorGris{
+    color: var(--gris, #636363);
+    font-family: Lato;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 13px;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.nav-link.active{
+    color: #2F647E !important;
+    font-family: Lato;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    border-bottom: 3px solid #2F647E !important;
+}
+
