@@ -376,14 +376,13 @@
                   <button class="nav-link" id="alumnos-tab" data-bs-toggle="tab" data-bs-target="#alumnos" type="button" role="tab" aria-controls="alumnos" aria-selected="false">ALUMNOS</button>
                   <button class="nav-link" id="profesores-tab" data-bs-toggle="tab" data-bs-target="#profesores" type="button" role="tab" aria-controls="profesores" aria-selected="false">PROFESORES</button>
                   <button class="nav-link" id="calendario-tab" data-bs-toggle="tab" data-bs-target="#calendario" type="button" role="tab" aria-controls="calendario" aria-selected="false">CALENDARIO</button>
-                  <button class="nav-link" id="prácticas-tab" data-bs-toggle="tab" data-bs-target="#prácticas" type="button" role="tab" aria-controls="prácticas" aria-selected="false">PRÁCTICAS (PNL)</button>
                   <button class="nav-link" id="asistencia-tab" data-bs-toggle="tab" data-bs-target="#asistencia" type="button" role="tab" aria-controls="asistencia" aria-selected="false"> ASISTENCIA</button>
                   <button class="nav-link" id="cuestionario-tab" data-bs-toggle="tab" data-bs-target="#cuestionario" type="button" role="tab" aria-controls="cuestionario" aria-selected="false">CUESTIONARIO</button>
                   <button class="nav-link" id="incidencias-tab" data-bs-toggle="tab" data-bs-target="#incidencias" type="button" role="tab" aria-controls="incidencias" aria-selected="false">INCIDENCIAS</button>
                   <button class="nav-link" id="to-do-tab" data-bs-toggle="tab" data-bs-target="#to-do" type="button" role="tab" aria-controls="to-do" aria-selected="false">TO-DO</button>
                 </div>
               </nav>
-              <div class="tab-content" id="nav-tabContent">
+              <div class="tab-content">
                 <div class="tab-pane fade show active" id="acciones" role="tabpanel" aria-labelledby="acciones-tab">
                     <form action="" class="formAcciones">
                         <div class="formSuperior">
@@ -507,16 +506,1568 @@
                     </form>
                     
                 </div>
-                <div class="tab-pane fade" id="grupo" role="tabpanel" aria-labelledby="grupo-tab">...</div>
-                <div class="tab-pane fade" id="comunicaciones" role="tabpanel" aria-labelledby="comunicaciones-tab">...</div>
-                <div class="tab-pane fade" id="alumnos" role="tabpanel" aria-labelledby="alumnos-tab">...</div>
-                <div class="tab-pane fade" id="profesores" role="tabpanel" aria-labelledby="profesores-tab">...</div>
-                <div class="tab-pane fade" id="calendario" role="tabpanel" aria-labelledby="calendario-tab">...</div>
-                <div class="tab-pane fade" id="prácticas" role="tabpanel" aria-labelledby="prácticas-tab">...</div>
-                <div class="tab-pane fade" id="asistencia" role="tabpanel" aria-labelledby="asistencia-tab">...</div>
-                <div class="tab-pane fade" id="cuestionario" role="tabpanel" aria-labelledby="cuestionario-tab">...</div>
-                <div class="tab-pane fade" id="incidencias" role="tabpanel" aria-labelledby="incidencias-tab">...</div>
-                <div class="tab-pane fade" id="to-do" role="tabpanel" aria-labelledby="to-do-tab">...</div>
+                <div class="tab-pane fade" id="grupo" role="tabpanel" aria-labelledby="grupo-tab">
+                    <div class="grupoChat mt-3">
+                        <div class="anadirCopiar d-flex align-items-center justify-content-start">
+                            <div class="anadirGrupo d-flex align-items-center justify-content-center me-3">
+                                <p class="mb-0 me-2">Añadir otro grupo</p>
+                                <img src="../img/plusIcon.svg" alt="">
+                            </div>
+                            <div class="copiarGrupo d-flex align-items-center justify-content-center">
+                                <p class="mb-0 me-2">Copiar grupo</p>
+                                <img src="../img/plusIcon.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="estadoColor d-flex align-items-center justify-content-start mt-4">
+                            <div class="estado me-2">
+                                <label for="estado">Estado</label>
+                                <div class="custom-select" id="customSelect">
+                                    <div class="select-selected">Seleccione... 
+                                        <span class="chevron-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                                                <path d="M1 1L6 6L11 1" stroke="#428BA9" stroke-linecap="round"/>
+                                            </svg>
+                                        </span>
+                                    </div>                                        
+                                    <div class="select-items custom-select-hide">
+                                        <div data-value="incidentado"><img src="../img/red-circle-fill-little.svg" alt="" class="me-2"><span style="color: #DF1517;">Incidentado</span></div>
+                                        <div data-value="anulado"><img src="../img/darkRed-circle-fill-little.svg" alt="" class="me-2"><span style="color: #8C0C0E;">Anulado</span></div>
+                                        <div data-value="modificado"><img src="../img/orange-circle-fill-little.svg" alt="" class="me-2"><span style="color: #FF7A00;">Modificado</span></div>
+                                        <div data-value="finalizado"><img src="../img/gray-circle-fill-little.svg" alt="" class="me-2"><span style="color: #7B7B7B;">Finalizado</span></div>
+                                        <div data-value="valido"><img src="../img/green-circle-fill-little.svg" alt="" class="me-2"><span style="color: #51AC34;">Válido</span></div>
+                                        <div data-value="pdte"><img src="../img/blue-circle-fill-little.svg" alt="" class="me-2"><span style="color: #3374B0;">Pdte</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="color">
+                                <label for="exampleColorInput" class="form-label mb-0">Color</label>
+                                <input type="color" class="form-control form-control-color" id="exampleColorInput" value="#F9C200">
+                            </div>
+                        </div>
+                        <div class="subtituloEstadoColor d-flex align-items-center justify-content-start">
+                            <p class="mb-0">Ultima modificación: 12/02/23 por Juan Muñoz</p>
+                        </div>
+                        <p class="foro">Foro</p>
+                        <div id="chatContainer">
+                            <div id="messages" class="d-flex align-items-end justify-content-end flex-column">
+                                <div class="messageContainer d-flex align-items-end justify-content-end">
+                                    <div class="messageTitle">
+                                        <div>Diego Pérez</div>
+                                        <div>11/06/2023 14:17</div>
+                                    </div>
+                                    <div class="mensajeResponder d-flex align-items-end justify-content-between w-100">
+                                        <div class="message">Hola</div>
+                                        <div class="responder">Responder</div>
+                                    </div>
+                                </div>
+                                <div class="messageContainer d-flex align-items-end justify-content-end">
+                                    <div class="messageTitle">
+                                        <div>Diego Pérez</div>
+                                        <div>11/06/2023 14:17</div>
+                                    </div>
+                                    <div class="mensajeResponder d-flex align-items-end justify-content-between w-100">
+                                        <div class="message">He subido la factura para pagos, quedan 15 días</div>
+                                        <div class="responder">Responder</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <form id="messageForm" class="d-flex align-items-center justify-content-start">
+                                <div class="input-group d-flex align-items-center justify-content-start">
+                                    <input type="text" class="form-control" id="messageInput" autocomplete="off" placeholder="Escriba un nuevo mensaje..." aria-describedby="button-addon2"/>
+                                    <button type="submit" class="btn botonAdjuntar" id="button-addon2">Adjuntar</button>
+                                </div>
+                                <button type="submit" class="btn ms-2 botonEnviar">Enviar</button>
+                            </form>
+                        </div>
+                        <div class="tags mt-4">
+                            <p>Tags</p>
+                            <div class="tagInput d-flex align-items-center justify-content-between">
+                                <div class="pills d-flex align-items-center justify-content-start">
+                                    <div class="certificadoProfesional me-2">Certificado Profesional</div>
+                                    <div class="telefonica me-2">Telefonica</div>
+                                    <div class="ahora me-2">Ahora</div>
+                                </div>
+                                <div class="add">
+                                    <img src="../img/plusIcon.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grupoForm mt-4">
+                        <p>Horario</p>
+                        <nav class="nav-wrapper">
+                            <div class="nav nav-tabs" id="nav-tab-grupo" role="tablist">
+                              <button class="nav-link active" id="nav-presencial-tab" data-bs-toggle="tab" data-bs-target="#nav-presencial" type="button" role="tab" aria-controls="nav-presencial" aria-selected="true">Presencial</button>
+                              <button class="nav-link" id="nav-teleformacion-tab" data-bs-toggle="tab" data-bs-target="#nav-teleformacion" type="button" role="tab" aria-controls="nav-teleformacion" aria-selected="false">Teleformación</button>
+                              <button class="nav-link" id="nav-aula-virtual-tab" data-bs-toggle="tab" data-bs-target="#nav-aula-virtual" type="button" role="tab" aria-controls="nav-aula-virtual" aria-selected="false">Aula Virtual</button>
+                            </div>
+                          </nav>
+                          <div class="tab-content">
+                            <div class="tab-pane fade show active" id="nav-presencial" role="tabpanel" aria-labelledby="nav-presencial-tab">
+                                <form action="" class="formGrupoPresencial">
+                                    <div class="selectGroup d-flex align-items-center justify-content-start">
+                                        <div class="input1 d-flex align-items-start justify-content-start flex-column">
+                                            <label class="input-group-text labelFechaInicioGrupo ps-0" for="inputGroupSelectGrupo5">Fecha inicio</label>
+                                            <div class="input-group inputGrupoPresencial">
+                                                <select class="form-select" id="inputGroupSelectGrupo5">
+                                                    <option selected>10/02/2023</option>
+                                                </select>
+                                                <label class="input-group-text labelFechaInicioGrupo" for="inputGroupSelectGrupo5"><img src="../img/calendarGrupo.svg" alt=""></label>
+                                            </div>
+                                        </div>
+                                        <div class="input2 d-flex align-items-start justify-content-start flex-column">
+                                            <label class="input-group-text labelFechaFinGrupo ps-0" for="inputGroupSelectGrupo6">Fecha Fin</label>
+                                            <div class="input-group inputGrupoPresencial">
+                                                <select class="form-select" id="inputGroupSelectGrupo6">
+                                                <option selected>10/02/2023</option>
+                                                </select>
+                                                <label class="input-group-text labelFechaFinGrupo" for="inputGroupSelectGrupo6"><img src="../img/calendarGrupo.svg" alt=""></label>
+                                            </div>
+                                        </div>
+                                        <div class="input3 d-flex align-items-start justify-content-start flex-column">
+                                            <label class="input-group-text labelDesdeGrupo ps-0" for="inputGroupSelectGrupo7">Desde</label>
+                                            <div class="input-group inputGrupoPresencial">
+                                                <select class="form-select" id="inputGroupSelectGrupo7">
+                                                    <option selected>10:00</option>
+                                                </select>
+                                                <label class="input-group-text labelDesdeGrupo" for="inputGroupSelectGrupo7"><img src="../img/clockIcon.svg" alt=""></label>
+                                            </div>
+                                        </div>
+                                        <div class="input4 d-flex align-items-start justify-content-start flex-column">
+                                            <label class="input-group-text labelHastaGrupo ps-0" for="inputGroupSelectGrupo8">Hasta</label>
+                                            <div class="input-group inputGrupoPresencial">
+                                                <select class="form-select" id="inputGroupSelectGrupo8">
+                                                <option selected>13:00</option>
+                                                </select>
+                                                <label class="input-group-text labelHastaGrupo" for="inputGroupSelectGrupo8"><img src="../img/clockIcon.svg" alt=""></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="daySelector d-flex align-items-center justify-content-start mt-4">
+                                        <div class="lunes me-2">L</div>
+                                        <div class="martes me-2">M</div>
+                                        <div class="miercoles me-2">X</div>
+                                        <div class="jueves me-2">J</div>
+                                        <div class="viernes me-2">V</div>
+                                        <div class="sabado me-2">S</div>
+                                        <div class="domingo me-2">D</div>
+                                    </div>
+                                    <div class="observacionesGrupo w-50 mt-4">
+                                        <label for="observacionesGrupo" class="form-label">Observaciones</label>
+                                        <select class="form-select" name="" id="observacionesGrupo">
+                                            <option selected>Observaciones</option>
+                                        </select>
+                                    </div>
+                                    <div class="lugarImparticion">
+                                        <p>Lugar de imparticion</p>
+                                        <div class="lugar w-25">
+                                            <label for="lugar">Lugar</label>
+                                            <select name="" id="lugar" class="form-select">
+                                                <option value="" selected>Innopulse Asesores Tecnológicos</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="inputsGrupoForm d-flex align-items-start justify-content-start flex-column">
+                                        <div class="inputsTop w-50 d-flex align-items-start justify-content-start me-2">
+                                            <div class="inputsTopIzquierda w-100 mt-3">
+                                                <label for="localidad" class="form-label">Localidad</label>
+                                                <select name="" id="localidad" class="form-select">
+                                                    <option value="" selected>Donostia-San Sebastián</option>
+                                                </select>
+                                                <div class="inputsIzqGrupo1 d-flex align-items-center justify-content-start mt-3">
+                                                    <div class="cp d-flex align-items-start justify-content-center flex-column">
+                                                        <label for="cp" class="form-label">Codigo postal</label>
+                                                        <input class="form-control" id="cp" type="number" value="20001">
+                                                    </div>
+                                                    <div class="tipoVia d-flex align-items-start justify-content-center flex-column w-100 ms-2">
+                                                        <label for="tipoVia" class="form-label">Tipo de vía</label>
+                                                        <select name="" id="tipoVia" class="form-select">
+                                                            <option value="" selected>Calle</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="inputsTopDerecha ms-2 w-100 mt-3">
+                                                <label for="provincia" class="form-label">Provincia</label>
+                                                <select name="" id="provincia" class="form-select">
+                                                    <option value="" selected>GUIPUZCUA</option>
+                                                </select>
+                                                <label for="direccion" class="form-label mt-3">Dirección</label>
+                                                <input class="form-control" id="direccion" type="text" value="Av Libertador 1366">    
+                                            </div>
+                                        </div>
+                                        <div class="inputsBottom w-50 d-flex align-items-start justify-content-start flex-column">
+                                            <div class="d-flex align-items-end justify-content-center">
+                                                <div class="inputsBottomIzquierda w-100">
+                                                    <div class="inputsDerGrupo1 d-flex align-items-center justify-content-start mt-3">
+                                                        <div class="numero d-flex align-items-start justify-content-center flex-column me-2">
+                                                            <label for="numero" class="form-label">Número</label>
+                                                            <input class="form-control" id="numero" type="text" value="8">    
+                                                        </div>
+                                                        <div class="piso d-flex align-items-start justify-content-center flex-column">
+                                                            <label for="piso" class="form-label">Piso</label>
+                                                            <input class="form-control" id="piso" type="text" value="4-c">    
+                                                        </div>
+                                                    </div>
+                                                    <label for="contact" class="form-label mt-3">Contacto</label>
+                                                    <input class="form-control" id="contact" type="text" value="Carlos Muñoz"> 
+                                                    <div class="inputsDerGrupo2 d-flex align-items-center justify-content-start">
+                                                        <div class="telefono d-flex align-items-start justify-content-center flex-column w-100 me-2 mt-3">
+                                                            <label for="telefono" class="form-label">Teléfono</label>
+                                                            <input class="form-control" id="telefono" type="text" value="643256343"> 
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="inputsBottomDerecha w-100">
+                                                    <div class="email d-flex align-items-start justify-content-center flex-column mt-3">
+                                                        <label for="email" class="form-label">Email</label>
+                                                        <input class="form-control" id="email" type="email" value="cmunoz@email.es"> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade" id="nav-teleformacion" role="tabpanel" aria-labelledby="nav-teleformacion-tab">...</div>
+                            <div class="tab-pane fade" id="nav-aula-virtual" role="tabpanel" aria-labelledby="nav-aula-virtual-tab">
+                                <form action="" class="formGrupo">
+                                    <div class="selectGroup d-flex align-items-center justify-content-start">
+                                        <div class="input1 d-flex align-items-start justify-content-start flex-column">
+                                            <label class="input-group-text labelFechaInicioGrupo ps-0" for="inputGroupSelectGrupo5">Fecha inicio</label>
+                                            <div class="input-group inputGrupoPresencial">
+                                                <select class="form-select" id="inputGroupSelectGrupo5">
+                                                    <option selected>10/02/2023</option>
+                                                </select>
+                                                <label class="input-group-text labelFechaInicioGrupo" for="inputGroupSelectGrupo5"><img src="../img/calendarGrupo.svg" alt=""></label>
+                                            </div>
+                                        </div>
+                                        <div class="input2 d-flex align-items-start justify-content-start flex-column">
+                                            <label class="input-group-text labelFechaFinGrupo ps-0" for="inputGroupSelectGrupo6">Fecha Fin</label>
+                                            <div class="input-group inputGrupoPresencial">
+                                                <select class="form-select" id="inputGroupSelectGrupo6">
+                                                <option selected>10/02/2023</option>
+                                                </select>
+                                                <label class="input-group-text labelFechaFinGrupo" for="inputGroupSelectGrupo6"><img src="../img/calendarGrupo.svg" alt=""></label>
+                                            </div>
+                                        </div>
+                                        <div class="input3 d-flex align-items-start justify-content-start flex-column">
+                                            <label class="input-group-text labelDesdeGrupo ps-0" for="inputGroupSelectGrupo7">Desde</label>
+                                            <div class="input-group inputGrupoPresencial">
+                                                <select class="form-select" id="inputGroupSelectGrupo7">
+                                                    <option selected>10:00</option>
+                                                </select>
+                                                <label class="input-group-text labelDesdeGrupo" for="inputGroupSelectGrupo7"><img src="../img/clockIcon.svg" alt=""></label>
+                                            </div>
+                                        </div>
+                                        <div class="input4 d-flex align-items-start justify-content-start flex-column">
+                                            <label class="input-group-text labelHastaGrupo ps-0" for="inputGroupSelectGrupo8">Hasta</label>
+                                            <div class="input-group inputGrupoPresencial">
+                                                <select class="form-select" id="inputGroupSelectGrupo8">
+                                                <option selected>13:00</option>
+                                                </select>
+                                                <label class="input-group-text labelHastaGrupo" for="inputGroupSelectGrupo8"><img src="../img/clockIcon.svg" alt=""></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="daySelector d-flex align-items-center justify-content-start mt-4">
+                                        <div class="lunes me-2">L</div>
+                                        <div class="martes me-2">M</div>
+                                        <div class="miercoles me-2">X</div>
+                                        <div class="jueves me-2">J</div>
+                                        <div class="viernes me-2">V</div>
+                                        <div class="sabado me-2">S</div>
+                                        <div class="domingo me-2">D</div>
+                                    </div>
+                                    <div class="observacionesGrupo w-50">
+                                        <label for="observacionesGrupo" class="form-label">Observaciones</label>
+                                        <select class="form-select" name="" id="observacionesGrupo">
+                                            <option selected>Observaciones</option>
+                                        </select>
+                                    </div>
+                                    <div class="lugarImparticion">
+                                        <p>Lugar de imparticion</p>
+                                        <div class="urlImparticion w-25">
+                                            <label for="urlImparticion">Url</label>
+                                            <select name="" id="urlImparticion" class="form-select">
+                                                <option value="" selected>https:// ...</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="inputsGrupoForm d-flex align-items-start justify-content-start">
+                                        <div class="inputsIzquierda w-25 d-flex align-items-start justify-content-start flex-column me-2">
+                                            <label for="lugar" class="form-label">Lugar</label>
+                                            <input class="form-control" id="lugar" type="text" value="Innopulse Asesores Tecnológicos">
+                                            <label for="localidad" class="form-label">Localidad</label>
+                                            <input class="form-control" id="localidad" type="text" value="Donostia-San Sebastián">
+
+                                            <label for="contacto" class="form-label">Contacto</label>
+                                            <input class="form-control" id="contacto" type="text" value="Carlos Muñoz">
+                                            <label for="telefono" class="form-label">Teléfono</label>
+                                            <input class="form-control" id="telefono" type="text" value="Carlos Muñoz">
+                                        </div>
+                                        <div class="inputsDerecha w-25 d-flex align-items-start justify-content-start flex-column">
+                                            <label for="provincia" class="form-label">Provincia</label>
+                                            <input class="form-control" id="provincia" type="password" value="********">
+                                            <label for="direccion" class="form-label">Dirección</label>
+                                            <input class="form-control" id="direccion" type="text" value="Texto">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="comunicaciones" role="tabpanel" aria-labelledby="comunicaciones-tab">
+                    <table class="table table-bordered tablaComunicaciones mt-5">
+                        <thead>
+                            <tr>
+                                <th>COMUNICACIÓN</th>
+                                <th>ESTADO</th>
+                                <th>VALIDACIÓN</th>
+                                <th>VALIDACIÓN</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBodyComunicaciones">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="alumnos" role="tabpanel" aria-labelledby="alumnos-tab">
+                    <div class="tablaAlumnosContenedor">
+                        <div class="alumnosSearchAdd d-flex align-items-center justify-content-start mt-3">
+                            <div class="alumnosSearch me-3 d-flex align-items-center justify-content-center">
+                                <p class="mb-0 me-2">Alumnos</p>
+                                <img src="../img/searchIcon.svg" style="cursor: pointer;" alt="">
+                            </div>
+                            <div class="alumnosAdd d-flex align-items-center justify-content-center">
+                                <p class="mb-0 me-2">Añadir alumnos</p>
+                                <img src="../img/plusIcon.svg" style="cursor: pointer;" alt="">
+                            </div>
+                        </div>
+                        <table class="table table-bordered tablaAlumnos mt-4">
+                            <thead>
+                                <tr>
+                                    <th><div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefaultHeader"></div></th>
+                                    <th>App</th>
+                                    <th>NIF</th>
+                                    <th>Nombre</th>
+                                    <th>Apellidos</th>
+                                    <th>Email</th>
+                                    <th>Estado</th>
+                                    <th>Certifica</th>
+                                    <th>Finaliza</th>
+                                    <th>Inicia</th>
+                                    <th>Baja</th>
+                                    <th>% Asistencia</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBodyAlumnos"></tbody>
+                        </table>
+                        <div class="botonesAnadirExcelAlumnos d-flex align-items-start justify-content-start flex-column">
+                            <button class="btn mb-2">Ver todos los campos</button>
+                            <button class="btn">Copiar desde el Excel</button>
+                            <p class="mb-0 mt-2 ms-3">o arrastra y suelta el excel aquí</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="profesores" role="tabpanel" aria-labelledby="profesores-tab">
+                    <div class="profesoresSearchAdd d-flex align-items-center justify-content-start mt-3">
+                        <div class="profesoresSearch me-3 d-flex align-items-center justify-content-center">
+                            <p class="mb-0 me-2">Profesores</p>
+                            <img src="../img/searchIcon.svg" style="cursor: pointer;" alt="">
+                        </div>
+                        <div class="profesoresAdd d-flex align-items-center justify-content-center">
+                            <p class="mb-0 me-2">Añadir profesores</p>
+                            <img src="../img/plusIcon.svg" style="cursor: pointer;" alt="">
+                        </div>
+                    </div>
+                    <div class="tablaProfesoresDiv">
+                        <table class="table table-bordered tablaProfesores mt-4">
+                            <thead>
+                                <tr>
+                                    <th><div class="form-check"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefaultHeader"></div></th>
+                                    <th></th>
+                                    <th>NIF</th>
+                                    <th>Nombre</th>
+                                    <th>Apellido 1</th>
+                                    <th>Apellido 2</th>
+                                    <th>Email</th>
+                                    <th>Teléfono</th>
+                                    <th>Horas</th>
+                                    <th>Modalidad</th>
+                                    <th>APP</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBodyProfesores">
+                            </tbody>
+                        </table>
+                        <div class="botonesAnadirExcel d-flex align-items-start justify-content-start flex-column">
+                            <button class="btn mb-2">Añadir más</button>
+                            <button class="btn">Copiar desde el Excel</button>
+                            <p class="mb-0 mt-2 ms-3">o arrastra y suelta el excel aquí</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="calendario" role="tabpanel" aria-labelledby="calendario-tab">
+
+                    <div class="calendarioIzquierda">
+                        <form action="" class="formCalendarioIzquierda">
+                            <div class="calendarioTopIzquierda">
+                                <div class="selectCalendarioTopIzquierda d-flex align-items-center justify-content-start">
+                                    <div class="selectModalidad d-flex align-items-start justify-content-center flex-column me-2">
+                                        <label for="modalidad" class="form-label">Modalidad</label>
+                                        <select class="form-select" id="modalidad" required>
+                                            <option selected>Jornadas de formación presencial</option>
+                                        </select>
+                                    </div>
+                                    <div class="selectHorarioCalendario d-flex align-items-start justify-content-center flex-column w-25">
+                                        <label for="horarioCalendario" class="form-label">Horario</label>
+                                        <select class="form-select" id="horarioCalendario" required>
+                                            <option selected>- Seleccionar -</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="selectFechas d-flex align-items-center justify-content-start">
+                                    <div class="selectCalendarioFechaTopIzquierda d-flex align-items-start justify-content-start flex-column w-25">
+                                        <label class="input-group-text labelFechaInicioGrupo ps-0" for="selectFechaInicioCalendario">Fecha inicio</label>
+                                        <div class="input-group inputGrupoPresencial">
+                                            <select class="form-select" id="selectFechaInicioCalendario">
+                                                <option selected>10/02/2023</option>
+                                            </select>
+                                            <label class="input-group-text labelFechaInicioGrupo" for="selectFechaInicioCalendario"><img src="../img/calendarGrupo.svg" alt=""></label>
+                                        </div>
+                                    </div>
+                                    <div class="selectCalendarioFechaTopIzquierda d-flex align-items-start justify-content-start flex-column w-25">
+                                        <label class="input-group-text labelFechaFinGrupo ps-0" for="selectFechaFinCalendario">Fecha Fin</label>
+                                        <div class="input-group inputGrupoPresencial">
+                                            <select class="form-select" id="selectFechaFinCalendario">
+                                            <option selected>10/02/2023</option>
+                                            </select>
+                                            <label class="input-group-text labelFechaFinGrupo" for="selectFechaFinCalendario"><img src="../img/calendarGrupo.svg" alt=""></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="daySelectorCalendario d-flex align-items-center justify-content-start mt-4">
+                                    <div class="lunes me-2">L</div>
+                                    <div class="martes me-2">M</div>
+                                    <div class="miercoles me-2">X</div>
+                                    <div class="jueves me-2">J</div>
+                                    <div class="viernes me-2">V</div>
+                                    <div class="sabado me-2">S</div>
+                                    <div class="domingo me-2">D</div>
+                                </div>
+                            </div>
+                            <div class="calendarioBottomDerecha d-flex align-items-start justify-content-between w-100 mt-3">
+                                <div class="horarioManana w-100">
+                                    <p>Horario mañana</p>
+                                    <div class="inputDiasHoras d-flex align-items-start justify-content-center flex-column">
+                                        <div class="horarioMananaDesdeHasta w-100 d-flex align-items-center justify-content-start">
+                                            <div class="horarioMananaDesde w-100 me-2 d-flex align-items-start justify-content-start flex-column">
+                                                <label class="input-group-text labelFechaFinGrupo ps-0" for="selectFechaFinCalendario">Desde</label>
+                                                <div class="input-group inputGrupoPresencial">
+                                                    <select class="form-select" id="selectFechaFinCalendario">
+                                                    <option selected>10:00</option>
+                                                    </select>
+                                                    <label class="input-group-text labelFechaFinGrupo" for="selectFechaFinCalendario"><img src="../img/clockIcon.svg" alt=""></label>
+                                                </div>
+                                            </div>
+                                            <div class="horarioMananaHasta w-100 d-flex align-items-start justify-content-start flex-column">
+                                                <label class="input-group-text labelFechaFinGrupo ps-0" for="selectFechaFinCalendario">Hasta</label>
+                                                <div class="input-group inputGrupoPresencial">
+                                                    <select class="form-select" id="selectFechaFinCalendario">
+                                                    <option selected>12:00</option>
+                                                    </select>
+                                                    <label class="input-group-text labelFechaFinGrupo" for="selectFechaFinCalendario"><img src="../img/clockIcon.svg" alt=""></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="inputDias w-100 d-flex align-items-center justify-content-start">
+                                            <div class="mb-2 me-2 w-100">
+                                                <label for="inputLectivos" class="form-label">Días lectivos</label>
+                                                <input type="text" class="form-control w-100" id="inputLectivos" value="73">
+                                            </div>
+                                            <div class="mb-2 w-100">
+                                                <label for="inputDiasTotales" class="form-label">Días totales</label>
+                                                <input type="text" class="form-control w-100" id="inputDiasTotales" value="127">
+                                            </div>
+                                        </div>
+                                        <div class="inputHoras w-100 d-flex align-items-center justify-content-start">
+                                            <div class="mb-2 me-2 w-100">
+                                                <label for="inputHorasConsumidas" class="form-label">Horas consumidas</label>
+                                                <input type="text" class="form-control w-100" id="inputHorasConsumidas" value="511">
+                                            </div>
+                                            <div class="mb-2 w-100">
+                                                <label for="inputHorasTotales" class="form-label">Horas totales</label>
+                                                <input type="text" class="form-control w-100" id="inputHorasTotales" value="510">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="textareaResumen">
+                                        <div class="mb-3 w-100">
+                                            <label for="exampleFormControlTextarea1" class="form-label">Resumen</label>
+                                            <textarea class="form-control w-75" id="exampleFormControlTextarea1" rows="3">Lunes 10-2 de 09:00 a 11:00 y de 14:00 a 16:00 y Martes 11-2 de 09:00 a 11:00 y de 14:00 a 16:00</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="horarioTarde w-100 ms-2">
+                                    <p>Horario tarde</p>
+                                    <div class="horarioTardeDesdeHasta w-100 d-flex align-items-center justify-content-start">
+                                        <div class="horarioTardeDesde w-100 me-2 d-flex align-items-start justify-content-start flex-column">
+                                            <label class="input-group-text labelFechaFinGrupo ps-0" for="selectFechaFinCalendario">Desde</label>
+                                            <div class="input-group inputGrupoPresencial">
+                                                <select class="form-select" id="selectFechaFinCalendario">
+                                                <option selected>14:00</option>
+                                                </select>
+                                                <label class="input-group-text labelFechaFinGrupo" for="selectFechaFinCalendario"><img src="../img/clockIcon.svg" alt=""></label>
+                                            </div>
+                                        </div>
+                                        <div class="horarioTardeHasta w-100 d-flex align-items-start justify-content-start flex-column">
+                                            <label class="input-group-text labelFechaFinGrupo ps-0" for="selectFechaFinCalendario">Hasta</label>
+                                            <div class="input-group inputGrupoPresencial">
+                                                <select class="form-select" id="selectFechaFinCalendario">
+                                                <option selected>16:00</option>
+                                                </select>
+                                                <label class="input-group-text labelFechaFinGrupo" for="selectFechaFinCalendario"><img src="../img/clockIcon.svg" alt=""></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="horasDiferencia w-100">
+                                        <div class="mb-2 me-2 w-100">
+                                            <label for="inputLectivos" class="form-label">Horas diferencia</label>
+                                            <input type="text" class="form-control w-75" id="inputLectivos" value="-1">
+                                        </div>
+                                    </div>
+                                    <div class="descripcionHorarioTarde">
+                                        <div class="mb-3 w-100">
+                                            <label for="exampleFormControlTextarea1" class="form-label">Descripcion</label>
+                                            <textarea class="form-control w-75" id="exampleFormControlTextarea1" rows="3">La sesión de tarde en el aula taller</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="botonesCalendarioIzquierda d-flex align-items-center justify-content-start">
+                            <button class="btn calcular me-2">Calcular</button>
+                            <button class="btn guardar me-2">Guardar</button>
+                            <button class="btn calcular me-2">Calcular con Módulos</button>
+                            <button class="btn guardarModulos">Guardar con Módulos</button>
+                        </div>
+                    </div>
+                    <div class="calendarioDerecha mt-4">
+                        <ul class="nav nav-pills mb-3 calendarioModoTabla" id="pills-tab" role="tablist">
+                            <li class="nav-item calendario me-2" role="calendario">
+                              <button class="calendarioPill nav-link active" id="pills-calendario-tab" data-bs-toggle="pill" data-bs-target="#pills-calendario" type="button" role="tab" aria-controls="pills-calendario" aria-selected="true">Calendario</button>
+                            </li>
+                            <li class="nav-item modoTabla" role="Modo Tabla">
+                              <button class="modoTablaPill nav-link" id="pills-modo-tabla-tab" data-bs-toggle="pill" data-bs-target="#pills-modo-tabla" type="button" role="tab" aria-controls="pills-modo-tabla" aria-selected="false">Modo Tabla</button>
+                            </li>
+                            <li class="nav-item verModulos ms-2" role="Ver Modulos">
+                              <button class="verModulosPill nav-link" id="pills-ver-modulos-tab" data-bs-toggle="pill" data-bs-target="#pills-ver-modulos" type="button" role="tab" aria-controls="pills-ver-modulos" aria-selected="false">Ver Módulos</button>
+                            </li>
+                        </ul>
+                          <div class="tab-content tabContentCalendarioModoTabla" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-calendario" role="tabpanel" aria-labelledby="pills-calendario-tab">
+                                <div class="tablaPillCalendario mt-3">
+                                    <div class="tituloTabla d-flex align-items-center justify-content-center mb-3">
+                                        <p class="mb-0 me-2 mesAnterior">Enero</p>
+                                        <img src="../img/leftDoubleChevronIcon.svg" alt="">
+                                        <p class="mb-0 ms-2 me-2 mesActual">Febrero 2023</p>
+                                        <img src="../img/rightDoubleChevronIcon.svg" alt="">
+                                        <p class="mb-0 ms-2 mesSiguiente">Marzo</p>
+                                    </div>
+                                    <table class="table table-borderless tablaHorariosCalendario">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="cell-content">
+                                                        <div class="diasFechas d-flex align-items-center justify-content-between">
+                                                            <p>Lunes</p>
+                                                            <p>01</p>
+                                                        </div>
+                                                        <div class="boxTabla d-flex align-items-center justify-content-end">
+                                                            <div class="additional-content hidden d-flex align-items-center justify-content-center flex-column">
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="09:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="11:00" class="ms-2 form-control">
+                                                                </div>
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="14:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="16:00" class="ms-2 form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-check d-flex align-items-end justify-content-end flex-column h-100 pe-2 pb-2">
+                                                                <input class="form-check-input" type="checkbox" value="" onclick="toggleCheck(this)">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="cell-content">
+                                                        <div class="diasFechas d-flex align-items-center justify-content-between">
+                                                            <p>Martes</p>
+                                                            <p>02</p>
+                                                        </div>
+                                                        <div class="boxTabla d-flex align-items-center justify-content-end">
+                                                            <div class="additional-content hidden d-flex align-items-center justify-content-center flex-column">
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="09:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="11:00" class="ms-2 form-control">
+                                                                </div>
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="14:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="16:00" class="ms-2 form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-check d-flex align-items-end justify-content-end flex-column h-100 pe-2 pb-2">
+                                                                <input class="form-check-input" type="checkbox" value="" onclick="toggleCheck(this)">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="cell-content">
+                                                        <div class="diasFechas d-flex align-items-center justify-content-between">
+                                                            <p>Miércoles</p>
+                                                            <p>03</p>
+                                                        </div>
+                                                        <div class="boxTabla d-flex align-items-center justify-content-end">
+                                                            <div class="additional-content hidden d-flex align-items-center justify-content-center flex-column">
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="09:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="11:00" class="ms-2 form-control">
+                                                                </div>
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="14:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="16:00" class="ms-2 form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-check d-flex align-items-end justify-content-end flex-column h-100 pe-2 pb-2">
+                                                                <input class="form-check-input" type="checkbox" value="" onclick="toggleCheck(this)">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="cell-content">
+                                                        <div class="diasFechas d-flex align-items-center justify-content-between">
+                                                            <p>Jueves</p>
+                                                            <p>04</p>
+                                                        </div>
+                                                        <div class="boxTabla d-flex align-items-center justify-content-end">
+                                                            <div class="additional-content hidden d-flex align-items-center justify-content-center flex-column">
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="09:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="11:00" class="ms-2 form-control">
+                                                                </div>
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="14:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="16:00" class="ms-2 form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-check d-flex align-items-end justify-content-end flex-column h-100 pe-2 pb-2">
+                                                                <input class="form-check-input" type="checkbox" value="" onclick="toggleCheck(this)">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="cell-content">
+                                                        <div class="diasFechas d-flex align-items-center justify-content-between">
+                                                            <p>Viernes</p>
+                                                            <p>05</p>
+                                                        </div>
+                                                        <div class="boxTabla d-flex align-items-center justify-content-end">
+                                                            <div class="additional-content hidden d-flex align-items-center justify-content-center flex-column">
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="09:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="11:00" class="ms-2 form-control">
+                                                                </div>
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="14:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="16:00" class="ms-2 form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-check d-flex align-items-end justify-content-end flex-column h-100 pe-2 pb-2">
+                                                                <input class="form-check-input" type="checkbox" value="" onclick="toggleCheck(this)">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="cell-content">
+                                                        <div class="diasFechas d-flex align-items-center justify-content-between">
+                                                            <p>Sábado</p>
+                                                            <p>06</p>
+                                                        </div>
+                                                        <div class="boxTabla d-flex align-items-center justify-content-end">
+                                                            <div class="additional-content hidden d-flex align-items-center justify-content-center flex-column">
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="09:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="11:00" class="ms-2 form-control">
+                                                                </div>
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="14:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="16:00" class="ms-2 form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-check d-flex align-items-end justify-content-end flex-column h-100 pe-2 pb-2">
+                                                                <input class="form-check-input" type="checkbox" value="" onclick="toggleCheck(this)">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="cell-content">
+                                                        <div class="diasFechas d-flex align-items-center justify-content-between">
+                                                            <p>Domingo</p>
+                                                            <p>07</p>
+                                                        </div>
+                                                        <div class="boxTabla d-flex align-items-center justify-content-end">
+                                                            <div class="additional-content hidden d-flex align-items-center justify-content-center flex-column">
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="09:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="11:00" class="ms-2 form-control">
+                                                                </div>
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="14:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="16:00" class="ms-2 form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-check d-flex align-items-end justify-content-end flex-column h-100 pe-2 pb-2">
+                                                                <input class="form-check-input" type="checkbox" value="" onclick="toggleCheck(this)">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="cell-content">
+                                                        <div class="diasFechas d-flex align-items-center justify-content-between">
+                                                            <p>Lunes</p>
+                                                            <p>08</p>
+                                                        </div>
+                                                        <div class="boxTabla d-flex align-items-center justify-content-end">
+                                                            <div class="additional-content hidden d-flex align-items-center justify-content-center flex-column">
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="09:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="11:00" class="ms-2 form-control">
+                                                                </div>
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="14:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="16:00" class="ms-2 form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-check d-flex align-items-end justify-content-end flex-column h-100 pe-2 pb-2">
+                                                                <input class="form-check-input" type="checkbox" value="" onclick="toggleCheck(this)">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="cell-content">
+                                                        <div class="diasFechas d-flex align-items-center justify-content-between">
+                                                            <p>Martes</p>
+                                                            <p>09</p>
+                                                        </div>
+                                                        <div class="boxTabla d-flex align-items-center justify-content-end">
+                                                            <div class="additional-content hidden d-flex align-items-center justify-content-center flex-column">
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="09:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="11:00" class="ms-2 form-control">
+                                                                </div>
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="14:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="16:00" class="ms-2 form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-check d-flex align-items-end justify-content-end flex-column h-100 pe-2 pb-2">
+                                                                <input class="form-check-input" type="checkbox" value="" onclick="toggleCheck(this)">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="cell-content">
+                                                        <div class="diasFechas d-flex align-items-center justify-content-between">
+                                                            <p>Miércoles</p>
+                                                            <p>10</p>
+                                                        </div>
+                                                        <div class="boxTabla d-flex align-items-center justify-content-end">
+                                                            <div class="additional-content hidden d-flex align-items-center justify-content-center flex-column">
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="09:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="11:00" class="ms-2 form-control">
+                                                                </div>
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="14:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="16:00" class="ms-2 form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-check d-flex align-items-end justify-content-end flex-column h-100 pe-2 pb-2">
+                                                                <input class="form-check-input" type="checkbox" value="" onclick="toggleCheck(this)">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="cell-content">
+                                                        <div class="diasFechas d-flex align-items-center justify-content-between">
+                                                            <p>Jueves</p>
+                                                            <p>11</p>
+                                                        </div>
+                                                        <div class="boxTabla d-flex align-items-center justify-content-end">
+                                                            <div class="additional-content hidden d-flex align-items-center justify-content-center flex-column">
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="09:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="11:00" class="ms-2 form-control">
+                                                                </div>
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="14:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="16:00" class="ms-2 form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-check d-flex align-items-end justify-content-end flex-column h-100 pe-2 pb-2">
+                                                                <input class="form-check-input" type="checkbox" value="" onclick="toggleCheck(this)">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="cell-content">
+                                                        <div class="diasFechas d-flex align-items-center justify-content-between">
+                                                            <p>Viernes</p>
+                                                            <p>12</p>
+                                                        </div>
+                                                        <div class="boxTabla d-flex align-items-center justify-content-end">
+                                                            <div class="additional-content hidden d-flex align-items-center justify-content-center flex-column">
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="09:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="11:00" class="ms-2 form-control">
+                                                                </div>
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="14:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="16:00" class="ms-2 form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-check d-flex align-items-end justify-content-end flex-column h-100 pe-2 pb-2">
+                                                                <input class="form-check-input" type="checkbox" value="" onclick="toggleCheck(this)">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="cell-content">
+                                                        <div class="diasFechas d-flex align-items-center justify-content-between">
+                                                            <p>Sábado</p>
+                                                            <p>13</p>
+                                                        </div>
+                                                        <div class="boxTabla d-flex align-items-center justify-content-end">
+                                                            <div class="additional-content hidden d-flex align-items-center justify-content-center flex-column">
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="09:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="11:00" class="ms-2 form-control">
+                                                                </div>
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="14:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="16:00" class="ms-2 form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-check d-flex align-items-end justify-content-end flex-column h-100 pe-2 pb-2">
+                                                                <input class="form-check-input" type="checkbox" value="" onclick="toggleCheck(this)">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="cell-content">
+                                                        <div class="diasFechas d-flex align-items-center justify-content-between">
+                                                            <p>Domingo</p>
+                                                            <p>14</p>
+                                                        </div>
+                                                        <div class="boxTabla d-flex align-items-center justify-content-end">
+                                                            <div class="additional-content hidden d-flex align-items-center justify-content-center flex-column">
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="09:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="11:00" class="ms-2 form-control">
+                                                                </div>
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="14:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="16:00" class="ms-2 form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-check d-flex align-items-end justify-content-end flex-column h-100 pe-2 pb-2">
+                                                                <input class="form-check-input" type="checkbox" value="" onclick="toggleCheck(this)">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="cell-content">
+                                                        <div class="diasFechas d-flex align-items-center justify-content-between">
+                                                            <p>Lunes</p>
+                                                            <p>15</p>
+                                                        </div>
+                                                        <div class="boxTabla d-flex align-items-center justify-content-end">
+                                                            <div class="additional-content hidden d-flex align-items-center justify-content-center flex-column">
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="09:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="11:00" class="ms-2 form-control">
+                                                                </div>
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="14:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="16:00" class="ms-2 form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-check d-flex align-items-end justify-content-end flex-column h-100 pe-2 pb-2">
+                                                                <input class="form-check-input" type="checkbox" value="" onclick="toggleCheck(this)">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="cell-content">
+                                                        <div class="diasFechas d-flex align-items-center justify-content-between">
+                                                            <p>Martes</p>
+                                                            <p>16</p>
+                                                        </div>
+                                                        <div class="boxTabla d-flex align-items-center justify-content-end">
+                                                            <div class="additional-content hidden d-flex align-items-center justify-content-center flex-column">
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="09:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="11:00" class="ms-2 form-control">
+                                                                </div>
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="14:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="16:00" class="ms-2 form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-check d-flex align-items-end justify-content-end flex-column h-100 pe-2 pb-2">
+                                                                <input class="form-check-input" type="checkbox" value="" onclick="toggleCheck(this)">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="cell-content">
+                                                        <div class="diasFechas d-flex align-items-center justify-content-between">
+                                                            <p>Miércoles</p>
+                                                            <p>17</p>
+                                                        </div>
+                                                        <div class="boxTabla d-flex align-items-center justify-content-end">
+                                                            <div class="additional-content hidden d-flex align-items-center justify-content-center flex-column">
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="09:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="11:00" class="ms-2 form-control">
+                                                                </div>
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="14:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="16:00" class="ms-2 form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-check d-flex align-items-end justify-content-end flex-column h-100 pe-2 pb-2">
+                                                                <input class="form-check-input" type="checkbox" value="" onclick="toggleCheck(this)">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="cell-content">
+                                                        <div class="diasFechas d-flex align-items-center justify-content-between">
+                                                            <p>Jueves</p>
+                                                            <p>18</p>
+                                                        </div>
+                                                        <div class="boxTabla d-flex align-items-center justify-content-end">
+                                                            <div class="additional-content hidden d-flex align-items-center justify-content-center flex-column">
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="09:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="11:00" class="ms-2 form-control">
+                                                                </div>
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="14:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="16:00" class="ms-2 form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-check d-flex align-items-end justify-content-end flex-column h-100 pe-2 pb-2">
+                                                                <input class="form-check-input" type="checkbox" value="" onclick="toggleCheck(this)">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="cell-content">
+                                                        <div class="diasFechas d-flex align-items-center justify-content-between">
+                                                            <p>Viernes</p>
+                                                            <p>19</p>
+                                                        </div>
+                                                        <div class="boxTabla d-flex align-items-center justify-content-end">
+                                                            <div class="additional-content hidden d-flex align-items-center justify-content-center flex-column">
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="09:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="11:00" class="ms-2 form-control">
+                                                                </div>
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="14:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="16:00" class="ms-2 form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-check d-flex align-items-end justify-content-end flex-column h-100 pe-2 pb-2">
+                                                                <input class="form-check-input" type="checkbox" value="" onclick="toggleCheck(this)">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="cell-content">
+                                                        <div class="diasFechas d-flex align-items-center justify-content-between">
+                                                            <p>Sábado</p>
+                                                            <p>20</p>
+                                                        </div>
+                                                        <div class="boxTabla d-flex align-items-center justify-content-end">
+                                                            <div class="additional-content hidden d-flex align-items-center justify-content-center flex-column">
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="09:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="11:00" class="ms-2 form-control">
+                                                                </div>
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="14:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="16:00" class="ms-2 form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-check d-flex align-items-end justify-content-end flex-column h-100 pe-2 pb-2">
+                                                                <input class="form-check-input" type="checkbox" value="" onclick="toggleCheck(this)">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="cell-content">
+                                                        <div class="diasFechas d-flex align-items-center justify-content-between">
+                                                            <p>Domingo</p>
+                                                            <p>21</p>
+                                                        </div>
+                                                        <div class="boxTabla d-flex align-items-center justify-content-end">
+                                                            <div class="additional-content hidden d-flex align-items-center justify-content-center flex-column">
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="09:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="11:00" class="ms-2 form-control">
+                                                                </div>
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="14:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="16:00" class="ms-2 form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-check d-flex align-items-end justify-content-end flex-column h-100 pe-2 pb-2">
+                                                                <input class="form-check-input" type="checkbox" value="" onclick="toggleCheck(this)">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="cell-content">
+                                                        <div class="diasFechas d-flex align-items-center justify-content-between">
+                                                            <p>Lunes</p>
+                                                            <p>22</p>
+                                                        </div>
+                                                        <div class="boxTabla d-flex align-items-center justify-content-end">
+                                                            <div class="additional-content hidden d-flex align-items-center justify-content-center flex-column">
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="09:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="11:00" class="ms-2 form-control">
+                                                                </div>
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="14:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="16:00" class="ms-2 form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-check d-flex align-items-end justify-content-end flex-column h-100 pe-2 pb-2">
+                                                                <input class="form-check-input" type="checkbox" value="" onclick="toggleCheck(this)">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="cell-content">
+                                                        <div class="diasFechas d-flex align-items-center justify-content-between">
+                                                            <p>Martes</p>
+                                                            <p>23</p>
+                                                        </div>
+                                                        <div class="boxTabla d-flex align-items-center justify-content-end">
+                                                            <div class="additional-content hidden d-flex align-items-center justify-content-center flex-column">
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="09:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="11:00" class="ms-2 form-control">
+                                                                </div>
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="14:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="16:00" class="ms-2 form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-check d-flex align-items-end justify-content-end flex-column h-100 pe-2 pb-2">
+                                                                <input class="form-check-input" type="checkbox" value="" onclick="toggleCheck(this)">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="cell-content">
+                                                        <div class="diasFechas d-flex align-items-center justify-content-between">
+                                                            <p>Miércoles</p>
+                                                            <p>24</p>
+                                                        </div>
+                                                        <div class="boxTabla d-flex align-items-center justify-content-end">
+                                                            <div class="additional-content hidden d-flex align-items-center justify-content-center flex-column">
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="09:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="11:00" class="ms-2 form-control">
+                                                                </div>
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="14:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="16:00" class="ms-2 form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-check d-flex align-items-end justify-content-end flex-column h-100 pe-2 pb-2">
+                                                                <input class="form-check-input" type="checkbox" value="" onclick="toggleCheck(this)">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="cell-content">
+                                                        <div class="diasFechas d-flex align-items-center justify-content-between">
+                                                            <p>Jueves</p>
+                                                            <p>25</p>
+                                                        </div>
+                                                        <div class="boxTabla d-flex align-items-center justify-content-end">
+                                                            <div class="additional-content hidden d-flex align-items-center justify-content-center flex-column">
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="09:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="11:00" class="ms-2 form-control">
+                                                                </div>
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="14:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="16:00" class="ms-2 form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-check d-flex align-items-end justify-content-end flex-column h-100 pe-2 pb-2">
+                                                                <input class="form-check-input" type="checkbox" value="" onclick="toggleCheck(this)">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="cell-content">
+                                                        <div class="diasFechas d-flex align-items-center justify-content-between">
+                                                            <p>Viernes</p>
+                                                            <p>26</p>
+                                                        </div>
+                                                        <div class="boxTabla d-flex align-items-center justify-content-end">
+                                                            <div class="additional-content hidden d-flex align-items-center justify-content-center flex-column">
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="09:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="11:00" class="ms-2 form-control">
+                                                                </div>
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="14:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="16:00" class="ms-2 form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-check d-flex align-items-end justify-content-end flex-column h-100 pe-2 pb-2">
+                                                                <input class="form-check-input" type="checkbox" value="" onclick="toggleCheck(this)">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="cell-content">
+                                                        <div class="diasFechas d-flex align-items-center justify-content-between">
+                                                            <p>Sábado</p>
+                                                            <p>27</p>
+                                                        </div>
+                                                        <div class="boxTabla d-flex align-items-center justify-content-end">
+                                                            <div class="additional-content hidden d-flex align-items-center justify-content-center flex-column">
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="09:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="11:00" class="ms-2 form-control">
+                                                                </div>
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="14:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="16:00" class="ms-2 form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-check d-flex align-items-end justify-content-end flex-column h-100 pe-2 pb-2">
+                                                                <input class="form-check-input" type="checkbox" value="" onclick="toggleCheck(this)">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="cell-content">
+                                                        <div class="diasFechas d-flex align-items-center justify-content-between">
+                                                            <p>Domingo</p>
+                                                            <p>28</p>
+                                                        </div>
+                                                        <div class="boxTabla d-flex align-items-center justify-content-end">
+                                                            <div class="additional-content hidden d-flex align-items-center justify-content-center flex-column">
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="09:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="11:00" class="ms-2 form-control">
+                                                                </div>
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <input type="text" value="14:00" class="me-2 form-control">
+                                                                    <p class="mb-0">-</p>
+                                                                    <input type="text" value="16:00" class="ms-2 form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-check d-flex align-items-end justify-content-end flex-column h-100 pe-2 pb-2">
+                                                                <input class="form-check-input" type="checkbox" value="" onclick="toggleCheck(this)">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-modo-tabla" role="tabpanel" aria-labelledby="pills-modo-tabla-tab">
+                                <div class="tablaModoTabla">
+                                    <div class="tituloTablaModoTabla d-flex align-items-center justify-content-center mb-3">
+                                        <p class="mb-0 me-2 mesAnterior">Enero</p>
+                                        <img src="../img/leftDoubleChevronIcon.svg" alt="">
+                                        <p class="mb-0 ms-2 me-2 mesActual">Febrero 2023</p>
+                                        <img src="../img/rightDoubleChevronIcon.svg" alt="">
+                                        <p class="mb-0 ms-2 mesSiguiente">Marzo</p>
+                                    </div>
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr class="colspanThModoTabla">
+                                                <th colspan="3">ENERO</th>
+                                                <th colspan="2">MAÑANA</th>
+                                                <th colspan="2">TARDE</th>
+                                            </tr>
+                                            <tr class="segundoTrModoTabla">
+                                                <th>FECHA</th>
+                                                <th>DÍA</th>
+                                                <th>
+                                                    <div class="d-flex align-items-center justify-content-center">
+                                                        <div class="me-2">ASIGNACIÓN</div>
+                                                        <div style="cursor: pointer;"><img src="../img/notes.svg" alt=""></div>
+                                                    </div>
+                                                </th>
+                                                <th>DESDE</th>
+                                                <th>HASTA</th>
+                                                <th>DESDE</th>
+                                                <th>HASTA</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tableBodyModoTabla"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-ver-modulos" role="tabpanel" aria-labelledby="pills-ver-modulos-tab">
+                                <div class="tablaVerModulos">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr class="primerTrModoTabla">
+                                                <th colspan="2">MF0239_2 Operaciones de venta</th>
+                                                <th>Consum: 16</th>
+                                                <th>Tot: 160,00</th>
+                                                <th></th>
+                                            </tr>
+                                            <tr class="segundoTrModoTabla">
+                                                <th colspan="2">< Del  13/07/2023 al 22/08/2023</th>
+                                                <th colspan="2">Presencial : 160</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tableBodyVerModulos"></tbody>
+                                        <thead>
+                                            <tr class="primerTrModoTabla">
+                                                <th colspan="2">MF0239_2 Operaciones Auxiliares de venta</th>
+                                                <th>Consum: 16</th>
+                                                <th>Tot: 160,00</th>
+                                                <th></th>
+                                            </tr>
+                                            <tr class="segundoTrModoTabla">
+                                                <th colspan="2">< Del  22/09/2023 al 26/09/2023</th>
+                                                <th colspan="2">Presencial : 160</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tableBodyVerModulos2"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="asistencia" role="tabpanel" aria-labelledby="asistencia-tab">
+                    <div class="tablaControlDiv">
+                        <table class="table table-striped tablaControl mt-5">
+                            <thead>
+                                <tr>
+                                    <th class="text-center" rowspan="2">ALUMNO</th>
+                                    <th class="text-center" rowspan="2">% ASISTENCIA</th>
+                                    <th class="text-center" rowspan="2">CERTIFICA</th>
+                                    <th class="text-center" colspan="4">10/02/2023  09:00 - 11:00</th>
+                                    <th class="text-center" colspan="4">11/02/2023  09:00 - 11:00</th>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">PRESENCIAL</th>
+                                    <th class="text-center">ENVÍO ENTRADA</th>
+                                    <th class="text-center">FIRMA ENTRADA</th>
+                                    <th class="text-center">
+                                        <div class="d-flex align-items-center justify-content-center flex-column">
+                                            HORAS
+                                            <img src="../img/envelopeIcon.svg" class="mt-1">
+                                        </div>
+                                    </th>
+                                    <th class="text-center">PRESENCIAL</th>
+                                    <th class="text-center">ENVÍO ENTRADA</th>
+                                    <th class="text-center">FIRMA ENTRADA</th>
+                                    <th class="text-center">
+                                        <div class="d-flex align-items-center justify-content-center flex-column">
+                                            HORAS
+                                            <img src="../img/envelopeIcon.svg" class="mt-1">
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="dynamicTableBody"></tbody>
+                        </table>
+                    </div>
+                    
+                </div>
+                <div class="tab-pane fade" id="cuestionario" role="tabpanel" aria-labelledby="cuestionario-tab">
+                    <nav class="nav-wrapper" style="overflow-x: auto; cursor: grab;">
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <button class="nav-link active" id="nav-alumnos-cuestionario-tab" data-bs-toggle="tab" data-bs-target="#alumnosCuestionario" type="button" role="tab" aria-controls="alumnosCuestionario" aria-selected="true">Alumnos</button>
+                            <button class="nav-link" id="nav-profesores-cuestionario-tab" data-bs-toggle="tab" data-bs-target="#profesoresCuestionario" type="button" role="tab" aria-controls="profesoresCuestionario" aria-selected="false">Profesores</button>
+                            <button class="nav-link" id="nav-gestores-cuestionario-tab" data-bs-toggle="tab" data-bs-target="#gestoresCuestionario" type="button" role="tab" aria-controls="gestoresCuestionario" aria-selected="false">Gestores</button>
+                        </div>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent-cuestionario">
+                        <div class="tab-pane fade show active mt-5" id="alumnosCuestionario" role="tabpanel" aria-labelledby="nav-alumnos-cuestionario-tab">
+                            <div class="tablaCuestionarioAlumnos">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center"></th>
+                                            <th class="text-center">Nombre</th>
+                                            <th class="text-center">Apellido 1</th>
+                                            <th class="text-center">Apellido 2</th>
+                                            <th class="text-center">F/A</th>
+                                            <th class="text-center">CERT.</th>
+                                            <th class="text-center">% ASISTENCIA</th>
+                                            <th class="text-center"><div class="d-flex align-items-center justify-content-center"><p class="mb-0 me-2">1</p><img src="../img/searchIcon.svg" alt=""></div></th>
+                                            <th class="text-center">CUESTIONARIO DE SATISFACCIÓN</th>
+                                            <th class="text-center">CUESTIONARIO FEEDBACK APP</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbodyCuestionario"></tbody>
+                                </table>
+                                
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="profesoresCuestionario" role="tabpanel" aria-labelledby="nav-profesores-cuestionario-tab">...</div>
+                        <div class="tab-pane fade" id="gestoresCuestionario" role="tabpanel" aria-labelledby="nav-gestores-cuestionario-tab">...</div>
+                    </div>                    
+                </div>
+                <div class="tab-pane fade" id="incidencias" role="tabpanel" aria-labelledby="incidencias-tab">
+                    <div class="incidenciasTablaDiv mt-5">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="text-center"><img src="../img/notes.svg"></th>
+                                    <th class="text-center">F. INICIO</th>
+                                    <th class="text-center">ESTADO</th>
+                                    <th class="text-center">ÁREA</th>
+                                    <th class="text-center">INCIDENCIA</th>
+                                    <th class="text-center">USUARIO INCID.</th>
+                                    <th class="text-center">ÁREA INCID.</th>
+                                    <th class="text-center">OBSERVACIONES</th>
+                                    <th class="text-center">F. RESOL</th>
+                                    <th class="text-center">USUARIO RESOL.</th>
+                                </tr>
+                                <tr>
+                                    <th colspan="2"><div class="d-flex align-items-center justify-content-center"><input class="me-2 form-control" type="text"><img src="../img/searchIcon.svg" alt=""></div></th>
+                                    <th><div class="d-flex align-items-center justify-content-center"><input class="me-2 form-control" type="text"><img src="../img/searchIcon.svg" alt=""></div></th>
+                                    <th><div class="d-flex align-items-center justify-content-center"><input class="me-2 form-control" type="text"><img src="../img/searchIcon.svg" alt=""></div></th>
+                                    <th><div class="d-flex align-items-center justify-content-center"><input class="me-2 form-control" type="text"><img src="../img/searchIcon.svg" alt=""></div></th>
+                                    <th><div class="d-flex align-items-center justify-content-center"><input class="me-2 form-control" type="text"><img src="../img/searchIcon.svg" alt=""></div></th>
+                                    <th><div class="d-flex align-items-center justify-content-center"><input class="me-2 form-control" type="text"><img src="../img/searchIcon.svg" alt=""></div></th>
+                                    <th><div class="d-flex align-items-center justify-content-center"><input class="me-2 form-control" type="text"><img src="../img/searchIcon.svg" alt=""></div></th>
+                                    <th><div class="d-flex align-items-center justify-content-center"><input class="me-2 form-control" type="text"><img src="../img/searchIcon.svg" alt=""></div></th>
+                                    <th><div class="d-flex align-items-center justify-content-center"><input class="me-2 form-control" type="text"><img src="../img/searchIcon.svg" alt=""></div></th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbodyIncidencias"></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="to-do" role="tabpanel" aria-labelledby="to-do-tab">
+                    <div class="toDoTablaDiv mt-5">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="notasTitle">NOTAS</th>
+                                </tr>
+                                <tr>
+                                    <th class="notaClass">
+                                        <div class="inputClass">
+                                            <input type="text" class="form-control" placeholder="Escribir nueva nota, pulsa <Enter> para guardar" value="">
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbodyToDo1"></tbody>
+                            <thead>
+                                <tr>
+                                    <th><div class="verMas d-flex align-items-center justify-content-center"><a>Ver más</a></div></td>
+                                </tr>
+                                <tr>
+                                    <th class="secondTableTitleToDo">
+                                        <div class=" d-flex align-items-center justify-content-between flex-row">
+                                            <div class="toDoTitleTable">TO-DO</div>
+                                            <div class="estadoFechaUsuario d-flex align-items-center justify-content-between flex-row">
+                                                <div class="inputEstadoToDo d-flex align-items-center justify-content-center me-2">
+                                                    <label for="estadoToDo" class="form-label me-2">Estado</label>
+                                                    <select name="" id="estadoToDo" class="form-select">
+                                                        <option value="Comunicado" selected>Comunicado</option>
+                                                    </select>
+                                                </div>
+                                                <div class="usuarioToDo d-flex align-items-center justify-content-center me-2">
+                                                    <img src="../img/circle-fill-gray.svg" alt="">
+                                                </div>
+                                                <div class="fechaToDo d-flex align-items-center justify-content-center">
+                                                    <img src="../img/clockIcon.svg" alt="">
+                                                    <p class="mb-0 me-1">22 Ene</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <nav>
+                                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                              <button class="nav-link active" id="nav-gestor-to-do-tab" data-bs-toggle="tab" data-bs-target="#nav-gestor-to-do" type="button" role="tab" aria-controls="nav-gestor-to-do" aria-selected="true">Gestor</button>
+                                              <button class="nav-link" id="nav-profesor-to-do-tab" data-bs-toggle="tab" data-bs-target="#nav-profesor-to-do" type="button" role="tab" aria-controls="nav-profesor-to-do" aria-selected="false">Profesor</button>
+                                              <button class="nav-link" id="nav-responsableGrupo-to-do-tab" data-bs-toggle="tab" data-bs-target="#nav-responsableGrupo-to-do" type="button" role="tab" aria-controls="nav-responsableGrupo-to-do" aria-selected="false">Responsable Grupo</button>
+                                              <button class="nav-link" id="nav-todos-to-do-tab" data-bs-toggle="tab" data-bs-target="#nav-todos-to-do" type="button" role="tab" aria-controls="nav-todos-to-do" aria-selected="false">Todos</button>
+                                            </div>
+                                        </nav>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th class="thcrearGrupoActualizar">
+                                        <div class="crearGrupoActualizar d-flex align-items-center justify-content-between">
+                                            <div class="d-flex align-items-center justify-content-start">
+                                                <input class="form-check-input me-2" type="checkbox" value="">
+                                                <p class="mb-0">Crear grupo y actualizar</p>
+                                            </div>
+                                            <div style="cursor: pointer;">
+                                                <img src="../img/plusGreenIcon.svg" alt="">
+                                            </div>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbodyToDo2"></tbody>
+                            <thead>
+                                <tr>
+                                    <th class="thsolicitudReglas">
+                                        <div class="solicitudReglas d-flex align-items-center justify-content-between">
+                                            <div class="d-flex align-items-center justify-content-start">
+                                                <input class="form-check-input me-2" type="checkbox" value="" checked>
+                                                <p class="mb-0">Solicitud reglas</p>
+                                            </div>
+                                            <div style="cursor: pointer;">
+                                                <img src="../img/plusGreenIcon.svg" alt="">
+                                            </div>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbodyToDo3"></tbody>
+                            <thead>
+                                <tr>
+                                    <th class="thcrearLMS">
+                                        <div class="crearLMS d-flex align-items-center justify-content-between">
+                                            <div class="d-flex align-items-center justify-content-start">
+                                                <input class="form-check-input me-2" type="checkbox" value="" checked>
+                                                <p class="mb-0">Crear LMS</p>
+                                            </div>
+                                            <div style="cursor: pointer;">
+                                                <img src="../img/plusGreenIcon.svg" alt="">
+                                            </div>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbodyToDo4"></tbody>
+                        </table>                        
+                    </div>
+                </div>
               </div>
         </div>
       </div>
@@ -675,6 +2226,25 @@
                         <img src="../../assets/img/fundacionEstatal.svg" alt="">
                         <img src="../../assets/img/fundacionEstatalLogo.svg" alt="">
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Panel Icon Profesores nav tab -->
+
+    <div class="modal fade" id="panelIconModal" tabindex="-1" aria-labelledby="panelIconModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="titulo d-flex align-items-start justify-content-center flex-column">
+                        <h5 class="modal-title" id="panelIconModalLabel">Panel Diario Formador</h5>
+                        <p class="subtitulo">Grupo: (6499) 11 - 1- Acción de contratación</p>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="tablaPanelIcon" class="mt-5"></div>
                 </div>
             </div>
         </div>

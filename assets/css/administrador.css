@@ -108,7 +108,7 @@ aside {
     letter-spacing: 0.417px;
 }
 
-.popoverFecha{
+.popoverFecha, .ojoIcon, .salidaIcon img, .entradaIcon img{
     cursor: pointer;
 }
 
@@ -197,9 +197,11 @@ aside {
     line-height: normal;
 }
 
-nav {
+nav, .tablaAlumnosContenedor{
     overflow-x: auto;
     white-space: nowrap;
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
   }
   
   .nav-tabs {
@@ -235,11 +237,6 @@ nav {
   .nav-container::-webkit-scrollbar {
     display: none;
   }
-  
-  nav {
-    -ms-overflow-style: none; 
-    scrollbar-width: none; 
-  }
 
 
 .input-group-text{
@@ -255,15 +252,24 @@ nav {
     background-color: #F5F5F5;
 }
 
-.form-floating label::after{
-    background-color: #F5F5F5 !important;
+.form-floating{
+    width: 200px;
+}
+
+.modal-content {
+    height: auto;
+    min-height: 50vh;
+}
+
+.modal-header{
+    border-bottom: none !important;
 }
 
 .formAcciones label{
     color: #2F647E !important;
     opacity: inherit !important;
     font-family: Lato;
-    font-size: 14px;
+    font-size: 12px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -475,3 +481,1501 @@ nav {
     border-bottom: 3px solid #2F647E !important;
 }
 
+.tagInput{
+    padding: 10px;
+    width: 75%;
+    border-radius: 7px;
+}
+
+.certificadoProfesional, .telefonica, .ahora{
+    color: white;
+    padding: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.certificadoProfesional{
+    background-color: #636363;
+}
+
+.telefonica{
+    background-color: #F9C200;
+}
+
+.ahora{
+    background-color: #E95F61;
+}
+
+.tagInput{
+    background-color: #F5F5F5;
+}
+
+nav {
+    overflow-x: auto;
+    white-space: nowrap;
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+  }
+  
+  .nav-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    --bs-nav-tabs-border-width: none;
+  }
+  
+  .nav-tabs-grupo .nav-link {
+    white-space: nowrap;
+    margin-right: 0.5rem;
+    color: #7B7B7B;
+    font-family: Lato;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+  }
+
+  .nav-link.active::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: -3px;
+    border-radius: 10px;
+    pointer-events: none;
+  }
+  
+  .nav-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .labelFechaInicioGrupo, .labelFechaFinGrupo, .labelDesdeGrupo, .labelHastaGrupo{
+    background-color: white;
+    border: none;
+  }
+
+  .inputGrupoPresencial{
+    background-color: #F5F5F5;
+  }
+
+.daySelector div.selected, .daySelectorCalendario div.selected{
+    border-radius: 7px;
+    border: 0px solid #2F647E;
+    background-color: #2F647E;
+    width: 36px;
+    padding: 7px 14px;
+    cursor: pointer;
+    user-select: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+  .daySelector div, .daySelectorCalendario div {
+    background-color: #F5F5F5;
+    color: #2F647E;
+    width: 36px;
+    padding: 7px 14px;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+
+}
+
+.inputsGrupoForm input{
+    background-color: #F5F5F5;
+}
+
+.inputsGrupoForm label{
+    white-space: nowrap;
+}
+
+.tablaComunicaciones th, .tablaAlumnos th, .tablaProfesores th{
+    color: white;
+    background-color: #85BECE;
+}
+
+.validacion img{
+    cursor: pointer;
+    user-select: none;
+    margin-right: 5px;
+}
+
+.pillPendiente{
+    border-radius: 50px;
+    background-color: #DF1517;
+    display: flex;
+    width: 96px;
+    height: 18px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    padding: 12px;
+    user-select: none;
+    color: var(--blanco, var(--blanco, #FFF));
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.tablaAlumnos th, .tablaProfesores th{
+    white-space: nowrap;
+}
+
+.wide-column {
+    min-width: 80px;
+}
+
+.wide-column select{
+    color: var(--gris, #636363);
+    font-family: Lato;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+    padding: 0px 7px;
+    background-color: #F5F5F5;
+
+}
+
+.appP p{
+    white-space: nowrap;
+}
+
+.documentsProfesores img{
+    cursor: pointer;
+}
+
+.horasDiferencia{
+    margin-top: 17%;
+}
+
+.calcular, .calcular:hover, .calcular:focus{
+    border-radius: 30px;
+    border: 1px solid var(--Principal, #2F647E);
+    background: var(--blanco, #FFF);
+    color: var(--Principal, #2F647E);
+    text-align: center;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.guardar, .guardar:focus{
+    border-radius: 30px;
+    background: var(--Principal, #2F647E) !important;
+    color: var(--blanco, var(--blanco, #FFF)) !important;
+    text-align: center;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.calcular, .calcular:hover, .calcular:focus {
+    color: var(--Principal, #2F647E) !important;
+    text-align: center;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    border-radius: 30px;
+    border: 1px solid var(--Principal, #2F647E);
+    background: var(--secundario, #85BECE);
+}
+.guardarModulos, .guardarModulos:hover, .guardarModulos:focus{
+    color: var(--blanco, var(--blanco, #FFF)) !important;
+    text-align: center;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    border-radius: 30px;
+    background: var(--Principal, #2F647E) !important;
+}
+
+.calendarioDerecha .nav-link.active{
+    border-radius: 3px;
+    background: var(--Principal, #2F647E);
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+    color: white !important;
+    padding: 3px 6px;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.calendarioDerecha .nav-link {
+    border-radius: 3px;
+    background: #FFF;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+    color: #898989 !important;
+    padding: 3px 6px;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.calendarioModoTabla{
+    user-select: none;
+}
+
+.boxTabla{
+    border-radius: 2px;
+    background: #ECECEC;
+    width: 115px;
+    height: 110px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.checked{
+    background: #C1E9F4;
+}
+
+.diasFechas p:nth-child(1){
+    color: var(--Principal, #2F647E);
+    font-family: Lato;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 5px;
+}
+
+.diasFechas p:nth-child(2){
+    color: #A1A1A1;
+    text-align: right;
+    font-family: Lato;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 5px;
+}
+
+.cell-content .form-check-input:checked {
+    background-color: #2F647E;
+    border-color: #2F647E;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.additional-content {
+    width: 100%;
+}
+
+.additional-content input{
+    border-radius: 2px;
+    border: 0.6px solid #85BECE;
+    background: #FFF;
+    display: flex;
+    padding: 1px 3px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: #585858;
+    font-family: Lato;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    width: 35px;
+    margin-left: 60px;
+}
+
+.additional-content{
+    margin-bottom: 15px;
+}
+
+.mesAnterior, .mesSiguiente{
+    color: #7B7B7B;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    user-select: none;
+    cursor: pointer;
+}
+
+.mesActual{
+    color: #2F647E;
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    user-select: none;
+}
+
+.tituloTabla img, .tituloTablaModoTabla img{
+    cursor: pointer;
+}
+
+.tablaPillCalendario, .tablaModoTabla{
+    border-radius: 4px;
+    border: 1px solid #CCC;
+    padding-top: 15px;
+}
+
+.tablaModoTabla{
+    padding: 15px;
+}
+
+.tablaModoTabla th{
+    background-color: #F8F8F8;
+}
+
+.calendarioIzquierda label, .calendarioDerecha label{
+    color: var(--Principal, #2F647E);
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.formCalendarioIzquierda input, .formCalendarioIzquierda textarea, .formCalendarioIzquierda select{
+    color: #898989;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.inputDias{
+    margin-top: 8px;
+}
+
+.inputDias div,
+.inputDias input,
+.inputHoras div,
+.inputHoras input,
+.textareaResumen div,
+.textareaResumen textarea {
+    border-radius: 7px;
+    border: 1px solid #C1E9F4;
+    background: #C1E9F4;
+}
+
+.horarioMananaDesdeHasta select,
+.horarioTardeDesdeHasta select,
+.horasDiferencia input,
+.descripcionHorarioTarde textarea,
+.calendarioTopIzquierda select,
+.input-group-text:nth-child(2) {
+    background-color: #F5F5F5;
+}
+
+.selectCalendarioFechaTopIzquierda {
+    margin-right: 8px;
+}
+
+.colspanThModoTabla th{
+    color: var(--Principal, #2F647E);
+    text-align: center;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+.segundoTrModoTabla th{
+    color: #585858;
+    text-align: center;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 30px;
+}
+
+.special-day td{
+    background-color: #F8F8F8;
+    color: #E95F61 !important;
+    text-align: center;
+    font-family: Lato;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+.normal-day{
+    color: #636363;
+    text-align: center;
+    font-family: Lato;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+.segundoTrModoTabla th{
+    color: var(--Principal, #2F647E) !important;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 30px;
+    text-align: center;
+}
+
+.primerTrModoTabla th{
+    color: var(--blanco, #FFF);
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px;
+    background: var(--Principal, #2F647E) !important; 
+}
+
+.tdPeriodo{
+    color: var(--Principal, #2F647E);
+    text-align: right;
+    font-family: Lato;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px;
+    text-align: center;
+}
+
+.primerTrModoTabla th:nth-child(1){
+    width: 50px;
+}
+
+.tdIcono{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.row1 td{
+    border: 1px solid #D9D9D9;
+    background: var(--fondo-color, #C1E9F4);
+    color: var(--gris, #636363);
+    font-family: Lato;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.tablaVerModulos{
+    overflow-x: auto;
+    white-space: nowrap;
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+}
+
+.tdModulo, .tdTotal{
+    color: var(--gris, #636363);
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px;
+}
+
+.tdPeriodo{
+    color: var(--Principal, #2F647E);
+    text-align: start;
+    font-family: Lato;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px;
+}
+
+.tdConsumo, .tdPresencial{
+    color: var(--Principal, #2F647E) !important;
+    font-family: Lato;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+.horasInput{
+    border-radius: 2px;
+    border: 1px solid var(--secundario, #85BECE);
+}
+
+.modalMensaje .modal-content {
+    height: auto;
+    min-height: auto;
+}
+
+.tablaControl th, .tablaCuestionarioAlumnos th, .incidenciasTablaDiv th {
+    background-color: #85BECE !important;
+    color: var(--blanco, #FFF);
+    font-family: Lato;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    border: 1px solid white;    
+}
+
+#envelopeAsistencia1, #envelopeAsistencia2{
+    cursor: pointer;
+}
+
+.tdAlumno, .tdcertifica{
+    color: #585858 !important;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.tdporcentaje{
+    color: #DF1517 !important;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.tdpresencial1, .tdpresencial2{
+    color: var(--verde, var(--verde, #74B160)) !important;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.tdenvioEntrada1, .tdenvioEntrada2{
+    color: #0074FF !important;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.horasInput{
+    color: var(--gris, #636363) !important;
+    text-align: center;
+    font-family: Lato;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+.realizado {
+    border-radius: 50px;
+    background: var(--verde, #74B160);
+    color: var(--blanco, #FFF);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: flex;
+    width: 100%;
+    height: 18px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.pendiente {
+    border-radius: 50px;
+    background: #F97700;
+    color: var(--blanco, #FFF);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: flex;
+    width: 100%;
+    height: 18px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.tdicono,
+.tdfechaInicio,
+.tdarea,
+.tdincidencia,
+.tdusuarioIncidencia,
+.tdareaIncidencia,
+.tdobservaciones,
+.tdfechaResolucion,
+.tdusuarioResolucion{
+    color: #585858;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.tdestado{
+    color: #0074FF !important;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.incidenciasTablaDiv tr div input{
+    width: 80px;
+    height: 16px;
+    flex-shrink: 0;
+    font-size: 12px;
+}
+
+.incidenciasTablaDiv{
+    overflow-x: auto;
+    white-space: nowrap;
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+}
+
+.notasTitle, .secondTableTitleToDo{
+    background-color: #2F647E !important;
+    color: white !important;
+}
+
+.notaClass, .notaClass:focus, .notaClass input, .notaClass input:focus{
+    background: var(--fondo-color, #C1E9F4) !important;
+    color: var(--gris, #636363);
+    font-family: Lato;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.clockDate{
+    border-radius: 3px;
+    background: var(--fondo-color, #C1E9F4);
+    padding: 5px;
+    color: var(--Principal, #2F647E);
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.clockDateEnero{
+    border-radius: 3px;
+    background: var(--fondo-color, #DF1517);
+    padding: 5px;
+    color: var(--Principal, #2F647E);
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    color: white;
+}
+
+.notaTexto, .notaTexto3, .notaTexto4{
+    color: var(--gris, #636363);
+    font-family: Lato;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.verMas{
+    color: var(--Principal, #2F647E);
+    text-align: center;
+    font-family: Lato;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration-line: underline;
+    cursor: pointer;
+}
+
+.estadoFechaUsuario div{
+    width: fit-content;
+}
+
+.estadoFechaUsuario{
+    width: auto;
+}
+
+.fechaToDo{
+    display: flex;
+    padding: 4px 4px;
+    align-items: center;
+    gap: 2px;
+    flex-shrink: 0;
+    border-radius: 3px;
+    background: var(--blanco, #FFF);
+    color: #898989;
+    font-family: Lato;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.inputEstadoToDo select{
+    color: var(--gris, #636363);
+    font-family: Lato;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.inputEstadoToDo label{
+    color: var(--blanco, #FFF);
+    text-align: right;
+    font-family: Lato;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.crearGrupoActualizar p, .solicitudReglas p, .crearLMS p{
+    color: var(--gris, #636363);
+    font-family: Lato;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.thcrearGrupoActualizar, .thsolicitudReglas, .thcrearLMS{
+    background-color: #F0F0F08F !important;
+}
+
+.toDoTablaDiv .form-check-input:checked {
+    background-color: #51AC34 !important;
+    border-color: #51AC34 !important;
+}
+
+.notaTexto3{
+    text-decoration: line-through;
+}
+
+#tbodyCuestionario .tdnombre,
+#tbodyCuestionario .tdapellido1,
+#tbodyCuestionario .tdapellido2,
+#tbodyCuestionario .tdfa,
+#tbodyCuestionario .tdcert,
+#tbodyCuestionario .tdporcentaje{
+    color: var(--gris, #636363);
+    text-align: right;
+    font-family: Lato;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+#tableBodyProfesores .tdnif,
+#tableBodyProfesores .tdnombre,
+#tableBodyProfesores .tdapellido1,
+#tableBodyProfesores .tdapellido2,
+#tableBodyProfesores .tdemail,
+#tableBodyProfesores .tdtelefono,
+#tableBodyProfesores .tdhoras,
+#tableBodyProfesores .tdmodalidad{
+    color: var(--gris, #636363);
+    font-family: Lato;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+#tableBodyProfesores .tdapp{
+    color: var(--verde, var(--verde, #74B160));
+    font-family: Lato;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px;
+}
+
+.profesorIcon{
+    border-radius: 30px;
+    background: var(--Principal, #2F647E);
+    display: flex;
+    width: 27px;
+    height: 27px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.rightSubmenu .btn1, .rightSubmenu .btn1:hover{
+    border-radius: 4px;
+    background: var(--Principal, #2F647E);
+    box-shadow: 1px 1px 2px 0px rgba(134, 135, 135, 0.25);
+    color: white;
+}
+
+.rightSubmenu .btn2, .rightSubmenu .btn2:hover{
+    border-radius: 4px;
+    background: var(--verde, #74B160);
+    box-shadow: 1px 1px 2px 0px rgba(134, 135, 135, 0.25);
+    color: white;
+}
+
+.leftSubmenu .form-select{
+    width: fit-content;
+}
+
+.accionesGrupales{
+    width: 200px;
+}
+
+#tablaModalPanelIcon .table>:not(:last-child)>:last-child>*{
+    border-bottom-color: inherit;
+}
+
+.entradaIcon th, .salidaIcon th, .selectAll th{
+    color: var(--gris, #636363);
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.entradaNombre{
+    color: #8D8D8D;
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.entradaHora{
+    color: #8D8D8D;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.oK{
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.pending{
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.sinApp{
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.horaStatus{
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+
+.datosPersonales p, .datosAsistenciaForm p{
+    color: #898989;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+#floatingSelect label, .form-floating label{
+    color: var(--Principal, #2F647E) !important;
+    font-family: Lato;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.guardarBtn .guardar{
+    color: var(--blanco, #FFF) !important;
+    font-family: Lato;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    width: fit-content;
+    border-radius: 4px;
+    background: var(--verde, #74B160) !important;
+    box-shadow: 1px 1px 2px 0px rgba(134, 135, 135, 0.25);
+}
+
+.botonFirmar{
+    border-radius: 4px !important;
+    background: var(--Principal, #2F647E) !important;
+    box-shadow: 1px 1px 2px 0px rgba(134, 135, 135, 0.25) !important;
+    color: white !important;
+    width: 95px;
+    height: 42px;
+}
+
+.btnContainer{
+    z-index: 1000;
+}
+
+#signature-pad {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 400px;
+    height: 200px;
+}
+.signature-container {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+    border-radius: 8px;
+}
+
+.firmaQr{
+    border-radius: 5px;
+    background: var(--blanco, #FFF);
+    box-shadow: 2px 2px 2px 2px rgba(134, 135, 135, 0.25);
+    padding: 5px;
+
+}
+
+.firmaQrTitulo{
+    color: var(--gris, #636363);
+    font-family: Lato;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+.firmaQrSubTitulo{
+    color: var(--verde, #74B160);
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.qrFirma{
+    width: 220px;
+}
+
+#saveSignature{
+    border-radius: 4px;
+    background: var(--verde, #74B160);
+    box-shadow: 1px 1px 2px 0px rgba(134, 135, 135, 0.25);
+    color: white;
+
+}
+
+#clearSignature{
+    border-radius: 4px;
+    background: var(--rojo, #E95F61);
+    box-shadow: 1px 1px 2px 0px rgba(134, 135, 135, 0.25);
+    color: white;
+}
+
+#modalFirma .modal-footer{
+    border-top: none;
+}
+
+.participante, .curso, .firme{
+    color: var(--gris, #636363);
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.participanteNombre, .cursoNombre{
+    color: var(--gris, #636363);
+    font-family: Lato;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.bottomMenuSignature{
+    border-radius: 5px;
+    border: 1px solid rgba(233, 148, 150, 0.65);
+    background: var(--fondos, #F2F2F2);
+    margin-top: 10px;
+}
+
+.bottomMenuSignature img{
+    background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+    background-blend-mode: multiply;
+}
+
+.topMenuSignature p{
+    margin-bottom: 0;
+}
+
+.controlAsistenciaFirmado{
+    width: 500px;
+}
+
+.modalContainer {
+    overflow-x: auto;
+}
+
+.profesoresAdd p, .alumnosAdd p{
+    color: #898989;
+    text-align: center;
+    font-family: Lato;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.profesoresSearch p, .alumnosSearch p{
+    color: var(--Principal, #2F647E);
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+.botonesAnadirExcel .btn, .botonesAnadirExcelAlumnos .btn{
+    color: var(--Principal, #2F647E);
+    text-align: center;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    border-radius: 26px;
+    border: 1px solid var(--Principal, #2F647E);
+    background: var(--blanco, #FFF);
+    width: 163px;
+    height: 40px;
+}
+
+.btn, input, select{
+    box-shadow: none !important;
+}
+
+.botonesAnadirExcel p, .botonesAnadirExcelAlumnos p{
+    color: #646464;
+    font-family: Lato;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.tdAlumnosnombre,
+.tdAlumnosapellidos,
+.tdAlumnosnif,
+.tdAlumnosestado,
+.tdAlumnosasistencia{
+    color: #636363;
+    font-family: Lato;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+.tdAlumnosapp .yes{
+    color: var(--verde, var(--verde, #74B160)) !important;
+    font-family: Lato;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px;
+}
+.tdAlumnosapp .date{
+    color: var(--verde, var(--verde, #74B160)) !important;
+    font-family: Lato;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px;
+}
+
+.tdAlumnosapp .no{
+    color: var(--INCIDENCIA, #DF1517);
+    font-family: Lato;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px;
+}
+
+.inscrito{
+    border-radius: 50px;
+    background: #55AE39;
+    display: flex;
+    height: 18px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    color: white;
+    text-align: center;
+    width: 100%;
+    user-select: none;
+}
+
+.pdteValidar{
+    display: flex;
+    height: 18px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 50px;
+    background: #F97700;
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding: 0px 10px;
+    user-select: none;
+}
+
+.tdComunicacion{
+    color: var(--gris, #636363);
+    font-family: Lato;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+.comunicadaCentro{
+    color: #51AC34;
+    text-align: right;
+    font-family: Lato;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+.tdValidacion1{
+    color: #51AC34 !important;
+    font-family: Lato;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+#chatContainer {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+#messages {
+    height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding: 10px;
+    background: #f9f9f9;
+}
+.messageContainer {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: end;
+    background: #e3e3e3;
+    border-radius: 0px 4px 4px 0px;
+    border-left: 2px solid var(--Principal, #2F647E);
+    background: var(--blanco, #FFF);
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.25);    
+    width: fit-content;
+}
+.messageTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    padding: 5px 9px;
+    align-items: center;
+    gap: 10px;
+    background-color: #CCC;
+}
+
+.messageTitle:nth-child(1){
+    color: #1D1D1B;
+    font-family: Lato;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.messageTitle:nth-child(2){
+    color: var(--gris, #636363);
+    text-align: center;
+    font-family: Lato;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.message {
+    padding: 10px;
+    margin-top: 5px;
+    color: var(--gris, #636363);
+    font-family: Lato;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    width: 100%;
+}
+
+#chatContainer input[type="text"] {
+    width: calc(100% - 120px);
+    padding: 8px;
+    border-radius: 23px 0px 0px 23px;
+    border: 1px solid #CCC;
+    background: var(--blanco, #FFF);
+    font-family: Lato;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.botonEnviar, .botonEnviar:focus {
+    cursor: pointer;
+    display: flex;
+    width: 76px;
+    height: 26px;
+    padding: 16px 6px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 36px;
+    background: var(--Principal, #2F647E) !important;
+    color: var(--blanco, #FFF) !important;
+    font-family: Lato;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+
+.responder{
+    color: var(--blanco, #FFF);
+    font-family: Lato;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    border-radius: 36px;
+    background: var(--Principal, #2F647E);
+    display: inline-flex;
+    padding: 3px 6px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: -10px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.botonAdjuntar, .botonAdjuntar:focus{
+    display: flex;
+    width: 76px;
+    height: 26px;
+    padding: 16px 6px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 36px;
+    background: #7B7B7B !important;
+    color: var(--blanco, #FFF) !important;
+    font-family: Lato;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.anadirGrupo p, .copiarGrupo p{
+    color: #898989;
+    text-align: center;
+    font-family: Lato;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.anadirCopiar img{
+    cursor: pointer;
+}
+
+#grupo label{
+    color: var(--Principal, #2F647E);
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.custom-select {
+    position: relative;
+    width: 248px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 7px;
+    border: 1px solid #F5F5F5;
+    background: #F5F5F5;
+}
+
+.select-selected {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--TEXTO, #646464);
+    font-family: Lato;
+    font-size: 11px;
+    font-style: normal;
+    line-height: normal;
+}
+
+.chevron-icon {
+    transition: transform 0.3s ease;
+}
+
+.custom-select.open .chevron-icon {
+    transform: rotate(180deg);
+}
+
+
+.select-items div, .select-selected {
+    color: black;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    user-select: none;
+}
+
+.select-items {
+    position: absolute;
+    background-color: #f1f1f1;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    max-height: 200px;
+    overflow-y: auto;
+    color: var(--TEXTO, #646464);
+    font-family: Lato;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.select-items div:hover, .same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.custom-select-hide {
+    display: none;
+}
+
+.subtituloEstadoColor p{
+    color: #92A48D;
+    font-family: Lato;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-top: 5px;
+    margin-bottom: 10px !important;
+}
+
+.foro, .tags p, .grupoForm p{
+    color: #898989;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}

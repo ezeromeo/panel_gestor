@@ -1496,7 +1496,6 @@ function createTableDataDocumentacion(data) {
                         </tr>
                     </thead>
                     <tbody id="modalTableBody">
-                        <!-- Los datos de la tabla se insertarán aquí desde el script JavaScript -->
                     </tbody>
                     </table>
                 </div>
