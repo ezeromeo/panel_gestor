@@ -2574,10 +2574,10 @@ function setupFormadorIconPopover() {
     console.log(event)
     const isGitHubPages = window.location.hostname.includes('github.io');
     if (event.target.id === 'gestor') {
-        window.location.href = isGitHubPages ? '/panel_gestor' : '/assets/pages/gestor.html';
+        window.location.href = isGitHubPages ? '/panel_gestor' : 'assets/pages/gestor.html';
     }
     else if (event.target.id === 'administrador') {
-        window.location.href = isGitHubPages ? '/panel_gestor' : '/assets/pages/administrador.html';
+        window.location.href = isGitHubPages ? '/panel_gestor' : 'assets/pages/administrador.html';
     }
 });
 }
