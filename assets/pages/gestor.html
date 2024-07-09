@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>panel_gestor | Gestor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/gestor.css">
+    <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+</head>
+<body>
+    <header class="d-flex align-items-center justify-content-between">
+        <div class="leftMenu d-flex align-items-center justify-content-start">
+            <div class="fundacion d-flex align-items-center justify-content-start m-2 me-3">
+                <img src="../../assets/img/fundacionEstatal.svg" alt="">
+                <img src="../../assets/img/fundacionEstatalLogo.svg" alt="">
+            </div>
+            <div class="submenu d-flex align-items-start justify-content-center flex-column">
+                <div class="breadcrumb">
+                    <p>Dashboard >> Grupos</p>
+                </div>
+                <div class="subheader d-flex align-items-center justify-content-start">
+                    <p class="filtros me-1">Filtros:</p><p>Estado En ejecución / Anulado: No / Formación presencial: Si</p>
+                </div>
+            </div>
+        </div>
+        <div class="rightMenu d-flex align-items-center justify-content-center m-3">
+            <div class="bellIcon d-flex align-items-center justify-content-center flex-column mb-3">
+                <img src="../../assets/img/bellHeader.svg" alt="">
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">2</span>
+            </div>
+            <div class="chatbotAyuda d-flex align-items-center justify-content-center flex-column" style="cursor: pointer;">
+                <img src="../../assets/img/chatbotAyuda.svg" alt="">
+                <p class="mt-2">ChatBot de Ayuda</p>
+            </div>
+            <div class="usuario d-flex align-items-center justify-content-center flex-column" style="cursor: pointer;">
+                <div class="usuarioIcono d-flex align-items-center justify-content-center" id="formadorIcon">
+                    <img src="../img/gestor.svg" alt="Icono Formador">
+                </div>
+                <p class="mt-2">Gestor</p>
+            </div>
+            <div class="desconectarHeader d-flex align-items-center justify-content-center flex-column" id="disconnect">
+                <img src="../../assets/img/desconectar-header.svg" alt="">
+                <p class="mt-2">Desconectar</p>
+            </div>
+        </div>
+    </header>
+    <aside>
+        <div class="icons d-flex align-items-center justify-content-center flex-column">
+            <img src="../../assets/img/grupos.svg" alt="" style="cursor: pointer;">
+            <img src="../../assets/img/file.svg" alt="" id="fileIcon" style="cursor: pointer;">
+            <img src="../../assets/img/estadisticasIcon.svg" alt="" class="mt-3 estadisticasIcon" style="cursor: pointer;">
+        </div>
+    </aside>
+    <main class="mt-3">
+        <div class="tablaGestor">
+            <table class="table-bordered mb-2 me-2">
+                <thead>
+                    <tr>
+                        <th>
+                            <div class="gruposTh d-flex align-items-center justify-content-start">
+                                <img src="../img/burger-menu-blue-icon.svg" class="me-5 cp" alt="">
+                                <p class="mb-0">Grupos</p>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="thEstilos d-flex align-items-center justify-content-start ms-2">
+                                <img src="../img/profesorIcon.svg" alt="">
+                                <p class="mb-0 ms-2">PROFESORES</p>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="thEstilos d-flex align-items-center justify-content-start ms-2">
+                                <img src="../img/alumnosIcon.svg" alt="">
+                                <p class="mb-0 ms-2">ALUMNOS</p>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="thEstilos d-flex align-items-center justify-content-start ms-2">
+                                <img src="../img/tareas.svg" alt="">
+                                <p class="mb-0 ms-2">TAREAS</p>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="gruposF1C1 mt-2">
+                                <div class="d-flex align-items-start justify-content-start flex-column">
+                                    <div class="checkboxCelda d-flex align-items-center justify-content-start ms-2">
+                                        <input class="form-check-input cp" type="checkbox" value="">
+                                        <label for="" class="form-label mb-0 ms-2 pStrong">PRL avanzado en la oficina</label>
+                                    </div>
+                                    <div class="fechaHorario">
+                                        <div class="fecha-mensajes d-flex align-items-start flex-column justify-content-center">
+                                            <div class="fecha d-flex align-items-center justify-content-start mt-2 ms-2">
+                                                <img id="iconImage" class="mb-3 me-2 cp" src="../img/burger-menu-icon.svg" alt="">
+                                                <p class="pStrong">
+                                                    <strong class="strongP">Fecha inicio y fin: </strong> 10/2 al 11/2
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="horarioSesiones ms-4">
+                                        <div class="horario">
+                                            <p class="pStrong">
+                                                <strong class="strongP">Horario: </strong>L - M de 10:00 - 12:00
+                                            </p>
+                                        </div>
+                                        <div class="sesiones">
+                                            <p class="pStrong"><strong class="strongP">Sesiones: </strong>0/11 Firmadas  23 Restantes</p>
+                                        </div>
+                                        <div class="iconosEstado d-flex align-items-center justify-content-start">
+                                            <div class="iconos d-flex align-items-center justify-content-start">
+                                                <img src="../img/user-icon.svg" class="me-2 cp" alt="">
+                                                <img src="../img/maps.svg" class="cp" alt="">
+                                                <p class="hashtag user-select-none">#</p>
+                                            </div>
+                                            <div class="estado d-flex align-items-center justify-content-start ms-2">
+                                                <div class="bonificada me-1 user-select-none cp">BONIFICADA</div>
+                                                <div class="telefonica user-select-none cp">TELEFÓNICA</div>
+                                            </div>
+                                        </div>
+                                        <div class="comunicacionInicioFin mt-2">
+                                            <div class="comInicio d-flex align-items-center justify-content-start">
+                                                <img src="../img/circle-fill-dark-grey.svg" alt="">
+                                                <p class="mb-0 ms-2"> 1.Com. Inicio - Fecha limite 06/12/2023</p>
+                                            </div>
+                                            <div class="comFin d-flex align-items-center justify-content-start mt-2">
+                                                <img src="../img/circle-fill-dark-grey.svg" alt="">
+                                                <p class="mb-0 ms-2">2. Com. FIN - fecha Límite 30/12/2023</p>
+                                            </div>
+                                        </div>
+                                        <div class="botones d-flex align-items-center justify-content-start mt-2 mb-2">
+                                            <button class="btn bimodal me-2">Bimodal</button>
+                                            <button class="btn ahora blink">Ahora</button>
+                                            <img src="../img/teams-icon.svg" class="ms-2 cp" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="profesoresF1C2">
+                                <div class="d-flex align-items-start justify-content-start flex-column m-2">
+                                    <div class="usuarioProfesores">
+                                        <p class="mb-0 usuarioProfesorPrincipal">Diego Pérez</p>
+                                    </div>
+                                    <div class="mensajesCantidad d-flex align-items-center justify-content-start mb-2 mt-2">
+                                        <img src="../img/message-icon.svg" class="me-2 cp" alt="">
+                                        <p class="mb-0 me-2 pStrong">22 mensajes</p>
+                                        <p class="mb-0 pStrong">
+                                            <strong class="strongP">0</strong>
+                                            mensajes sin leer
+                                        </p>
+                                    </div>
+                                    <div class="sesiones">
+                                        <p class="pStrong"><strong class="strongP">Sesiones: </strong>0/11 Firmadas  23 Restantes</p>
+                                    </div>
+                                    <div class="foro w-100">
+                                        <p class="mb-2 pStrongest">Foro</p>
+                                        <div class="foro1 d-flex align-items-end justify-content-start">
+                                            <div class="headerForo1 d-flex align-items-center justify-content-between w-100">
+                                                <div class="usuarioForo d-flex align-items-center justify-content-start">
+                                                    <img src="../img/usuarioForoIcon.svg" alt="">
+                                                    <p class="mb-0 usuarioProfesor ms-2">Diego Pérez</p>
+                                                </div>
+                                                <div class="fechaHora d-flex align-items-center justify-content-start">
+                                                    <p class="mb-0">04/09/2023 10:19</p>
+                                                </div>
+                                            </div>
+                                            <div class="recuadroMensaje">
+                                                <input type="text" class="mensajeForo form-control" value="Buen día">
+                                            </div>
+                                        </div>
+                                        <div class="foro2 d-flex align-items-end justify-content-start mt-2">
+                                            <div class="headerForo1 d-flex align-items-center justify-content-between w-100">
+                                                <div class="usuarioForo d-flex align-items-center justify-content-start">
+                                                    <img src="../img/usuarioForoIcon.svg" alt="">
+                                                    <p class="mb-0 usuarioProfesor ms-2">Diego Pérez</p>
+                                                </div>
+                                                <div class="fechaHora d-flex align-items-center justify-content-start">
+                                                    <p class="mb-0">04/09/2023 10:19</p>
+                                                </div>
+                                            </div>
+                                            <div class="recuadroMensaje">
+                                                <input type="text" class="mensajeForo form-control" value="El archivo fue enviado">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="alumnosF1C3">
+                                <div class="d-flex align-items-start justify-content-start flex-column">
+                                    <div class="primerContador">
+                                        <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
+                                            <div class="contador1 me-2 cp">5</div>
+                                            <p class="mb-0">Alumnos</p>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
+                                            <div class="contador1 me-2 cp">4</div>
+                                            <p class="mb-0">Inician</p>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
+                                            <div class="contador1 me-2 cp">4</div>
+                                            <p class="mb-0">Certifican</p>
+                                        </div>
+                                    </div>
+                                    <div class="segundoContador">
+                                        <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
+                                            <div class="contador2 me-2 cp">4</div>
+                                            <p class="mb-0">Asistentes última Sesión​</p>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
+                                            <div class="contador2 me-2 cp">0</div>
+                                            <p class="mb-0">Incidencias</p>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
+                                            <div class="contador2 me-2 cp">4/5</div>
+                                            <p class="mb-0">Cuestionario Satisfacción</p>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
+                                            <div class="contador2 me-2 cp">0</div>
+                                            <p class="mb-0">Cuestionario Piloto App</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="tareasF1C4 m-2">
+                                <div class="d-flex align-items-start justify-content-start flex-column">
+                                    <div class="notasIcono d-flex align-items-start justify-content-start flex-column w-100">
+                                        <div class="notasHeader d-flex align-items-center justify-content-between w-100">
+                                            <p class="mb-0">NOTAS</p>
+                                            <img src="../img/plusGreenIcon.svg" alt="">
+                                        </div>
+                                        <div class="notasBody d-flex align-items-center justify-content-between w-100">
+                                            <p class="mb-0">Pdte confirmar pago factura del profesor</p>
+                                            <div class="notasFechaProfesor d-flex align-items-center justify-content-start">
+                                                <div class="clockDate user-select-none d-flex align-items-center justify-content-start me-2 me-2">
+                                                    <img src="../img/clockIcon.svg" alt="">
+                                                    <p class="mb-0 ms-1">19 Feb</p>
+                                                </div>
+                                                <div class="notasProfesor">
+                                                    <img src="../img/circle-fill-violeta.svg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="toDo w-100">
+                                        <div class="toDoHeader d-flex align-items-center justify-content-start">
+                                            <p class="mb-0">TO-DO</p>
+                                        </div>
+                                        <div class="toDoBody">
+                                            <div class="tabsToDoBody mt-2 mb-2">
+                                                <nav>
+                                                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                                      <button class="nav-link active" id="nav-gestor-to-do-tab" data-bs-toggle="tab" data-bs-target="#nav-gestor-to-do" type="button" role="tab" aria-controls="nav-gestor-to-do" aria-selected="true">Gestor</button>
+                                                      <button class="nav-link" id="nav-profesor-to-do-tab" data-bs-toggle="tab" data-bs-target="#nav-profesor-to-do" type="button" role="tab" aria-controls="nav-profesor-to-do" aria-selected="false">Profesor</button>
+                                                      <button class="nav-link" id="nav-responsableGrupo-to-do-tab" data-bs-toggle="tab" data-bs-target="#nav-responsableGrupo-to-do" type="button" role="tab" aria-controls="nav-responsableGrupo-to-do" aria-selected="false">Responsable Grupo</button>
+                                                      <button class="nav-link" id="nav-todos-to-do-tab" data-bs-toggle="tab" data-bs-target="#nav-todos-to-do" type="button" role="tab" aria-controls="nav-todos-to-do" aria-selected="false">Todos</button>
+                                                    </div>
+                                                </nav>
+                                            </div>
+                                            <div class="checkboxesToDo">
+                                                <div class="checkboxCrearGrupo d-flex align-items-center justify-content-between">
+                                                    <div class="checkboxCrearGrupoyActualizar d-flex align-items-center justify-content-start">
+                                                        <input class="form-check-input cp me-2" id="crarGrupo" type="checkbox" value="">
+                                                        <label for="crarGrupo">Crear grupo y actualizar</label>
+                                                    </div>
+                                                    <img src="../img/plusGreenIcon.svg" alt="">
+                                                </div>
+                                                <div class="checkboxConfirmarPlanificacion d-flex align-items-center justify-content-between ms-4">
+                                                    <div class="d-flex align-items-center justify-content-start">
+                                                        <input class="form-check-input cp me-2" id="confirmarPlanificacion" type="checkbox" value="">
+                                                        <label for="confirmarPlanificacion">Confirmar Planificación Managers</label>
+                                                    </div>
+                                                    <div class="d-flex align-items-center justify-content-start">
+                                                        <div class="clockDate user-select-none d-flex align-items-center justify-content-start me-2">
+                                                            <img src="../img/clockIcon.svg" alt="">
+                                                            <p class="mb-0 ms-1">19 Feb</p>
+                                                        </div>
+                                                        <div class="notasProfesor">
+                                                            <img src="../img/circle-fill-violeta.svg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="checkboxConfirmarRoles d-flex align-items-center justify-content-between ms-4">
+                                                    <div class="d-flex align-items-center justify-content-start">
+                                                        <input class="form-check-input cp me-2" id="confirmarRolesYContrato" type="checkbox" value="">
+                                                        <label for="confirmarRolesYContrato">Confirmar Roles y Contrato</label>
+                                                    </div>
+                                                    <div class="d-flex align-items-center justify-content-start mt-2">
+                                                        <div class="clockDate user-select-none d-flex align-items-center justify-content-start me-2">
+                                                            <img src="../img/clockIcon.svg" alt="">
+                                                            <p class="mb-0 ms-1">19 Feb</p>
+                                                        </div>
+                                                        <div class="notasProfesor">
+                                                            <img src="../img/circle-fill-azul.svg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="checkboxSolicitudReglas d-flex align-items-center justify-content-between">
+                                                    <div class="d-flex align-items-center justify-content-start">
+                                                        <input class="form-check-input cp me-2" id="solicitudReglas" type="checkbox" value="" checked>
+                                                        <label for="solicitudReglas">Solicitud reglas</label>
+                                                    </div>
+                                                    <img src="../img/plusGreenIcon.svg" alt="">
+                                                </div>
+                                                <div class="checkboxPedirFactura d-flex align-items-center justify-content-between ms-4">
+                                                    <div class="d-flex align-items-center justify-content-start">
+                                                        <input class="form-check-input cp me-2" id="pedirFactura" type="checkbox" value="" checked>
+                                                        <label for="pedirRoles">Pedir Factura Profes</label>
+                                                    </div>
+                                                    <div class="d-flex align-items-center justify-content-start">
+                                                        <div class="clockDate user-select-none d-flex align-items-center justify-content-start me-2">
+                                                            <img src="../img/clockIcon.svg" alt="">
+                                                            <p class="mb-0 ms-1">19 Feb</p>
+                                                        </div>
+                                                        <div class="notasProfesor">
+                                                            <img src="../img/circle-fill-violeta.svg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="checkboxConfirmarPlanificacion2 d-flex align-items-center justify-content-between ms-4">
+                                                    <div class="d-flex align-items-center justify-content-start">
+                                                        <input class="form-check-input cp me-2" id="confirmarPlanificacion2" type="checkbox" value="" checked>
+                                                        <label for="confirmarPlanificacion2">Confirmar Planificación Managers</label>
+                                                    </div>
+                                                    <div class="d-flex align-items-center justify-content-start mt-2">
+                                                        <div class="clockDate user-select-none d-flex align-items-center justify-content-start me-2">
+                                                            <img src="../img/clockIcon.svg" alt="">
+                                                            <p class="mb-0 ms-1">19 Feb</p>
+                                                        </div>
+                                                        <div class="notasProfesor">
+                                                            <img src="../img/circle-fill-violeta.svg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="checkboxLMS d-flex align-items-center justify-content-between">
+                                                    <div class="checkboxCrearLMS d-flex align-items-center justify-content-start">
+                                                        <input class="form-check-input cp me-2" id="crearLMS" type="checkbox" value="">
+                                                        <label for="crearLMS">Crear LMS</label>
+                                                    </div>
+                                                    <img src="../img/plusGreenIcon.svg" alt="">
+                                                </div>
+                                                <div class="checkboxConfirmarRoles2 d-flex align-items-center justify-content-between ms-4">
+                                                    <div class="d-flex align-items-center justify-content-start">
+                                                        <input class="form-check-input cp me-2" id="confirmarRoles2" type="checkbox" value="">
+                                                        <label for="confirmarRoles2">Confirmar Roles y Contrato</label>
+                                                    </div>
+                                                    <div class="d-flex align-items-center justify-content-start">
+                                                        <div class="clockDateEnero d-flex align-items-center justify-content-start me-2">
+                                                            <img src="../img/clockIconWhite.svg" alt="">
+                                                            <p class="mb-0 ms-1">15 Ene</p>
+                                                        </div>
+                                                        <div class="notasProfesor">
+                                                            <img src="../img/circle-fill-violeta.svg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="checkboxCrearLMS d-flex align-items-center justify-content-between ms-4">
+                                                    <div class="d-flex align-items-center justify-content-start">
+                                                        <input class="form-check-input cp me-2" id="pedirFactura2" type="checkbox" value="">
+                                                        <label for="pedirFactura2">Pedir Factura Profes</label>
+                                                    </div>
+                                                    <div class="d-flex align-items-center justify-content-start mt-2">
+                                                        <div class="clockDateEnero d-flex align-items-center justify-content-start me-2">
+                                                            <img src="../img/clockIconWhite.svg" alt="">
+                                                            <p class="mb-0 ms-1">15 Ene</p>
+                                                        </div>
+                                                        <div class="notasProfesor">
+                                                            <img src="../img/circle-fill-azul.svg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="gruposF2C1 mt-2">
+                                <div class="d-flex align-items-start justify-content-start flex-column">
+                                    <div class="checkboxCelda d-flex align-items-center justify-content-start ms-2">
+                                        <input class="form-check-input cp" type="checkbox" value="">
+                                        <label for="" class="form-label mb-0 ms-2 pStrong">CP-COML010 Mozo Almacén​</label>
+                                    </div>
+                                    <div class="fechaHorario">
+                                        <div class="fecha-mensajes d-flex align-items-start flex-column justify-content-center">
+                                            <div class="fecha d-flex align-items-center justify-content-start mt-2 ms-2">
+                                                <img id="iconImage" class="mb-3 me-2 cp" src="../img/burger-menu-icon.svg" alt="">
+                                                <p class="pStrong">
+                                                    <strong class="strongP">Fecha inicio y fin: </strong> 10/2 al 11/2
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="horarioSesiones ms-4">
+                                        <div class="horario">
+                                            <p class="pStrong">
+                                                <strong class="strongP">Horario: </strong>L - M de 10:00 - 12:00
+                                            </p>
+                                        </div>
+                                        <div class="sesiones">
+                                            <p class="pStrong"><strong class="strongP">Sesiones: </strong>0/11 Firmadas  23 Restantes</p>
+                                        </div>
+                                        <div class="iconosEstado d-flex align-items-center justify-content-start">
+                                            <div class="iconos d-flex align-items-center justify-content-start">
+                                                <img src="../img/user-icon.svg" class="me-2 cp" alt="">
+                                                <img src="../img/maps.svg" class="cp" alt="">
+                                                <p class="hashtag user-select-none">#</p>
+                                            </div>
+                                            <div class="estado d-flex align-items-center justify-content-start ms-2">
+                                                <div class="me-1 user-select-none cp">CERTIFICADO PROFESIONALIDAD</div>
+                                            </div>
+                                        </div>
+                                        <div class="comunicacionInicioFin mt-2">
+                                            <div class="comInicio d-flex align-items-center justify-content-start">
+                                                <img src="../img/circle-fill-dark-grey.svg" alt="">
+                                                <p class="mb-0 ms-2"> 1.Com. Inicio - Fecha limite 06/12/2023</p>
+                                            </div>
+                                            <div class="comFin d-flex align-items-center justify-content-start mt-2">
+                                                <img src="../img/circle-fill-dark-grey.svg" alt="">
+                                                <p class="mb-0 ms-2">2. Com. FIN - fecha Límite 30/12/2023</p>
+                                            </div>
+                                        </div>
+                                        <div class="botones d-flex align-items-center justify-content-start mt-2 mb-2">
+                                            <button class="btn presencial me-2">Presencial</button>
+                                            <button class="btn ahora blink">Ahora</button>
+                                            <img src="../img/teams-icon.svg" class="ms-2 cp" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="profesorF2C2">
+                                <div class="profesoresF1C2">
+                                    <div class="d-flex align-items-start justify-content-start flex-column m-2">
+                                        <div class="usuarioProfesores">
+                                            <p class="mb-0 usuarioProfesorPrincipal">Diego Pérez</p>
+                                        </div>
+                                        <div class="mensajesCantidad d-flex align-items-center justify-content-start mb-2 mt-2">
+                                            <img src="../img/message-icon.svg" class="me-2 cp" alt="">
+                                            <p class="mb-0 me-2 pStrong">22 mensajes</p>
+                                            <p class="mb-0 pStrong">
+                                                <strong class="strongP">0</strong>
+                                                mensajes sin leer
+                                            </p>
+                                        </div>
+                                        <div class="sesiones">
+                                            <p class="pStrong"><strong class="strongP">Sesiones: </strong>0/11 Firmadas  23 Restantes</p>
+                                        </div>
+                                        <div class="foro w-100">
+                                            <p class="mb-2 pStrongest">Foro</p>
+                                            <div class="foro1 d-flex align-items-end justify-content-start">
+                                                <div class="headerForo1 d-flex align-items-center justify-content-between w-100">
+                                                    <div class="usuarioForo d-flex align-items-center justify-content-start">
+                                                        <img src="../img/usuarioForoIcon.svg" alt="">
+                                                        <p class="mb-0 usuarioProfesor ms-2">Diego Pérez</p>
+                                                    </div>
+                                                    <div class="fechaHora d-flex align-items-center justify-content-start">
+                                                        <p class="mb-0">04/09/2023 10:19</p>
+                                                    </div>
+                                                </div>
+                                                <div class="recuadroMensaje">
+                                                    <input type="text" class="mensajeForo form-control" value="Buen día">
+                                                </div>
+                                            </div>
+                                            <div class="foro2 d-flex align-items-end justify-content-start mt-2">
+                                                <div class="headerForo1 d-flex align-items-center justify-content-between w-100">
+                                                    <div class="usuarioForo d-flex align-items-center justify-content-start">
+                                                        <img src="../img/usuarioForoIcon.svg" alt="">
+                                                        <p class="mb-0 usuarioProfesor ms-2">Diego Pérez</p>
+                                                    </div>
+                                                    <div class="fechaHora d-flex align-items-center justify-content-start">
+                                                        <p class="mb-0">04/09/2023 10:19</p>
+                                                    </div>
+                                                </div>
+                                                <div class="recuadroMensaje">
+                                                    <input type="text" class="mensajeForo form-control" value="El archivo fue enviado">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="alumnosF2C3">
+                                <div class="d-flex align-items-start justify-content-start flex-column">
+                                    <div class="primerContador">
+                                        <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
+                                            <div class="contador1 me-2 cp">5</div>
+                                            <p class="mb-0">Alumnos</p>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
+                                            <div class="contador1 me-2 cp">4</div>
+                                            <p class="mb-0">Inician</p>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
+                                            <div class="contador1 me-2 cp">4</div>
+                                            <p class="mb-0">Certifican</p>
+                                        </div>
+                                    </div>
+                                    <div class="segundoContador">
+                                        <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
+                                            <div class="contador2 me-2 cp">4</div>
+                                            <p class="mb-0">Asistentes última Sesión​</p>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
+                                            <div class="contador2 me-2 cp">0</div>
+                                            <p class="mb-0">Incidencias</p>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
+                                            <div class="contador2 me-2 cp">4/5</div>
+                                            <p class="mb-0">Cuestionario Satisfacción</p>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
+                                            <div class="contador2 me-2 cp">0</div>
+                                            <p class="mb-0">Cuestionario Piloto App</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="tareasF2C4 m-2">
+                                <div class="d-flex align-items-start justify-content-start flex-column">
+                                    <div class="notasIcono d-flex align-items-start justify-content-start flex-column w-100">
+                                        <div class="notasHeader d-flex align-items-center justify-content-between w-100">
+                                            <p class="mb-0">NOTAS</p>
+                                            <img src="../img/plusGreenIcon.svg" alt="">
+                                        </div>
+                                        <div class="notasBody d-flex align-items-center justify-content-between w-100 mb-2">
+                                            <p class="mb-0">Nota 1</p>
+                                            <div class="notasFechaProfesor d-flex align-items-center justify-content-start">
+                                                <div class="clockDate user-select-none d-flex align-items-center justify-content-start me-2 me-2">
+                                                    <img src="../img/clockIcon.svg" alt="">
+                                                    <p class="mb-0 ms-1">19 Feb</p>
+                                                </div>
+                                                <div class="notasProfesor">
+                                                    <img src="../img/circle-fill-violeta.svg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="toDo w-100">
+                                        <div class="toDoHeader d-flex align-items-center justify-content-start">
+                                            <p class="mb-0">TO-DO</p>
+                                        </div>
+                                        <div class="toDoBody">
+                                            <div class="tabsToDoBody mt-2 mb-2">
+                                                <nav>
+                                                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                                      <button class="nav-link active" id="nav-gestor-to-do-tab" data-bs-toggle="tab" data-bs-target="#nav-gestor-to-do" type="button" role="tab" aria-controls="nav-gestor-to-do" aria-selected="true">Gestor</button>
+                                                      <button class="nav-link" id="nav-profesor-to-do-tab" data-bs-toggle="tab" data-bs-target="#nav-profesor-to-do" type="button" role="tab" aria-controls="nav-profesor-to-do" aria-selected="false">Profesor</button>
+                                                      <button class="nav-link" id="nav-responsableGrupo-to-do-tab" data-bs-toggle="tab" data-bs-target="#nav-responsableGrupo-to-do" type="button" role="tab" aria-controls="nav-responsableGrupo-to-do" aria-selected="false">Responsable Grupo</button>
+                                                      <button class="nav-link" id="nav-todos-to-do-tab" data-bs-toggle="tab" data-bs-target="#nav-todos-to-do" type="button" role="tab" aria-controls="nav-todos-to-do" aria-selected="false">Todos</button>
+                                                    </div>
+                                                </nav>
+                                            </div>
+                                            <div class="checkboxesToDo">
+                                                <div class="checkboxCrearGrupo d-flex align-items-center justify-content-between">
+                                                    <div class="checkboxCrearGrupoyActualizar d-flex align-items-center justify-content-start">
+                                                        <input class="form-check-input cp me-2" id="crarGrupo" type="checkbox" value="">
+                                                        <label for="crarGrupo">Crear grupo y actualizar</label>
+                                                    </div>
+                                                    <img src="../img/plusGreenIcon.svg" alt="">
+                                                </div>
+                                                <div class="checkboxConfirmarPlanificacion d-flex align-items-center justify-content-between ms-4">
+                                                    <div class="d-flex align-items-center justify-content-start">
+                                                        <input class="form-check-input cp me-2" id="confirmarPlanificacion" type="checkbox" value="">
+                                                        <label for="confirmarPlanificacion">Confirmar Planificación Managers</label>
+                                                    </div>
+                                                    <div class="d-flex align-items-center justify-content-start">
+                                                        <div class="clockDate user-select-none d-flex align-items-center justify-content-start me-2">
+                                                            <img src="../img/clockIcon.svg" alt="">
+                                                            <p class="mb-0 ms-1">19 Feb</p>
+                                                        </div>
+                                                        <div class="notasProfesor">
+                                                            <img src="../img/circle-fill-violeta.svg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="checkboxConfirmarRoles d-flex align-items-center justify-content-between ms-4">
+                                                    <div class="d-flex align-items-center justify-content-start">
+                                                        <input class="form-check-input cp me-2" id="confirmarRolesYContrato" type="checkbox" value="">
+                                                        <label for="confirmarRolesYContrato">Confirmar Roles y Contrato</label>
+                                                    </div>
+                                                    <div class="d-flex align-items-center justify-content-start mt-2">
+                                                        <div class="clockDate user-select-none d-flex align-items-center justify-content-start me-2">
+                                                            <img src="../img/clockIcon.svg" alt="">
+                                                            <p class="mb-0 ms-1">19 Feb</p>
+                                                        </div>
+                                                        <div class="notasProfesor">
+                                                            <img src="../img/circle-fill-azul.svg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="checkboxSolicitudReglas d-flex align-items-center justify-content-between">
+                                                    <div class="d-flex align-items-center justify-content-start">
+                                                        <input class="form-check-input cp me-2" id="solicitudReglas" type="checkbox" value="" checked>
+                                                        <label for="solicitudReglas">Solicitud reglas</label>
+                                                    </div>
+                                                    <img src="../img/plusGreenIcon.svg" alt="">
+                                                </div>
+                                                <div class="checkboxPedirFactura d-flex align-items-center justify-content-between ms-4">
+                                                    <div class="d-flex align-items-center justify-content-start">
+                                                        <input class="form-check-input cp me-2" id="pedirFactura" type="checkbox" value="" checked>
+                                                        <label for="pedirRoles">Pedir Factura Profes</label>
+                                                    </div>
+                                                    <div class="d-flex align-items-center justify-content-start">
+                                                        <div class="clockDate user-select-none d-flex align-items-center justify-content-start me-2">
+                                                            <img src="../img/clockIcon.svg" alt="">
+                                                            <p class="mb-0 ms-1">19 Feb</p>
+                                                        </div>
+                                                        <div class="notasProfesor">
+                                                            <img src="../img/circle-fill-violeta.svg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="checkboxConfirmarPlanificacion2 d-flex align-items-center justify-content-between ms-4">
+                                                    <div class="d-flex align-items-center justify-content-start">
+                                                        <input class="form-check-input cp me-2" id="confirmarPlanificacion2" type="checkbox" value="" checked>
+                                                        <label for="confirmarPlanificacion2">Confirmar Planificación Managers</label>
+                                                    </div>
+                                                    <div class="d-flex align-items-center justify-content-start mt-2">
+                                                        <div class="clockDate user-select-none d-flex align-items-center justify-content-start me-2">
+                                                            <img src="../img/clockIcon.svg" alt="">
+                                                            <p class="mb-0 ms-1">19 Feb</p>
+                                                        </div>
+                                                        <div class="notasProfesor">
+                                                            <img src="../img/circle-fill-violeta.svg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="checkboxLMS d-flex align-items-center justify-content-between">
+                                                    <div class="checkboxCrearLMS d-flex align-items-center justify-content-start">
+                                                        <input class="form-check-input cp me-2" id="crearLMS" type="checkbox" value="">
+                                                        <label for="crearLMS">Crear LMS</label>
+                                                    </div>
+                                                    <img src="../img/plusGreenIcon.svg" alt="">
+                                                </div>
+                                                <div class="checkboxConfirmarRoles2 d-flex align-items-center justify-content-between ms-4">
+                                                    <div class="d-flex align-items-center justify-content-start">
+                                                        <input class="form-check-input cp me-2" id="confirmarRoles2" type="checkbox" value="">
+                                                        <label for="confirmarRoles2">Confirmar Roles y Contrato</label>
+                                                    </div>
+                                                    <div class="d-flex align-items-center justify-content-start">
+                                                        <div class="clockDateEnero d-flex align-items-center justify-content-start me-2">
+                                                            <img src="../img/clockIconWhite.svg" alt="">
+                                                            <p class="mb-0 ms-1">15 Ene</p>
+                                                        </div>
+                                                        <div class="notasProfesor">
+                                                            <img src="../img/circle-fill-violeta.svg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="checkboxCrearLMS d-flex align-items-center justify-content-between ms-4">
+                                                    <div class="d-flex align-items-center justify-content-start">
+                                                        <input class="form-check-input cp me-2" id="pedirFactura2" type="checkbox" value="">
+                                                        <label for="pedirFactura2">Pedir Factura Profes</label>
+                                                    </div>
+                                                    <div class="d-flex align-items-center justify-content-start mt-2">
+                                                        <div class="clockDateEnero d-flex align-items-center justify-content-start me-2">
+                                                            <img src="../img/clockIconWhite.svg" alt="">
+                                                            <p class="mb-0 ms-1">15 Ene</p>
+                                                        </div>
+                                                        <div class="notasProfesor">
+                                                            <img src="../img/circle-fill-azul.svg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="gruposF3C1 mt-2">
+                                <div class="d-flex align-items-start justify-content-start flex-column">
+                                    <div class="checkboxCelda d-flex align-items-center justify-content-start ms-2">
+                                        <input class="form-check-input cp" type="checkbox" value="">
+                                        <label for="" class="form-label mb-0 ms-2 pStrong">Certificado Profesionalidad</label>
+                                    </div>
+                                    <div class="fechaHorario">
+                                        <div class="fecha-mensajes d-flex align-items-start flex-column justify-content-center">
+                                            <div class="fecha d-flex align-items-center justify-content-start mt-2 ms-2">
+                                                <img id="iconImage" class="mb-3 me-2 cp" src="../img/burger-menu-icon.svg" alt="">
+                                                <p class="pStrong">
+                                                    <strong class="strongP">Fecha inicio y fin: </strong> 10/2 al 11/2
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="horarioSesiones ms-4">
+                                        <div class="horario">
+                                            <p class="pStrong">
+                                                <strong class="strongP">Horario: </strong>L - M de 10:00 - 12:00
+                                            </p>
+                                        </div>
+                                        <div class="sesiones">
+                                            <p class="pStrong"><strong class="strongP">Sesiones: </strong>0/11 Firmadas  23 Restantes</p>
+                                        </div>
+                                        <div class="iconosEstado d-flex align-items-center justify-content-start">
+                                            <div class="iconos d-flex align-items-center justify-content-start">
+                                                <img src="../img/user-icon.svg" class="me-2 cp" alt="">
+                                                <img src="../img/maps.svg" class="cp" alt="">
+                                                <p class="hashtag user-select-none">#</p>
+                                            </div>
+                                            <div class="estado d-flex align-items-center justify-content-start ms-2">
+                                                <div class="me-1 user-select-none cp">CERTIFICADO PROFESIONALIDAD</div>
+                                            </div>
+                                        </div>
+                                        <div class="comunicacionInicioFin mt-2">
+                                            <div class="comInicio d-flex align-items-center justify-content-start">
+                                                <img src="../img/circle-fill-dark-grey.svg" alt="">
+                                                <p class="mb-0 ms-2"> 1.Com. Inicio - Fecha limite 06/12/2023</p>
+                                            </div>
+                                            <div class="comFin d-flex align-items-center justify-content-start mt-2">
+                                                <img src="../img/circle-fill-dark-grey.svg" alt="">
+                                                <p class="mb-0 ms-2">2. Com. FIN - fecha Límite 30/12/2023</p>
+                                            </div>
+                                        </div>
+                                        <div class="botones d-flex align-items-center justify-content-start mt-2 mb-2">
+                                            <button class="btn bimodal me-2">Bimodal</button>
+                                            <img src="../img/teams-icon.svg" class="ms-2 cp" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="profesorF3C2">
+                                <div class="profesoresF1C2">
+                                    <div class="d-flex align-items-start justify-content-start flex-column m-2">
+                                        <div class="usuarioProfesores">
+                                            <p class="mb-0 usuarioProfesorPrincipal">Diego Pérez</p>
+                                        </div>
+                                        <div class="mensajesCantidad d-flex align-items-center justify-content-start mb-2 mt-2">
+                                            <img src="../img/message-icon.svg" class="me-2 cp" alt="">
+                                            <p class="mb-0 me-2 pStrong">22 mensajes</p>
+                                            <p class="mb-0 pStrong">
+                                                <strong class="strongP">0</strong>
+                                                mensajes sin leer
+                                            </p>
+                                        </div>
+                                        <div class="sesiones">
+                                            <p class="pStrong"><strong class="strongP">Sesiones: </strong>0/11 Firmadas  23 Restantes</p>
+                                        </div>
+                                        <div class="foro w-100">
+                                            <p class="mb-2 pStrongest">Foro</p>
+                                            <div class="foro1 d-flex align-items-end justify-content-start">
+                                                <div class="headerForo1 d-flex align-items-center justify-content-between w-100">
+                                                    <div class="usuarioForo d-flex align-items-center justify-content-start">
+                                                        <img src="../img/usuarioForoIcon.svg" alt="">
+                                                        <p class="mb-0 usuarioProfesor ms-2">Diego Pérez</p>
+                                                    </div>
+                                                    <div class="fechaHora d-flex align-items-center justify-content-start">
+                                                        <p class="mb-0">04/09/2023 10:19</p>
+                                                    </div>
+                                                </div>
+                                                <div class="recuadroMensaje">
+                                                    <input type="text" class="mensajeForo form-control" value="Buen día">
+                                                </div>
+                                            </div>
+                                            <div class="foro2 d-flex align-items-end justify-content-start mt-2">
+                                                <div class="headerForo1 d-flex align-items-center justify-content-between w-100">
+                                                    <div class="usuarioForo d-flex align-items-center justify-content-start">
+                                                        <img src="../img/usuarioForoIcon.svg" alt="">
+                                                        <p class="mb-0 usuarioProfesor ms-2">Diego Pérez</p>
+                                                    </div>
+                                                    <div class="fechaHora d-flex align-items-center justify-content-start">
+                                                        <p class="mb-0">04/09/2023 10:19</p>
+                                                    </div>
+                                                </div>
+                                                <div class="recuadroMensaje">
+                                                    <input type="text" class="mensajeForo form-control" value="El archivo fue enviado">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="alumnosF3C3">
+                                <div class="d-flex align-items-start justify-content-start flex-column">
+                                    <div class="primerContador">
+                                        <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
+                                            <div class="contador1 me-2 cp">5</div>
+                                            <p class="mb-0">Alumnos</p>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
+                                            <div class="contador1 me-2 cp">4</div>
+                                            <p class="mb-0">Inician</p>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
+                                            <div class="contador1 me-2 cp">4</div>
+                                            <p class="mb-0">Certifican</p>
+                                        </div>
+                                    </div>
+                                    <div class="segundoContador">
+                                        <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
+                                            <div class="contador2 me-2 cp">4</div>
+                                            <p class="mb-0">Asistentes última Sesión​</p>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
+                                            <div class="contador2 me-2 cp">0</div>
+                                            <p class="mb-0">Incidencias</p>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
+                                            <div class="contador2 me-2 cp">4/5</div>
+                                            <p class="mb-0">Cuestionario Satisfacción</p>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
+                                            <div class="contador2 me-2 cp">0</div>
+                                            <p class="mb-0">Cuestionario Piloto App</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="tareasF3C4 m-2">
+                                <div class="d-flex align-items-start justify-content-start flex-column">
+                                    <div class="notasIcono d-flex align-items-start justify-content-start flex-column w-100">
+                                        <div class="notasHeader d-flex align-items-center justify-content-between w-100">
+                                            <p class="mb-0">NOTAS</p>
+                                            <img src="../img/plusGreenIcon.svg" alt="">
+                                        </div>
+                                        <div class="notasBody d-flex align-items-center justify-content-between w-100 mb-2">
+                                            <p class="mb-0">Nota 1</p>
+                                            <div class="notasFechaProfesor d-flex align-items-center justify-content-start">
+                                                <div class="clockDate user-select-none d-flex align-items-center justify-content-start me-2 me-2">
+                                                    <img src="../img/clockIcon.svg" alt="">
+                                                    <p class="mb-0 ms-1">19 Feb</p>
+                                                </div>
+                                                <div class="notasProfesor">
+                                                    <img src="../img/circle-fill-violeta.svg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="toDo w-100">
+                                        <div class="toDoHeader d-flex align-items-center justify-content-start">
+                                            <p class="mb-0">TO-DO</p>
+                                        </div>
+                                        <div class="toDoBody">
+                                            <div class="tabsToDoBody mt-2 mb-2">
+                                                <nav>
+                                                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                                      <button class="nav-link active" id="nav-gestor-to-do-tab" data-bs-toggle="tab" data-bs-target="#nav-gestor-to-do" type="button" role="tab" aria-controls="nav-gestor-to-do" aria-selected="true">Gestor</button>
+                                                      <button class="nav-link" id="nav-profesor-to-do-tab" data-bs-toggle="tab" data-bs-target="#nav-profesor-to-do" type="button" role="tab" aria-controls="nav-profesor-to-do" aria-selected="false">Profesor</button>
+                                                      <button class="nav-link" id="nav-responsableGrupo-to-do-tab" data-bs-toggle="tab" data-bs-target="#nav-responsableGrupo-to-do" type="button" role="tab" aria-controls="nav-responsableGrupo-to-do" aria-selected="false">Responsable Grupo</button>
+                                                      <button class="nav-link" id="nav-todos-to-do-tab" data-bs-toggle="tab" data-bs-target="#nav-todos-to-do" type="button" role="tab" aria-controls="nav-todos-to-do" aria-selected="false">Todos</button>
+                                                    </div>
+                                                </nav>
+                                            </div>
+                                            <div class="checkboxesToDo">
+                                                <div class="checkboxCrearGrupo d-flex align-items-center justify-content-between">
+                                                    <div class="checkboxCrearGrupoyActualizar d-flex align-items-center justify-content-start">
+                                                        <input class="form-check-input cp me-2" id="crarGrupo" type="checkbox" value="">
+                                                        <label for="crarGrupo">Crear grupo y actualizar</label>
+                                                    </div>
+                                                    <img src="../img/plusGreenIcon.svg" alt="">
+                                                </div>
+                                                <div class="checkboxConfirmarPlanificacion d-flex align-items-center justify-content-between ms-4">
+                                                    <div class="d-flex align-items-center justify-content-start">
+                                                        <input class="form-check-input cp me-2" id="confirmarPlanificacion" type="checkbox" value="">
+                                                        <label for="confirmarPlanificacion">Confirmar Planificación Managers</label>
+                                                    </div>
+                                                    <div class="d-flex align-items-center justify-content-start">
+                                                        <div class="clockDate user-select-none d-flex align-items-center justify-content-start me-2">
+                                                            <img src="../img/clockIcon.svg" alt="">
+                                                            <p class="mb-0 ms-1">19 Feb</p>
+                                                        </div>
+                                                        <div class="notasProfesor">
+                                                            <img src="../img/circle-fill-violeta.svg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="checkboxConfirmarRoles d-flex align-items-center justify-content-between ms-4">
+                                                    <div class="d-flex align-items-center justify-content-start">
+                                                        <input class="form-check-input cp me-2" id="confirmarRolesYContrato" type="checkbox" value="">
+                                                        <label for="confirmarRolesYContrato">Confirmar Roles y Contrato</label>
+                                                    </div>
+                                                    <div class="d-flex align-items-center justify-content-start mt-2">
+                                                        <div class="clockDate user-select-none d-flex align-items-center justify-content-start me-2">
+                                                            <img src="../img/clockIcon.svg" alt="">
+                                                            <p class="mb-0 ms-1">19 Feb</p>
+                                                        </div>
+                                                        <div class="notasProfesor">
+                                                            <img src="../img/circle-fill-azul.svg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="checkboxSolicitudReglas d-flex align-items-center justify-content-between">
+                                                    <div class="d-flex align-items-center justify-content-start">
+                                                        <input class="form-check-input cp me-2" id="solicitudReglas" type="checkbox" value="" checked>
+                                                        <label for="solicitudReglas">Solicitud reglas</label>
+                                                    </div>
+                                                    <img src="../img/plusGreenIcon.svg" alt="">
+                                                </div>
+                                                <div class="checkboxPedirFactura d-flex align-items-center justify-content-between ms-4">
+                                                    <div class="d-flex align-items-center justify-content-start">
+                                                        <input class="form-check-input cp me-2" id="pedirFactura" type="checkbox" value="" checked>
+                                                        <label for="pedirRoles">Pedir Factura Profes</label>
+                                                    </div>
+                                                    <div class="d-flex align-items-center justify-content-start">
+                                                        <div class="clockDate user-select-none d-flex align-items-center justify-content-start me-2">
+                                                            <img src="../img/clockIcon.svg" alt="">
+                                                            <p class="mb-0 ms-1">19 Feb</p>
+                                                        </div>
+                                                        <div class="notasProfesor">
+                                                            <img src="../img/circle-fill-violeta.svg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="checkboxConfirmarPlanificacion2 d-flex align-items-center justify-content-between ms-4">
+                                                    <div class="d-flex align-items-center justify-content-start">
+                                                        <input class="form-check-input cp me-2" id="confirmarPlanificacion2" type="checkbox" value="" checked>
+                                                        <label for="confirmarPlanificacion2">Confirmar Planificación Managers</label>
+                                                    </div>
+                                                    <div class="d-flex align-items-center justify-content-start mt-2">
+                                                        <div class="clockDate user-select-none d-flex align-items-center justify-content-start me-2">
+                                                            <img src="../img/clockIcon.svg" alt="">
+                                                            <p class="mb-0 ms-1">19 Feb</p>
+                                                        </div>
+                                                        <div class="notasProfesor">
+                                                            <img src="../img/circle-fill-violeta.svg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="checkboxLMS d-flex align-items-center justify-content-between">
+                                                    <div class="checkboxCrearLMS d-flex align-items-center justify-content-start">
+                                                        <input class="form-check-input cp me-2" id="crearLMS" type="checkbox" value="">
+                                                        <label for="crearLMS">Crear LMS</label>
+                                                    </div>
+                                                    <img src="../img/plusGreenIcon.svg" alt="">
+                                                </div>
+                                                <div class="checkboxConfirmarRoles2 d-flex align-items-center justify-content-between ms-4">
+                                                    <div class="d-flex align-items-center justify-content-start">
+                                                        <input class="form-check-input cp me-2" id="confirmarRoles2" type="checkbox" value="">
+                                                        <label for="confirmarRoles2">Confirmar Roles y Contrato</label>
+                                                    </div>
+                                                    <div class="d-flex align-items-center justify-content-start">
+                                                        <div class="clockDateEnero user-select-none d-flex align-items-center justify-content-start me-2">
+                                                            <img src="../img/clockIconWhite.svg" alt="">
+                                                            <p class="mb-0 ms-1">15 Ene</p>
+                                                        </div>
+                                                        <div class="notasProfesor">
+                                                            <img src="../img/circle-fill-violeta.svg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="checkboxCrearLMS d-flex align-items-center justify-content-between ms-4">
+                                                    <div class="d-flex align-items-center justify-content-start">
+                                                        <input class="form-check-input cp me-2" id="pedirFactura2" type="checkbox" value="">
+                                                        <label for="pedirFactura2">Pedir Factura Profes</label>
+                                                    </div>
+                                                    <div class="d-flex align-items-center justify-content-start mt-2">
+                                                        <div class="clockDateEnero user-select-none d-flex align-items-center justify-content-start me-2">
+                                                            <img src="../img/clockIconWhite.svg" alt="">
+                                                            <p class="mb-0 ms-1">15 Ene</p>
+                                                        </div>
+                                                        <div class="notasProfesor">
+                                                            <img src="../img/circle-fill-azul.svg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </div>
+    </main>   
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="../../js/gestor.js"></script>
+</body>
+</html>

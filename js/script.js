@@ -2570,9 +2570,14 @@ function setupFormadorIconPopover() {
   });
 
 
-  document.body.addEventListener('click', function(event) {
-    if (event.target.id === 'administrador') {
-        window.location.href = 'assets/pages/administrador.html';
+  document.body.addEventListener('click', function (event) {
+    console.log(event)
+    const isGitHubPages = window.location.hostname.includes('github.io');
+    if (event.target.id === 'gestor') {
+        window.location.href = isGitHubPages ? '/panel_gestor' : '/assets/pages/gestor.html';
+    }
+    else if (event.target.id === 'administrador') {
+        window.location.href = isGitHubPages ? '/panel_gestor' : '/assets/pages/administrador.html';
     }
 });
 }
