@@ -92,9 +92,26 @@
                         <td>
                             <div class="gruposF1C1 mt-2">
                                 <div class="d-flex align-items-start justify-content-start flex-column">
-                                    <div class="checkboxCelda d-flex align-items-center justify-content-start ms-2">
-                                        <input class="form-check-input cp" type="checkbox" value="">
-                                        <label for="" class="form-label mb-0 ms-2 pStrong">PRL avanzado en la oficina</label>
+                                    <div class="checkboxEstadoColor w-100 d-flex align-items-center justify-content-between">
+                                        <div class="checkboxCelda cp d-flex align-items-center justify-content-start ms-2">
+                                            <input class="form-check-input cp" type="checkbox" value="">
+                                            <label for="" class="form-label cp mb-0 ms-2 pStrong">PRL avanzado en la oficina</label>
+                                        </div>
+                                        <div class="estadoColor cp d-flex align-items-center justify-content-end">
+                                            <img src="../img/green-circle-fill-little.svg" alt="">
+                                            <p class="mb-0 valido ms-2 me-2">Válido</p>
+                                        </div>
+                                        <div class="custom-select" style="display: none; position: absolute; z-index: 1000;">
+                                            <div class="select-items custom-select-hide">
+                                                <div class="select-option" data-value="incidentado"><img src="../img/red-circle-fill-little.svg" alt="" class="me-2"><span style="color: #DF1517;">Incidentado</span></div>
+                                                <div class="select-option" data-value="anulado"><img src="../img/darkRed-circle-fill-little.svg" alt="" class="me-2"><span style="color: #8C0C0E;">Anulado</span></div>
+                                                <div class="select-option" data-value="modificado"><img src="../img/orange-circle-fill-little.svg" alt="" class="me-2"><span style="color: #FF7A00;">Modificado</span></div>
+                                                <div class="select-option" data-value="finalizado"><img src="../img/gray-circle-fill-little.svg" alt="" class="me-2"><span style="color: #7B7B7B;">Finalizado</span></div>
+                                                <div class="select-option" data-value="valido"><img src="../img/green-circle-fill-little.svg" alt="" class="me-2"><span style="color: #51AC34;">Válido</span></div>
+                                                <div class="select-option" data-value="pdte"><img src="../img/blue-circle-fill-little.svg" alt="" class="me-2"><span style="color: #3374B0;">Pdte</span></div>
+                                            </div>
+                                        </div>
+
                                     </div>
                                     <div class="fechaHorario">
                                         <div class="fecha-mensajes d-flex align-items-start flex-column justify-content-center">
@@ -112,13 +129,13 @@
                                                 <strong class="strongP">Horario: </strong>L - M de 10:00 - 12:00
                                             </p>
                                         </div>
-                                        <div class="sesiones">
+                                        <div class="sesiones cp">
                                             <p class="pStrong"><strong class="strongP">Sesiones: </strong>0/11 Firmadas  23 Restantes</p>
                                         </div>
                                         <div class="iconosEstado d-flex align-items-center justify-content-start">
                                             <div class="iconos d-flex align-items-center justify-content-start">
-                                                <img src="../img/user-icon.svg" class="me-2 cp" alt="">
-                                                <img src="../img/maps.svg" class="cp" alt="">
+                                                <img src="../img/user-icon.svg" class="me-2 cp user-icon" alt="">
+                                                <img src="../img/maps.svg" class="cp map-icon" alt="">
                                                 <p class="hashtag user-select-none">#</p>
                                             </div>
                                             <div class="estado d-flex align-items-center justify-content-start ms-2">
@@ -139,7 +156,7 @@
                                         <div class="botones d-flex align-items-center justify-content-start mt-2 mb-2">
                                             <button class="btn bimodal me-2">Bimodal</button>
                                             <button class="btn ahora blink">Ahora</button>
-                                            <img src="../img/teams-icon.svg" class="ms-2 cp" alt="">
+                                            <img src="../img/teams-icon.svg" class="ms-2 cp"  id="teams" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -154,15 +171,15 @@
                                     <div class="mensajesCantidad d-flex align-items-center justify-content-start mb-2 mt-2">
                                         <img src="../img/message-icon.svg" class="me-2 cp" alt="">
                                         <p class="mb-0 me-2 pStrong">22 mensajes</p>
-                                        <p class="mb-0 pStrong">
+                                        <p class="mb-0 pStrong mensajesSinLeer cp">
                                             <strong class="strongP">0</strong>
                                             mensajes sin leer
                                         </p>
                                     </div>
-                                    <div class="sesiones">
+                                    <div class="sesiones cp">
                                         <p class="pStrong"><strong class="strongP">Sesiones: </strong>0/11 Firmadas  23 Restantes</p>
                                     </div>
-                                    <div class="foro w-100">
+                                    <div class="foro w-100 cp">
                                         <p class="mb-2 pStrongest">Foro</p>
                                         <div class="foro1 d-flex align-items-end justify-content-start">
                                             <div class="headerForo1 d-flex align-items-center justify-content-between w-100">
@@ -202,7 +219,7 @@
                                     <div class="primerContador">
                                         <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
                                             <div class="contador1 me-2 cp">5</div>
-                                            <p class="mb-0">Alumnos</p>
+                                            <p class="mb-0 alumnosOpener cp">Alumnos</p>
                                         </div>
                                         <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
                                             <div class="contador1 me-2 cp">4</div>
@@ -216,7 +233,7 @@
                                     <div class="segundoContador">
                                         <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
                                             <div class="contador2 me-2 cp">4</div>
-                                            <p class="mb-0">Asistentes última Sesión​</p>
+                                            <p class="mb-0 alumnosOpener cp">Asistentes última Sesión​</p>
                                         </div>
                                         <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
                                             <div class="contador2 me-2 cp">0</div>
@@ -224,7 +241,7 @@
                                         </div>
                                         <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
                                             <div class="contador2 me-2 cp">4/5</div>
-                                            <p class="mb-0">Cuestionario Satisfacción</p>
+                                            <p class="mb-0 cuestionarioSatisfaccion cp">Cuestionario Satisfacción</p>
                                         </div>
                                         <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
                                             <div class="contador2 me-2 cp">0</div>
@@ -249,7 +266,7 @@
                                                     <img src="../img/clockIcon.svg" alt="">
                                                     <p class="mb-0 ms-1">19 Feb</p>
                                                 </div>
-                                                <div class="notasProfesor">
+                                                <div class="notasProfesorPG cp">
                                                     <img src="../img/circle-fill-violeta.svg" alt="">
                                                 </div>
                                             </div>
@@ -288,7 +305,7 @@
                                                             <img src="../img/clockIcon.svg" alt="">
                                                             <p class="mb-0 ms-1">19 Feb</p>
                                                         </div>
-                                                        <div class="notasProfesor">
+                                                        <div class="notasProfesorPG cp">
                                                             <img src="../img/circle-fill-violeta.svg" alt="">
                                                         </div>
                                                     </div>
@@ -303,7 +320,7 @@
                                                             <img src="../img/clockIcon.svg" alt="">
                                                             <p class="mb-0 ms-1">19 Feb</p>
                                                         </div>
-                                                        <div class="notasProfesor">
+                                                        <div class="notasProfesorDP cp">
                                                             <img src="../img/circle-fill-azul.svg" alt="">
                                                         </div>
                                                     </div>
@@ -325,7 +342,7 @@
                                                             <img src="../img/clockIcon.svg" alt="">
                                                             <p class="mb-0 ms-1">19 Feb</p>
                                                         </div>
-                                                        <div class="notasProfesor">
+                                                        <div class="notasProfesorPG cp">
                                                             <img src="../img/circle-fill-violeta.svg" alt="">
                                                         </div>
                                                     </div>
@@ -340,7 +357,7 @@
                                                             <img src="../img/clockIcon.svg" alt="">
                                                             <p class="mb-0 ms-1">19 Feb</p>
                                                         </div>
-                                                        <div class="notasProfesor">
+                                                        <div class="notasProfesorPG cp">
                                                             <img src="../img/circle-fill-violeta.svg" alt="">
                                                         </div>
                                                     </div>
@@ -362,7 +379,7 @@
                                                             <img src="../img/clockIconWhite.svg" alt="">
                                                             <p class="mb-0 ms-1">15 Ene</p>
                                                         </div>
-                                                        <div class="notasProfesor">
+                                                        <div class="notasProfesorPG cp">
                                                             <img src="../img/circle-fill-violeta.svg" alt="">
                                                         </div>
                                                     </div>
@@ -377,7 +394,7 @@
                                                             <img src="../img/clockIconWhite.svg" alt="">
                                                             <p class="mb-0 ms-1">15 Ene</p>
                                                         </div>
-                                                        <div class="notasProfesor">
+                                                        <div class="notasProfesorDP cp">
                                                             <img src="../img/circle-fill-azul.svg" alt="">
                                                         </div>
                                                     </div>
@@ -393,14 +410,31 @@
                         <td>
                             <div class="gruposF2C1 mt-2">
                                 <div class="d-flex align-items-start justify-content-start flex-column">
-                                    <div class="checkboxCelda d-flex align-items-center justify-content-start ms-2">
-                                        <input class="form-check-input cp" type="checkbox" value="">
-                                        <label for="" class="form-label mb-0 ms-2 pStrong">CP-COML010 Mozo Almacén​</label>
+                                    <div class="checkboxEstadoColor w-100 d-flex align-items-center justify-content-between">
+                                        <div class="checkboxCelda cp d-flex align-items-center justify-content-start ms-2">
+                                            <input class="form-check-input cp" type="checkbox" value="">
+                                            <label for="" class="form-label cp mb-0 ms-2 pStrong">CP-COML010 Mozo Almacén</label>
+                                        </div>
+                                        <div class="estadoColor cp d-flex align-items-center justify-content-end">
+                                            <img src="../img/orange-circle-fill-little.svg" alt="">
+                                            <p class="mb-0 ms-2 me-2">Modificado</p>
+                                        </div>
+                                        <div class="custom-select" style="display: none; position: absolute; z-index: 1000;">
+                                            <div class="select-items custom-select-hide">
+                                                <div class="select-option" data-value="incidentado"><img src="../img/red-circle-fill-little.svg" alt="" class="me-2"><span style="color: #DF1517;">Incidentado</span></div>
+                                                <div class="select-option" data-value="anulado"><img src="../img/darkRed-circle-fill-little.svg" alt="" class="me-2"><span style="color: #8C0C0E;">Anulado</span></div>
+                                                <div class="select-option" data-value="modificado"><img src="../img/orange-circle-fill-little.svg" alt="" class="me-2"><span style="color: #FF7A00;">Modificado</span></div>
+                                                <div class="select-option" data-value="finalizado"><img src="../img/gray-circle-fill-little.svg" alt="" class="me-2"><span style="color: #7B7B7B;">Finalizado</span></div>
+                                                <div class="select-option" data-value="valido"><img src="../img/green-circle-fill-little.svg" alt="" class="me-2"><span style="color: #51AC34;">Válido</span></div>
+                                                <div class="select-option" data-value="pdte"><img src="../img/blue-circle-fill-little.svg" alt="" class="me-2"><span style="color: #3374B0;">Pdte</span></div>
+                                            </div>
+                                        </div>
+
                                     </div>
                                     <div class="fechaHorario">
                                         <div class="fecha-mensajes d-flex align-items-start flex-column justify-content-center">
                                             <div class="fecha d-flex align-items-center justify-content-start mt-2 ms-2">
-                                                <img id="iconImage" class="mb-3 me-2 cp" src="../img/burger-menu-icon.svg" alt="">
+                                                <img id="iconImage2" class="mb-3 me-2 cp" src="../img/burger-menu-icon.svg" alt="">
                                                 <p class="pStrong">
                                                     <strong class="strongP">Fecha inicio y fin: </strong> 10/2 al 11/2
                                                 </p>
@@ -413,13 +447,13 @@
                                                 <strong class="strongP">Horario: </strong>L - M de 10:00 - 12:00
                                             </p>
                                         </div>
-                                        <div class="sesiones">
+                                        <div class="sesiones cp">
                                             <p class="pStrong"><strong class="strongP">Sesiones: </strong>0/11 Firmadas  23 Restantes</p>
                                         </div>
                                         <div class="iconosEstado d-flex align-items-center justify-content-start">
                                             <div class="iconos d-flex align-items-center justify-content-start">
-                                                <img src="../img/user-icon.svg" class="me-2 cp" alt="">
-                                                <img src="../img/maps.svg" class="cp" alt="">
+                                                <img src="../img/user-icon.svg" class="me-2 cp user-icon" alt="">
+                                                <img src="../img/maps.svg" class="cp map-icon" alt="">
                                                 <p class="hashtag user-select-none">#</p>
                                             </div>
                                             <div class="estado d-flex align-items-center justify-content-start ms-2">
@@ -439,7 +473,7 @@
                                         <div class="botones d-flex align-items-center justify-content-start mt-2 mb-2">
                                             <button class="btn presencial me-2">Presencial</button>
                                             <button class="btn ahora blink">Ahora</button>
-                                            <img src="../img/teams-icon.svg" class="ms-2 cp" alt="">
+                                            <img src="../img/teams-icon.svg" class="ms-2 cp" id="teams" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -455,15 +489,15 @@
                                         <div class="mensajesCantidad d-flex align-items-center justify-content-start mb-2 mt-2">
                                             <img src="../img/message-icon.svg" class="me-2 cp" alt="">
                                             <p class="mb-0 me-2 pStrong">22 mensajes</p>
-                                            <p class="mb-0 pStrong">
+                                            <p class="mb-0 pStrong mensajesSinLeer cp">
                                                 <strong class="strongP">0</strong>
                                                 mensajes sin leer
                                             </p>
                                         </div>
-                                        <div class="sesiones">
+                                        <div class="sesiones cp">
                                             <p class="pStrong"><strong class="strongP">Sesiones: </strong>0/11 Firmadas  23 Restantes</p>
                                         </div>
-                                        <div class="foro w-100">
+                                        <div class="foro w-100 cp">
                                             <p class="mb-2 pStrongest">Foro</p>
                                             <div class="foro1 d-flex align-items-end justify-content-start">
                                                 <div class="headerForo1 d-flex align-items-center justify-content-between w-100">
@@ -504,7 +538,7 @@
                                     <div class="primerContador">
                                         <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
                                             <div class="contador1 me-2 cp">5</div>
-                                            <p class="mb-0">Alumnos</p>
+                                            <p class="mb-0 alumnosOpener cp">Alumnos</p>
                                         </div>
                                         <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
                                             <div class="contador1 me-2 cp">4</div>
@@ -518,7 +552,7 @@
                                     <div class="segundoContador">
                                         <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
                                             <div class="contador2 me-2 cp">4</div>
-                                            <p class="mb-0">Asistentes última Sesión​</p>
+                                            <p class="mb-0 alumnosOpener cp">Asistentes última Sesión​</p>
                                         </div>
                                         <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
                                             <div class="contador2 me-2 cp">0</div>
@@ -526,7 +560,7 @@
                                         </div>
                                         <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
                                             <div class="contador2 me-2 cp">4/5</div>
-                                            <p class="mb-0">Cuestionario Satisfacción</p>
+                                            <p class="mb-0 cuestionarioSatisfaccion cp">Cuestionario Satisfacción</p>
                                         </div>
                                         <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
                                             <div class="contador2 me-2 cp">0</div>
@@ -551,7 +585,7 @@
                                                     <img src="../img/clockIcon.svg" alt="">
                                                     <p class="mb-0 ms-1">19 Feb</p>
                                                 </div>
-                                                <div class="notasProfesor">
+                                                <div class="notasProfesorPG cp">
                                                     <img src="../img/circle-fill-violeta.svg" alt="">
                                                 </div>
                                             </div>
@@ -590,7 +624,7 @@
                                                             <img src="../img/clockIcon.svg" alt="">
                                                             <p class="mb-0 ms-1">19 Feb</p>
                                                         </div>
-                                                        <div class="notasProfesor">
+                                                        <div class="notasProfesorPG cp">
                                                             <img src="../img/circle-fill-violeta.svg" alt="">
                                                         </div>
                                                     </div>
@@ -605,7 +639,7 @@
                                                             <img src="../img/clockIcon.svg" alt="">
                                                             <p class="mb-0 ms-1">19 Feb</p>
                                                         </div>
-                                                        <div class="notasProfesor">
+                                                        <div class="notasProfesorDP cp">
                                                             <img src="../img/circle-fill-azul.svg" alt="">
                                                         </div>
                                                     </div>
@@ -627,7 +661,7 @@
                                                             <img src="../img/clockIcon.svg" alt="">
                                                             <p class="mb-0 ms-1">19 Feb</p>
                                                         </div>
-                                                        <div class="notasProfesor">
+                                                        <div class="notasProfesorPG cp">
                                                             <img src="../img/circle-fill-violeta.svg" alt="">
                                                         </div>
                                                     </div>
@@ -642,7 +676,7 @@
                                                             <img src="../img/clockIcon.svg" alt="">
                                                             <p class="mb-0 ms-1">19 Feb</p>
                                                         </div>
-                                                        <div class="notasProfesor">
+                                                        <div class="notasProfesorPG cp">
                                                             <img src="../img/circle-fill-violeta.svg" alt="">
                                                         </div>
                                                     </div>
@@ -664,7 +698,7 @@
                                                             <img src="../img/clockIconWhite.svg" alt="">
                                                             <p class="mb-0 ms-1">15 Ene</p>
                                                         </div>
-                                                        <div class="notasProfesor">
+                                                        <div class="notasProfesorPG cp">
                                                             <img src="../img/circle-fill-violeta.svg" alt="">
                                                         </div>
                                                     </div>
@@ -679,7 +713,7 @@
                                                             <img src="../img/clockIconWhite.svg" alt="">
                                                             <p class="mb-0 ms-1">15 Ene</p>
                                                         </div>
-                                                        <div class="notasProfesor">
+                                                        <div class="notasProfesorDP cp">
                                                             <img src="../img/circle-fill-azul.svg" alt="">
                                                         </div>
                                                     </div>
@@ -695,14 +729,31 @@
                         <td>
                             <div class="gruposF3C1 mt-2">
                                 <div class="d-flex align-items-start justify-content-start flex-column">
-                                    <div class="checkboxCelda d-flex align-items-center justify-content-start ms-2">
-                                        <input class="form-check-input cp" type="checkbox" value="">
-                                        <label for="" class="form-label mb-0 ms-2 pStrong">Certificado Profesionalidad</label>
+                                    <div class="checkboxEstadoColor w-100 d-flex align-items-center justify-content-between">
+                                        <div class="checkboxCelda cp d-flex align-items-center justify-content-start ms-2">
+                                            <input class="form-check-input cp" type="checkbox" value="">
+                                            <label for="" class="form-label cp mb-0 ms-2 pStrong">Certificado Profesionalidad</label>
+                                        </div>
+                                        <div class="estadoColor cp d-flex align-items-center justify-content-end">
+                                            <img src="../img/green-circle-fill-little.svg" alt="">
+                                            <p class="mb-0 ms-2 me-2">Válido</p>
+                                        </div>
+                                        <div class="custom-select" style="display: none; position: absolute; z-index: 1000;">
+                                            <div class="select-items custom-select-hide">
+                                                <div class="select-option" data-value="incidentado"><img src="../img/red-circle-fill-little.svg" alt="" class="me-2"><span style="color: #DF1517;">Incidentado</span></div>
+                                                <div class="select-option" data-value="anulado"><img src="../img/darkRed-circle-fill-little.svg" alt="" class="me-2"><span style="color: #8C0C0E;">Anulado</span></div>
+                                                <div class="select-option" data-value="modificado"><img src="../img/orange-circle-fill-little.svg" alt="" class="me-2"><span style="color: #FF7A00;">Modificado</span></div>
+                                                <div class="select-option" data-value="finalizado"><img src="../img/gray-circle-fill-little.svg" alt="" class="me-2"><span style="color: #7B7B7B;">Finalizado</span></div>
+                                                <div class="select-option" data-value="valido"><img src="../img/green-circle-fill-little.svg" alt="" class="me-2"><span style="color: #51AC34;">Válido</span></div>
+                                                <div class="select-option" data-value="pdte"><img src="../img/blue-circle-fill-little.svg" alt="" class="me-2"><span style="color: #3374B0;">Pdte</span></div>
+                                            </div>
+                                        </div>
+
                                     </div>
                                     <div class="fechaHorario">
                                         <div class="fecha-mensajes d-flex align-items-start flex-column justify-content-center">
                                             <div class="fecha d-flex align-items-center justify-content-start mt-2 ms-2">
-                                                <img id="iconImage" class="mb-3 me-2 cp" src="../img/burger-menu-icon.svg" alt="">
+                                                <img id="iconImage3" class="mb-3 me-2 cp" src="../img/burger-menu-icon.svg" alt="">
                                                 <p class="pStrong">
                                                     <strong class="strongP">Fecha inicio y fin: </strong> 10/2 al 11/2
                                                 </p>
@@ -715,13 +766,13 @@
                                                 <strong class="strongP">Horario: </strong>L - M de 10:00 - 12:00
                                             </p>
                                         </div>
-                                        <div class="sesiones">
+                                        <div class="sesiones cp">
                                             <p class="pStrong"><strong class="strongP">Sesiones: </strong>0/11 Firmadas  23 Restantes</p>
                                         </div>
                                         <div class="iconosEstado d-flex align-items-center justify-content-start">
                                             <div class="iconos d-flex align-items-center justify-content-start">
-                                                <img src="../img/user-icon.svg" class="me-2 cp" alt="">
-                                                <img src="../img/maps.svg" class="cp" alt="">
+                                                <img src="../img/user-icon.svg" class="me-2 cp user-icon" alt="">
+                                                <img src="../img/maps.svg" class="cp map-icon" alt="">
                                                 <p class="hashtag user-select-none">#</p>
                                             </div>
                                             <div class="estado d-flex align-items-center justify-content-start ms-2">
@@ -740,7 +791,7 @@
                                         </div>
                                         <div class="botones d-flex align-items-center justify-content-start mt-2 mb-2">
                                             <button class="btn bimodal me-2">Bimodal</button>
-                                            <img src="../img/teams-icon.svg" class="ms-2 cp" alt="">
+                                            <img src="../img/teams-icon.svg" class="ms-2 cp" id="teams" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -756,15 +807,15 @@
                                         <div class="mensajesCantidad d-flex align-items-center justify-content-start mb-2 mt-2">
                                             <img src="../img/message-icon.svg" class="me-2 cp" alt="">
                                             <p class="mb-0 me-2 pStrong">22 mensajes</p>
-                                            <p class="mb-0 pStrong">
+                                            <p class="mb-0 pStrong mensajesSinLeer cp">
                                                 <strong class="strongP">0</strong>
                                                 mensajes sin leer
                                             </p>
                                         </div>
-                                        <div class="sesiones">
+                                        <div class="sesiones cp">
                                             <p class="pStrong"><strong class="strongP">Sesiones: </strong>0/11 Firmadas  23 Restantes</p>
                                         </div>
-                                        <div class="foro w-100">
+                                        <div class="foro w-100 cp">
                                             <p class="mb-2 pStrongest">Foro</p>
                                             <div class="foro1 d-flex align-items-end justify-content-start">
                                                 <div class="headerForo1 d-flex align-items-center justify-content-between w-100">
@@ -805,7 +856,7 @@
                                     <div class="primerContador">
                                         <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
                                             <div class="contador1 me-2 cp">5</div>
-                                            <p class="mb-0">Alumnos</p>
+                                            <p class="mb-0 alumnosOpener cp">Alumnos</p>
                                         </div>
                                         <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
                                             <div class="contador1 me-2 cp">4</div>
@@ -819,7 +870,7 @@
                                     <div class="segundoContador">
                                         <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
                                             <div class="contador2 me-2 cp">4</div>
-                                            <p class="mb-0">Asistentes última Sesión​</p>
+                                            <p class="mb-0 alumnosOpener cp">Asistentes última Sesión​</p>
                                         </div>
                                         <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
                                             <div class="contador2 me-2 cp">0</div>
@@ -827,7 +878,7 @@
                                         </div>
                                         <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
                                             <div class="contador2 me-2 cp">4/5</div>
-                                            <p class="mb-0">Cuestionario Satisfacción</p>
+                                            <p class="mb-0 cuestionarioSatisfaccion cp">Cuestionario Satisfacción</p>
                                         </div>
                                         <div class="d-flex align-items-center justify-content-start mb-2 user-select-none ms-2">
                                             <div class="contador2 me-2 cp">0</div>
@@ -852,7 +903,7 @@
                                                     <img src="../img/clockIcon.svg" alt="">
                                                     <p class="mb-0 ms-1">19 Feb</p>
                                                 </div>
-                                                <div class="notasProfesor">
+                                                <div class="notasProfesorPG cp">
                                                     <img src="../img/circle-fill-violeta.svg" alt="">
                                                 </div>
                                             </div>
@@ -891,7 +942,7 @@
                                                             <img src="../img/clockIcon.svg" alt="">
                                                             <p class="mb-0 ms-1">19 Feb</p>
                                                         </div>
-                                                        <div class="notasProfesor">
+                                                        <div class="notasProfesorPG cp">
                                                             <img src="../img/circle-fill-violeta.svg" alt="">
                                                         </div>
                                                     </div>
@@ -906,7 +957,7 @@
                                                             <img src="../img/clockIcon.svg" alt="">
                                                             <p class="mb-0 ms-1">19 Feb</p>
                                                         </div>
-                                                        <div class="notasProfesor">
+                                                        <div class="notasProfesorDP cp">
                                                             <img src="../img/circle-fill-azul.svg" alt="">
                                                         </div>
                                                     </div>
@@ -928,7 +979,7 @@
                                                             <img src="../img/clockIcon.svg" alt="">
                                                             <p class="mb-0 ms-1">19 Feb</p>
                                                         </div>
-                                                        <div class="notasProfesor">
+                                                        <div class="notasProfesorPG cp">
                                                             <img src="../img/circle-fill-violeta.svg" alt="">
                                                         </div>
                                                     </div>
@@ -943,7 +994,7 @@
                                                             <img src="../img/clockIcon.svg" alt="">
                                                             <p class="mb-0 ms-1">19 Feb</p>
                                                         </div>
-                                                        <div class="notasProfesor">
+                                                        <div class="notasProfesorPG cp">
                                                             <img src="../img/circle-fill-violeta.svg" alt="">
                                                         </div>
                                                     </div>
@@ -965,7 +1016,7 @@
                                                             <img src="../img/clockIconWhite.svg" alt="">
                                                             <p class="mb-0 ms-1">15 Ene</p>
                                                         </div>
-                                                        <div class="notasProfesor">
+                                                        <div class="notasProfesorPG cp">
                                                             <img src="../img/circle-fill-violeta.svg" alt="">
                                                         </div>
                                                     </div>
@@ -980,7 +1031,7 @@
                                                             <img src="../img/clockIconWhite.svg" alt="">
                                                             <p class="mb-0 ms-1">15 Ene</p>
                                                         </div>
-                                                        <div class="notasProfesor">
+                                                        <div class="notasProfesorDP cp">
                                                             <img src="../img/circle-fill-azul.svg" alt="">
                                                         </div>
                                                     </div>

@@ -668,8 +668,7 @@ const documentacionData = [
 ];
 
 
-
-  function openModal(contentType) {
+function openModal(contentType) {
     const asistenciaTableTeleformacionHTML = `
         <table class="table table-striped tablaAsistencia">
             <thead>
@@ -1152,23 +1151,23 @@ function createTableDataDocumentacion(data) {
 
     
 
-    function setupSVGPopoverEvent(svgElement) {
-        let svgPopover = new bootstrap.Popover(svgElement, {
-            html: true,
-            title: "",
-            content: '<div class="d-flex flex-column align-items-between justify-content-center"><p>Añadir TAG</p><p>Cambiar Color</p></div>',
-            trigger: 'manual'
-        });
-    
-        svgElement.addEventListener('click', function(event) {
-            svgPopover.toggle();
-            event.stopPropagation();
-        });
-    
-        document.addEventListener('click', function() {
-            svgPopover.hide();
-        });
-    }
+  function setupSVGPopoverEvent(svgElement) {
+      let svgPopover = new bootstrap.Popover(svgElement, {
+          html: true,
+          title: "",
+          content: '<div class="d-flex flex-column align-items-between justify-content-center"><p>Añadir TAG</p><p>Cambiar Color</p></div>',
+          trigger: 'manual'
+      });
+  
+      svgElement.addEventListener('click', function(event) {
+          svgPopover.toggle();
+          event.stopPropagation();
+      });
+  
+      document.addEventListener('click', function() {
+          svgPopover.hide();
+      });
+  }
     
     
       card.innerHTML = `
@@ -2571,15 +2570,15 @@ function setupFormadorIconPopover() {
 
 
   document.body.addEventListener('click', function (event) {
-    console.log(event)
     const isGitHubPages = window.location.hostname.includes('github.io');
     if (event.target.id === 'gestor') {
-        window.location.href = isGitHubPages ? 'assets/pages/gestor.html' : '/panel_gestor';
+        window.location.href = isGitHubPages ? '/panel_gestor/assets/pages/gestor.html' : 'assets/pages/gestor.html';
     }
     else if (event.target.id === 'administrador') {
-        window.location.href = isGitHubPages ? 'assets/pages/administrador.html' : '/panel_gestor';
+        window.location.href = isGitHubPages ? '/panel_gestor/assets/pages/administrador.html' : 'assets/pages/administrador.html';
     }
 });
+
 }
 
 document.addEventListener('DOMContentLoaded', function() {

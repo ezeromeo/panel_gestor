@@ -266,7 +266,7 @@ aside {
     line-height: normal;
 }
 
-.foro1, .foro2{
+.foro1, .foro2, .foro3, .foro4{
     display: flex;
     padding: 5px;
     flex-direction: column;
@@ -563,4 +563,654 @@ aside {
 
 .tablaGestor table{
     border: 1px solid #CCC;
+}
+
+.estadoColor p {
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.anulado {
+    color: #8C0C0E;
+}
+
+.modificado {
+    color: #FF7A00;
+}
+
+.finalizado {
+    color: #7B7B7B;
+}
+
+.valido {
+    color: #51AC34;
+}
+
+.pdte {
+    color: #3374B0;
+}
+
+.incidentado {
+    color: #DF1517;
+}
+
+.custom-select-hide {
+    display: none;
+}
+
+.custom-select.open .custom-select-hide {
+    display: block;
+    background-color: white;
+    border-radius: 5px;
+    background: var(--blanco, #FFF);
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    width: 137px;
+    height: 215px;
+    padding: 11px 14px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    flex-shrink: 0;
+}
+
+.select-option{
+    cursor: pointer;
+    user-select: none;
+}
+
+.select-option span{
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+
+
+.profesorIcon{
+    border-radius: 30px;
+    background: var(--Principal, #2F647E);
+    display: flex;
+    width: 27px;
+    height: 27px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.rightSubmenu .btn1, .rightSubmenu .btn1:hover{
+    border-radius: 4px;
+    background: var(--Principal, #2F647E);
+    box-shadow: 1px 1px 2px 0px rgba(134, 135, 135, 0.25);
+    color: white;
+}
+
+.rightSubmenu .btn2, .rightSubmenu .btn2:hover{
+    border-radius: 4px;
+    background: var(--verde, #74B160);
+    box-shadow: 1px 1px 2px 0px rgba(134, 135, 135, 0.25);
+    color: white;
+}
+
+.leftSubmenu .form-select{
+    width: fit-content;
+}
+
+.accionesGrupales{
+    width: 200px;
+}
+
+#tablaModalAhora .table>:not(:last-child)>:last-child>*{
+    border-bottom-color: inherit;
+}
+
+.entradaIcon th, .salidaIcon th, .selectAll th{
+    color: var(--gris, #636363);
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.entradaNombre{
+    color: #8D8D8D;
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.entradaHora{
+    color: #8D8D8D;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.oK{
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.pending{
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.sinApp{
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.horaStatus{
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.datosPersonales p, .datosAsistenciaForm p{
+    color: #898989;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+#floatingSelect label, .form-floating label{
+    color: var(--Principal, #2F647E) !important;
+    font-family: Lato;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.guardar{
+    color: var(--blanco, #FFF) !important;
+    font-family: Lato;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    width: fit-content;
+    border-radius: 4px;
+    background: var(--verde, #74B160) !important;
+    box-shadow: 1px 1px 2px 0px rgba(134, 135, 135, 0.25);
+}
+
+.botonFirmar{
+    border-radius: 4px !important;
+    background: var(--Principal, #2F647E) !important;
+    box-shadow: 1px 1px 2px 0px rgba(134, 135, 135, 0.25) !important;
+    color: white !important;
+    width: 95px;
+    height: 42px;
+}
+
+.btnContainer{
+    z-index: 1000;
+}
+
+#signature-pad {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 400px;
+    height: 200px;
+}
+.signature-container {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+    border-radius: 8px;
+}
+
+.firmaQr{
+    border-radius: 5px;
+    background: var(--blanco, #FFF);
+    box-shadow: 2px 2px 2px 2px rgba(134, 135, 135, 0.25);
+    padding: 5px;
+
+}
+
+.firmaQrTitulo{
+    color: var(--gris, #636363);
+    font-family: Lato;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+.firmaQrSubTitulo{
+    color: var(--verde, #74B160);
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.qrFirma{
+    width: 220px;
+}
+
+#saveSignature, #saveSignatureWithoutQR{
+    border-radius: 4px;
+    background: var(--verde, #74B160);
+    box-shadow: 1px 1px 2px 0px rgba(134, 135, 135, 0.25);
+    color: white;
+
+}
+
+#clearSignature{
+    border-radius: 4px;
+    background: var(--rojo, #E95F61);
+    box-shadow: 1px 1px 2px 0px rgba(134, 135, 135, 0.25);
+    color: white;
+}
+
+#modalFirma .modal-footer{
+    border-top: none;
+}
+
+.participante, .curso, .firme{
+    color: var(--gris, #636363);
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.participanteNombre, .cursoNombre{
+    color: var(--gris, #636363);
+    font-family: Lato;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.bottomMenuSignature{
+    border-radius: 5px;
+    border: 1px solid rgba(233, 148, 150, 0.65);
+    background: var(--fondos, #F2F2F2);
+    margin-top: 10px;
+}
+
+.bottomMenuSignature img{
+    background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+    background-blend-mode: multiply;
+}
+
+.topMenuSignature p{
+    margin-bottom: 0;
+}
+
+.controlAsistenciaFirmado{
+    width: 500px;
+}
+
+.form-floating{
+    width: 200px;
+}
+
+#resumenControlModal th{
+    background: var(--fondos, #F2F2F2);
+    color: var(--gris, #636363);
+    text-align: center;
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+#resumenControlModal .modal-content {
+    width: fit-content !important;
+    min-height: 55vh !important;
+}
+
+#resumenControlModal .modal-content table {
+    margin-top: 20px;
+    text-align: center;
+    white-space: nowrap;
+
+}
+
+#resumenControlModal .modal-header{
+    border-bottom: none;
+}
+
+
+.progress-container {
+    gap: 10px;
+}
+
+.progress.vertical {
+    position: relative;
+    width: 18px;
+    height: 200px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.progress.vertical .progress-bar {
+    width: 100%;
+    transition: height 0.6s ease;
+}
+
+#chatContainer {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+#messages {
+    height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding: 10px;
+    background: #f9f9f9;
+}
+.messageContainer {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: end;
+    background: #e3e3e3;
+    border-radius: 0px 4px 4px 0px;
+    border-left: 2px solid var(--Principal, #2F647E);
+    background: var(--blanco, #FFF);
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.25);    
+    width: fit-content;
+}
+.messageTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    padding: 5px 9px;
+    align-items: center;
+    gap: 10px;
+    background-color: #CCC;
+}
+
+.messageTitle:nth-child(1){
+    color: #1D1D1B;
+    font-family: Lato;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.messageTitle:nth-child(2){
+    color: var(--gris, #636363);
+    text-align: center;
+    font-family: Lato;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.message {
+    padding: 10px;
+    margin-top: 5px;
+    color: var(--gris, #636363);
+    font-family: Lato;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    width: 100%;
+}
+
+#chatContainer input[type="text"] {
+    width: calc(100% - 120px);
+    padding: 8px;
+    border-radius: 23px 0px 0px 23px;
+    border: 1px solid #CCC;
+    background: var(--blanco, #FFF);
+    font-family: Lato;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.botonEnviar, .botonEnviar:focus {
+    cursor: pointer;
+    display: flex;
+    width: 76px;
+    height: 26px;
+    padding: 18px 6px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 36px;
+    background: var(--Principal, #2F647E) !important;
+    color: var(--blanco, #FFF) !important;
+    font-family: Lato;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+
+.responder{
+    color: var(--blanco, #FFF);
+    font-family: Lato;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    border-radius: 36px;
+    background: var(--Principal, #2F647E);
+    display: inline-flex;
+    padding: 3px 6px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: -10px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.botonAdjuntar, .botonAdjuntar:focus{
+    display: flex;
+    width: 76px;
+    height: 26px;
+    padding: 18px 6px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 36px;
+    background: #7B7B7B !important;
+    color: var(--blanco, #FFF) !important;
+    font-family: Lato;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.titleAndSubtitle .subTitle{
+    color: #A1A1A1;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.titleAndSubtitle .modal-title{
+    color: var(--gris, #636363);
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+#foroModal .modal-header{
+padding-bottom: 0;
+}
+
+.input-like {
+    display: inline-block;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-width: 200px;
+    line-height: 22px;
+    font-size: 16px;
+    background-color: white;
+
+}
+
+.input-like:focus {
+    outline: none;
+    border-color: #66afe9;
+    box-shadow: none;
+    background-color: white;
+}
+
+.adjuntado{
+    color: var(--Principal, #2F647E);
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration-line: underline;
+}
+
+.input-like p:nth-child(1){
+    color: var(--gris, #636363);
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+#foroModal .modal-body input{
+    box-shadow: none !important;
+}
+
+.guion{
+    color: var(--Principal, #2F647E);
+    font-family: Lato;
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+
+.foro1Botones p, .foro2Boton1, .foro2Boton2, .foro3Boton1, .foro3Boton2, .foro4Boton1, .foro4Boton2{
+    color: var(--Principal, #2F647E);
+    font-family: Lato;
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration-line: underline;
+    cursor: pointer;
+    user-select: none;
+}
+
+.modalContainer {
+    overflow-x: auto;
+}
+
+.tablaAsistencia .modal-dialog,
+.tablaPresencial .modal-dialog,
+.tablaFormador .modal-dialog,
+.tablaDocumentacion .modal-dialog,
+.tablaControl .modal-dialog{
+    max-width: 90% !important;
+}
+
+
+
+.tablaAsistencia th,
+.tablaPresencial th,
+.tablaFormador th,
+.tablaDocumentacion th,
+.tablaControl th {
+    background-color: #85BECE !important;
+    color: var(--blanco, #FFF);
+    font-family: Lato;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    border: 1px solid white;    
+}
+
+.tablaAsistencia td,
+.tablaPresencial td,
+.tablaFormador td,
+.tablaControl td,
+.tablaDocumentacion td {
+    white-space: nowrap;
+}
+
+.subtitlePane .nav-link.active{
+    color: var(--Principal, #2F647E) !important;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    background-color: white !important;
+    border: 1px solid #2F647E !important;
+    text-decoration: none;
+}
+
+.subtitlePane .nav-pills .nav-link{
+    border-radius: 6px;
+    color: var(--Texto, #53565A);
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration: none;
 }

@@ -31,15 +31,15 @@ function setupFormadorIconPopover() {
 
 
     document.body.addEventListener('click', function (event) {
-        console.log(event)
         const isGitHubPages = window.location.hostname.includes('github.io');
         if (event.target.id === 'formador') {
             window.location.href = isGitHubPages ? '/panel_gestor' : '/index.html';
         }
         else if (event.target.id === 'gestor') {
-            window.location.href = isGitHubPages ? '/panel_gestor' : '/assets/pages/gestor.html';
+            window.location.href = isGitHubPages ? '/panel_gestor/assets/pages/gestor.html' : '/assets/pages/gestor.html';
         }
     });
+    
     
     
 }
@@ -172,9 +172,25 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     function initOffcanvas() {
         const offcanvasRight = document.getElementById('offcanvasRight');
-        if (!offcanvasRight) {
-            console.error('El elemento offcanvasRight no fue encontrado en el documento.');
-            return;
+        const tabAcciones = document.getElementById('acciones-tab');
+
+        if (offcanvasRight && tabAcciones) {
+            const offcanvasInstance = new bootstrap.Offcanvas(offcanvasRight, {
+                backdrop: false
+            });
+
+            const queryParams = new URLSearchParams(window.location.search);
+            const openOffcanvas = queryParams.get('openOffcanvas');
+
+            if (openOffcanvas === 'true') {
+                offcanvasInstance.show();
+                offcanvasRight.addEventListener('shown.bs.offcanvas', function() {
+                    let tab = new bootstrap.Tab(tabAcciones);
+                    tab.show();
+                }, {once: true});
+            }
+        } else {
+            console.error('El elemento offcanvasRight o acciones-tab no fue encontrado en el documento.');
         }
 
         const notesIcon = document.querySelector('.notes-icon-second-row');
@@ -193,8 +209,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    initOffcanvas(); 
+    initOffcanvas();
 });
+
+
 
 
 document.addEventListener('DOMContentLoaded', function() {
