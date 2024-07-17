@@ -29,23 +29,28 @@
             </div>
         </div>
         <div class="rightMenu d-flex align-items-center justify-content-center m-3">
-            <div class="bellIcon d-flex align-items-center justify-content-center flex-column mb-3">
-                <img src="../../assets/img/bellHeader.svg" alt="">
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">2</span>
-            </div>
-            <div class="chatbotAyuda d-flex align-items-center justify-content-center flex-column" style="cursor: pointer;">
-                <img src="../../assets/img/chatbotAyuda.svg" alt="">
-                <p class="mt-2">ChatBot de Ayuda</p>
-            </div>
-            <div class="usuario d-flex align-items-center justify-content-center flex-column" style="cursor: pointer;">
-                <div class="usuarioIcono d-flex align-items-center justify-content-center" id="formadorIcon">
-                    <img src="../img/administrador.svg" alt="Icono Formador">
+            <button class="hamburger-btn " aria-controls="hamburger-menu" aria-expanded="false">
+                <img src="../img/burger-menu-icon.svg" alt="Menu">
+            </button>
+            <div id="hamburger-menu" class="hamburger-content  flex-row align-items-center">
+                <div class="bellIcon d-flex align-items-center justify-content-center flex-column mb-3">
+                    <img src="../img/bellHeader.svg" alt="">
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">2</span>
                 </div>
-                <p class="mt-2">Administrador</p>
-            </div>
-            <div class="desconectarHeader d-flex align-items-center justify-content-center flex-column" id="disconnect">
-                <img src="../../assets/img/desconectar-header.svg" alt="">
-                <p class="mt-2">Desconectar</p>
+                <div class="chatbotAyuda d-flex align-items-center justify-content-center flex-column">
+                    <img src="../img/chatbotAyuda.svg" alt="">
+                    <p class="mt-2">ChatBot de Ayuda</p>
+                </div>
+                <div class="usuario d-flex align-items-center justify-content-center flex-column" style="cursor: pointer;">
+                    <div class="usuarioIcono d-flex align-items-center justify-content-center" id="formadorIcon">
+                        <img src="../img/administrador.svg" alt="Icono Formador">
+                    </div>
+                    <p class="mt-2">Administrador</p>
+                </div>       
+                <div class="desconectarHeader d-flex align-items-center justify-content-center flex-column" id="disconnect">
+                    <img src="../img/desconectar-header.svg" alt="">
+                    <p class="mt-2">Desconectar</p>
+                </div>
             </div>
         </div>
     </header>
@@ -607,7 +612,7 @@
                             <div class="tab-pane fade show active" id="nav-presencial" role="tabpanel" aria-labelledby="nav-presencial-tab">
                                 <form action="" class="formGrupoPresencial">
                                     <div class="selectGroup d-flex align-items-center justify-content-start">
-                                        <div class="input1 d-flex align-items-start justify-content-start flex-column">
+                                        <div class="input1 d-flex align-items-start justify-content-start flex-column me-2">
                                             <label class="input-group-text labelFechaInicioGrupo ps-0" for="inputGroupSelectGrupo5">Fecha inicio</label>
                                             <div class="input-group inputGrupoPresencial">
                                                 <select class="form-select" id="inputGroupSelectGrupo5">
@@ -616,7 +621,7 @@
                                                 <label class="input-group-text labelFechaInicioGrupo" for="inputGroupSelectGrupo5"><img src="../img/calendarGrupo.svg" alt=""></label>
                                             </div>
                                         </div>
-                                        <div class="input2 d-flex align-items-start justify-content-start flex-column">
+                                        <div class="input2 d-flex align-items-start justify-content-start flex-column me-2">
                                             <label class="input-group-text labelFechaFinGrupo ps-0" for="inputGroupSelectGrupo6">Fecha Fin</label>
                                             <div class="input-group inputGrupoPresencial">
                                                 <select class="form-select" id="inputGroupSelectGrupo6">
@@ -625,22 +630,24 @@
                                                 <label class="input-group-text labelFechaFinGrupo" for="inputGroupSelectGrupo6"><img src="../img/calendarGrupo.svg" alt=""></label>
                                             </div>
                                         </div>
-                                        <div class="input3 d-flex align-items-start justify-content-start flex-column">
-                                            <label class="input-group-text labelDesdeGrupo ps-0" for="inputGroupSelectGrupo7">Desde</label>
-                                            <div class="input-group inputGrupoPresencial">
-                                                <select class="form-select" id="inputGroupSelectGrupo7">
-                                                    <option selected>10:00</option>
-                                                </select>
-                                                <label class="input-group-text labelDesdeGrupo" for="inputGroupSelectGrupo7"><img src="../img/clockIcon.svg" alt=""></label>
+                                        <div class="input3Y4 d-flex align-items-start justify-content-start">
+                                            <div class="input3 d-flex align-items-start justify-content-start flex-column me-2">
+                                                <label class="input-group-text labelDesdeGrupo ps-0" for="inputGroupSelectGrupo7">Desde</label>
+                                                <div class="input-group inputGrupoPresencial">
+                                                    <select class="form-select" id="inputGroupSelectGrupo7">
+                                                        <option selected>10:00</option>
+                                                    </select>
+                                                    <label class="input-group-text labelDesdeGrupo" for="inputGroupSelectGrupo7"><img src="../img/clockIcon.svg" alt=""></label>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="input4 d-flex align-items-start justify-content-start flex-column">
-                                            <label class="input-group-text labelHastaGrupo ps-0" for="inputGroupSelectGrupo8">Hasta</label>
-                                            <div class="input-group inputGrupoPresencial">
-                                                <select class="form-select" id="inputGroupSelectGrupo8">
-                                                <option selected>13:00</option>
-                                                </select>
-                                                <label class="input-group-text labelHastaGrupo" for="inputGroupSelectGrupo8"><img src="../img/clockIcon.svg" alt=""></label>
+                                            <div class="input4 d-flex align-items-start justify-content-start flex-column">
+                                                <label class="input-group-text labelHastaGrupo ps-0" for="inputGroupSelectGrupo8">Hasta</label>
+                                                <div class="input-group inputGrupoPresencial">
+                                                    <select class="form-select" id="inputGroupSelectGrupo8">
+                                                    <option selected>13:00</option>
+                                                    </select>
+                                                    <label class="input-group-text labelHastaGrupo" for="inputGroupSelectGrupo8"><img src="../img/clockIcon.svg" alt=""></label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

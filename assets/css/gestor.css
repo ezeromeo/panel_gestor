@@ -644,6 +644,49 @@ aside {
     flex-shrink: 0;
 }
 
+.rightSubmenu {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: start; 
+    align-items: center;
+}
+
+@media (max-width: 1000px) {
+    .rightSubmenu {
+        flex-wrap: wrap;
+        margin-left: 5px;
+    }
+
+    .btn2{
+        margin-top: 5px;
+    }
+
+    .bottomForm, .rightMenuSignature{
+        flex-wrap: wrap;
+    }
+
+    #formularioSesion > div > div > div.modal-body.d-flex.align-items-center.justify-content-center.position-relative > img, .bottomMenuSignature img{
+        width: 100%;
+    }
+
+    .rightMenuSignature{
+        margin-top: 20px !important;
+    }
+
+    .phoneIcon{
+        margin-bottom: 20px;
+    }
+
+    #modalFirma .modal-body{
+        flex-direction: column;
+    }
+
+    #controlAsistenciaFirmado .modal-body img{
+        width: 100%;
+    }
+}
+
+
 .rightSubmenu .btn1, .rightSubmenu .btn1:hover{
     border-radius: 4px;
     background: var(--Principal, #2F647E);
@@ -867,7 +910,7 @@ aside {
 }
 
 .bottomMenuSignature img{
-    background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+    background: lightgray 50% / cover no-repeat;
     background-blend-mode: multiply;
 }
 
@@ -1213,4 +1256,44 @@ padding-bottom: 0;
     font-weight: 600;
     line-height: normal;
     text-decoration: none;
+}
+
+.hamburger-btn {
+    display: none; 
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+#hamburger-menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@media (max-width: 1024px) {
+    .hamburger-btn {
+        display: block; 
+    }
+
+    #hamburger-menu {
+        display: none; 
+        position: absolute;
+        right: 0;
+        top: 100%;
+        background-color: white;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        width: fit-content; 
+    }
+
+    #hamburger-menu.show {
+        display: flex; 
+        padding: 10px;
+    }
+
+    .rightMenu > div:not(.hamburger-btn),
+    .rightMenu > div:not(#hamburger-menu) {
+        display: none; 
+    }
 }

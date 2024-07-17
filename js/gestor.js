@@ -1660,7 +1660,7 @@ function openDetailModal() {
                           </div>
                           <div class="modal-body d-flex align-items-center justify-content-around">
                               <div class="phoneIcon">
-                                <img src"../img/phoneIcon.svg">
+                                <img src="../img/phoneIcon.svg">
                               </div>
                               <div class="firmaQr d-flex align-items-start justify-content-center flex-column">
                                 <p class="firmaQrTitulo">Firma desde tu móvil</p>
@@ -2327,3 +2327,19 @@ document.querySelectorAll('.sesiones').forEach(button => {
         }
     });
   }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const hamburgerBtn = document.querySelector('.hamburger-btn');
+    const hamburgerMenu = document.getElementById('hamburger-menu');
+
+    hamburgerBtn.addEventListener('click', function() {
+        const isOpen = hamburgerMenu.classList.contains('show');
+        hamburgerMenu.classList.toggle('show', !isOpen);
+    });
+
+    document.addEventListener('click', function(event) {
+        if (!hamburgerBtn.contains(event.target) && !hamburgerMenu.contains(event.target)) {
+            hamburgerMenu.classList.remove('show');
+        }
+    });
+});

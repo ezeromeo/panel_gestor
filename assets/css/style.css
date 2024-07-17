@@ -1005,3 +1005,56 @@ td {
     line-height: 30px;
 }
 
+
+.hamburger-btn {
+    display: none; 
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+#hamburger-menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@media (max-width: 1024px) {
+    .hamburger-btn {
+        display: block; 
+    }
+
+    #hamburger-menu {
+        display: none; 
+        position: absolute;
+        right: 0;
+        top: 100%;
+        background-color: white;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        width: fit-content; 
+    }
+
+    #hamburger-menu.show {
+        display: flex; 
+        padding: 10px;
+    }
+
+    .rightMenu > div:not(.hamburger-btn),
+    .rightMenu > div:not(#hamburger-menu) {
+        display: none; 
+    }
+}
+
+.subheader p:nth-child(2) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (max-width: 790px) {
+    .subheader p:nth-child(2) {
+        max-width: calc(100% - 20px);
+    }
+}
+
