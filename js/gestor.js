@@ -1,3 +1,55 @@
+function iniciarAplicacion(){
+    setupFormadorIconPopover();
+    initializePopovers();
+    applyEstadoColorClasses();
+    initializePopoversAndCustomSelect();
+    setupModalTrigger();
+    setupAlumnosModal();
+    setupCuestionarioSatisfaccionModal();
+    setupMensajesSinLeerModal();
+    setupMessageForm();
+    setupForoModal();
+    
+    const iconImage = document.querySelector('#iconImage');
+    const checkboxCelda = document.querySelector('.checkboxCelda');
+    const teamsIcon = document.getElementById('teams');
+    const hamburgerBtn = document.querySelector('.hamburger-btn');
+    const hamburgerMenu = document.getElementById('hamburger-menu');
+
+    if (iconImage) {
+        setupIconImageEvents(iconImage);
+    }
+
+    if (checkboxCelda) {
+        checkboxCelda.addEventListener('click', redirectToAdministradorEditarGrupo);
+    }
+
+    if (teamsIcon) {
+        teamsIcon.addEventListener('click', function() {
+           
+            window.open('https://teams.microsoft.com/dl/launcher/launcher.html?url=%2F_%23%2Fl%2Fmeetup-join%2F19%3Ameeting_OGEwYzVjZWItMjU1ZS00MDdhLTkwMjgtYjVmZDFjOWFlOWVk%40thread.v2%2F0%3Fcontext%3D%257b%2522Tid%2522%253a%252255ebc626-c187-4104-ad23-6ba253a4430a%2522%252c%2522Oid%2522%253a%2522618a437f-63df-4051-aa8f-b6f78ad37d57%2522%257d%26anon%3Dtrue&type=meetup-join&deeplinkId=7994d80d-4f90-4778-843a-fa37c907d995&directDl=true&msLaunch=true&enableMobilePage=true&suppressPrompt=true', '_blank');
+        });
+    }
+
+    document.querySelectorAll('.sesiones').forEach(button => {
+        button.addEventListener('click', function() {
+            openSignatureModalWithoutQR();
+        });
+      });
+  
+      hamburgerBtn.addEventListener('click', function() {
+          const isOpen = hamburgerMenu.classList.contains('show');
+          hamburgerMenu.classList.toggle('show', !isOpen);
+      });
+  
+      document.addEventListener('click', function(event) {
+          if (!hamburgerBtn.contains(event.target) && !hamburgerMenu.contains(event.target)) {
+              hamburgerMenu.classList.remove('show');
+          }
+      });
+    
+}
+
 // Redireccion a las otras pantallas desde el header
 
 
@@ -47,10 +99,6 @@ function setupFormadorIconPopover() {
     
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    setupFormadorIconPopover();
-});
-
 // Apertura de menu burger de la card
 
 function setupIconImageEvents(iconImage, menuPopover) {
@@ -86,7 +134,7 @@ function setupIconImageEvents(iconImage, menuPopover) {
 }
 
 // Configuración de Popovers para cada ícono
-document.addEventListener('DOMContentLoaded', function() {
+function initializePopovers() {
     const iconImage1 = document.querySelector('#iconImage');
     const iconImage2 = document.querySelector('#iconImage2');
     const iconImage3 = document.querySelector('#iconImage3');
@@ -132,17 +180,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         setupIconImageEvents(iconImage3, popover3);
     }
-});
+}
 
-
-
-// Setup después de cargar el DOM o en el contexto adecuado
-document.addEventListener('DOMContentLoaded', function() {
-    const iconImage = document.querySelector('#iconImage');
-    if (iconImage) {
-        setupIconImageEvents(iconImage);
-    }
-});
 
 function setupSecondPopover(controlChecksElement) {
     const secondaryPopoverContent = `
@@ -167,10 +206,6 @@ function setupSecondPopover(controlChecksElement) {
 
     return secondaryPopover;
 }
-
-
-
-
 
 function setupModalEvents() {
     const editarGrupo = document.getElementById('editarGrupo');
@@ -1001,222 +1036,222 @@ function createTableDataTeleformacion(data) {
     `).join('');
   }
 
-  function createTableDataPresencial(data) {
-    return data.map((item, index) => `
+function createTableDataPresencial(data) {
+return data.map((item, index) => `
+    <tr>
+        <td class="text-center">${item.alumno}</td>
+        <td class="text-center" style="color: ${index < 3 ? '#DF1517' : 'inherit'};">${item.asistencia}</td>
+        <td class="text-center">${item.participacion}</td>
+        <td class="text-center">${item.eval1}</td>
+        <td class="text-center" style="color: ${index < 3 ? '#DF1517' : 'inherit'};">${item.asistenciaFirmada}</td>
+        <td class="text-center" style="color: ${index < 3 ? '#0074FF' : 'inherit'};">${item.fechaUltimaSesion}</td>
+        <td class="text-center">
+            <div class="form-check ms-2">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${data.indexOf(item) + 1}" ${item.asistenciaConfirmada ? 'checked' : ''}>
+            </div>
+        </td>
+        <td class="text-center">${item.columna8}</td>
+        <td class="text-center">${item.columna9}</td>
+        <td class="text-center">
+            <div class="sessionContainer d-flex align-items-center justify-content-between">
+            ${item.totalSesiones ? `<div class="totalSesionesContainer">${item.totalSesiones}</div>` : ''}
+            ${item.totalSesiones === '2' ? '<img src="../img/mensaje.svg" class="ms-2" id="mensajeIcon">' : ''}
+            </div>
+        </td>
+        <td class="text-center">${item.asistenciaValidada}</td>
+        <td class="text-center" style="color: ${index < 3 ? '#0074FF' : 'inherit'};">${item.fechaValidacion}</td>
+        <td class="text-center">
+            <div class="form-check ms-2">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${data.indexOf(item) + 1}" ${item.validacionConfirmada ? 'checked' : ''}>
+            </div>
+        </td>
+        <td class="text-center">${item.columna14}</td>
+        <td class="text-center">${item.columna15}</td>
+        <td class="text-center">
+            <div class="asistenciasContainer d-flex align-items-center justify-content-between">
+            ${item.totalAsistencias ? `<div class="totalAsistenciasContainer">${item.totalAsistencias}</div>` : ''}
+            ${item.totalAsistencias === '2' ? '<img src="../img/mensaje.svg" class="ms-2" id="mensajeIcon">' : ''}
+            </div>
+        </td>
+    </tr>
+`).join('');
+}
+  
+  
+function createTableDataTeleformacion(data) {
+return data.map((item, index) => `
         <tr>
-            <td class="text-center">${item.alumno}</td>
-            <td class="text-center" style="color: ${index < 3 ? '#DF1517' : 'inherit'};">${item.asistencia}</td>
-            <td class="text-center">${item.participacion}</td>
-            <td class="text-center">${item.eval1}</td>
-            <td class="text-center" style="color: ${index < 3 ? '#DF1517' : 'inherit'};">${item.asistenciaFirmada}</td>
-            <td class="text-center" style="color: ${index < 3 ? '#0074FF' : 'inherit'};">${item.fechaUltimaSesion}</td>
-            <td class="text-center">
-              <div class="form-check ms-2">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${data.indexOf(item) + 1}" ${item.asistenciaConfirmada ? 'checked' : ''}>
-              </div>
-            </td>
-            <td class="text-center">${item.columna8}</td>
-            <td class="text-center">${item.columna9}</td>
-            <td class="text-center">
-              <div class="sessionContainer d-flex align-items-center justify-content-between">
-                ${item.totalSesiones ? `<div class="totalSesionesContainer">${item.totalSesiones}</div>` : ''}
-                ${item.totalSesiones === '2' ? '<img src="../img/mensaje.svg" class="ms-2" id="mensajeIcon">' : ''}
-              </div>
-            </td>
-            <td class="text-center">${item.asistenciaValidada}</td>
-            <td class="text-center" style="color: ${index < 3 ? '#0074FF' : 'inherit'};">${item.fechaValidacion}</td>
-            <td class="text-center">
-              <div class="form-check ms-2">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${data.indexOf(item) + 1}" ${item.validacionConfirmada ? 'checked' : ''}>
-              </div>
-            </td>
-            <td class="text-center">${item.columna14}</td>
-            <td class="text-center">${item.columna15}</td>
-            <td class="text-center">
-              <div class="asistenciasContainer d-flex align-items-center justify-content-between">
-                ${item.totalAsistencias ? `<div class="totalAsistenciasContainer">${item.totalAsistencias}</div>` : ''}
-                ${item.totalAsistencias === '2' ? '<img src="../img/mensaje.svg" class="ms-2" id="mensajeIcon">' : ''}
-              </div>
-            </td>
-        </tr>
-    `).join('');
-  }
+        <td>${item.alumno}</td>
+        <td style="color: ${index < 4 ? '#DF1517' : 'inherit'};">${item.asistencia}</td>
+        <td>${item.diploma === 'Aprovechas' ? `<div class=" d-flex align-items-center justify-content-center "><img src="../img/green-circle-fill.svg" class="me-2" style="width: 9px;">Aprovechas</div>` : (item.diploma)}</td>
+        <td>${item.certifica}</td>
+        <td>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${data.indexOf(item) + 1}" ${item.check1 ? 'checked' : ''}>
+            </div>
+        </td>
+        <td>${item.fechaEnvio1}</td>
+        <td>${item.verEmail1 ? `<img src="${item.verEmail1}" id="modalTestTeleformacion" style="cursor: pointer;">` : ''}</td>
+        <td>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${data.indexOf(item) + 6}" ${item.check2 ? 'checked' : ''}>
+            </div>
+        </td>
+        <td>${item.fechaEnvio2}</td>
+        <td>${item.verEmail2 ? `<img src="${item.verEmail2}">` : ''}</td>
+        <td>${item.contenidos}</td>
+        <td>${item.tiempoTotal1}</td>
+        <td>${item.eval}</td>
+        <td>${item.mensajes}</td>
+        <td>${item.tiempoTotal2}</td>
+        <td>${item.acceso}</td>
+        <td>${item.primera}</td>
+        <td>${item.ultima}</td>
+        <td>${item.total}</td>
+        <td>${item.primera}</td>
+        <td>${item.ultima}</td>
+        <td>${item.resultado}</td>
+    </tr>
+`).join('');
+}
   
   
-  function createTableDataTeleformacion(data) {
-    return data.map((item, index) => `
-          <tr>
-            <td>${item.alumno}</td>
-            <td style="color: ${index < 4 ? '#DF1517' : 'inherit'};">${item.asistencia}</td>
-            <td>${item.diploma === 'Aprovechas' ? `<div class=" d-flex align-items-center justify-content-center "><img src="../img/green-circle-fill.svg" class="me-2" style="width: 9px;">Aprovechas</div>` : (item.diploma)}</td>
-            <td>${item.certifica}</td>
-            <td>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${data.indexOf(item) + 1}" ${item.check1 ? 'checked' : ''}>
-                </div>
-            </td>
-            <td>${item.fechaEnvio1}</td>
-            <td>${item.verEmail1 ? `<img src="${item.verEmail1}" id="modalTestTeleformacion" style="cursor: pointer;">` : ''}</td>
-            <td>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${data.indexOf(item) + 6}" ${item.check2 ? 'checked' : ''}>
-                </div>
-            </td>
-            <td>${item.fechaEnvio2}</td>
-            <td>${item.verEmail2 ? `<img src="${item.verEmail2}">` : ''}</td>
-            <td>${item.contenidos}</td>
-            <td>${item.tiempoTotal1}</td>
-            <td>${item.eval}</td>
-            <td>${item.mensajes}</td>
-            <td>${item.tiempoTotal2}</td>
-            <td>${item.acceso}</td>
-            <td>${item.primera}</td>
-            <td>${item.ultima}</td>
-            <td>${item.total}</td>
-            <td>${item.primera}</td>
-            <td>${item.ultima}</td>
-            <td>${item.resultado}</td>
-        </tr>
-    `).join('');
-  }
-  
-  
-  function createTableDataControl(data) {
-    return data.map((item, index) => `
-        <tr>
-            <td class="text-center">${item.alumno}</td>
-            <td class="text-center" style="color: ${index < 3 ? '#DF1517' : 'inherit'};">${item.porcentaje}</td>
-            <td class="text-center">${item.vacio1}</td>
-            <td class="text-center">${item.certifica}</td>
-            <td class="text-center">
-              <div class="form-check ms-2">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 1}" ${item.check1 ? 'checked' : ''}>
-              </div>
-            </td>
-            <td class="text-center">${item.estado1}</td>
-            <td class="text-center">${item.emailIcon1 ? `<img src="${item.emailIcon1}">` : ''}</td>
-            <td class="text-center">
-              <div class="form-check ms-2">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 6}" ${item.check2 ? 'checked' : ''}>
-              </div>
-            </td>
-            <td class="text-center">${item.fecha1}</td>
-            <td class="text-center">${item.emailIcon2 ? `<img src="${item.emailIcon2}">` : ''}</td>
-            <td class="text-center">
-              <div class="form-check ms-2">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 11}" ${item.check3 ? 'checked' : ''}>
-              </div>
-            </td>
-            <td class="text-center">${item.destinatario1}</td>
-            <td class="text-center">${item.emailIcon3 ? `<img src="${item.emailIcon3}">` : ''}</td>
-            <td class="text-center">
-              <div class="form-check ms-2">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 16}" ${item.check4 ? 'checked' : ''}>
-              </div>
-            </td>
-            <td class="text-center">${item.estado2}</td>
-            <td class="text-center">${item.emailIcon4 ? `<img src="${item.emailIcon4}">` : ''}</td>
-            <td class="text-center">${item.estado3}</td>
-            <td class="text-center">${item.vacio3}</td>
-            <td class="text-center">
-              <div class="form-check ms-2">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 21}" ${item.check5 ? 'checked' : ''}>
-              </div>
-            </td>
-            <td class="text-center">${item.estado4}</td>
-            <td class="text-center">${item.emailIcon5 ? `<img src="${item.emailIcon5}">` : ''}</td>
-            <td class="text-center">${item.estado5}</td>
-            <td class="text-center">${item.vacio4}</td>
-            <td class="text-center">
-              <div class="form-check ms-2">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 26}" ${item.check6 ? 'checked' : ''}>
-              </div>
-            </td>
-            <td class="text-center">${item.estado6}</td>
-            <td class="text-center">${item.emailIcon4 ? `<img src="${item.emailIcon4}">` : ''}</td>
-            <td class="text-center">${item.firmaDiploma}</td>
-            <td class="text-center">${item.doc}</td>
-            <td class="text-center">
-              <div class="form-check ms-2">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 31}" ${item.check6 ? 'checked' : ''}>
-              </div>
-            </td>
-            <td class="text-center">${item.fecha2}</td>
-            <td class="text-center">${item.emailIcon7 ? `<img src="${item.emailIcon7}">` : ''}</td>
-            <td class="text-center">${item.fecha3}</td>
-            <td class="text-center">
-              <div class="form-check ms-2">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 36}" ${item.check6 ? 'checked' : ''}>
-              </div>
-            </td>
-            <td class="text-center">${item.estado7}</td>
-            <td class="text-center">${item.emailIcon9 ? `<img src="${item.emailIcon9}">` : ''}</td>
-        </tr>
-    `).join('');
-  }
-  
-  function createTableDataFormador(data) {
-    return data.map((item, index) => `
-        <tr>
-            <td class="text-center">${item.alumno}</td>
-            <td class="text-center" style="color: ${item.porcentaje ? '#DF1517' : 'inherit'};">${item.porcentaje}</td>
-            <td class="text-center">${item.evaluacion}</td>
-            <td class="text-center">${item.puntaje}</td>
-            <td class="text-center">${item.email}</td>
-            <td class="text-center">
-              <div class="form-check ms-2">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 1}" ${item.emailConfirmado ? 'checked' : ''}>
-              </div>
-            </td>
-            <td class="text-center">${item.estadoEmail}</td>
-            <td class="text-center">${item.iconoEmail ? `<img src="${item.iconoEmail}">` : ''}</td>
-            <td class="text-center">
-              <div class="form-check ms-2">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 1}" ${item.revisado ? 'checked' : ''}>
-              </div>
-            </td>
-            <td class="text-center">${item.pendiente}</td>
-            <td class="text-center">${item.iconoPendiente ? `<img src="${item.iconoPendiente}">` : ''}</td>
-            <td class="text-center">
-              <div class="form-check ms-2">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 2}" ${item.activo ? 'checked' : ''}>
-              </div>
-            </td>
-            <td class="text-center">${item.fecha}</td>
-            <td class="text-center">${item.iconoFecha ? `<img src="${item.iconoFecha}">` : ''}</td>
-            <td class="text-center">
-              <div class="form-check ms-2">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 2}" ${item.activo ? 'checked' : ''}>
-              </div>
-            </td>
-            <td class="text-center">${item.estadoFinal}</td>
-            <td class="text-center">${item.iconoFinal ? `<img src="${item.iconoFinal}">` : ''}</td>
-            <td class="text-center">
-              <div class="form-check ms-2">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 2}" ${item.activo ? 'checked' : ''}>
-              </div>
-            </td>
-            <td class="text-center">${item.fechaFinal}</td>
-            <td class="text-center">${item.iconoFechaFinal ? `<img src="${item.iconoFechaFinal}">` : ''}</td>
-        </tr>
-    `).join('');
-  }
-  
-  function createTableDataDocumentacion(data) {
-    return data.map((item, index) => `
-        <tr>
-            <td class="text-center">${item.icono ? `<img src="${item.icono}">` : ''}</td>
-            <td class="text-center">${item.vacio1}</td>
-            <td class="text-center">${item.documento}</td>
-            <td class="text-center">${item.anexo}</td>
-            <td class="text-center">${item.vacio2}</td>
-            <td class="text-center">${item.detalleAnexo}</td>
-            <td class="text-center">${item.vacio3}</td>
-            <td class="text-center">${item.vacio4}</td>
-            <td class="text-center">${item.vacio4}</td>
-        </tr>
-    `).join('');
-  }
+function createTableDataControl(data) {
+return data.map((item, index) => `
+    <tr>
+        <td class="text-center">${item.alumno}</td>
+        <td class="text-center" style="color: ${index < 3 ? '#DF1517' : 'inherit'};">${item.porcentaje}</td>
+        <td class="text-center">${item.vacio1}</td>
+        <td class="text-center">${item.certifica}</td>
+        <td class="text-center">
+            <div class="form-check ms-2">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 1}" ${item.check1 ? 'checked' : ''}>
+            </div>
+        </td>
+        <td class="text-center">${item.estado1}</td>
+        <td class="text-center">${item.emailIcon1 ? `<img src="${item.emailIcon1}">` : ''}</td>
+        <td class="text-center">
+            <div class="form-check ms-2">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 6}" ${item.check2 ? 'checked' : ''}>
+            </div>
+        </td>
+        <td class="text-center">${item.fecha1}</td>
+        <td class="text-center">${item.emailIcon2 ? `<img src="${item.emailIcon2}">` : ''}</td>
+        <td class="text-center">
+            <div class="form-check ms-2">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 11}" ${item.check3 ? 'checked' : ''}>
+            </div>
+        </td>
+        <td class="text-center">${item.destinatario1}</td>
+        <td class="text-center">${item.emailIcon3 ? `<img src="${item.emailIcon3}">` : ''}</td>
+        <td class="text-center">
+            <div class="form-check ms-2">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 16}" ${item.check4 ? 'checked' : ''}>
+            </div>
+        </td>
+        <td class="text-center">${item.estado2}</td>
+        <td class="text-center">${item.emailIcon4 ? `<img src="${item.emailIcon4}">` : ''}</td>
+        <td class="text-center">${item.estado3}</td>
+        <td class="text-center">${item.vacio3}</td>
+        <td class="text-center">
+            <div class="form-check ms-2">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 21}" ${item.check5 ? 'checked' : ''}>
+            </div>
+        </td>
+        <td class="text-center">${item.estado4}</td>
+        <td class="text-center">${item.emailIcon5 ? `<img src="${item.emailIcon5}">` : ''}</td>
+        <td class="text-center">${item.estado5}</td>
+        <td class="text-center">${item.vacio4}</td>
+        <td class="text-center">
+            <div class="form-check ms-2">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 26}" ${item.check6 ? 'checked' : ''}>
+            </div>
+        </td>
+        <td class="text-center">${item.estado6}</td>
+        <td class="text-center">${item.emailIcon4 ? `<img src="${item.emailIcon4}">` : ''}</td>
+        <td class="text-center">${item.firmaDiploma}</td>
+        <td class="text-center">${item.doc}</td>
+        <td class="text-center">
+            <div class="form-check ms-2">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 31}" ${item.check6 ? 'checked' : ''}>
+            </div>
+        </td>
+        <td class="text-center">${item.fecha2}</td>
+        <td class="text-center">${item.emailIcon7 ? `<img src="${item.emailIcon7}">` : ''}</td>
+        <td class="text-center">${item.fecha3}</td>
+        <td class="text-center">
+            <div class="form-check ms-2">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 36}" ${item.check6 ? 'checked' : ''}>
+            </div>
+        </td>
+        <td class="text-center">${item.estado7}</td>
+        <td class="text-center">${item.emailIcon9 ? `<img src="${item.emailIcon9}">` : ''}</td>
+    </tr>
+`).join('');
+}
+
+function createTableDataFormador(data) {
+return data.map((item, index) => `
+    <tr>
+        <td class="text-center">${item.alumno}</td>
+        <td class="text-center" style="color: ${item.porcentaje ? '#DF1517' : 'inherit'};">${item.porcentaje}</td>
+        <td class="text-center">${item.evaluacion}</td>
+        <td class="text-center">${item.puntaje}</td>
+        <td class="text-center">${item.email}</td>
+        <td class="text-center">
+            <div class="form-check ms-2">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 1}" ${item.emailConfirmado ? 'checked' : ''}>
+            </div>
+        </td>
+        <td class="text-center">${item.estadoEmail}</td>
+        <td class="text-center">${item.iconoEmail ? `<img src="${item.iconoEmail}">` : ''}</td>
+        <td class="text-center">
+            <div class="form-check ms-2">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 1}" ${item.revisado ? 'checked' : ''}>
+            </div>
+        </td>
+        <td class="text-center">${item.pendiente}</td>
+        <td class="text-center">${item.iconoPendiente ? `<img src="${item.iconoPendiente}">` : ''}</td>
+        <td class="text-center">
+            <div class="form-check ms-2">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 2}" ${item.activo ? 'checked' : ''}>
+            </div>
+        </td>
+        <td class="text-center">${item.fecha}</td>
+        <td class="text-center">${item.iconoFecha ? `<img src="${item.iconoFecha}">` : ''}</td>
+        <td class="text-center">
+            <div class="form-check ms-2">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 2}" ${item.activo ? 'checked' : ''}>
+            </div>
+        </td>
+        <td class="text-center">${item.estadoFinal}</td>
+        <td class="text-center">${item.iconoFinal ? `<img src="${item.iconoFinal}">` : ''}</td>
+        <td class="text-center">
+            <div class="form-check ms-2">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index + 2}" ${item.activo ? 'checked' : ''}>
+            </div>
+        </td>
+        <td class="text-center">${item.fechaFinal}</td>
+        <td class="text-center">${item.iconoFechaFinal ? `<img src="${item.iconoFechaFinal}">` : ''}</td>
+    </tr>
+`).join('');
+}
+
+function createTableDataDocumentacion(data) {
+return data.map((item, index) => `
+    <tr>
+        <td class="text-center">${item.icono ? `<img src="${item.icono}">` : ''}</td>
+        <td class="text-center">${item.vacio1}</td>
+        <td class="text-center">${item.documento}</td>
+        <td class="text-center">${item.anexo}</td>
+        <td class="text-center">${item.vacio2}</td>
+        <td class="text-center">${item.detalleAnexo}</td>
+        <td class="text-center">${item.vacio3}</td>
+        <td class="text-center">${item.vacio4}</td>
+        <td class="text-center">${item.vacio4}</td>
+    </tr>
+`).join('');
+}
 
 // Redireccion a administrador clickeando checkboxCelda
 
@@ -1225,24 +1260,15 @@ function redirectToAdministradorEditarGrupo() {
         '/panel_gestor/assets/pages/administrador.html?openOffcanvas=true' :
         '/assets/pages/administrador.html?openOffcanvas=true';
 }
-document.addEventListener('DOMContentLoaded', function() {
-    const checkboxCelda = document.querySelector('.checkboxCelda');
-    if (checkboxCelda) {
-        checkboxCelda.addEventListener('click', redirectToAdministradorEditarGrupo);
-    }
-});
-
-
 
 //Cambio de color estadoColor
 
-document.addEventListener('DOMContentLoaded', function() {
+function applyEstadoColorClasses() {
     const paragraphs = document.querySelectorAll('.estadoColor p');
 
     paragraphs.forEach(p => {
         const text = p.textContent.trim();
 
-       
         switch(text) {
             case 'Anulado':
                 p.classList.add('anulado');
@@ -1264,16 +1290,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 break;
         }
     });
-});
+}
 
 
 //Select estadoColor
 
-document.addEventListener('DOMContentLoaded', function() {
+function initializePopoversAndCustomSelect() {
     const customSelect = document.querySelector('.custom-select');
     const selectItems = customSelect.querySelector(".select-items");
 
-    
     function toggleCustomSelect(nextToElement) {
         const rect = nextToElement.getBoundingClientRect();
         customSelect.style.left = `${rect.left}px`;
@@ -1282,7 +1307,6 @@ document.addEventListener('DOMContentLoaded', function() {
         customSelect.classList.toggle('open');
     }
 
-    
     document.querySelectorAll('.estadoColor p').forEach(paragraph => {
         paragraph.addEventListener('click', function(event) {
             event.stopPropagation(); 
@@ -1290,15 +1314,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    
     selectItems.querySelectorAll('.select-option').forEach(option => {
         option.addEventListener('click', function(event) {
             event.stopPropagation(); 
-            
         });
     });
 
-    
     document.addEventListener("click", function() {
         if (customSelect.style.display === 'block') {
             customSelect.style.display = 'none';
@@ -1311,80 +1332,78 @@ document.addEventListener('DOMContentLoaded', function() {
     let userIcon = document.querySelector('.user-icon');
     let mapIcon = document.querySelector('.map-icon');
     let isManualPopoverOpen = false;
-    
 
     if (userSpan && teacherSpan && userIcon && mapIcon) {
-
-      let userPopover = new bootstrap.Popover(userSpan, {
-        placement: "bottom",
-        html: true,
-        trigger: 'manual',
-        content: '<strong>Profesorado: Fernando Velasco</strong><p>fvelasco@innopulse.es</p><div class="popover-icon d-flex align-items-center justify-content-start"><img src="../img/popover-icon.svg" class="me-2" alt=""><a href="#">Panel del profesor</a></div>'
-        });
-    
-      let teacherPopover = new bootstrap.Popover(teacherSpan, {
-        placement: "bottom",
-        html: true,
-        trigger: 'manual',
-        content: '<strong>Profesorado: Diego Pérez</strong><p>dperez@innopulse.es</p><div class="popover-icon d-flex align-items-center justify-content-start"><img src="../img/popover-icon.svg" class="me-2" alt=""><a href="#">Panel del profesor</a></div>'
+        let userPopover = new bootstrap.Popover(userSpan, {
+            placement: "bottom",
+            html: true,
+            trigger: 'manual',
+            content: '<strong>Profesorado: Fernando Velasco</strong><p>fvelasco@innopulse.es</p><div class="popover-icon d-flex align-items-center justify-content-start"><img src="../img/popover-icon.svg" class="me-2" alt=""><a href="#">Panel del profesor</a></div>'
         });
 
-      let userPopoverIcon = new bootstrap.Popover(userIcon, {
-        title: "Responsable del Grupo",
-        placement: "bottom",
-        html: true,
-        trigger: 'hover',
-        content: '<ul><li>Diego Pérez</li><li>Tel. 666090477</li><li>@: dperez@innopulse.es</li></ul>',
-      });
-    
-      let mapPopoverIcon = new bootstrap.Popover(mapIcon, {
-        title: '<p class="text-center m-0">Dirección</p>',
-        placement: "bottom",
-        html: true,
-        trigger: 'hover',
-        content: '<div class="mapPopoverContent"><p class="mb-0">Calle del Aguacate 41, </p><p class="mb-0">Edificio B4, Local 6, 28054</p><p class="mb-0">Madrid, </p><a href="#">Aula Innovación</a></div>',
-      });
-    
-      function toggleManualPopover(popover) {
-          popover.toggle();
-          isManualPopoverOpen = popover._element.classList.contains('show');
-          if (isManualPopoverOpen) {
-            hideHoverPopovers();
-          }
+        let teacherPopover = new bootstrap.Popover(teacherSpan, {
+            placement: "bottom",
+            html: true,
+            trigger: 'manual',
+            content: '<strong>Profesorado: Diego Pérez</strong><p>dperez@innopulse.es</p><div class="popover-icon d-flex align-items-center justify-content-start"><img src="../img/popover-icon.svg" class="me-2" alt=""><a href="#">Panel del profesor</a></div>'
+        });
+
+        let userPopoverIcon = new bootstrap.Popover(userIcon, {
+            title: "Responsable del Grupo",
+            placement: "bottom",
+            html: true,
+            trigger: 'hover',
+            content: '<ul><li>Diego Pérez</li><li>Tel. 666090477</li><li>@: dperez@innopulse.es</li></ul>',
+        });
+
+        let mapPopoverIcon = new bootstrap.Popover(mapIcon, {
+            title: '<p class="text-center m-0">Dirección</p>',
+            placement: "bottom",
+            html: true,
+            trigger: 'hover',
+            content: '<div class="mapPopoverContent"><p class="mb-0">Calle del Aguacate 41, </p><p class="mb-0">Edificio B4, Local 6, 28054</p><p class="mb-0">Madrid, </p><a href="#">Aula Innovación</a></div>',
+        });
+
+        function toggleManualPopover(popover) {
+            popover.toggle();
+            isManualPopoverOpen = popover._element.classList.contains('show');
+            if (isManualPopoverOpen) {
+                hideHoverPopovers();
+            }
         }
-        
+
         function hideHoverPopovers() {
-          userPopoverIcon.hide();
-          mapPopoverIcon.hide();
+            userPopoverIcon.hide();
+            mapPopoverIcon.hide();
         }
 
         userSpan.addEventListener('click', function () {
             toggleManualPopover(userPopover);
             teacherPopover.hide();
-          });
-          
-          teacherSpan.addEventListener('click', function () {
+        });
+
+        teacherSpan.addEventListener('click', function () {
             toggleManualPopover(teacherPopover);
             userPopover.hide();
-          });
-        
+        });
+
         document.addEventListener('click', function (event) {
-          if (!userIcon.contains(event.target) && !mapIcon.contains(event.target)) {
-            isManualPopoverOpen = false;
-          }
+            if (!userIcon.contains(event.target) && !mapIcon.contains(event.target)) {
+                isManualPopoverOpen = false;
+            }
         });
     }
-});
+}
 
 
 // Modal del boton Ahora
 
-document.body.addEventListener('click', function(event) {
-      
-    if (event.target.classList.contains('blink') && event.target.textContent.trim() === 'Ahora' && !event.target.dataset.modalInit) {
-        event.target.dataset.modalInit = true; 
+function setupModalTrigger() {
+    document.body.addEventListener('click', function(event) {
+        if (event.target.classList.contains('blink') && event.target.textContent.trim() === 'Ahora' && !event.target.dataset.modalInit) {
+            event.target.dataset.modalInit = true;
 
-        const ahoraModalHtml = `
+            const ahoraModalHtml = `
             <div class="modal fade" id="ahoraModal" tabindex="-1" aria-labelledby="ahoraModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl">
                     <div class="modal-content">
@@ -1450,23 +1469,22 @@ document.body.addEventListener('click', function(event) {
             </div>
         `;
 
-        
-        const existingModal = document.getElementById('ahoraModal');
-        if (existingModal) {
-            existingModal.remove();
+            const existingModal = document.getElementById('ahoraModal');
+            if (existingModal) {
+                existingModal.remove();
+            }
+
+            document.body.insertAdjacentHTML('beforeend', ahoraModalHtml);
+            const modalInstance = new bootstrap.Modal(document.getElementById('ahoraModal'), {});
+            modalInstance.show();
+
+            setTimeout(() => {
+                createDynamicTable();  // Asegúrate de que esta función esté definida en algún lugar de tu código
+            }, 100);
         }
+    });
+}
 
-        
-        document.body.insertAdjacentHTML('beforeend', ahoraModalHtml);
-        const modalInstance = new bootstrap.Modal(document.getElementById('ahoraModal'), {});
-        modalInstance.show();
-
-        modalInstance.show();
-        setTimeout(() => {
-            createDynamicTable();
-        }, 100); 
-    }
-});
 
 function createDynamicTable() {
   const tableData = [
@@ -1605,113 +1623,83 @@ function openDetailModal() {
     document.body.insertAdjacentHTML('beforeend', modalHtml);
     const detailModal = new bootstrap.Modal(document.getElementById('detailModal'), {});
     detailModal.show();
-  };
-  function openFormularioSesion() {
+};
+
+function openFormularioSesion() {
+
+document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
+    backdrop.remove(); 
+});
+
+const modalHtml = `
+    <div class="modal fade" id="formularioSesion" tabindex="-1" aria-labelledby="formularioSesionLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex align-items-center justify-content-center position-relative">
+                <img src="../img/controlAsistencia.png">
+                <div class="btnContainer d-flex align-items-center justify-content-center" style="position: absolute; top: 34%; left: 50%; transform: translate(-50%, -50%);">
+                    <button class="btn botonFirmar">Firmar</button>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+`;
+
+document.querySelectorAll('.botonFirmar').forEach(button => {
+    button.addEventListener('click', function() {
+    openSignatureModal();
+    });
+});
+
+document.body.insertAdjacentHTML('beforeend', modalHtml);
+const formularioSesion = new bootstrap.Modal(document.getElementById('formularioSesion'), {});
+formularioSesion.show();
+
+formularioSesion._element.addEventListener('hidden.bs.modal', () => {
+    const backdrops = document.querySelectorAll('.modal-backdrop');
+    backdrops.forEach(backdrop => backdrop.remove());
+    document.getElementById('formularioSesion').remove();
+});
+};
+
+function openSignatureModal() {
     
-    document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
-      backdrop.remove(); 
-    });
-  
-    const modalHtml = `
-      <div class="modal fade" id="formularioSesion" tabindex="-1" aria-labelledby="formularioSesionLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-              <div class="modal-content">
-                  <div class="modal-header">
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body d-flex align-items-center justify-content-center position-relative">
-                    <img src="../img/controlAsistencia.png">
-                    <div class="btnContainer d-flex align-items-center justify-content-center" style="position: absolute; top: 34%; left: 50%; transform: translate(-50%, -50%);">
-                      <button class="btn botonFirmar">Firmar</button>
-                    </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-    `;
-  
-    document.querySelectorAll('.botonFirmar').forEach(button => {
-      button.addEventListener('click', function() {
-        openSignatureModal();
-      });
-    });
-  
-    document.body.insertAdjacentHTML('beforeend', modalHtml);
-    const formularioSesion = new bootstrap.Modal(document.getElementById('formularioSesion'), {});
-    formularioSesion.show();
-  
-    formularioSesion._element.addEventListener('hidden.bs.modal', () => {
-      const backdrops = document.querySelectorAll('.modal-backdrop');
-      backdrops.forEach(backdrop => backdrop.remove());
-      document.getElementById('formularioSesion').remove();
-    });
-  }
-  
-  function openSignatureModal() {
-      
-      if (!document.getElementById('modalFirma')) {
-          const modalHtml = `
-              <div class="modal fade" id="modalFirma" tabindex="-1" aria-labelledby="modalFirmaLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-xl">
-                      <div class="modal-content">
-                          <div class="modal-header">
-                              <h5 class="modal-title" id="modalFirmaLabel">Firma del Documento</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body d-flex align-items-center justify-content-around">
-                              <div class="phoneIcon">
-                                <img src="../img/phoneIcon.svg">
-                              </div>
-                              <div class="firmaQr d-flex align-items-start justify-content-center flex-column">
-                                <p class="firmaQrTitulo">Firma desde tu móvil</p>
-                                <p class="firmaQrSubTitulo">Escanea este código QR</p>
-                                <img src="../img/qrFirma.png" class="qrFirma">
-                              </div>
-                              <div class="rightMenuSignature">
-                                <div class=topMenuSignature d-flex align-items-start justify-content-center flex-column>
-                                  <p class="participante">PARTICIPANTE: <span class="participanteNombre ms-2">Juan García</span></p>
-                                  <p class="curso">CURSO: <span class="cursoNombre ms-2">Asistencia control</span></p>
-                                  <p class="firme">FIRME EN LA PANTALLA Y PULSE ENVIAR FIRMA</p>
-                                </div>
-                                <div class="bottomMenuSignature">
-                                  <img src="../img/firmaAlzada.png" alt="">
-                                </div>
-                              </div>
-                          </div>
-                          <div class="modal-footer d-flex align-items-center justify-content-center">
-                              <button type="button" class="btn" id="saveSignature">Enviar firma</button>
-                              <button type="post" class="btn" id="clearSignature">Borrar</button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          `;
-          document.body.insertAdjacentHTML('beforeend', modalHtml);
-      }
-  
-      document.querySelectorAll('#saveSignature').forEach(button => {
-        button.addEventListener('click', function() {
-          openControlAsistenciaModalFirmado();
-        });
-      });
-  
-      
-      const signatureModal = new bootstrap.Modal(document.getElementById('modalFirma'));
-      signatureModal.show();
-  }
-  
-  function openControlAsistenciaModalFirmado() {
-    
-    if (!document.getElementById('controlAsistenciaFirmado')) {
+    if (!document.getElementById('modalFirma')) {
         const modalHtml = `
-            <div class="modal fade" id="controlAsistenciaFirmado" tabindex="-1" aria-labelledby="controlAsistenciaFirmadoLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
+            <div class="modal fade" id="modalFirma" tabindex="-1" aria-labelledby="modalFirmaLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
                     <div class="modal-content">
                         <div class="modal-header">
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <h5 class="modal-title" id="modalFirmaLabel">Firma del Documento</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body d-flex align-items-center justify-content-around">
-                          <img src="../img/controlAsistenciaFirmado.png" class="controlAsistenciaFirmado">
+                            <div class="phoneIcon">
+                            <img src="../img/phoneIcon.svg">
+                            </div>
+                            <div class="firmaQr d-flex align-items-start justify-content-center flex-column">
+                            <p class="firmaQrTitulo">Firma desde tu móvil</p>
+                            <p class="firmaQrSubTitulo">Escanea este código QR</p>
+                            <img src="../img/qrFirma.png" class="qrFirma">
+                            </div>
+                            <div class="rightMenuSignature">
+                            <div class=topMenuSignature d-flex align-items-start justify-content-center flex-column>
+                                <p class="participante">PARTICIPANTE: <span class="participanteNombre ms-2">Juan García</span></p>
+                                <p class="curso">CURSO: <span class="cursoNombre ms-2">Asistencia control</span></p>
+                                <p class="firme">FIRME EN LA PANTALLA Y PULSE ENVIAR FIRMA</p>
+                            </div>
+                            <div class="bottomMenuSignature">
+                                <img src="../img/firmaAlzada.png" alt="">
+                            </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer d-flex align-items-center justify-content-center">
+                            <button type="button" class="btn" id="saveSignature">Enviar firma</button>
+                            <button type="post" class="btn" id="clearSignature">Borrar</button>
                         </div>
                     </div>
                 </div>
@@ -1719,337 +1707,346 @@ function openDetailModal() {
         `;
         document.body.insertAdjacentHTML('beforeend', modalHtml);
     }
-  
+
+    document.querySelectorAll('#saveSignature').forEach(button => {
+    button.addEventListener('click', function() {
+        openControlAsistenciaModalFirmado();
+    });
+    });
+
     
-    const signatureModal = new bootstrap.Modal(document.getElementById('controlAsistenciaFirmado'));
+    const signatureModal = new bootstrap.Modal(document.getElementById('modalFirma'));
     signatureModal.show();
-  }
+};
 
-  // Redireccion boton teams
+function openControlAsistenciaModalFirmado() {
 
-  document.addEventListener('DOMContentLoaded', function() {
-    const teamsIcon = document.getElementById('teams');
-
-    if (teamsIcon) {
-        teamsIcon.addEventListener('click', function() {
-           
-            window.open('https://teams.microsoft.com/dl/launcher/launcher.html?url=%2F_%23%2Fl%2Fmeetup-join%2F19%3Ameeting_OGEwYzVjZWItMjU1ZS00MDdhLTkwMjgtYjVmZDFjOWFlOWVk%40thread.v2%2F0%3Fcontext%3D%257b%2522Tid%2522%253a%252255ebc626-c187-4104-ad23-6ba253a4430a%2522%252c%2522Oid%2522%253a%2522618a437f-63df-4051-aa8f-b6f78ad37d57%2522%257d%26anon%3Dtrue&type=meetup-join&deeplinkId=7994d80d-4f90-4778-843a-fa37c907d995&directDl=true&msLaunch=true&enableMobilePage=true&suppressPrompt=true', '_blank');
-        });
-    } else {
-        console.error('El elemento con ID "teams" no fue encontrado.');
-    }
-});
-
-// Modal Alumnos y Asistentes ultima sesion
-
-let alumnosModal = document.querySelector('.alumnosOpener');
-
-alumnosModal.addEventListener('click', function() {
-    let alumnosModalHTML = `
-        <div class="modal fade" id="resumenControlModal" tabindex="-1" aria-labelledby="resumenControlModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
+if (!document.getElementById('controlAsistenciaFirmado')) {
+    const modalHtml = `
+        <div class="modal fade" id="controlAsistenciaFirmado" tabindex="-1" aria-labelledby="controlAsistenciaFirmadoLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                        <h6>Asistentes última sesión: 10/02/2023 - 10:00 - 12:00 (sesión 1)</h6>
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>Alumno</th>
-                                    <th>% Asistencia</th>
-                                    <th>Tipo Diploma</th>
-                                    <th>Certifica</th>
-                                    <th>Observaciones</th>
-                                </tr>
-                            </thead>
-                            <tbody id="modalTableBody">
-                            </tbody>
-                        </table>
+                    <div class="modal-body d-flex align-items-center justify-content-around">
+                        <img src="../img/controlAsistenciaFirmado.png" class="controlAsistenciaFirmado">
                     </div>
                 </div>
             </div>
         </div>
-
     `;
-
-    document.body.insertAdjacentHTML('beforeend', alumnosModalHTML);
-    let resumenControlModal = new bootstrap.Modal(document.getElementById('resumenControlModal'), {});
-    
-    const data = [
-        { icon: `<img src="../img/document-sign-icon.svg" class="cp">`, nombre: 'González Ram María', asistencia: '100%', diploma: 'Aprovechamiento', certifica: 'Si', observaciones: 'El alumno se va 20 min antes de terminar la sesión' },
-        { icon: `<img src="../img/document-sign-icon.svg" class="cp">`, nombre: 'Pérez Donoso Diego', asistencia: '100%', diploma: 'Aprovechamiento', certifica: 'Si', observaciones: '-' },
-        { icon: `<img src="../img/document-sign-icon.svg" class="cp">`, nombre: 'Rodríguez Sainz Mathias', asistencia: '0%', diploma: 'Aprovechamiento', certifica: 'Si', observaciones: 'firma pero se va a los 5 min.​' },
-        { icon: `<img src="../img/document-sign-icon.svg" class="cp">`, nombre: 'Muños Sale Pablo', asistencia: '0%', diploma: 'Sin Diploma', certifica: 'No', observaciones: '-' },
-        { icon: `<img src="../img/document-sign-icon.svg" class="cp">`, nombre: 'Vargas Juan', asistencia: '0%', diploma: 'Aprovechamiento', certifica: 'Si', observaciones: '-' }
-    ];
-
-    const tableBody = document.getElementById('modalTableBody');
-
-    data.forEach(item => {
-        const row = document.createElement('tr');
-
-        const iconCell = document.createElement('td');
-        iconCell.innerHTML = item.icon;
-
-        const nombreCell = document.createElement('td');
-        nombreCell.innerText = item.nombre;
-
-        const asistenciaCell = document.createElement('td');
-        if (item.asistencia === '100%') {
-          asistenciaCell.style.color = '#00AD1F';
-        } else if(item.asistencia === '0%'){
-          asistenciaCell.style.color = '#DF1517';
-        }
-        asistenciaCell.innerText = item.asistencia;
-
-        const diplomaCell = document.createElement('td');
-        diplomaCell.innerText = item.diploma;
-
-        const certificaCell = document.createElement('td');
-        if (item.certifica === 'Si') {
-          certificaCell.style.color = '#00AD1F';
-        } else if(item.certifica === 'No'){
-          certificaCell.style.color = '#DF1517';
-        }
-        certificaCell.innerText = item.certifica;
-
-        const observacionesCell = document.createElement('td');
-        observacionesCell.innerText = item.observaciones;
-        observacionesCell.style.color = '#636363';
-
-        row.appendChild(iconCell);
-        row.appendChild(nombreCell);
-        row.appendChild(asistenciaCell);
-        row.appendChild(diplomaCell);
-        row.appendChild(certificaCell);
-        row.appendChild(observacionesCell);
-
-        tableBody.appendChild(row);
-    });
-
-    resumenControlModal.show();
-
-    document.getElementById('resumenControlModal').addEventListener('hidden.bs.modal', function(e) {
-        document.getElementById('resumenControlModal').remove();
-    });
-    
-});
+    document.body.insertAdjacentHTML('beforeend', modalHtml);
+}
 
 
-let cuestionarioSatisfaccion = document.querySelector('.cuestionarioSatisfaccion');
+const signatureModal = new bootstrap.Modal(document.getElementById('controlAsistenciaFirmado'));
+signatureModal.show();
+};
 
-if (cuestionarioSatisfaccion) {
-    cuestionarioSatisfaccion.addEventListener('click', function() {
-        let cuestionarioSatisfaccionModalHTML = `
-            <div class="modal fade" id="chartModal" tabindex="-1" aria-labelledby="chartModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
+// Modal Alumnos y Asistentes ultima sesion
+
+function setupAlumnosModal() {
+    let alumnosModal = document.querySelector('.alumnosOpener');
+
+    alumnosModal.addEventListener('click', function() {
+        let alumnosModalHTML = `
+            <div class="modal fade" id="resumenControlModal" tabindex="-1" aria-labelledby="resumenControlModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="chartModalLabel">Gráfica</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body d-flex align-items-center justify-content-between">
-                          <div class="referencia d-flex align-items-start justify-content-center flex-column">
-                            <div class="d-flex align-items-center justify-content-start">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#01B8AA" class="bi bi-circle-fill" viewBox="0 0 16 16">
-                                <circle cx="8" cy="8" r="8"/>
-                              </svg>
-                              <p class="mb-0 ms-2">Organizacion</p>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-start">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#374649" class="bi bi-circle-fill" viewBox="0 0 16 16">
-                                <circle cx="8" cy="8" r="8"/>
-                              </svg>
-                              <p class="mb-0 ms-2">Contenidos y metodologias</p>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-start">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FD625E" class="bi bi-circle-fill" viewBox="0 0 16 16">
-                                <circle cx="8" cy="8" r="8"/>
-                              </svg>
-                              <p class="mb-0 ms-2">Duración y Horario</p>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-start">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#F2C80F" class="bi bi-circle-fill" viewBox="0 0 16 16">
-                                <circle cx="8" cy="8" r="8"/>
-                              </svg>
-                              <p class="mb-0 ms-2">Formador</p>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-start">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#5E6A6C" class="bi bi-circle-fill" viewBox="0 0 16 16">
-                                <circle cx="8" cy="8" r="8"/>
-                              </svg>
-                              <p class="mb-0 ms-2">Tutores</p>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-start">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#8AD4EB" class="bi bi-circle-fill" viewBox="0 0 16 16">
-                                <circle cx="8" cy="8" r="8"/>
-                              </svg>
-                              <p class="mb-0 ms-2">Medios didácticos</p>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-start">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FE9464" class="bi bi-circle-fill" viewBox="0 0 16 16">
-                                <circle cx="8" cy="8" r="8"/>
-                              </svg>
-                              <p class="mb-0 ms-2">Instalaciones y medios</p>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-start">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#A66999" class="bi bi-circle-fill" viewBox="0 0 16 16">
-                                <circle cx="8" cy="8" r="8"/>
-                              </svg>
-                              <p class="mb-0 ms-2">Recursos y materiales (No presencial)</p>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-start">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#3599B8" class="bi bi-circle-fill" viewBox="0 0 16 16">
-                                <circle cx="8" cy="8" r="8"/>
-                              </svg>
-                              <p class="mb-0 ms-2">Media de satisfacción</p>
-                            </div>
-                          </div>
-                          <div class="progress-container d-flex align-items-center justify-content-end">
-                            <div class="progress vertical" style="background-color: #FFF;">
-                                <div class="progress-bar" role="progressbar" style="height: 69%; background-color: #01B8AA;" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">3,3</div>
-                            </div>
-                            <div class="progress vertical" style="background-color: #FFF;">
-                                <div class="progress-bar" role="progressbar" style="height: 67%; background-color: #374649;" aria-valuenow="31" aria-valuemin="0" aria-valuemax="100">3,1</div>
-                            </div>
-                            <div class="progress vertical" style="background-color: #FFF;">
-                                <div class="progress-bar" role="progressbar" style="height: 60%; background-color: #FD625E;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">3,0</div>
-                            </div>
-                            <div class="progress vertical" style="background-color: #FFF;">
-                                <div class="progress-bar" role="progressbar" style="height: 58%; background-color: #F2C80F;" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100">2,8</div>
-                            </div>
-                            <div class="progress vertical" style="background-color: #FFF;">
-                                <div class="progress-bar" role="progressbar" style="height: 59%; background-color: #5E6A6C;" aria-valuenow="29" aria-valuemin="0" aria-valuemax="100">2,9</div>
-                            </div>
-                            <div class="progress vertical" style="background-color: #FFF;">
-                                <div class="progress-bar" role="progressbar" style="height: 69%; background-color: #8AD4EB;" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">3,3</div>
-                            </div>
-                            <div class="progress vertical" style="background-color: #FFF;">
-                                <div class="progress-bar" role="progressbar" style="height: 60%; background-color: #FE9464;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">3,0</div>
-                            </div>
-                            <div class="progress vertical" style="background-color: #FFF;">
-                                <div class="progress-bar" role="progressbar" style="height: 67%; background-color: #A66999;" aria-valuenow="31" aria-valuemin="0" aria-valuemax="100">3,1</div>
-                            </div>
-                            <div class="progress vertical" style="background-color: #FFF;">
-                                <div class="progress-bar" role="progressbar" style="height: 47%; background-color: #3599B8;" aria-valuenow="17" aria-valuemin="0" aria-valuemax="100">1,7</div>
-                            </div>
-                          </div>
+                        <div class="modal-body">
+                            <h6>Asistentes última sesión: 10/02/2023 - 10:00 - 12:00 (sesión 1)</h6>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Alumno</th>
+                                        <th>% Asistencia</th>
+                                        <th>Tipo Diploma</th>
+                                        <th>Certifica</th>
+                                        <th>Observaciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="modalTableBody">
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         `;
 
-        document.body.insertAdjacentHTML('beforeend', cuestionarioSatisfaccionModalHTML);
-        let chartModalElement = document.getElementById('chartModal');
-        let chartModal = new bootstrap.Modal(chartModalElement, {});
-
-        chartModal.show();
-
-        chartModalElement.addEventListener('hidden.bs.modal', function () {
-            chartModalElement.remove();
-            document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
-                backdrop.remove();
-            });
-            document.body.classList.remove('modal-open');
-            document.body.style.overflow = '';
-        });
-      
+        document.body.insertAdjacentHTML('beforeend', alumnosModalHTML);
+        let resumenControlModal = new bootstrap.Modal(document.getElementById('resumenControlModal'), {});
         
+        const data = [
+            { icon: `<img src="../img/document-sign-icon.svg" class="cp">`, nombre: 'González Ram María', asistencia: '100%', diploma: 'Aprovechamiento', certifica: 'Si', observaciones: 'El alumno se va 20 min antes de terminar la sesión' },
+            { icon: `<img src="../img/document-sign-icon.svg" class="cp">`, nombre: 'Pérez Donoso Diego', asistencia: '100%', diploma: 'Aprovechamiento', certifica: 'Si', observaciones: '-' },
+            { icon: `<img src="../img/document-sign-icon.svg" class="cp">`, nombre: 'Rodríguez Sainz Mathias', asistencia: '0%', diploma: 'Aprovechamiento', certifica: 'Si', observaciones: 'firma pero se va a los 5 min.​' },
+            { icon: `<img src="../img/document-sign-icon.svg" class="cp">`, nombre: 'Muños Sale Pablo', asistencia: '0%', diploma: 'Sin Diploma', certifica: 'No', observaciones: '-' },
+            { icon: `<img src="../img/document-sign-icon.svg" class="cp">`, nombre: 'Vargas Juan', asistencia: '0%', diploma: 'Aprovechamiento', certifica: 'Si', observaciones: '-' }
+        ];
+
+        const tableBody = document.getElementById('modalTableBody');
+
+        data.forEach(item => {
+            const row = document.createElement('tr');
+
+            const iconCell = document.createElement('td');
+            iconCell.innerHTML = item.icon;
+
+            const nombreCell = document.createElement('td');
+            nombreCell.innerText = item.nombre;
+
+            const asistenciaCell = document.createElement('td');
+            if (item.asistencia === '100%') {
+                asistenciaCell.style.color = '#00AD1F';
+            } else if(item.asistencia === '0%'){
+                asistenciaCell.style.color = '#DF1517';
+            }
+            asistenciaCell.innerText = item.asistencia;
+
+            const diplomaCell = document.createElement('td');
+            diplomaCell.innerText = item.diploma;
+
+            const certificaCell = document.createElement('td');
+            if (item.certifica === 'Si') {
+                certificaCell.style.color = '#00AD1F';
+            } else if(item.certifica === 'No'){
+                certificaCell.style.color = '#DF1517';
+            }
+            certificaCell.innerText = item.certifica;
+
+            const observacionesCell = document.createElement('td');
+            observacionesCell.innerText = item.observaciones;
+            observacionesCell.style.color = '#636363';
+
+            row.appendChild(iconCell);
+            row.appendChild(nombreCell);
+            row.appendChild(asistenciaCell);
+            row.appendChild(diplomaCell);
+            row.appendChild(certificaCell);
+            row.appendChild(observacionesCell);
+
+            tableBody.appendChild(row);
+        });
+
+        resumenControlModal.show();
+
+        document.getElementById('resumenControlModal').addEventListener('hidden.bs.modal', function(e) {
+            document.getElementById('resumenControlModal').remove();
+        });
     });
+}
 
+// Modal Cuestionario Satisfaccion
 
-    
-} 
-else {
-    console.error('Elemento .badge-cuestionario no encontrado');
-}  
+function setupCuestionarioSatisfaccionModal() {
+    let cuestionarioSatisfaccion = document.querySelector('.cuestionarioSatisfaccion');
 
-let mensajesSinLeer = document.querySelector('.mensajesSinLeer');
-
-if (mensajesSinLeer) {
-    mensajesSinLeer.addEventListener('click', function() {
-        let mensajesSinLeerModalHTML = `
-    <div class="modal fade" id="chatModal" tabindex="-1" aria-labelledby="chatModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header">
-                        <p class="foro modal-title">Foro</p>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div id="messages" class="d-flex align-items-end justify-content-end flex-column">
-                        <div class="messageContainer d-flex align-items-end justify-content-end">
-                            <div class="messageTitle">
-                                <div>Diego Pérez</div>
-                                <div>11/06/2023 14:17</div>
+    if (cuestionarioSatisfaccion) {
+        cuestionarioSatisfaccion.addEventListener('click', function() {
+            let cuestionarioSatisfaccionModalHTML = `
+                <div class="modal fade" id="chartModal" tabindex="-1" aria-labelledby="chartModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="chartModalLabel">Gráfica</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div class="mensajeResponder d-flex align-items-end justify-content-between w-100">
-                                <div class="message">Hola</div>
-                                <div class="responder">Responder</div>
-                            </div>
-                        </div>
-                        <div class="messageContainer d-flex align-items-end justify-content-end">
-                            <div class="messageTitle">
-                                <div>Diego Pérez</div>
-                                <div>11/06/2023 14:17</div>
-                            </div>
-                            <div class="mensajeResponder d-flex align-items-end justify-content-between w-100">
-                                <div class="message">He subido la factura para pagos, quedan 15 días</div>
-                                <div class="responder">Responder</div>
+                            <div class="modal-body d-flex align-items-center justify-content-between">
+                              <div class="referencia d-flex align-items-start justify-content-center flex-column">
+                                <div class="d-flex align-items-center justify-content-start">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#01B8AA" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                    <circle cx="8" cy="8" r="8"/>
+                                  </svg>
+                                  <p class="mb-0 ms-2">Organizacion</p>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-start">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#374649" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                    <circle cx="8" cy="8" r="8"/>
+                                  </svg>
+                                  <p class="mb-0 ms-2">Contenidos y metodologias</p>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-start">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FD625E" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                    <circle cx="8" cy="8" r="8"/>
+                                  </svg>
+                                  <p class="mb-0 ms-2">Duración y Horario</p>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-start">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#F2C80F" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                    <circle cx="8" cy="8" r="8"/>
+                                  </svg>
+                                  <p class="mb-0 ms-2">Formador</p>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-start">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#5E6A6C" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                    <circle cx="8" cy="8" r="8"/>
+                                  </svg>
+                                  <p class="mb-0 ms-2">Tutores</p>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-start">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#8AD4EB" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                    <circle cx="8" cy="8" r="8"/>
+                                  </svg>
+                                  <p class="mb-0 ms-2">Medios didácticos</p>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-start">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FE9464" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                    <circle cx="8" cy="8" r="8"/>
+                                  </svg>
+                                  <p class="mb-0 ms-2">Instalaciones y medios</p>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-start">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#A66999" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                    <circle cx="8" cy="8" r="8"/>
+                                  </svg>
+                                  <p class="mb-0 ms-2">Recursos y materiales (No presencial)</p>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-start">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#3599B8" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                    <circle cx="8" cy="8" r="8"/>
+                                  </svg>
+                                  <p class="mb-0 ms-2">Media de satisfacción</p>
+                                </div>
+                              </div>
+                              <div class="progress-container d-flex align-items-center justify-content-end">
+                                <div class="progress vertical" style="background-color: #FFF;">
+                                    <div class="progress-bar" role="progressbar" style="height: 69%; background-color: #01B8AA;" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">3,3</div>
+                                </div>
+                                <div class="progress vertical" style="background-color: #FFF;">
+                                    <div class="progress-bar" role="progressbar" style="height: 67%; background-color: #374649;" aria-valuenow="31" aria-valuemin="0" aria-valuemax="100">3,1</div>
+                                </div>
+                                <div class="progress vertical" style="background-color: #FFF;">
+                                    <div class="progress-bar" role="progressbar" style="height: 60%; background-color: #FD625E;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">3,0</div>
+                                </div>
+                                <div class="progress vertical" style="background-color: #FFF;">
+                                    <div class="progress-bar" role="progressbar" style="height: 58%; background-color: #F2C80F;" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100">2,8</div>
+                                </div>
+                                <div class="progress vertical" style="background-color: #FFF;">
+                                    <div class="progress-bar" role="progressbar" style="height: 59%; background-color: #5E6A6C;" aria-valuenow="29" aria-valuemin="0" aria-valuemax="100">2,9</div>
+                                </div>
+                                <div class="progress vertical" style="background-color: #FFF;">
+                                    <div class="progress-bar" role="progressbar" style="height: 69%; background-color: #8AD4EB;" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">3,3</div>
+                                </div>
+                                <div class="progress vertical" style="background-color: #FFF;">
+                                    <div class="progress-bar" role="progressbar" style="height: 60%; background-color: #FE9464;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">3,0</div>
+                                </div>
+                                <div class="progress vertical" style="background-color: #FFF;">
+                                    <div class="progress-bar" role="progressbar" style="height: 67%; background-color: #A66999;" aria-valuenow="31" aria-valuemin="0" aria-valuemax="100">3,1</div>
+                                </div>
+                                <div class="progress vertical" style="background-color: #FFF;">
+                                    <div class="progress-bar" role="progressbar" style="height: 47%; background-color: #3599B8;" aria-valuenow="17" aria-valuemin="0" aria-valuemax="100">1,7</div>
+                                </div>
+                              </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <form id="messageForm" class="d-flex align-items-center justify-content-start w-100">
-                        <div class="input-group d-flex align-items-center justify-content-start">
-                            <input type="text" class="form-control" id="messageInput" autocomplete="off" placeholder="Escriba un nuevo mensaje..." aria-describedby="button-addon2"/>
-                            <button type="button" class="btn botonAdjuntar" id="button-addon2">Adjuntar</button>
-                        </div>
-                        <button type="button" class="btn ms-2 botonEnviar">Enviar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-        `;
+            `;
 
-        document.body.insertAdjacentHTML('beforeend', mensajesSinLeerModalHTML);
-        let chatModalElement = document.getElementById('chatModal');
-        let chatModal = new bootstrap.Modal(chatModalElement, {
-            backdrop: 'static',
-            keyboard: false
-        });
-        
+            document.body.insertAdjacentHTML('beforeend', cuestionarioSatisfaccionModalHTML);
+            let chartModalElement = document.getElementById('chartModal');
+            let chartModal = new bootstrap.Modal(chartModalElement, {});
 
-        chatModal.show();
+            chartModal.show();
 
-        chatModalElement.addEventListener('hidden.bs.modal', function () {
-            chatModalElement.remove();
-            document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
-                backdrop.remove();
+            chartModalElement.addEventListener('hidden.bs.modal', function () {
+                chartModalElement.remove();
+                document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
+                    backdrop.remove();
+                });
+                document.body.classList.remove('modal-open');
+                document.body.style.overflow = '';
             });
-            document.body.classList.remove('modal-open');
-            document.body.style.overflow = '';
         });
-      
-        
-    });
+    } else {
+        console.error('Elemento .cuestionarioSatisfaccion no encontrado');
+    }
+}
 
 
-    
-} 
-else {
-    console.error('Elemento .mensajesSinLeer no encontrado');
-}  
+// Modal Mensajes sin Leer
 
+function setupMensajesSinLeerModal() {
+    let mensajesSinLeer = document.querySelector('.mensajesSinLeer');
 
+    if (mensajesSinLeer) {
+        mensajesSinLeer.addEventListener('click', function() {
+            let mensajesSinLeerModalHTML = `
+                <div class="modal fade" id="chatModal" tabindex="-1" aria-labelledby="chatModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <p class="foro modal-title">Foro</p>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div id="messages" class="d-flex align-items-end justify-content-end flex-column">
+                                    <div class="messageContainer d-flex align-items-end justify-content-end">
+                                        <div class="messageTitle">
+                                            <div>Diego Pérez</div>
+                                            <div>11/06/2023 14:17</div>
+                                        </div>
+                                        <div class="mensajeResponder d-flex align-items-end justify-content-between w-100">
+                                            <div class="message">Hola</div>
+                                            <div class="responder">Responder</div>
+                                        </div>
+                                    </div>
+                                    <div class="messageContainer d-flex align-items-end justify-content-end">
+                                        <div class="messageTitle">
+                                            <div>Diego Pérez</div>
+                                            <div>11/06/2023 14:17</div>
+                                        </div>
+                                        <div class="mensajeResponder d-flex align-items-end justify-content-between w-100">
+                                            <div class="message">He subido la factura para pagos, quedan 15 días</div>
+                                            <div class="responder">Responder</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <form id="messageForm" class="d-flex align-items-center justify-content-start w-100">
+                                    <div class="input-group d-flex align-items-center justify-content-start">
+                                        <input type="text" class="form-control" id="messageInput" autocomplete="off" placeholder="Escriba un nuevo mensaje..." aria-describedby="button-addon2"/>
+                                        <button type="button" class="btn botonAdjuntar" id="button-addon2">Adjuntar</button>
+                                    </div>
+                                    <button type="button" class="btn ms-2 botonEnviar">Enviar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
 
-document.addEventListener('DOMContentLoaded', function() {
+            document.body.insertAdjacentHTML('beforeend', mensajesSinLeerModalHTML);
+            let chatModalElement = document.getElementById('chatModal');
+            let chatModal = new bootstrap.Modal(chatModalElement, {
+                backdrop: 'static',
+                keyboard: false
+            });
+
+            chatModal.show();
+
+            chatModalElement.addEventListener('hidden.bs.modal', function () {
+                chatModalElement.remove();
+                document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
+                    backdrop.remove();
+                });
+                document.body.classList.remove('modal-open');
+                document.body.style.overflow = '';
+            });
+        });
+    } else {
+        console.error('Elemento .mensajesSinLeer no encontrado');
+    }
+}
+
+function setupMessageForm() {
     const form = document.getElementById('messageForm');
 
     if (!form) {
@@ -2057,7 +2054,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
-    form.addEventListener('button', function(e) {
+    form.addEventListener('submit', function(e) {
         e.preventDefault();
         e.stopPropagation();
 
@@ -2105,9 +2102,9 @@ document.addEventListener('DOMContentLoaded', function() {
                    .replace(/"/g, '&quot;')
                    .replace(/'/g, '&#039;');
     }
-});
+}
 
-document.addEventListener('DOMContentLoaded', function() {
+function setupForoModal() {
     const foroElement = document.querySelector('.foro');
     if (foroElement) {
         foroElement.addEventListener('click', function() {
@@ -2232,7 +2229,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-});
+}
 
 function openSignatureModalWithoutQR() {
       
@@ -2268,78 +2265,59 @@ function openSignatureModalWithoutQR() {
     signatureModal.show();
 }
 
-document.querySelectorAll('.sesiones').forEach(button => {
-    button.addEventListener('click', function() {
-        openSignatureModalWithoutQR();
-    });
-  });
+ 
+function setupModalWithImage() {
+let modalTrigger = document.getElementById('modalTestTeleformacion');
 
-  
-  function setupModalWithImage() {
-    let modalTrigger = document.getElementById('modalTestTeleformacion');
-  
-    if (!modalTrigger) {
-        setTimeout(setupModalWithImage, 100);
-        return;
-    }
-  
-    modalTrigger.addEventListener('click', () => {
-       
-        let modal = document.getElementById('modalImageTeleformacion');
-        if (!modal) {
-           
-            modal = document.createElement('div');
-            modal.className = 'modal fade';
-            modal.id = 'modalImageTeleformacion';
-            modal.tabIndex = -1;
-            modal.setAttribute('aria-labelledby', 'modalImageTeleformacionLabel');
-            modal.setAttribute('aria-hidden', 'true');
-            modal.innerHTML = `
-                <div class="modal-dialog modal-dialog-centered modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body d-flex justify-content-center">
-                            <img src="assets/img/testTeleformacion.svg" alt="Teleformación Test Image">
-                        </div>
+if (!modalTrigger) {
+    setTimeout(setupModalWithImage, 100);
+    return;
+}
+
+modalTrigger.addEventListener('click', () => {
+    
+    let modal = document.getElementById('modalImageTeleformacion');
+    if (!modal) {
+        
+        modal = document.createElement('div');
+        modal.className = 'modal fade';
+        modal.id = 'modalImageTeleformacion';
+        modal.tabIndex = -1;
+        modal.setAttribute('aria-labelledby', 'modalImageTeleformacionLabel');
+        modal.setAttribute('aria-hidden', 'true');
+        modal.innerHTML = `
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex justify-content-center">
+                        <img src="assets/img/testTeleformacion.svg" alt="Teleformación Test Image">
                     </div>
                 </div>
-            `;
-            document.body.appendChild(modal);
-  
-           
-            let modalInstance = new bootstrap.Modal(modal, {
-                backdrop: 'static'
-            });
-  
-           
-            modalInstance.show();
-  
-           
-            modal.addEventListener('hidden.bs.modal', () => {
-                modal.remove();
-            });
-        } else {
-           
-            let modalInstance = bootstrap.Modal.getInstance(modal);
-            modalInstance.show();
-        }
-    });
-  }
+            </div>
+        `;
+        document.body.appendChild(modal);
 
-  document.addEventListener('DOMContentLoaded', function() {
-    const hamburgerBtn = document.querySelector('.hamburger-btn');
-    const hamburgerMenu = document.getElementById('hamburger-menu');
+        
+        let modalInstance = new bootstrap.Modal(modal, {
+            backdrop: 'static'
+        });
 
-    hamburgerBtn.addEventListener('click', function() {
-        const isOpen = hamburgerMenu.classList.contains('show');
-        hamburgerMenu.classList.toggle('show', !isOpen);
-    });
+        
+        modalInstance.show();
 
-    document.addEventListener('click', function(event) {
-        if (!hamburgerBtn.contains(event.target) && !hamburgerMenu.contains(event.target)) {
-            hamburgerMenu.classList.remove('show');
-        }
-    });
+        
+        modal.addEventListener('hidden.bs.modal', () => {
+            modal.remove();
+        });
+    } else {
+        
+        let modalInstance = bootstrap.Modal.getInstance(modal);
+        modalInstance.show();
+    }
 });
+}
+
+
+iniciarAplicacion()

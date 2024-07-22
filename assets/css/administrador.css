@@ -2088,3 +2088,7 @@ nav {
         display: none; 
     }
 }
+
+.cp{
+    cursor: pointer;
+}
