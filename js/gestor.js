@@ -1295,17 +1295,12 @@ function applyEstadoColorClasses() {
 
 //Select estadoColor
 
+
 function initializePopoversAndCustomSelect() {
     const customSelect = document.querySelector('.custom-select');
     const selectItems = customSelect.querySelector(".select-items");
 
-    function toggleCustomSelect(nextToElement) {
-        const rect = nextToElement.getBoundingClientRect();
-        customSelect.style.left = `${rect.left}px`;
-        customSelect.style.top = `${rect.bottom + window.scrollY}px`;
-        customSelect.style.display = customSelect.style.display === 'block' ? 'none' : 'block';
-        customSelect.classList.toggle('open');
-    }
+
 
     document.querySelectorAll('.estadoColor p').forEach(paragraph => {
         paragraph.addEventListener('click', function(event) {
@@ -1327,19 +1322,20 @@ function initializePopoversAndCustomSelect() {
         }
     });
 
-    let userSpan = document.querySelector('.notasProfesorPG');
+    const popoverTriggerListPG = document.querySelectorAll('.notasProfesorPG');
+    const popoverTriggerListDP = document.querySelectorAll('.notasProfesorDP');
     let teacherSpan = document.querySelector('.notasProfesorDP');
     let userIcon = document.querySelector('.user-icon');
     let mapIcon = document.querySelector('.map-icon');
     let isManualPopoverOpen = false;
 
-    if (userSpan && teacherSpan && userIcon && mapIcon) {
-        let userPopover = new bootstrap.Popover(userSpan, {
-            placement: "bottom",
-            html: true,
-            trigger: 'manual',
-            content: '<strong>Profesorado: Fernando Velasco</strong><p>fvelasco@innopulse.es</p><div class="popover-icon d-flex align-items-center justify-content-start"><img src="../img/popover-icon.svg" class="me-2" alt=""><a href="#">Panel del profesor</a></div>'
-        });
+    if (teacherSpan && userIcon && mapIcon) {
+        // let userPopover = new bootstrap.Popover(userSpan, {
+        //     placement: "bottom",
+        //     html: true,
+        //     trigger: 'manual',
+        //     content: '<strong>Profesorado: Fernando Velasco</strong><p>fvelasco@innopulse.es</p><div class="popover-icon d-flex align-items-center justify-content-start"><img src="../img/popover-icon.svg" class="me-2" alt=""><a href="#">Panel del profesor</a></div>'
+        // });
 
         let teacherPopover = new bootstrap.Popover(teacherSpan, {
             placement: "bottom",
@@ -1377,11 +1373,6 @@ function initializePopoversAndCustomSelect() {
             mapPopoverIcon.hide();
         }
 
-        userSpan.addEventListener('click', function () {
-            toggleManualPopover(userPopover);
-            teacherPopover.hide();
-        });
-
         teacherSpan.addEventListener('click', function () {
             toggleManualPopover(teacherPopover);
             userPopover.hide();
@@ -1393,6 +1384,40 @@ function initializePopoversAndCustomSelect() {
             }
         });
     }
+
+    popoverTriggerListPG.forEach(function(popoverTriggerElPG) {
+        let popoverPG = new bootstrap.Popover(popoverTriggerElPG, {
+            trigger: 'manual',
+            html: true,
+            content: '<p class="profesoradoPopover mb-0">Profesorado: Pablo García</p>',
+            placement: 'right'
+        });
+
+        popoverTriggerElPG.addEventListener('mouseenter', function() {
+            popoverPG.show();
+        });
+
+        popoverTriggerElPG.addEventListener('mouseleave', function() {
+            popoverPG.hide();
+        });
+    });
+
+    popoverTriggerListDP.forEach(function(popoverTriggerElDP) {
+        let popoverDP = new bootstrap.Popover(popoverTriggerElDP, {
+            trigger: 'manual',
+            html: true,
+            content: '<p class="profesoradoPopover mb-0">Profesorado: Diego Pérez</p>',
+            placement: 'right'
+        });
+
+        popoverTriggerElDP.addEventListener('mouseenter', function() {
+            popoverDP.show();
+        });
+
+        popoverTriggerElDP.addEventListener('mouseleave', function() {
+            popoverDP.hide();
+        });
+    });
 }
 
 
@@ -1477,9 +1502,10 @@ function setupModalTrigger() {
             document.body.insertAdjacentHTML('beforeend', ahoraModalHtml);
             const modalInstance = new bootstrap.Modal(document.getElementById('ahoraModal'), {});
             modalInstance.show();
+            
 
             setTimeout(() => {
-                createDynamicTable();  // Asegúrate de que esta función esté definida en algún lugar de tu código
+                createDynamicTable();
             }, 100);
         }
     });
@@ -1747,107 +1773,96 @@ signatureModal.show();
 // Modal Alumnos y Asistentes ultima sesion
 
 function setupAlumnosModal() {
-    let alumnosModal = document.querySelector('.alumnosOpener');
+    let alumnosOpenerElements = document.querySelectorAll('.alumnosOpener');
 
-    alumnosModal.addEventListener('click', function() {
-        let alumnosModalHTML = `
-            <div class="modal fade" id="resumenControlModal" tabindex="-1" aria-labelledby="resumenControlModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <h6>Asistentes última sesión: 10/02/2023 - 10:00 - 12:00 (sesión 1)</h6>
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th></th>
-                                        <th>Alumno</th>
-                                        <th>% Asistencia</th>
-                                        <th>Tipo Diploma</th>
-                                        <th>Certifica</th>
-                                        <th>Observaciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="modalTableBody">
-                                </tbody>
-                            </table>
+    alumnosOpenerElements.forEach(function(alumnosOpener) {
+        alumnosOpener.addEventListener('click', function() {
+            let alumnosModalHTML = `
+                <div class="modal fade" id="resumenControlModal" tabindex="-1" aria-labelledby="resumenControlModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h6>Asistentes última sesión: 10/02/2023 - 10:00 - 12:00 (sesión 1)</h6>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Alumno</th>
+                                            <th>% Asistencia</th>
+                                            <th>Tipo Diploma</th>
+                                            <th>Certifica</th>
+                                            <th>Observaciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="modalTableBody">
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        `;
+            `;
 
-        document.body.insertAdjacentHTML('beforeend', alumnosModalHTML);
-        let resumenControlModal = new bootstrap.Modal(document.getElementById('resumenControlModal'), {});
-        
-        const data = [
-            { icon: `<img src="../img/document-sign-icon.svg" class="cp">`, nombre: 'González Ram María', asistencia: '100%', diploma: 'Aprovechamiento', certifica: 'Si', observaciones: 'El alumno se va 20 min antes de terminar la sesión' },
-            { icon: `<img src="../img/document-sign-icon.svg" class="cp">`, nombre: 'Pérez Donoso Diego', asistencia: '100%', diploma: 'Aprovechamiento', certifica: 'Si', observaciones: '-' },
-            { icon: `<img src="../img/document-sign-icon.svg" class="cp">`, nombre: 'Rodríguez Sainz Mathias', asistencia: '0%', diploma: 'Aprovechamiento', certifica: 'Si', observaciones: 'firma pero se va a los 5 min.​' },
-            { icon: `<img src="../img/document-sign-icon.svg" class="cp">`, nombre: 'Muños Sale Pablo', asistencia: '0%', diploma: 'Sin Diploma', certifica: 'No', observaciones: '-' },
-            { icon: `<img src="../img/document-sign-icon.svg" class="cp">`, nombre: 'Vargas Juan', asistencia: '0%', diploma: 'Aprovechamiento', certifica: 'Si', observaciones: '-' }
-        ];
+            document.body.insertAdjacentHTML('beforeend', alumnosModalHTML);
+            let resumenControlModal = new bootstrap.Modal(document.getElementById('resumenControlModal'), {});
 
-        const tableBody = document.getElementById('modalTableBody');
+            const data = [
+                { icon: `<img src="../img/document-sign-icon.svg" class="cp">`, nombre: 'González Ram María', asistencia: '100%', diploma: 'Aprovechamiento', certifica: 'Si', observaciones: 'El alumno se va 20 min antes de terminar la sesión' },
+                { icon: `<img src="../img/document-sign-icon.svg" class="cp">`, nombre: 'Pérez Donoso Diego', asistencia: '100%', diploma: 'Aprovechamiento', certifica: 'Si', observaciones: '-' },
+                { icon: `<img src="../img/document-sign-icon.svg" class="cp">`, nombre: 'Rodríguez Sainz Mathias', asistencia: '0%', diploma: 'Aprovechamiento', certifica: 'Si', observaciones: 'firma pero se va a los 5 min.​' },
+                { icon: `<img src="../img/document-sign-icon.svg" class="cp">`, nombre: 'Muños Sale Pablo', asistencia: '0%', diploma: 'Sin Diploma', certifica: 'No', observaciones: '-' },
+                { icon: `<img src="../img/document-sign-icon.svg" class="cp">`, nombre: 'Vargas Juan', asistencia: '0%', diploma: 'Aprovechamiento', certifica: 'Si', observaciones: '-' }
+            ];
 
-        data.forEach(item => {
-            const row = document.createElement('tr');
+            const tableBody = document.getElementById('modalTableBody');
 
-            const iconCell = document.createElement('td');
-            iconCell.innerHTML = item.icon;
+            data.forEach(item => {
+                const row = document.createElement('tr');
+                const iconCell = document.createElement('td');
+                iconCell.innerHTML = item.icon;
+                const nombreCell = document.createElement('td');
+                nombreCell.innerText = item.nombre;
+                const asistenciaCell = document.createElement('td');
+                asistenciaCell.innerText = item.asistencia;
+                const diplomaCell = document.createElement('td');
+                diplomaCell.innerText = item.diploma;
+                const certificaCell = document.createElement('td');
+                certificaCell.innerText = item.certifica;
+                const observacionesCell = document.createElement('td');
+                observacionesCell.innerText = item.observaciones;
 
-            const nombreCell = document.createElement('td');
-            nombreCell.innerText = item.nombre;
+                row.appendChild(iconCell);
+                row.appendChild(nombreCell);
+                row.appendChild(asistenciaCell);
+                row.appendChild(diplomaCell);
+                row.appendChild(certificaCell);
+                row.appendChild(observacionesCell);
+                tableBody.appendChild(row);
+            });
 
-            const asistenciaCell = document.createElement('td');
-            if (item.asistencia === '100%') {
-                asistenciaCell.style.color = '#00AD1F';
-            } else if(item.asistencia === '0%'){
-                asistenciaCell.style.color = '#DF1517';
-            }
-            asistenciaCell.innerText = item.asistencia;
+            resumenControlModal.show();
 
-            const diplomaCell = document.createElement('td');
-            diplomaCell.innerText = item.diploma;
-
-            const certificaCell = document.createElement('td');
-            if (item.certifica === 'Si') {
-                certificaCell.style.color = '#00AD1F';
-            } else if(item.certifica === 'No'){
-                certificaCell.style.color = '#DF1517';
-            }
-            certificaCell.innerText = item.certifica;
-
-            const observacionesCell = document.createElement('td');
-            observacionesCell.innerText = item.observaciones;
-            observacionesCell.style.color = '#636363';
-
-            row.appendChild(iconCell);
-            row.appendChild(nombreCell);
-            row.appendChild(asistenciaCell);
-            row.appendChild(diplomaCell);
-            row.appendChild(certificaCell);
-            row.appendChild(observacionesCell);
-
-            tableBody.appendChild(row);
-        });
-
-        resumenControlModal.show();
-
-        document.getElementById('resumenControlModal').addEventListener('hidden.bs.modal', function(e) {
-            document.getElementById('resumenControlModal').remove();
+            document.getElementById('resumenControlModal').addEventListener('hidden.bs.modal', function(e) {
+                document.getElementById('resumenControlModal').remove();
+            });
         });
     });
+
+    if (!alumnosOpenerElements.length) {
+        console.error('Elemento .alumnosOpener no encontrado');
+    }
 }
+
 
 // Modal Cuestionario Satisfaccion
 
 function setupCuestionarioSatisfaccionModal() {
-    let cuestionarioSatisfaccion = document.querySelector('.cuestionarioSatisfaccion');
+    let cuestionarioSatisfaccionElements = document.querySelectorAll('.cuestionarioSatisfaccion');
 
-    if (cuestionarioSatisfaccion) {
+    cuestionarioSatisfaccionElements.forEach(function(cuestionarioSatisfaccion) {
         cuestionarioSatisfaccion.addEventListener('click', function() {
             let cuestionarioSatisfaccionModalHTML = `
                 <div class="modal fade" id="chartModal" tabindex="-1" aria-labelledby="chartModalLabel" aria-hidden="true">
@@ -1964,18 +1979,17 @@ function setupCuestionarioSatisfaccionModal() {
                 document.body.style.overflow = '';
             });
         });
-    } else {
-        console.error('Elemento .cuestionarioSatisfaccion no encontrado');
-    }
+    });
 }
+
 
 
 // Modal Mensajes sin Leer
 
 function setupMensajesSinLeerModal() {
-    let mensajesSinLeer = document.querySelector('.mensajesSinLeer');
+    let mensajesSinLeerElements = document.querySelectorAll('.mensajesSinLeer');
 
-    if (mensajesSinLeer) {
+    mensajesSinLeerElements.forEach(function(mensajesSinLeer) {
         mensajesSinLeer.addEventListener('click', function() {
             let mensajesSinLeerModalHTML = `
                 <div class="modal fade" id="chatModal" tabindex="-1" aria-labelledby="chatModalLabel" aria-hidden="true">
@@ -2041,10 +2055,13 @@ function setupMensajesSinLeerModal() {
                 document.body.style.overflow = '';
             });
         });
-    } else {
+    });
+
+    if (!mensajesSinLeerElements.length) {
         console.error('Elemento .mensajesSinLeer no encontrado');
     }
 }
+
 
 function setupMessageForm() {
     const form = document.getElementById('messageForm');
@@ -2105,8 +2122,8 @@ function setupMessageForm() {
 }
 
 function setupForoModal() {
-    const foroElement = document.querySelector('.foro');
-    if (foroElement) {
+    const foroElements = document.querySelectorAll('.foro');
+    foroElements.forEach(function(foroElement) {
         foroElement.addEventListener('click', function() {
             const modalHTML = `
                 <div class="modal fade" id="foroModal" tabindex="-1" aria-labelledby="foroModalLabel" aria-hidden="true">
@@ -2216,7 +2233,6 @@ function setupForoModal() {
                     </div>
                 </div>
             `;
-
             const existingModal = document.getElementById('foroModal');
             if (existingModal) {
                 existingModal.remove();
@@ -2228,8 +2244,9 @@ function setupForoModal() {
                 this.remove();
             });
         });
-    }
+    });
 }
+
 
 function openSignatureModalWithoutQR() {
       

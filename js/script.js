@@ -1339,6 +1339,39 @@ function createTableDataDocumentacion(data) {
         }
     }, 0);
 
+    const cardButtonsElements = document.querySelectorAll('.card-buttons');
+    cardButtonsElements.forEach(cardButtons => {
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        cardButtons.addEventListener('mousedown', function(e) {
+            isDown = true;
+            startX = e.pageX - cardButtons.offsetLeft;
+            scrollLeft = cardButtons.scrollLeft;
+            cardButtons.style.cursor = 'pointer'; 
+        });
+
+        cardButtons.addEventListener('mouseleave', function() {
+            if (!isDown) return;
+            isDown = false;
+            cardButtons.style.cursor = 'default'; 
+        });
+
+        cardButtons.addEventListener('mouseup', function() {
+            isDown = false;
+            cardButtons.style.cursor = 'default'; 
+        });
+
+        cardButtons.addEventListener('mousemove', function(e) {
+            if (!isDown) return; 
+            e.preventDefault();
+            const x = e.pageX - cardButtons.offsetLeft;
+            const walk = (x - startX) * 3; 
+            cardButtons.scrollLeft = scrollLeft - walk;
+        });
+    });
+
     
 
     let primerTD = card.querySelector('tbody tr:first-child td');
@@ -1483,20 +1516,24 @@ function createTableDataDocumentacion(data) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <h6>Asistentes última sesión: 10/02/2023 - 10:00 - 12:00 (sesión 1)</h6>
-                    <table class="table">
-                    <thead>
-                        <tr>
-                        <th>Alumno</th>
-                        <th>% Asistencia</th>
-                        <th>Tipo Diploma</th>
-                        <th>Certifica</th>
-                        <th>Observaciones</th>
-                        </tr>
-                    </thead>
-                    <tbody id="modalTableBody">
-                    </tbody>
+                  <div class="titleSubtitle">
+                    <p class="mb-0 modal-body-title">Asistentes última sesión: 10/02/2023 - 10:00 - 12:00 (sesión 1)</p>
+                    <p class="mb-0 modal-body-subtitle">Asistentes última sesión: 10/02/2023 - 10:00 - 12:00 (sesión 1)</p>
+                  </div>
+                  <div class="tablaResumenControl">
+                    <table class="table table-bordered">
+                      <thead>
+                          <tr>
+                          <th>Alumno</th>
+                          <th>% Asistencia</th>
+                          <th>Tipo Diploma</th>
+                          <th>Certifica</th>
+                          <th>Observaciones</th>
+                          </tr>
+                      </thead>
+                      <tbody id="modalTableBody"></tbody>
                     </table>
+                  </div>
                 </div>
                 </div>
             </div>
@@ -1520,9 +1557,11 @@ function createTableDataDocumentacion(data) {
             const row = document.createElement('tr');
     
             const nombreCell = document.createElement('td');
+            nombreCell.className = "nombreCell";
             nombreCell.innerText = item.nombre;
     
             const asistenciaCell = document.createElement('td');
+            asistenciaCell.className = "asistenciaCell";
             if (item.asistencia === '100%') {
               asistenciaCell.style.color = '#00AD1F';
             } else if(item.asistencia === '0%'){
@@ -1531,9 +1570,11 @@ function createTableDataDocumentacion(data) {
             asistenciaCell.innerText = item.asistencia;
     
             const diplomaCell = document.createElement('td');
+            diplomaCell.className = "diplomaCell";
             diplomaCell.innerText = item.diploma;
     
             const certificaCell = document.createElement('td');
+            certificaCell.className = "certificaCell";
             if (item.certifica === 'Si') {
               certificaCell.style.color = '#00AD1F';
             } else if(item.certifica === 'No'){
@@ -1542,6 +1583,7 @@ function createTableDataDocumentacion(data) {
             certificaCell.innerText = item.certifica;
 
             const observacionesCell = document.createElement('td');
+            observacionesCell.className = "observacionesCell";
             observacionesCell.innerText = item.observaciones;
             observacionesCell.style.color = '#636363';
     
@@ -2028,15 +2070,15 @@ function openControlAsistenciaModalFirmado() {
         var userPopover = new bootstrap.Popover(userSpan, {
           placement: "bottom",
           html: true,
-          trigger: 'manual',
-          content: '<strong>Profesorado: Fernando Velasco</strong><p>fvelasco@innopulse.es</p><div class="popover-icon d-flex align-items-center justify-content-start"><img src="assets/img/popover-icon.svg" class="me-2" alt=""><a href="#">Panel del profesor</a></div>'
+          trigger: 'hover',
+          content: '<p class="profesoradoP mb-0">Profesorado: Fernando Velasco</p><p class="profesoradoP mb-0">fvelasco@innopulse.es</p><div class="popover-icon mt-2 d-flex align-items-center justify-content-start"><img src="assets/img/popover-icon.svg" class="me-2" alt=""><a href="#" class="panelProfesor">Panel del profesor</a></div>'
         });
       
         var teacherPopover = new bootstrap.Popover(teacherSpan, {
           placement: "bottom",
           html: true,
-          trigger: 'manual',
-          content: '<strong>Profesorado: Diego Pérez</strong><p>dperez@innopulse.es</p><div class="popover-icon d-flex align-items-center justify-content-start"><img src="assets/img/popover-icon.svg" class="me-2" alt=""><a href="#">Panel del profesor</a></div>'
+          trigger: 'hover',
+          content: '<p class="profesoradoP mb-0">Profesorado: Diego Pérez</p><p class="profesoradoP mb-0">dperez@innopulse.es</p><div class="popover-icon mt-2 d-flex align-items-center justify-content-start"><img src="assets/img/popover-icon.svg" class="me-2" alt=""><a href="#" class="panelProfesor">Panel del profesor</a></div>'
         });
       
         var userPopoverIcon = new bootstrap.Popover(userIcon, {
@@ -2044,7 +2086,7 @@ function openControlAsistenciaModalFirmado() {
           placement: "bottom",
           html: true,
           trigger: 'hover',
-          content: '<ul><li>Diego Pérez</li><li>Tel. 666090477</li><li>@: dperez@innopulse.es</li></ul>',
+          content: '<ul class="responsableGrupoPopover"><li>Diego Pérez</li><li>Tel. 666090477</li><li>@: dperez@innopulse.es</li></ul>',
         });
       
         var mapPopoverIcon = new bootstrap.Popover(mapIcon, {
@@ -2052,7 +2094,7 @@ function openControlAsistenciaModalFirmado() {
           placement: "bottom",
           html: true,
           trigger: 'hover',
-          content: '<div class="mapPopoverContent"><p>Calle del Aguacate 41, </p><p>Edificio B4, Local 6, 28054</p><p>Madrid, </p><a href="#">Aula Innovación</a></div>',
+          content: '<div class="mapPopoverContent d-flex align-items-start justify-content-start flex-column"><p>Calle del Aguacate 41, </p><p>Edificio B4, Local 6, 28054</p><p>Madrid, </p><a href="#" class="mt-2">Aula Innovación</a><img src="assets/img/maps.svg"></div>',
         });
       
         function toggleManualPopover(popover) {
@@ -2601,3 +2643,44 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+function enableHorizontalScroll() {
+  const cardButtons = document.querySelector('.card-buttons');
+  if (!cardButtons) {
+      console.error('Elemento .card-buttons no encontrado');
+      return;
+  }
+
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  cardButtons.addEventListener('mousedown', function(e) {
+      isDown = true;
+      startX = e.pageX - cardButtons.offsetLeft;
+      scrollLeft = cardButtons.scrollLeft;
+      cardButtons.style.cursor = 'pointer';  
+  });
+
+  cardButtons.addEventListener('mouseleave', function() {
+      isDown = false;
+      cardButtons.style.cursor = 'default';  
+  });
+
+  cardButtons.addEventListener('mouseup', function() {
+      isDown = false;
+      cardButtons.style.cursor = 'default';  
+  });
+
+  cardButtons.addEventListener('mousemove', function(e) {
+      if (!isDown) return;  
+      e.preventDefault();
+      const x = e.pageX - cardButtons.offsetLeft;
+      const walk = (x - startX) * 3; 
+      cardButtons.scrollLeft = scrollLeft - walk;
+  });
+}
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  enableHorizontalScroll();
+});
