@@ -171,7 +171,7 @@ aside {
     margin-top: 40px !important;
 }
 
-.offCanvasSubHeader p, .fechaInicioFin p{
+.offCanvasSubHeader p, .fechaInicioFin p, .volverGestor p{
     color: #7B7B7B;
     font-family: Lato;
     font-size: 16px;
@@ -2091,4 +2091,12 @@ nav {
 
 .cp{
     cursor: pointer;
+}
+
+.volverGestor {
+    display: none;
+}
+
+.noVolverGestor{
+    display: none !important;
 }

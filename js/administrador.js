@@ -24,7 +24,28 @@ function iniciarAplicacion() {
     setupModalTriggers();
 }
 
-window.addEventListener('load', () => { setupCustomSelects(); setupHamburgerMenu(); });
+window.addEventListener('load', () => {
+    setupCustomSelects();
+    setupHamburgerMenu();
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const openOffcanvas = urlParams.get('openOffcanvas');
+
+    const volverGestor = document.querySelector('.volverGestor');
+
+    if (openOffcanvas === 'true' && volverGestor) {
+        volverGestor.style.display = 'block';
+
+        volverGestor.addEventListener('click', () => {
+            const isGitHubPages = window.location.hostname.includes('github.io');
+            window.location.href = isGitHubPages ? '/panel_gestor/assets/pages/gestor.html' : '/assets/pages/gestor.html';
+        });
+    } else if (volverGestor) {
+        volverGestor.classList.remove('volverGestor');
+        volverGestor.classList.add('noVolverGestor');
+    }
+});
+
 
 const tableData = [
     { check: `<div class="form-check ms-2 mt-2"><input class="form-check-input" type="checkbox" value=""></div>`, notes: `<img src="../img/notes.svg" alt="" style="cursor: pointer;">`, ID: `<div class="d-flex align-items-center justify-content-center"><p class="mb-0 me-2">6493</p><img src="../img/pink-circle-fill.svg"</div>`, ANUL: "N", ESTADO: `<div class="d-flex align-items-center justify-content-start"><img src="../img/red-circle-fill-little.svg" alt="Incidentado"><p class="mb-0 ms-2" style="color: #DF1517">Incidentado</p></div>`, EXPEDIENTE: "B221464BE", ACCIÓN: "4", GRUPO: "1", IDENTIFICACIÓN: "24245", DENOMINACIÓN: "CÓMO GESTIONAR FORMACIÓN CON ERP IFORMALIA", MOD: "M", AULA_VIRTUAL: "N", HORAS: "6,00", TAGS: "", INICIO: "12/01/2023", FIN: "12/01/2023", SOL: "30", TOT: "15", INI: "0", CERT: "0", LOCALIDAD: "Madrid", RESPONSABLE: "Juan Diaz", CENTRO_DE_FORMACION: "Centro General", SESION_CERRADA: "N", F_CIERRE_SES: "", FIRMA_APP: "", COMUNICACION: "Pre Inicio: 8-2-2024", ESTADO_COMUNICACION: "Comunicada", COMUNICACION_2: "Comunicación Fin: 25-5-2024", ESTADO_2: "Pendiente" },
@@ -561,6 +582,7 @@ function initOffcanvas() {
     notesIcon.addEventListener('click', function() {
         offcanvasInstance.show();
     });
+    
 }
 
 function inicializarInteraccionesTabla() {

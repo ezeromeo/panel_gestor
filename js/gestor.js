@@ -1555,19 +1555,16 @@ function createDynamicTable() {
   table.appendChild(tbody);
   tableContainer.appendChild(table);
 
-  document.querySelectorAll('.ojoIcon').forEach(icon => {
-    icon.addEventListener('click', function() {
-        openDetailModal();
+    document.querySelectorAll('.ojoIcon').forEach(icon => {
+        icon.addEventListener('click', function() {
+            openDetailModal();
+        });
     });
-
     document.querySelectorAll('.firmarSesion').forEach(button => {
-      button.addEventListener('click', function() {
-          openFormularioSesion();
-      });
+        button.addEventListener('click', function() {
+            openFormularioSesion();
+        });
     });
-
-
-});
 }
 
 function formatStatusCell(text) {
@@ -1652,45 +1649,48 @@ function openDetailModal() {
 };
 
 function openFormularioSesion() {
+    document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
+        backdrop.remove();
+    });
 
-document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
-    backdrop.remove(); 
-});
+    const existingModal = document.getElementById('formularioSesion');
+    if (existingModal) {
+        existingModal.remove();
+    }
 
-const modalHtml = `
-    <div class="modal fade" id="formularioSesion" tabindex="-1" aria-labelledby="formularioSesionLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body d-flex align-items-center justify-content-center position-relative">
-                <img src="../img/controlAsistencia.png">
-                <div class="btnContainer d-flex align-items-center justify-content-center" style="position: absolute; top: 34%; left: 50%; transform: translate(-50%, -50%);">
-                    <button class="btn botonFirmar">Firmar</button>
-                </div>
+    const modalHtml = `
+        <div class="modal fade" id="formularioSesion" tabindex="-1" aria-labelledby="formularioSesionLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex align-items-center justify-content-center position-relative">
+                        <img src="../img/controlAsistencia.png">
+                        <div class="btnContainer d-flex align-items-center justify-content-center" style="position: absolute; top: 34%; left: 50%; transform: translate(-50%, -50%);">
+                            <button class="btn botonFirmar">Firmar</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-`;
+    `;
 
-document.querySelectorAll('.botonFirmar').forEach(button => {
-    button.addEventListener('click', function() {
-    openSignatureModal();
+    document.body.insertAdjacentHTML('beforeend', modalHtml);
+    const formularioSesion = new bootstrap.Modal(document.getElementById('formularioSesion'), {});
+    formularioSesion.show();
+
+    document.querySelector('.botonFirmar').addEventListener('click', function() {
+        openSignatureModal();
     });
-});
 
-document.body.insertAdjacentHTML('beforeend', modalHtml);
-const formularioSesion = new bootstrap.Modal(document.getElementById('formularioSesion'), {});
-formularioSesion.show();
+    formularioSesion._element.addEventListener('hidden.bs.modal', () => {
+        const backdrops = document.querySelectorAll('.modal-backdrop');
+        backdrops.forEach(backdrop => backdrop.remove());
+        document.getElementById('formularioSesion').remove();
+    });
+}
 
-formularioSesion._element.addEventListener('hidden.bs.modal', () => {
-    const backdrops = document.querySelectorAll('.modal-backdrop');
-    backdrops.forEach(backdrop => backdrop.remove());
-    document.getElementById('formularioSesion').remove();
-});
-};
 
 function openSignatureModal() {
     
