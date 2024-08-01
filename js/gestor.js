@@ -1786,20 +1786,22 @@ function setupAlumnosModal() {
                             </div>
                             <div class="modal-body">
                                 <h6>Asistentes última sesión: 10/02/2023 - 10:00 - 12:00 (sesión 1)</h6>
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th></th>
-                                            <th>Alumno</th>
-                                            <th>% Asistencia</th>
-                                            <th>Tipo Diploma</th>
-                                            <th>Certifica</th>
-                                            <th>Observaciones</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="modalTableBody">
-                                    </tbody>
-                                </table>
+                                <div class="resumenControlModalTablaContainer">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Alumno</th>
+                                                <th>% Asistencia</th>
+                                                <th>Tipo Diploma</th>
+                                                <th>Certifica</th>
+                                                <th>Observaciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="modalTableBody">
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1866,7 +1868,7 @@ function setupCuestionarioSatisfaccionModal() {
         cuestionarioSatisfaccion.addEventListener('click', function() {
             let cuestionarioSatisfaccionModalHTML = `
                 <div class="modal fade" id="chartModal" tabindex="-1" aria-labelledby="chartModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="chartModalLabel">Gráfica</h5>
@@ -1993,7 +1995,7 @@ function setupMensajesSinLeerModal() {
         mensajesSinLeer.addEventListener('click', function() {
             let mensajesSinLeerModalHTML = `
                 <div class="modal fade" id="chatModal" tabindex="-1" aria-labelledby="chatModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                    <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <p class="foro modal-title">Foro</p>
@@ -2127,7 +2129,7 @@ function setupForoModal() {
         foroElement.addEventListener('click', function() {
             const modalHTML = `
                 <div class="modal fade" id="foroModal" tabindex="-1" aria-labelledby="foroModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header d-flex align-items-start justify-content-start">
                                 <div class="titleAndSubtitle">
@@ -2253,7 +2255,7 @@ function openSignatureModalWithoutQR() {
     if (!document.getElementById('modalFirmaSinQR')) {
         const modalHtml = `
             <div class="modal fade" id="modalFirmaSinQR" tabindex="-1" aria-labelledby="modalFirmaSinQRLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-body d-flex align-items-center justify-content-around">
                             <div class="rightMenuSignature">

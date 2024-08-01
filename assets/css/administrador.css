@@ -2100,3 +2100,111 @@ nav {
 .noVolverGestor{
     display: none !important;
 }
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    overflow-x: hidden;
+
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    width: 97.5%;
+    padding: 10px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+}
+
+.leftMenu,
+.rightMenu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.fundacion img {
+    max-width: 100%;
+    height: auto;
+}
+
+.submenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    flex: 1;
+    min-width: 200px;
+}
+
+.submenu .breadcrumb,
+.submenu .subheader {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.hamburger-content {
+    display: none;
+}
+
+.tablaGestor .tablaMovil{
+    display: none;
+}
+
+@media (max-width: 992px) {
+
+    .leftMenu,
+    .rightMenu {
+        flex-direction: column;
+        align-items: start !important;
+        justify-content: start !important;
+    }
+
+    .hamburger-content {
+        display: flex;
+        position: absolute;
+        right: 10px;
+        left: 10px;
+        top: 60px;
+        background-color: #fff;
+        width: 200px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .hamburger-btn[aria-expanded="true"] + .hamburger-content {
+        display: flex;
+    }
+
+    .rightMenu {
+        position: relative;
+    }
+
+    .subheader p:nth-child(2) {
+        max-width: 300px;
+    }
+
+    .contenedor {
+        width: 90%;
+        margin-left: 70px;
+        margin-top: 40px !important;
+        display: flex;
+    }
+}
+
+.subheader p:nth-child(2) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+

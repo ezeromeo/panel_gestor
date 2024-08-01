@@ -898,7 +898,7 @@ function openModal(contentType) {
     modal.tabIndex = -1;
     modal.style.display = 'block'; 
     modal.innerHTML = `
-    <div class="modal-dialog modal-xl">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">${contentType}</h5>
@@ -1375,8 +1375,9 @@ function setupSVGPopoverEvent(svgElement) {
   
 
   let primerTD = card.querySelector('tbody tr:first-child td');
-  let segundoTD = card.querySelector('tbody tr:nth-child(3) td');
-  let tercerTD = card.querySelector('tbody tr:nth-child(4) td');
+  let segundoTD = card.querySelector('tbody tr:nth-child(2) td');
+  let tercerTD = card.querySelector('tbody tr:nth-child(3) td');
+  let cuartoTD = card.querySelector('tbody tr:nth-child(4) td');
   let badge1Modal = card.querySelector('.badge-alumnos');
   let badgeCuestionario = document.querySelector('.badge-cuestionario');
 
@@ -1390,7 +1391,7 @@ function setupSVGPopoverEvent(svgElement) {
           } else {
               let badgeCuestionarioModalHTML = `
                   <div class="modal fade" id="chartModal" tabindex="-1" aria-labelledby="chartModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
+                      <div class="modal-dialog modal-dialog-centered">
                           <div class="modal-content">
                               <div class="modal-header">
                                   <h5 class="modal-title" id="chartModalLabel">Gráfica</h5>
@@ -1507,7 +1508,7 @@ function setupSVGPopoverEvent(svgElement) {
   badge1Modal.addEventListener('click', function() {
       let badge1ModalHTML = `
           <div class="modal fade" id="resumenControlModal" tabindex="-1" aria-labelledby="resumenControlModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
+          <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
               <div class="modal-header">
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1602,44 +1603,160 @@ function setupSVGPopoverEvent(svgElement) {
   });
 
 
-  primerTD.addEventListener('click', function() {
-      let modalHTML = `
-          <div class="modal fade" id="miModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                  <div class="modal-content">
-                      <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">CURSO DE PRL AVANZADO EN LA OFICINA</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                          <div class="form-check primerTd">
-                              <input class="form-check-input check-primerTd" type="checkbox" value="" id="flexCheckChecked" checked>
-                              <label class="form-check-label" for="flexCheckChecked">
-                                  Adjuntar Contrato Firmado
-                              </label>
-                          </div>
-                      </div>
-                      <div class="modal-footer">
-                          <button type="button" class="btn enviar-button" style="border-radius: 36px; color: #FFFF; background-color: var(--azul);" data-bs-dismiss="modal">Enviar</button>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      `;
+  // primerTD.addEventListener('click', function() {
+  //     let modalHTML = `
+  //         <div class="modal fade" id="miModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  //             <div class="modal-dialog modal-dialog-centered">
+  //                 <div class="modal-content">
+  //                     <div class="modal-header">
+  //                         <h5 class="modal-title" id="exampleModalLabel">CURSO DE PRL AVANZADO EN LA OFICINA</h5>
+  //                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  //                     </div>
+  //                     <div class="modal-body">
+  //                         <div class="form-check primerTd">
+  //                             <input class="form-check-input check-primerTd" type="checkbox" value="" id="flexCheckChecked" checked>
+  //                             <label class="form-check-label" for="flexCheckChecked">
+  //                                 Adjuntar Contrato Firmado
+  //                             </label>
+  //                         </div>
+  //                     </div>
+  //                     <div class="modal-footer">
+  //                         <button type="button" class="btn enviar-button" style="border-radius: 36px; color: #FFFF; background-color: var(--azul);" data-bs-dismiss="modal">Enviar</button>
+  //                     </div>
+  //                 </div>
+  //             </div>
+  //         </div>
+  //     `;
 
-      document.body.insertAdjacentHTML('beforeend', modalHTML);
-      let miModal = new bootstrap.Modal(document.getElementById('miModal'), {});
-      miModal.show();
+  //     document.body.insertAdjacentHTML('beforeend', modalHTML);
+  //     let miModal = new bootstrap.Modal(document.getElementById('miModal'), {});
+  //     miModal.show();
       
-      document.getElementById('miModal').addEventListener('hidden.bs.modal', function(e) {
-          document.getElementById('miModal').remove();
-      });
+  //     document.getElementById('miModal').addEventListener('hidden.bs.modal', function(e) {
+  //         document.getElementById('miModal').remove();
+  //     });
+  // });
+
+  primerTD.addEventListener('click', function() {
+    const modalContainerPrimero = document.createElement('div');
+    modalContainerPrimero.innerHTML = `
+      <div class="modal fade" id="dynamicModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">TAREA</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex align-items-center justify-content-center flex-column">
+              <div class="form-floating mb-3 w-75">
+                <input type="text" class="form-control" id="floatingInput" placeholder="texto">
+                <label for="floatingInput">Nombre</label>
+              </div>
+              <div class="form-floating w-75">
+                <textarea class="form-control" placeholder="..." id="floatingTextarea" style="height: 100px"></textarea>
+                <label for="floatingTextarea">Descripción</label>
+              </div>
+              <div class="d-flex align-items-center justify-content-start mt-2">
+                <div class="clockDateEnero d-flex align-items-center justify-content-start me-2">
+                  <img src="assets/img/clockIconWhite.svg" alt="">
+                  <p class="mb-0 ms-1">15 Ene</p>
+                </div>
+                <div class="notasProfesorPG cp">
+                  <img src="assets/img/circle-fill-violeta.svg" alt="">
+                </div>
+                <div class="adjuntar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 18.5C7.73858 18.5 5.5 16.0203 5.5 12.9615L5.5 6.39744C5.5 4.24494 7.07529 2.5 9.01852 2.5C10.9617 2.5 12.537 4.24494 12.537 6.39744L12.537 13.0788C12.537 14.3249 11.625 15.3352 10.5 15.3352C9.37498 15.3352 8.46296 14.3249 8.46296 13.0788L8.46296 6.63187C8.46296 6.292 8.71169 6.01648 9.01852 6.01648C9.32534 6.01648 9.57407 6.292 9.57407 6.63187L9.57407 13.0788C9.57407 13.6452 9.98863 14.1044 10.5 14.1044C11.0114 14.1044 11.4259 13.6452 11.4259 13.0788L11.4259 6.39744C11.4259 4.92468 10.3481 3.73077 9.01852 3.73077C7.68894 3.73077 6.61111 4.92468 6.61111 6.39744L6.61111 12.9615C6.61111 15.3406 8.35223 17.2692 10.5 17.2692C12.6478 17.2692 14.3889 15.3406 14.3889 12.9615L14.3889 6.63187C14.3889 6.292 14.6376 6.01648 14.9444 6.01648C15.2513 6.01648 15.5 6.292 15.5 6.63187L15.5 12.9615C15.5 16.0203 13.2614 18.5 10.5 18.5Z" fill="#1791C9"/>
+                      <circle cx="14" cy="17.5" r="4" fill="#DF1517"/>
+                      <text x="14" y="18" font-family="Arial" font-size="5" fill="white" text-anchor="middle" dominant-baseline="middle">2</text>
+                    </svg>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary enviarTarea">Enviar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  
+    document.body.appendChild(modalContainerPrimero);
+  
+    var myModal = new bootstrap.Modal(document.getElementById('dynamicModal'), {
+      keyboard: false
+    });
+  
+    myModal.show();
+  
+    myModal._element.addEventListener('hidden.bs.modal', function () {
+      document.body.removeChild(modalContainerPrimero);
+    });
   });
 
   segundoTD.addEventListener('click', function() {
+    const modalContainerSegundo = document.createElement('div');
+    modalContainerSegundo.innerHTML = `
+      <div class="modal fade" id="dynamicModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">TAREA</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex align-items-center justify-content-center flex-column">
+              <div class="form-floating mb-3 w-75">
+                <input type="text" class="form-control" id="floatingInput" value="texto">
+                <label for="floatingInput">Nombre</label>
+              </div>
+              <div class="form-floating w-75">
+                <textarea class="form-control" placeholder="..." id="floatingTextarea" style="height: 100px"></textarea>
+                <label for="floatingTextarea">Descripción</label>
+              </div>
+              <div class="d-flex align-items-center justify-content-start mt-2">
+                <div class="clockDateEnero d-flex align-items-center justify-content-start me-2">
+                  <img src="assets/img/clockIconWhite.svg" alt="">
+                  <p class="mb-0 ms-1">15 Ene</p>
+                </div>
+                <div class="notasProfesorPG cp">
+                  <img src="assets/img/circle-fill-violeta.svg" alt="">
+                </div>
+                <div class="adjuntar">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 18.5C7.73858 18.5 5.5 16.0203 5.5 12.9615L5.5 6.39744C5.5 4.24494 7.07529 2.5 9.01852 2.5C10.9617 2.5 12.537 4.24494 12.537 6.39744L12.537 13.0788C12.537 14.3249 11.625 15.3352 10.5 15.3352C9.37498 15.3352 8.46296 14.3249 8.46296 13.0788L8.46296 6.63187C8.46296 6.292 8.71169 6.01648 9.01852 6.01648C9.32534 6.01648 9.57407 6.292 9.57407 6.63187L9.57407 13.0788C9.57407 13.6452 9.98863 14.1044 10.5 14.1044C11.0114 14.1044 11.4259 13.6452 11.4259 13.0788L11.4259 6.39744C11.4259 4.92468 10.3481 3.73077 9.01852 3.73077C7.68894 3.73077 6.61111 4.92468 6.61111 6.39744L6.61111 12.9615C6.61111 15.3406 8.35223 17.2692 10.5 17.2692C12.6478 17.2692 14.3889 15.3406 14.3889 12.9615L14.3889 6.63187C14.3889 6.292 14.6376 6.01648 14.9444 6.01648C15.2513 6.01648 15.5 6.292 15.5 6.63187L15.5 12.9615C15.5 16.0203 13.2614 18.5 10.5 18.5Z" fill="#1791C9"/>
+                    <circle cx="14" cy="17.5" r="4" fill="#DF1517"/>
+                    <text x="14" y="18" font-family="Arial" font-size="5" fill="white" text-anchor="middle" dominant-baseline="middle">2</text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary enviarTarea">Enviar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  
+    document.body.appendChild(modalContainerSegundo);
+  
+    var myModal = new bootstrap.Modal(document.getElementById('dynamicModal'), {
+      keyboard: false
+    });
+  
+    myModal.show();
+  
+    myModal._element.addEventListener('hidden.bs.modal', function () {
+      document.body.removeChild(modalContainerSegundo);
+    });
+  });
+
+
+
+  tercerTD.addEventListener('click', function() {
       let segundoModalHTML = `
           <div class="modal fade" id="miSegundoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
+              <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content">
                       <div class="modal-header">
                           <h5 class="modal-title" id="exampleModalLabel">CURSO DE PRL AVANZADO EN LA OFICINA</h5>
@@ -1671,10 +1788,10 @@ function setupSVGPopoverEvent(svgElement) {
   });
 
 
-  tercerTD.addEventListener('click', function() {
+  cuartoTD.addEventListener('click', function() {
       let tercerModalHTML = `
         <div class="modal fade" id="miTercerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
+          <div class="modal-dialog modal-dialog-centered modal-lg">
               <div class="modal-content">
                   <div class="modal-header d-flex align-items-center justify-content-center">
                       <div class="fundacion m-2 me-3">
@@ -1713,7 +1830,7 @@ function setupSVGPopoverEvent(svgElement) {
 
         const ahoraModalHtml = `
             <div class="modal fade" id="ahoraModal" tabindex="-1" aria-labelledby="ahoraModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-xl">
+                <div class="modal-dialog modal-dialog-centered modal-xl">
                     <div class="modal-content">
                         <div class="modal-header">
                             <div class="titulo d-flex align-items-start justify-content-center flex-column">
@@ -1742,7 +1859,7 @@ function setupSVGPopoverEvent(svgElement) {
                                 </div>
                                 <p>DIEGO PÉREZ</p>                                
                               </div>
-                              <select class="form-select ms-5">
+                              <select class="form-select">
                                 <option selected>10/01/23 10:00 - 12:00</option>
                               </select>
                             </div>
@@ -1870,7 +1987,7 @@ function formatStatusCell(text) {
 function openDetailModal() {
   const modalHtml = `
       <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
+          <div class="modal-dialog modal-dialog-centered modal-lg">
               <div class="modal-content">
                   <div class="modal-header">
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1947,7 +2064,7 @@ function openFormularioSesion() {
 
   const modalHtml = `
       <div class="modal fade" id="formularioSesion" tabindex="-1" aria-labelledby="formularioSesionLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
+          <div class="modal-dialog modal-dialog-centered modal-lg">
               <div class="modal-content">
                   <div class="modal-header">
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1987,7 +2104,7 @@ function openSignatureModal() {
     if (!document.getElementById('modalFirma')) {
         const modalHtml = `
             <div class="modal fade" id="modalFirma" tabindex="-1" aria-labelledby="modalFirmaLabel" aria-hidden="true">
-                <div class="modal-dialog modal-xl">
+                <div class="modal-dialog modal-dialog-centered modal-xl">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="modalFirmaLabel">Firma del Documento</h5>
@@ -2040,7 +2157,7 @@ function openControlAsistenciaModalFirmado() {
   if (!document.getElementById('controlAsistenciaFirmado')) {
       const modalHtml = `
           <div class="modal fade" id="controlAsistenciaFirmado" tabindex="-1" aria-labelledby="controlAsistenciaFirmadoLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg">
+              <div class="modal-dialog modal-dialog-centered modal-lg">
                   <div class="modal-content">
                       <div class="modal-header">
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -2331,7 +2448,7 @@ function openCalendarModal() {
 
   const modalHtml = `
       <div class="modal fade" id="calendarModal" tabindex="-1" aria-hidden="true">
-          <div class="modal-dialog">
+          <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                   <div class="modal-header">
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -2363,7 +2480,7 @@ function openMessageModal() {
       modal.setAttribute('aria-labelledby', 'messageModalLabel');
       modal.setAttribute('aria-hidden', 'true');
       modal.innerHTML = `
-          <div class="modal-dialog modalMensaje" style="margin: 0;" >
+          <div class="modal-dialog modal-dialog-centered modalMensaje" style="margin: 0;" >
               <div class="modal-content">
                   <div class="modal-header">
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -2689,3 +2806,55 @@ function enableHorizontalScroll() {
 document.addEventListener('DOMContentLoaded', function() {
   enableHorizontalScroll();
 });
+
+
+// document.getElementById('adjuntar-contrato').addEventListener('click', function(event) {
+//   event.preventDefault();
+//   createModal();
+// });
+
+// document.getElementById('adjuntar-factura').addEventListener('click', function(event) {
+//   event.preventDefault();
+//   createModal();
+// });
+
+// function createModal() {
+//   const modalContainer = document.createElement('div');
+//   modalContainer.innerHTML = `
+//     <div class="modal fade" id="dynamicModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+//       <div class="modal-dialog">
+//         <div class="modal-content">
+//           <div class="modal-header">
+//             <h5 class="modal-title" id="exampleModalLabel">TAREA</h5>
+//             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+//           </div>
+//           <div class="modal-body">
+//             <div class="form-floating mb-3">
+//               <input type="text" class="form-control" id="floatingInput" placeholder="texto">
+//               <label for="floatingInput">Nombre</label>
+//             </div>
+//             <div class="form-floating">
+//               <textarea class="form-control" placeholder="..." id="floatingTextarea" style="height: 100px"></textarea>
+//               <label for="floatingTextarea">Descripción</label>
+//             </div>
+//           </div>
+//           <div class="modal-footer">
+//             <button type="button" class="btn btn-primary">Enviar</button>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   `;
+
+//   document.body.appendChild(modalContainer);
+
+//   var myModal = new bootstrap.Modal(document.getElementById('dynamicModal'), {
+//     keyboard: false
+//   });
+
+//   myModal.show();
+
+//   myModal._element.addEventListener('hidden.bs.modal', function () {
+//     document.body.removeChild(modalContainer);
+//   });
+// }

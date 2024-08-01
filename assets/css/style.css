@@ -18,10 +18,17 @@ html{
     background-color: #F6F8FB;
 }
 
-body{
+.hamburger-btn {
+    display: none; 
+    border: none;
+    background: none;
+
+}
+
+/* body{
     overflow-x: hidden;
     padding-right: 0 !important;
-}
+} */
 
 .fundacion img:nth-child(1) {
     width: 120px;
@@ -99,12 +106,14 @@ body{
 }
 
 header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background: var(--blanco, #FFF);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     position: relative;
     z-index: 1;
     margin-left: 50px;
-    width: calc(100% - 50px);
 }
 
 aside {
@@ -601,8 +610,9 @@ td {
     color: white;
 }
 
-.leftSubmenu .form-select{
+#ahoraModal .leftSubmenu .form-select{
     width: fit-content;
+    margin-left: 3rem;
 }
 
 .accionesGrupales{
@@ -1022,12 +1032,7 @@ td {
 }
 
 
-.hamburger-btn {
-    display: none; 
-    border: none;
-    background: none;
-    cursor: pointer;
-}
+
 
 #hamburger-menu{
     display: flex;
@@ -1045,6 +1050,7 @@ td {
         display: none; 
         position: absolute;
         right: 0;
+        left: -110px;
         top: 100%;
         background-color: white;
         box-shadow: 0 8px 16px rgba(0,0,0,0.15);
@@ -1052,13 +1058,27 @@ td {
     }
 
     #hamburger-menu.show {
-        display: flex; 
+        display: flex;
         padding: 10px;
     }
 
     .rightMenu > div:not(.hamburger-btn),
     .rightMenu > div:not(#hamburger-menu) {
         display: none; 
+    }
+
+    header{
+        width: 300px;
+    }
+
+
+
+    .subheader p:nth-child(2) {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 200px;
+        width: 200px;
     }
 }
 
@@ -1171,4 +1191,421 @@ td {
 
 #resumenControlModal .modal-dialog{
     max-width: 700px !important;
+}
+
+
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: #ffffff; /* Fondo de la página */
+    overflow-x: hidden;
+
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff; /* Fondo del header */
+    width: 97.5%;
+    padding: 10px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+}
+
+.leftMenu,
+.rightMenu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.fundacion img {
+    max-width: 100%;
+    height: auto;
+}
+
+.submenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    flex: 1;
+    min-width: 200px;
+}
+
+.submenu .breadcrumb,
+.submenu .subheader {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.hamburger-content {
+    display: none;
+}
+
+@media (max-width: 992px) {
+    .leftMenu,
+    .rightMenu {
+        flex-direction: column;
+        align-items: start !important;
+        justify-content: start !important;
+    }
+
+    .hamburger-content {
+        display: flex;
+        position: absolute;
+        right: 10px;
+        top: 60px;
+        background-color: #fff;
+        width: 200px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .hamburger-btn[aria-expanded="true"] + .hamburger-content {
+        display: flex;
+    }
+
+    .rightMenu {
+        position: relative;
+    }
+
+    #ahoraModal .modal-dialog, #resumenControlModal .modal-dialog {
+        width: 100%;
+        margin: 0;
+    }
+    
+    #ahoraModal .modal-header, #resumenControlModal .modal-header, #ahoraModal .submenu, #ahoraModal .accionesGrupales, #ahoraModal .d-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #ahoraModal .leftSubmenu, #ahoraModal .rightSubmenu {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    #ahoraModal .nameIcon {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    #ahoraModal .form-select {
+        width: fit-content;
+        margin-top: 10px;
+        flex-wrap: wrap;
+    }
+
+    #ahoraModal .btn1, #ahoraModal .btn2 {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    #tablaModalAhora{
+        overflow-x: auto;
+    }
+
+    #ahoraModal{
+        margin-left: 50px;
+    }
+
+    #resumenControlModal{
+        width: 95%;
+        margin-left: 10px;
+    }
+    
+    .titleSubtitle{
+        width: 340px;
+        max-width: 500px;
+    }
+
+    #formularioSesion img{
+        width: 100%;
+    }
+
+    #formularioSesion img{
+        width: 100%;
+    }
+
+    .botonFirmar {
+        font-size: 1.2rem;
+    }
+
+    #resumenControlModal .tablaResumenControl{
+        overflow-x: auto;
+        width: 100%;
+        padding: 0 200px 0 1px; 
+    }
+
+
+    .tablaResumenControl .table {
+        width: 100%;
+        min-width: 600px;
+        border-collapse: collapse;
+    }
+
+    #fileIconModal .modal-body{
+        overflow-x: auto;
+    }
+}
+
+aside .icons img {
+    max-width: 100%;
+    height: auto;
+}
+
+main .cards .row .col {
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: row;
+        width: auto;
+    }
+
+    body{
+        overflow-x: hidden;
+    }
+
+    .submenu {
+        align-items: center;
+    }
+
+    .card{
+        width: fit-content !important;
+    }
+     .card-header, .clase-status, .d-flex, .iconos-cards, .card-buttons, .tabla, .badge1, .badge2, .badge3, .referencia, .progress-container, .accordion-body {
+        flex-wrap: wrap;
+    }
+
+    .iconos-cards{
+        display: flex;
+        align-items: space-between;
+        justify-content: start;
+        width: fit-content;
+    }
+
+    .hamburger-btn {
+        display: block;
+    }
+
+    #ahoraModal .modal-dialog {
+        width: 100%;
+        margin: 0;
+    }
+    
+    #ahoraModal .modal-header, #ahoraModal .submenu, #ahoraModal .accionesGrupales, #ahoraModal .d-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #ahoraModal .leftSubmenu, #ahoraModal .rightSubmenu {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    #ahoraModal .nameIcon {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    #ahoraModal .form-select {
+        width: auto;
+        margin-top: 10px;
+    }
+
+    #ahoraModal .leftSubmenu .form-select, #ahoraModal .accionesGrupales .form-select{
+        margin-left: 0;
+    }
+
+    #ahoraModal .accionesGrupales{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    #ahoraModal .accionesGrupales .form-select{
+        width: 100%;
+    }
+
+    #ahoraModal .btn1, #ahoraModal .btn2 {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    #tablaModalAhora{
+        overflow-x: auto;
+    }
+
+    #ahoraModal{
+        margin-left: 50px;
+    }
+
+    #formularioSesion img{
+        width: 100%;
+    }
+
+    .botonFirmar {
+        font-size: 1rem;
+        padding: 6px 12px;
+    }
+    
+    #controlAsistenciaFirmado img{
+        width: 100%;
+    }
+
+    #controlAsistenciaFirmado, #formularioSesion, #modalFirma, #ahoraModal, #miModal, #miSegundoModal, #miTercerModal, #chartModal, #fileIconModal{
+        margin-left: 50px;
+    }
+
+    #resumenControlModal .tablaResumenControl{
+        overflow-x: auto;
+        width: 100%;
+        padding: 0 200px 0 1px; 
+    }
+
+    #fileIconModal .modal-body{
+        overflow-x: auto;
+    }
+
+    .tablaResumenControl .table {
+        width: 100%;
+        min-width: 600px;
+        border-collapse: collapse;
+    }
+}
+
+@media (max-width: 576px) {
+    header {
+        flex-direction: column;
+        width: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    body{
+        overflow-x: hidden;
+    }
+
+    .submenu {
+        align-items: center;
+    }
+
+    .card{
+        width: fit-content !important;
+    }
+    .card-header, .clase-status, .d-flex, .iconos-cards, .card-buttons, .tabla, .badge1, .badge2, .badge3, .referencia, .progress-container, .accordion-body {
+        flex-wrap: wrap;
+    }
+
+    .iconos-cards{
+        display: flex;
+        align-items: space-between;
+        justify-content: start;
+        width: fit-content;
+    }
+
+    .hamburger-btn {
+        display: block;
+    }
+
+    .botonFirmar {
+        font-size: 0.7rem !important;
+        padding: 2px 4px !important;
+        width: 60px;
+        height: 25px;
+    }
+
+    .rightMenuSignature{
+        width: 100%;
+        overflow-x: auto;
+        margin-top: 20px;
+    }
+
+    #controlAsistenciaFirmado img{
+        width: 100%;
+    }
+
+    #resumenControlModal .tablaResumenControl{
+        overflow-x: auto;
+        width: 100%;
+
+    }
+
+    .tablaResumenControl .table {
+        width: 100%;
+        min-width: 600px;
+        border-collapse: collapse;
+    }
+
+    #fileIconModal .modal-body{
+        overflow-x: auto;
+    }
+}
+
+/* CSS para el modal Ahora*/
+#ahoraModal .modal-header, .submenu, .accionesGrupales {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#ahoraModal .titulo {
+    display: flex;
+    flex-direction: column;
+}
+
+#ahoraModal .btn1, #ahoraModal .btn2 {
+    margin-top: 10px;
+}
+
+#resumenControlModal .modal-dialog{
+    width: auto;
+}
+
+.tablaResumenControl {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.tablaResumenControl .table {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+}
+
+.adjuntar svg{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.clockDateEnero{
+    border-radius: 3px;
+    background: var(--fondo-color, #DF1517);
+    padding: 5px;
+    color: var(--Principal, #2F647E);
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    color: white;
+}
+
+.enviarTarea{
+    border-radius: 52px !important;
+    padding: 5px 20px 5px 20px !important;
 }

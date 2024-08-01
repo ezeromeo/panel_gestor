@@ -5,6 +5,9 @@ header {
     z-index: 1;
     margin-left: 50px;
     width: calc(100% - 50px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 aside {
@@ -451,6 +454,7 @@ aside {
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    white-space: nowrap;
 }
 
 .notasBody{
@@ -476,6 +480,7 @@ aside {
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    white-space: nowrap;
 }
 
 
@@ -1281,6 +1286,7 @@ padding-bottom: 0;
         display: none; 
         position: absolute;
         right: 0;
+        left: 10px;
         top: 100%;
         background-color: white;
         box-shadow: 0 8px 16px rgba(0,0,0,0.15);
@@ -1306,4 +1312,371 @@ padding-bottom: 0;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    overflow-x: hidden;
+
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    width: 97.5%;
+    padding: 10px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+}
+
+.leftMenu,
+.rightMenu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.fundacion img {
+    max-width: 100%;
+    height: auto;
+}
+
+.submenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    flex: 1;
+    min-width: 200px;
+}
+
+.submenu .breadcrumb,
+.submenu .subheader {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.hamburger-content {
+    display: none;
+}
+
+.tablaGestor .tablaMovil{
+    display: none;
+}
+
+@media (max-width: 992px) {
+
+    .leftMenu,
+    .rightMenu {
+        flex-direction: column;
+        align-items: start !important;
+        justify-content: start !important;
+    }
+
+    .hamburger-content {
+        display: flex;
+        position: absolute;
+        right: 10px;
+        top: 60px;
+        background-color: #fff;
+        width: 200px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .hamburger-btn[aria-expanded="true"] + .hamburger-content {
+        display: flex;
+    }
+
+    .rightMenu {
+        position: relative;
+    }
+
+    .tablaGestor .tablaPC{
+        display: none;
+    }
+
+    .tablaGestor .tablaMovil{
+        display: flex;
+        flex-direction: column;
+    }
+
+        .tablaGestor .tablaMovil table,
+        .tablaGestor .tablaMovil thead,
+        .tablaGestor .tablaMovil tbody,
+        .tablaGestor .tablaMovil tr,
+        .tablaGestor .tablaMovil th,
+        .tablaGestor .tablaMovil td {
+        display: block;
+        width: 100%;
+    }
+
+
+    .tablaGestor .tablaMovil tbody tr {
+        margin-bottom: 15px;
+    }
+
+    .tablaGestor .tablaMovil tbody td {
+        border: none;
+        border-bottom: 1px solid #ddd;
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+        position: relative;
+        text-align: left;
+    }
+
+    .tablaGestor .tablaMovil tbody td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 45%;
+        padding-left: 8px;
+        font-weight: bold;
+        white-space: nowrap;
+    }
+
+    .tablaGestor .tablaMovil tbody tr {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #ddd;
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+
+    .tablaGestor .tablaMovil tbody th {
+        display: block;
+        width: 100%;
+        background: var(--secundario, #85BECE);
+        color: var(--blanco, #FFF);
+        text-align: center;
+        font-weight: 600;
+        padding: 8px;
+    }
+
+    .tablaGestor .tablaMovil tbody td:first-child:before {
+        content: none;
+    }
+    #resumenControlModal{
+        max-width: 95%;
+    }
+
+    .resumenControlModalTablaContainer{
+        overflow-x: auto;    
+        max-width: 76%;    
+    }
+
+}
+
+
+
+
+.tablaGestor table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tablaGestor th, .tablaGestor td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+
+.tablaGestor th {
+    text-align: center;
+    background: var(--secundario, #85BECE);
+    color: var(--blanco, #FFF);
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+}
+
+@media (max-width: 768px) {
+    .tablaGestor .tablaPC{
+        display: none;
+    }
+
+    .tablaGestor .tablaMovil{
+        display: flex;
+        flex-direction: column;
+    }
+
+        .tablaGestor .tablaMovil table,
+        .tablaGestor .tablaMovil thead,
+        .tablaGestor .tablaMovil tbody,
+        .tablaGestor .tablaMovil tr,
+        .tablaGestor .tablaMovil th,
+        .tablaGestor .tablaMovil td {
+        display: block;
+        width: 100%;
+    }
+
+
+    .tablaGestor .tablaMovil tbody tr {
+        margin-bottom: 15px;
+    }
+
+    .tablaGestor .tablaMovil tbody td {
+        border: none;
+        border-bottom: 1px solid #ddd;
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+        position: relative;
+        text-align: left;
+    }
+
+    .tablaGestor .tablaMovil tbody td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 45%;
+        padding-left: 8px;
+        font-weight: bold;
+        white-space: nowrap;
+    }
+
+    .tablaGestor .tablaMovil tbody tr {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #ddd;
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+
+    .tablaGestor .tablaMovil tbody th {
+        display: block;
+        width: 100%;
+        background: var(--secundario, #85BECE);
+        color: var(--blanco, #FFF);
+        text-align: center;
+        font-weight: 600;
+        padding: 8px;
+    }
+
+    .tablaGestor .tablaMovil tbody td:first-child:before {
+        content: none;
+    }
+
+    .resumenControlModalTablaContainer{
+        overflow-x: auto;    
+        max-width: 63%;    
+    }
+
+    #resumenControlModal .modal-body{
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #resumenControlModal h6{
+        max-width: 500px;
+        width: 400px;
+    }
+
+    #resumenControlModal{
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 576px) {
+    .tablaGestor .tablaPC{
+        display: none;
+    }
+
+    .tablaGestor .tablaMovil{
+        display: flex;
+        flex-direction: column;
+    }
+
+        .tablaGestor .tablaMovil table,
+        .tablaGestor .tablaMovil thead,
+        .tablaGestor .tablaMovil tbody,
+        .tablaGestor .tablaMovil tr,
+        .tablaGestor .tablaMovil th,
+        .tablaGestor .tablaMovil td {
+        display: block;
+        width: 100%;
+    }
+
+
+    .tablaGestor .tablaMovil tbody tr {
+        margin-bottom: 15px;
+    }
+
+    .tablaGestor .tablaMovil tbody td {
+        border: none;
+        border-bottom: 1px solid #ddd;
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+        position: relative;
+        text-align: left;
+    }
+
+    .tablaGestor .tablaMovil tbody td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 45%;
+        padding-left: 8px;
+        font-weight: bold;
+        white-space: nowrap;
+    }
+
+    .tablaGestor .tablaMovil tbody tr {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #ddd;
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+
+    .tablaGestor .tablaMovil tbody th {
+        display: block;
+        width: 100%;
+        background: var(--secundario, #85BECE);
+        color: var(--blanco, #FFF);
+        text-align: center;
+        font-weight: 600;
+        padding: 8px;
+    }
+
+    .tablaGestor .tablaMovil tbody td:first-child:before {
+        content: none;
+    }
+
+    .resumenControlModalTablaContainer{
+        overflow-x: auto;    
+        max-width: 37%;    
+    }
+
+    #resumenControlModal .modal-body{
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #resumenControlModal h6{
+        max-width: 350px;
+        width: 400px;
+    }
+
+    #resumenControlModal{
+        max-width: 400px;
+        margin-left: 15px;
+        
+    }
 }
