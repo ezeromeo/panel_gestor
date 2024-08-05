@@ -138,19 +138,51 @@ aside {
 }
 
 
-.tablaPrincipal th{
+.tablaPrincipal th, .table-container th{
     background-color: #85BECE;
     color: white;
     text-align: center;
 }
 
-.tablaPrincipal td {
+.tablaPrincipal td, .table-container td{
     white-space: nowrap; 
     overflow: hidden;    
     text-overflow: ellipsis;
     max-width: 50px;    
     user-select: none; 
 }
+
+.details {
+    display: none;
+  }
+
+  #dataTable > tbody > tr > td > table > tbody > tr > td:first-child {
+    background-color: #85BECE;
+    color: white;
+    font-weight: bold;
+    width: 25%;
+}
+
+.estadoCircleFill{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.details .estadoCircleFill{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+  .toggle-details{
+    font-size: 10px;
+  }
+  .table-container {
+    display: none;
+    text-align: center;
+  }
 
 
 .estadoTabla{
@@ -163,6 +195,12 @@ aside {
 
 .searchDiv input{
     width: 100px !important;
+}
+
+.searchDiv{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .contenedor{
@@ -2161,6 +2199,28 @@ header {
 
 @media (max-width: 992px) {
 
+    .tablaPrincipal {
+        display: none;
+      }
+      .table-container {
+        display: block;
+      }
+
+      .searchDiv{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .table-container td {
+        white-space: wrap !important;
+        overflow: hidden;
+        max-width: 25%;
+        user-select: none;
+        text-overflow: initial;
+
+    }
+
     .leftMenu,
     .rightMenu {
         flex-direction: column;
@@ -2196,11 +2256,20 @@ header {
 
     .contenedor {
         width: 90%;
-        margin-left: 70px;
+        margin-left: 48px;
         margin-top: 40px !important;
         display: flex;
     }
 }
+
+@media (min-width: 992px) {
+    .tablaPrincipal {
+      display: block;
+    }
+    .table-container {
+      display: none;
+    }
+  }
 
 .subheader p:nth-child(2) {
     white-space: nowrap;
